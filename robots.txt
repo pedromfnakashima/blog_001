@@ -1,1 +1,1 @@
-Sitemap: https://pedromfnakashima.github.io/blog_001/sitemap.xml
+Sitemap: https://pedronakashima.com/sitemap.xml
