@@ -1,0 +1,18 @@
+---
+title: "Novo post"
+author: "Pedro Nakashima"
+date: "2026-09-03"
+categories: [novidade, python, analysis]
+image: "image.jpg"
+---
+
+## Um bom cabeçalho
+
+Here is some lovely text and an equation.
+
+$$ a^2 + b^2 = c^2 $$
+
+Here's a list.
+
+- a link to an [external website](https://quarto.org).
+- a link to [another post in this blog](/posts/welcome/index.qmd).
