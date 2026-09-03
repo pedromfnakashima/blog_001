@@ -1,10 +1,12 @@
 project:
   type: website
+  resources:
+    - CNAME
 
 website:
   description: "Um blog com coisas muito legais."
-  site-url: https://pedromfnakashima.github.io/blog_001/ # you must change this appropriately for RSS feeds to work properly
-  title: "Meu título muito legal"
+  site-url: https://pedronakashima.com # you must change this appropriately for RSS feeds to work properly
+  title: "Pedro Nakashima"
   navbar:
     right:
       - about.qmd
