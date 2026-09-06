@@ -9,8 +9,760 @@
 <link>https://pedronakashima.com/</link>
 <atom:link href="https://pedronakashima.com/index.xml" rel="self" type="application/rss+xml"/>
 <description>Um blog com coisas muito legais.</description>
-<generator>quarto-1.10.18</generator>
-<lastBuildDate>Thu, 03 Sep 2026 04:00:00 GMT</lastBuildDate>
+<generator>quarto-1.9.38</generator>
+<lastBuildDate>Sun, 06 Sep 2026 16:07:56 GMT</lastBuildDate>
+<item>
+  <title>Introdução ao Pandas: guia prático de análise de dados</title>
+  <dc:creator>Pedro Nakashima</dc:creator>
+  <link>https://pedronakashima.com/posts/introducao-pandas/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p><em>Publicado em 6 de setembro de 2026, às 12:07, por Pedro Nakashima</em></p>
+<p>O <strong>pandas</strong> é a biblioteca padrão de Python para trabalhar com dados em formato de tabela. Esta introdução ao pandas cobre o essencial do dia a dia: as estruturas <code>Series</code> e <code>DataFrame</code>, como carregar dados de arquivos CSV e Excel, como filtrar e transformar linhas e colunas e como resumir informação com <code>groupby</code>. Os exemplos são curtos e você pode reproduzir cada um no seu próprio ambiente.</p>
+<section id="o-que-é-o-pandas" class="level2">
+<h2 class="anchored" data-anchor-id="o-que-é-o-pandas">O que é o pandas?</h2>
+<p>O pandas é uma biblioteca de código aberto construída sobre o NumPy que adiciona estruturas de dados rotuladas e ferramentas de análise ao Python. Na prática, ele faz o papel de uma planilha programável: você lê dados de várias fontes, limpa, combina, agrega e exporta — tudo em código versionável e reproduzível, e com desempenho adequado a milhões de linhas.</p>
+</section>
+<section id="instalação-e-import" class="level2">
+<h2 class="anchored" data-anchor-id="instalação-e-import">Instalação e import</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">pip</span> install pandas</span></code></pre></div></div>
+<p>Por convenção, o import usa o apelido <code>pd</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> pandas <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> pd</span></code></pre></div></div>
+</section>
+<section id="series-uma-coluna-com-índice" class="level2">
+<h2 class="anchored" data-anchor-id="series-uma-coluna-com-índice">Series: uma coluna com índice</h2>
+<p>Uma <code>Series</code> é um vetor unidimensional com um índice (os rótulos das linhas). É a peça básica do pandas.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1">temperaturas <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> pd.Series(</span>
+<span id="cb3-2">    [<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">28.1</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">30.4</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">27.9</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">31.2</span>],</span>
+<span id="cb3-3">    index<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"seg"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"ter"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"qua"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"qui"</span>],</span>
+<span id="cb3-4">    name<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"temperatura"</span>,</span>
+<span id="cb3-5">)</span>
+<span id="cb3-6"></span>
+<span id="cb3-7">temperaturas[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"ter"</span>]                <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># 30.4</span></span>
+<span id="cb3-8">temperaturas.mean()                <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># 29.4</span></span>
+<span id="cb3-9">temperaturas[temperaturas <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">30</span>]    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># ter e qui</span></span></code></pre></div></div>
+</section>
+<section id="dataframe-a-tabela" class="level2">
+<h2 class="anchored" data-anchor-id="dataframe-a-tabela">DataFrame: a tabela</h2>
+<p>Um <code>DataFrame</code> reúne várias <code>Series</code> que compartilham o mesmo índice. São linhas e colunas, como uma planilha ou uma tabela de banco de dados.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1">df <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> pd.DataFrame({</span>
+<span id="cb4-2">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"cidade"</span>: [<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"São Paulo"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Rio de Janeiro"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Curitiba"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Recife"</span>],</span>
+<span id="cb4-3">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"populacao_mi"</span>: [<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">12.3</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">6.7</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1.9</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1.7</span>],</span>
+<span id="cb4-4">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"regiao"</span>: [<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Sudeste"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Sudeste"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Sul"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Nordeste"</span>],</span>
+<span id="cb4-5">})</span></code></pre></div></div>
+</section>
+<section id="lendo-dados-de-arquivos" class="level2">
+<h2 class="anchored" data-anchor-id="lendo-dados-de-arquivos">Lendo dados de arquivos</h2>
+<p>Na prática você quase nunca digita os dados à mão. O pandas lê dezenas de formatos com uma linha:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1">df <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> pd.read_csv(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"dados.csv"</span>)</span>
+<span id="cb5-2">df <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> pd.read_excel(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"planilha.xlsx"</span>, sheet_name<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"2026"</span>)</span>
+<span id="cb5-3">df <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> pd.read_parquet(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"dados.parquet"</span>)</span></code></pre></div></div>
+<p>Parâmetros úteis no <code>read_csv</code>: <code>sep</code> (separador de campos), <code>decimal</code>, <code>encoding</code>, <code>parse_dates</code> e <code>nrows</code> para carregar apenas uma amostra.</p>
+<p>Para gravar o resultado do seu trabalho, cada leitor tem um escritor correspondente: <code>df.to_csv("saida.csv", index=False)</code>, <code>df.to_excel(...)</code> e <code>df.to_parquet(...)</code>. O formato Parquet preserva os tipos das colunas e ocupa bem menos espaço que CSV.</p>
+</section>
+<section id="primeiro-diagnóstico-dos-dados" class="level2">
+<h2 class="anchored" data-anchor-id="primeiro-diagnóstico-dos-dados">Primeiro diagnóstico dos dados</h2>
+<p>Antes de analisar, olhe a cara da tabela:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1">df.head()       <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># primeiras linhas</span></span>
+<span id="cb6-2">df.shape        <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># (linhas, colunas)</span></span>
+<span id="cb6-3">df.info()       <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># tipo de cada coluna e contagem de nulos</span></span>
+<span id="cb6-4">df.describe()   <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># estatísticas das colunas numéricas</span></span></code></pre></div></div>
+<p>Para variáveis categóricas, <code>df["regiao"].value_counts()</code> mostra a frequência de cada valor, e <code>df["regiao"].unique()</code> lista os valores distintos. Esse par revela erros de digitação e categorias inesperadas logo no começo da análise.</p>
+</section>
+<section id="selecionar-e-filtrar" class="level2">
+<h2 class="anchored" data-anchor-id="selecionar-e-filtrar">Selecionar e filtrar</h2>
+<section id="colunas" class="level3">
+<h3 class="anchored" data-anchor-id="colunas">Colunas</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1">df[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"populacao_mi"</span>]           <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># uma coluna  -&gt; Series</span></span>
+<span id="cb7-2">df[[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"cidade"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"regiao"</span>]]     <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># várias colunas -&gt; DataFrame</span></span></code></pre></div></div>
+</section>
+<section id="linhas-loc-e-iloc" class="level3">
+<h3 class="anchored" data-anchor-id="linhas-loc-e-iloc">Linhas: <code>loc</code> e <code>iloc</code></h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1">df.loc[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>]       <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># linha pelo rótulo do índice</span></span>
+<span id="cb8-2">df.iloc[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>]      <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># linha pela posição</span></span>
+<span id="cb8-3">df.loc[df[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"regiao"</span>] <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Sudeste"</span>, [<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"cidade"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"populacao_mi"</span>]]</span></code></pre></div></div>
+</section>
+<section id="filtro-por-condição-boolean-indexing" class="level3">
+<h3 class="anchored" data-anchor-id="filtro-por-condição-boolean-indexing">Filtro por condição (boolean indexing)</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1">df[df[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"populacao_mi"</span>] <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>]</span>
+<span id="cb9-2">df[(df[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"regiao"</span>] <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Sudeste"</span>) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&amp;</span> (df[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"populacao_mi"</span>] <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span>)]</span></code></pre></div></div>
+<p>Use <code>&amp;</code>, <code>|</code> e <code>~</code> (não <code>and</code> / <code>or</code>) e envolva cada condição em parênteses.</p>
+</section>
+</section>
+<section id="criar-e-transformar-colunas" class="level2">
+<h2 class="anchored" data-anchor-id="criar-e-transformar-colunas">Criar e transformar colunas</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1">df[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"populacao_abs"</span>] <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> df[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"populacao_mi"</span>] <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1_000_000</span></span>
+<span id="cb10-2"></span>
+<span id="cb10-3">df[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"porte"</span>] <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> pd.cut(</span>
+<span id="cb10-4">    df[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"populacao_mi"</span>],</span>
+<span id="cb10-5">    bins<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>, <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">float</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"inf"</span>)],</span>
+<span id="cb10-6">    labels<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"pequeno"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"médio"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"grande"</span>],</span>
+<span id="cb10-7">)</span></code></pre></div></div>
+</section>
+<section id="agrupar-com-groupby" class="level2">
+<h2 class="anchored" data-anchor-id="agrupar-com-groupby">Agrupar com <code>groupby</code></h2>
+<p>O <code>groupby</code> implementa o padrão <em>split-apply-combine</em>: divide as linhas por uma chave, aplica uma função de agregação e junta o resultado.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1">df.groupby(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"regiao"</span>)[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"populacao_mi"</span>].<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">sum</span>()</span>
+<span id="cb11-2"></span>
+<span id="cb11-3">df.groupby(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"regiao"</span>).agg(</span>
+<span id="cb11-4">    n_cidades<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"cidade"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"count"</span>),</span>
+<span id="cb11-5">    pop_total<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"populacao_mi"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"sum"</span>),</span>
+<span id="cb11-6">    pop_media<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"populacao_mi"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"mean"</span>),</span>
+<span id="cb11-7">)</span></code></pre></div></div>
+</section>
+<section id="tratar-valores-ausentes" class="level2">
+<h2 class="anchored" data-anchor-id="tratar-valores-ausentes">Tratar valores ausentes</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1">df.isna().<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">sum</span>()                      <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># nulos por coluna</span></span>
+<span id="cb12-2">df.dropna(subset<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"populacao_mi"</span>])   <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># remove linhas sem população</span></span>
+<span id="cb12-3">df[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"regiao"</span>] <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> df[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"regiao"</span>].fillna(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"desconhecida"</span>)</span></code></pre></div></div>
+</section>
+<section id="perguntas-frequentes" class="level2">
+<h2 class="anchored" data-anchor-id="perguntas-frequentes">Perguntas frequentes</h2>
+<section id="qual-a-diferença-entre-series-e-dataframe" class="level3">
+<h3 class="anchored" data-anchor-id="qual-a-diferença-entre-series-e-dataframe">Qual a diferença entre Series e DataFrame?</h3>
+<p>A <code>Series</code> é unidimensional (uma coluna com índice); o <code>DataFrame</code> é bidimensional (várias colunas com o mesmo índice). Cada coluna de um <code>DataFrame</code> é uma <code>Series</code>.</p>
+</section>
+<section id="quando-usar-loc-em-vez-de-iloc" class="level3">
+<h3 class="anchored" data-anchor-id="quando-usar-loc-em-vez-de-iloc">Quando usar <code>loc</code> em vez de <code>iloc</code>?</h3>
+<p>Use <code>loc</code> para selecionar por rótulo (nome do índice ou da coluna) e <code>iloc</code> para selecionar por posição inteira. Em fatias, <code>loc</code> inclui o limite final; <code>iloc</code> não.</p>
+</section>
+<section id="como-ler-só-uma-parte-de-um-arquivo-grande" class="level3">
+<h3 class="anchored" data-anchor-id="como-ler-só-uma-parte-de-um-arquivo-grande">Como ler só uma parte de um arquivo grande?</h3>
+<p>Passe <code>nrows</code> para limitar as linhas ou <code>usecols</code> para escolher colunas no <code>read_csv</code>. Para processar em blocos, use <code>chunksize</code>, que devolve um iterador de <code>DataFrame</code>.</p>
+</section>
+<section id="pandas-ou-polars" class="level3">
+<h3 class="anchored" data-anchor-id="pandas-ou-polars">Pandas ou Polars?</h3>
+<p>O pandas tem o maior ecossistema e é o padrão de mercado. O Polars costuma ser mais rápido e econômico em memória para volumes grandes. Para aprender os conceitos de dados tabulares, o pandas continua sendo o melhor ponto de partida.</p>
+</section>
+</section>
+<section id="conclusão" class="level2">
+<h2 class="anchored" data-anchor-id="conclusão">Conclusão</h2>
+<ul>
+<li><code>Series</code> é uma coluna; <code>DataFrame</code> é a tabela.</li>
+<li><code>read_csv</code>, <code>read_excel</code> e <code>read_parquet</code> carregam os dados; <code>head</code>, <code>info</code> e <code>describe</code> dão o primeiro diagnóstico.</li>
+<li><code>loc</code> / <code>iloc</code> e boolean indexing recortam linhas e colunas.</li>
+<li><code>groupby</code> + <code>agg</code> resumem os dados por categoria.</li>
+<li><code>isna</code>, <code>dropna</code> e <code>fillna</code> cuidam dos valores ausentes.</li>
+</ul>
+<p>Para se aprofundar, vale ler o guia <a href="https://pandas.pydata.org/docs/user_guide/10min.html">10 minutes to pandas</a> da <a href="https://pandas.pydata.org/docs/">documentação oficial do pandas</a> e o livro <a href="https://wesmckinney.com/book/">Python for Data Analysis</a>, de Wes McKinney, criador da biblioteca. Aqui no blog, veja também o <a href="../../posts/post-with-code/index.html">exemplo com código executável</a>.</p>
+<hr>
+<p><strong>Tópicos:</strong> #Pandas #Python #AnáliseDeDados #CiênciaDeDados #DataFrame</p>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Introdução ao Pandas: guia prático de análise de dados",
+  "description": "Introdução ao pandas em Python: entenda Series e DataFrame, leia CSV e Excel, filtre linhas, crie colunas e agrupe dados com groupby neste guia prático.",
+  "inLanguage": "pt-BR",
+  "datePublished": "2026-09-06T12:07:56-04:00",
+  "dateModified": "2026-09-06T12:07:56-04:00",
+  "author": { "@type": "Person", "name": "Pedro Nakashima" },
+  "mainEntityOfPage": "https://pedronakashima.com/posts/introducao-pandas/",
+  "keywords": "pandas, python, dataframe, series, groupby, análise de dados"
+}
+</script>
+
+
+</section>
+
+ ]]></description>
+  <category>python</category>
+  <category>pandas</category>
+  <category>análise de dados</category>
+  <guid>https://pedronakashima.com/posts/introducao-pandas/</guid>
+  <pubDate>Sun, 06 Sep 2026 16:07:56 GMT</pubDate>
+</item>
+<item>
+  <title>Introdução ao Pandas</title>
+  <dc:creator>Pedro Nakashima</dc:creator>
+  <link>https://pedronakashima.com/posts/introducao-ao-pandas/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>O <strong>pandas</strong> é a biblioteca padrão para manipulação de dados tabulares em Python. Se você já trabalhou com planilhas, a ideia é a mesma — só que programável, reproduzível e capaz de lidar com milhões de linhas.</p>
+<section id="instalação" class="level2">
+<h2 class="anchored" data-anchor-id="instalação">Instalação</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">pip</span> install pandas</span></code></pre></div></div>
+<p>E, por convenção, o import é sempre com o apelido <code>pd</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> pandas <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> pd</span></code></pre></div></div>
+</section>
+<section id="as-duas-estruturas-centrais" class="level2">
+<h2 class="anchored" data-anchor-id="as-duas-estruturas-centrais">As duas estruturas centrais</h2>
+<section id="series-uma-coluna" class="level3">
+<h3 class="anchored" data-anchor-id="series-uma-coluna">Series — uma coluna</h3>
+<p>Uma <code>Series</code> é um vetor unidimensional com um índice (rótulos das linhas).</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1">temperaturas <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> pd.Series(</span>
+<span id="cb3-2">    [<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">28.1</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">30.4</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">27.9</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">31.2</span>],</span>
+<span id="cb3-3">    index<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"seg"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"ter"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"qua"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"qui"</span>],</span>
+<span id="cb3-4">    name<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"temperatura"</span>,</span>
+<span id="cb3-5">)</span>
+<span id="cb3-6"></span>
+<span id="cb3-7">temperaturas[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"ter"</span>]      <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># 30.4</span></span>
+<span id="cb3-8">temperaturas.mean()      <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># 29.4</span></span>
+<span id="cb3-9">temperaturas <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">30</span>        <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Series de booleanos</span></span></code></pre></div></div>
+</section>
+<section id="dataframe-a-tabela" class="level3">
+<h3 class="anchored" data-anchor-id="dataframe-a-tabela">DataFrame — a tabela</h3>
+<p>Um <code>DataFrame</code> é um conjunto de <code>Series</code> que compartilham o mesmo índice: linhas e colunas, como uma planilha.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1">df <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> pd.DataFrame({</span>
+<span id="cb4-2">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"cidade"</span>: [<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"São Paulo"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Rio"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Curitiba"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Recife"</span>],</span>
+<span id="cb4-3">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"populacao_mi"</span>: [<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">12.3</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">6.7</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1.9</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1.7</span>],</span>
+<span id="cb4-4">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"regiao"</span>: [<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Sudeste"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Sudeste"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Sul"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Nordeste"</span>],</span>
+<span id="cb4-5">})</span></code></pre></div></div>
+</section>
+</section>
+<section id="lendo-dados-de-verdade" class="level2">
+<h2 class="anchored" data-anchor-id="lendo-dados-de-verdade">Lendo dados de verdade</h2>
+<p>Na prática você raramente digita os dados à mão. O pandas lê dezenas de formatos:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1">df <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> pd.read_csv(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"dados.csv"</span>)</span>
+<span id="cb5-2">df <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> pd.read_excel(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"planilha.xlsx"</span>, sheet_name<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"2026"</span>)</span>
+<span id="cb5-3">df <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> pd.read_parquet(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"dados.parquet"</span>)</span></code></pre></div></div>
+<p>Primeiro contato com qualquer tabela nova:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1">df.head()        <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># primeiras linhas</span></span>
+<span id="cb6-2">df.shape         <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># (linhas, colunas)</span></span>
+<span id="cb6-3">df.info()        <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># tipos e valores nulos</span></span>
+<span id="cb6-4">df.describe()    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># estatísticas das colunas numéricas</span></span></code></pre></div></div>
+</section>
+<section id="selecionando-e-filtrando" class="level2">
+<h2 class="anchored" data-anchor-id="selecionando-e-filtrando">Selecionando e filtrando</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1">df[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"populacao_mi"</span>]              <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># uma coluna (Series)</span></span>
+<span id="cb7-2">df[[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"cidade"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"regiao"</span>]]        <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># várias colunas (DataFrame)</span></span>
+<span id="cb7-3"></span>
+<span id="cb7-4">df.loc[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>]                       <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># linha pelo rótulo do índice</span></span>
+<span id="cb7-5">df.iloc[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>]                      <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># linha pela posição</span></span>
+<span id="cb7-6"></span>
+<span id="cb7-7"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># filtro por condição (boolean indexing)</span></span>
+<span id="cb7-8">df[df[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"populacao_mi"</span>] <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>]</span>
+<span id="cb7-9"></span>
+<span id="cb7-10"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># combinando condições: use &amp; | e parênteses</span></span>
+<span id="cb7-11">df[(df[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"regiao"</span>] <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Sudeste"</span>) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&amp;</span> (df[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"populacao_mi"</span>] <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span>)]</span></code></pre></div></div>
+</section>
+<section id="criando-colunas" class="level2">
+<h2 class="anchored" data-anchor-id="criando-colunas">Criando colunas</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1">df[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"populacao_abs"</span>] <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> df[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"populacao_mi"</span>] <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1_000_000</span></span>
+<span id="cb8-2"></span>
+<span id="cb8-3">df[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"porte"</span>] <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> df[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"populacao_mi"</span>].<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">apply</span>(</span>
+<span id="cb8-4">    <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">lambda</span> p: <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"grande"</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> p <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">else</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"médio"</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> p <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">else</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"pequeno"</span></span>
+<span id="cb8-5">)</span></code></pre></div></div>
+</section>
+<section id="agrupando-split-apply-combine" class="level2">
+<h2 class="anchored" data-anchor-id="agrupando-split-apply-combine">Agrupando: split-apply-combine</h2>
+<p>O <code>groupby</code> é o coração da análise exploratória: divide os dados por uma chave, aplica uma agregação e junta o resultado.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1">df.groupby(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"regiao"</span>)[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"populacao_mi"</span>].<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">sum</span>()</span>
+<span id="cb9-2"></span>
+<span id="cb9-3">df.groupby(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"regiao"</span>).agg(</span>
+<span id="cb9-4">    n_cidades<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"cidade"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"count"</span>),</span>
+<span id="cb9-5">    pop_total<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"populacao_mi"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"sum"</span>),</span>
+<span id="cb9-6">    pop_media<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"populacao_mi"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"mean"</span>),</span>
+<span id="cb9-7">)</span></code></pre></div></div>
+</section>
+<section id="valores-ausentes" class="level2">
+<h2 class="anchored" data-anchor-id="valores-ausentes">Valores ausentes</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1">df.isna().<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">sum</span>()                 <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># nulos por coluna</span></span>
+<span id="cb10-2">df.dropna(subset<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"populacao_mi"</span>])</span>
+<span id="cb10-3">df[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"regiao"</span>].fillna(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"desconhecida"</span>)</span></code></pre></div></div>
+</section>
+<section id="resumo" class="level2">
+<h2 class="anchored" data-anchor-id="resumo">Resumo</h2>
+<ul>
+<li><code>Series</code> = coluna; <code>DataFrame</code> = tabela.</li>
+<li><code>read_csv</code> / <code>read_excel</code> / <code>read_parquet</code> para carregar dados.</li>
+<li><code>head</code>, <code>info</code>, <code>describe</code> para o primeiro diagnóstico.</li>
+<li><code>loc</code> / <code>iloc</code> e boolean indexing para recortar.</li>
+<li><code>groupby</code> + <code>agg</code> para resumir.</li>
+</ul>
+<p>A <a href="https://pandas.pydata.org/docs/">documentação oficial</a> tem um guia <a href="https://pandas.pydata.org/docs/user_guide/10min.html">“10 minutes to pandas”</a> que vale a leitura depois deste post.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>python</category>
+  <category>pandas</category>
+  <category>analysis</category>
+  <guid>https://pedronakashima.com/posts/introducao-ao-pandas/</guid>
+  <pubDate>Sun, 06 Sep 2026 16:05:56 GMT</pubDate>
+</item>
+<item>
+  <title>Post With Code</title>
+  <dc:creator>Harlow Malloc</dc:creator>
+  <link>https://pedronakashima.com/posts/post-with-code/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>This is a post with executable code.</p>
+
+
+
+ ]]></description>
+  <category>news</category>
+  <category>code</category>
+  <category>analysis</category>
+  <guid>https://pedronakashima.com/posts/post-with-code/</guid>
+  <pubDate>Thu, 03 Sep 2026 04:00:00 GMT</pubDate>
+  <media:content url="https://pedronakashima.com/posts/post-with-code/image.jpg" medium="image" type="image/jpeg"/>
+</item>
 <item>
   <title>Novo post</title>
   <dc:creator>Pedro Nakashima</dc:creator>
@@ -41,28 +793,6 @@
   <guid>https://pedronakashima.com/posts/novo-post/</guid>
   <pubDate>Thu, 03 Sep 2026 04:00:00 GMT</pubDate>
   <media:content url="https://pedronakashima.com/posts/novo-post/image.jpg" medium="image" type="image/jpeg"/>
-</item>
-<item>
-  <title>Post With Code</title>
-  <dc:creator>Harlow Malloc</dc:creator>
-  <link>https://pedronakashima.com/posts/post-with-code/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<p>This is a post with executable code.</p>
-
-
-
- ]]></description>
-  <category>news</category>
-  <category>code</category>
-  <category>analysis</category>
-  <guid>https://pedronakashima.com/posts/post-with-code/</guid>
-  <pubDate>Thu, 03 Sep 2026 04:00:00 GMT</pubDate>
-  <media:content url="https://pedronakashima.com/posts/post-with-code/image.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Welcome To My Blog</title>

@@ -1,10 +1,178 @@
 [
   {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "blog_001",
+    "section": "",
+    "text": "Introdução ao Pandas: guia prático de análise de dados\n\n\n\npython\n\npandas\n\nanálise de dados\n\n\n\nIntrodução ao pandas em Python: entenda Series e DataFrame, leia CSV e Excel, filtre linhas, crie colunas e agrupe dados com groupby neste guia prático.\n\n\n\n\n\nSep 6, 2026\n\n\nPedro Nakashima\n\n\n\n\n\n\n\n\n\n\n\n\nIntrodução ao Pandas\n\n\n\npython\n\npandas\n\nanalysis\n\n\n\nPrimeiros passos com a biblioteca pandas: Series, DataFrame, leitura de dados e as operações que você usa todo dia.\n\n\n\n\n\nSep 6, 2026\n\n\nPedro Nakashima\n\n\n\n\n\n\n\n\n\n\n\n\nPost With Code\n\n\n\nnews\n\ncode\n\nanalysis\n\n\n\n\n\n\n\n\n\nSep 3, 2026\n\n\nHarlow Malloc\n\n\n\n\n\n\n\n\n\n\n\n\nNovo post\n\n\n\nnovidade\n\npython\n\nanalysis\n\n\n\n\n\n\n\n\n\nSep 3, 2026\n\n\nPedro Nakashima\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nAug 31, 2026\n\n\nTristan O’Malley\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/introducao-pandas/index.html",
+    "href": "posts/introducao-pandas/index.html",
+    "title": "Introdução ao Pandas: guia prático de análise de dados",
+    "section": "",
+    "text": "Publicado em 6 de setembro de 2026, às 12:07, por Pedro Nakashima\nO pandas é a biblioteca padrão de Python para trabalhar com dados em formato de tabela. Esta introdução ao pandas cobre o essencial do dia a dia: as estruturas Series e DataFrame, como carregar dados de arquivos CSV e Excel, como filtrar e transformar linhas e colunas e como resumir informação com groupby. Os exemplos são curtos e você pode reproduzir cada um no seu próprio ambiente."
+  },
+  {
+    "objectID": "posts/introducao-pandas/index.html#o-que-é-o-pandas",
+    "href": "posts/introducao-pandas/index.html#o-que-é-o-pandas",
+    "title": "Introdução ao Pandas: guia prático de análise de dados",
+    "section": "O que é o pandas?",
+    "text": "O que é o pandas?\nO pandas é uma biblioteca de código aberto construída sobre o NumPy que adiciona estruturas de dados rotuladas e ferramentas de análise ao Python. Na prática, ele faz o papel de uma planilha programável: você lê dados de várias fontes, limpa, combina, agrega e exporta — tudo em código versionável e reproduzível, e com desempenho adequado a milhões de linhas."
+  },
+  {
+    "objectID": "posts/introducao-pandas/index.html#instalação-e-import",
+    "href": "posts/introducao-pandas/index.html#instalação-e-import",
+    "title": "Introdução ao Pandas: guia prático de análise de dados",
+    "section": "Instalação e import",
+    "text": "Instalação e import\npip install pandas\nPor convenção, o import usa o apelido pd:\nimport pandas as pd"
+  },
+  {
+    "objectID": "posts/introducao-pandas/index.html#series-uma-coluna-com-índice",
+    "href": "posts/introducao-pandas/index.html#series-uma-coluna-com-índice",
+    "title": "Introdução ao Pandas: guia prático de análise de dados",
+    "section": "Series: uma coluna com índice",
+    "text": "Series: uma coluna com índice\nUma Series é um vetor unidimensional com um índice (os rótulos das linhas). É a peça básica do pandas.\ntemperaturas = pd.Series(\n    [28.1, 30.4, 27.9, 31.2],\n    index=[\"seg\", \"ter\", \"qua\", \"qui\"],\n    name=\"temperatura\",\n)\n\ntemperaturas[\"ter\"]                # 30.4\ntemperaturas.mean()                # 29.4\ntemperaturas[temperaturas &gt; 30]    # ter e qui"
+  },
+  {
+    "objectID": "posts/introducao-pandas/index.html#dataframe-a-tabela",
+    "href": "posts/introducao-pandas/index.html#dataframe-a-tabela",
+    "title": "Introdução ao Pandas: guia prático de análise de dados",
+    "section": "DataFrame: a tabela",
+    "text": "DataFrame: a tabela\nUm DataFrame reúne várias Series que compartilham o mesmo índice. São linhas e colunas, como uma planilha ou uma tabela de banco de dados.\ndf = pd.DataFrame({\n    \"cidade\": [\"São Paulo\", \"Rio de Janeiro\", \"Curitiba\", \"Recife\"],\n    \"populacao_mi\": [12.3, 6.7, 1.9, 1.7],\n    \"regiao\": [\"Sudeste\", \"Sudeste\", \"Sul\", \"Nordeste\"],\n})"
+  },
+  {
+    "objectID": "posts/introducao-pandas/index.html#lendo-dados-de-arquivos",
+    "href": "posts/introducao-pandas/index.html#lendo-dados-de-arquivos",
+    "title": "Introdução ao Pandas: guia prático de análise de dados",
+    "section": "Lendo dados de arquivos",
+    "text": "Lendo dados de arquivos\nNa prática você quase nunca digita os dados à mão. O pandas lê dezenas de formatos com uma linha:\ndf = pd.read_csv(\"dados.csv\")\ndf = pd.read_excel(\"planilha.xlsx\", sheet_name=\"2026\")\ndf = pd.read_parquet(\"dados.parquet\")\nParâmetros úteis no read_csv: sep (separador de campos), decimal, encoding, parse_dates e nrows para carregar apenas uma amostra.\nPara gravar o resultado do seu trabalho, cada leitor tem um escritor correspondente: df.to_csv(\"saida.csv\", index=False), df.to_excel(...) e df.to_parquet(...). O formato Parquet preserva os tipos das colunas e ocupa bem menos espaço que CSV."
+  },
+  {
+    "objectID": "posts/introducao-pandas/index.html#primeiro-diagnóstico-dos-dados",
+    "href": "posts/introducao-pandas/index.html#primeiro-diagnóstico-dos-dados",
+    "title": "Introdução ao Pandas: guia prático de análise de dados",
+    "section": "Primeiro diagnóstico dos dados",
+    "text": "Primeiro diagnóstico dos dados\nAntes de analisar, olhe a cara da tabela:\ndf.head()       # primeiras linhas\ndf.shape        # (linhas, colunas)\ndf.info()       # tipo de cada coluna e contagem de nulos\ndf.describe()   # estatísticas das colunas numéricas\nPara variáveis categóricas, df[\"regiao\"].value_counts() mostra a frequência de cada valor, e df[\"regiao\"].unique() lista os valores distintos. Esse par revela erros de digitação e categorias inesperadas logo no começo da análise."
+  },
+  {
+    "objectID": "posts/introducao-pandas/index.html#selecionar-e-filtrar",
+    "href": "posts/introducao-pandas/index.html#selecionar-e-filtrar",
+    "title": "Introdução ao Pandas: guia prático de análise de dados",
+    "section": "Selecionar e filtrar",
+    "text": "Selecionar e filtrar\n\nColunas\ndf[\"populacao_mi\"]           # uma coluna  -&gt; Series\ndf[[\"cidade\", \"regiao\"]]     # várias colunas -&gt; DataFrame\n\n\nLinhas: loc e iloc\ndf.loc[0]       # linha pelo rótulo do índice\ndf.iloc[0]      # linha pela posição\ndf.loc[df[\"regiao\"] == \"Sudeste\", [\"cidade\", \"populacao_mi\"]]\n\n\nFiltro por condição (boolean indexing)\ndf[df[\"populacao_mi\"] &gt; 5]\ndf[(df[\"regiao\"] == \"Sudeste\") & (df[\"populacao_mi\"] &gt; 10)]\nUse &, | e ~ (não and / or) e envolva cada condição em parênteses."
+  },
+  {
+    "objectID": "posts/introducao-pandas/index.html#criar-e-transformar-colunas",
+    "href": "posts/introducao-pandas/index.html#criar-e-transformar-colunas",
+    "title": "Introdução ao Pandas: guia prático de análise de dados",
+    "section": "Criar e transformar colunas",
+    "text": "Criar e transformar colunas\ndf[\"populacao_abs\"] = df[\"populacao_mi\"] * 1_000_000\n\ndf[\"porte\"] = pd.cut(\n    df[\"populacao_mi\"],\n    bins=[0, 2, 5, float(\"inf\")],\n    labels=[\"pequeno\", \"médio\", \"grande\"],\n)"
+  },
+  {
+    "objectID": "posts/introducao-pandas/index.html#agrupar-com-groupby",
+    "href": "posts/introducao-pandas/index.html#agrupar-com-groupby",
+    "title": "Introdução ao Pandas: guia prático de análise de dados",
+    "section": "Agrupar com groupby",
+    "text": "Agrupar com groupby\nO groupby implementa o padrão split-apply-combine: divide as linhas por uma chave, aplica uma função de agregação e junta o resultado.\ndf.groupby(\"regiao\")[\"populacao_mi\"].sum()\n\ndf.groupby(\"regiao\").agg(\n    n_cidades=(\"cidade\", \"count\"),\n    pop_total=(\"populacao_mi\", \"sum\"),\n    pop_media=(\"populacao_mi\", \"mean\"),\n)"
+  },
+  {
+    "objectID": "posts/introducao-pandas/index.html#tratar-valores-ausentes",
+    "href": "posts/introducao-pandas/index.html#tratar-valores-ausentes",
+    "title": "Introdução ao Pandas: guia prático de análise de dados",
+    "section": "Tratar valores ausentes",
+    "text": "Tratar valores ausentes\ndf.isna().sum()                      # nulos por coluna\ndf.dropna(subset=[\"populacao_mi\"])   # remove linhas sem população\ndf[\"regiao\"] = df[\"regiao\"].fillna(\"desconhecida\")"
+  },
+  {
+    "objectID": "posts/introducao-pandas/index.html#perguntas-frequentes",
+    "href": "posts/introducao-pandas/index.html#perguntas-frequentes",
+    "title": "Introdução ao Pandas: guia prático de análise de dados",
+    "section": "Perguntas frequentes",
+    "text": "Perguntas frequentes\n\nQual a diferença entre Series e DataFrame?\nA Series é unidimensional (uma coluna com índice); o DataFrame é bidimensional (várias colunas com o mesmo índice). Cada coluna de um DataFrame é uma Series.\n\n\nQuando usar loc em vez de iloc?\nUse loc para selecionar por rótulo (nome do índice ou da coluna) e iloc para selecionar por posição inteira. Em fatias, loc inclui o limite final; iloc não.\n\n\nComo ler só uma parte de um arquivo grande?\nPasse nrows para limitar as linhas ou usecols para escolher colunas no read_csv. Para processar em blocos, use chunksize, que devolve um iterador de DataFrame.\n\n\nPandas ou Polars?\nO pandas tem o maior ecossistema e é o padrão de mercado. O Polars costuma ser mais rápido e econômico em memória para volumes grandes. Para aprender os conceitos de dados tabulares, o pandas continua sendo o melhor ponto de partida."
+  },
+  {
+    "objectID": "posts/introducao-pandas/index.html#conclusão",
+    "href": "posts/introducao-pandas/index.html#conclusão",
+    "title": "Introdução ao Pandas: guia prático de análise de dados",
+    "section": "Conclusão",
+    "text": "Conclusão\n\nSeries é uma coluna; DataFrame é a tabela.\nread_csv, read_excel e read_parquet carregam os dados; head, info e describe dão o primeiro diagnóstico.\nloc / iloc e boolean indexing recortam linhas e colunas.\ngroupby + agg resumem os dados por categoria.\nisna, dropna e fillna cuidam dos valores ausentes.\n\nPara se aprofundar, vale ler o guia 10 minutes to pandas da documentação oficial do pandas e o livro Python for Data Analysis, de Wes McKinney, criador da biblioteca. Aqui no blog, veja também o exemplo com código executável.\n\nTópicos: #Pandas #Python #AnáliseDeDados #CiênciaDeDados #DataFrame"
+  },
+  {
     "objectID": "posts/welcome/index.html",
     "href": "posts/welcome/index.html",
     "title": "Welcome To My Blog",
     "section": "",
     "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
+  },
+  {
+    "objectID": "posts/introducao-ao-pandas/index.html",
+    "href": "posts/introducao-ao-pandas/index.html",
+    "title": "Introdução ao Pandas",
+    "section": "",
+    "text": "O pandas é a biblioteca padrão para manipulação de dados tabulares em Python. Se você já trabalhou com planilhas, a ideia é a mesma — só que programável, reproduzível e capaz de lidar com milhões de linhas."
+  },
+  {
+    "objectID": "posts/introducao-ao-pandas/index.html#instalação",
+    "href": "posts/introducao-ao-pandas/index.html#instalação",
+    "title": "Introdução ao Pandas",
+    "section": "Instalação",
+    "text": "Instalação\npip install pandas\nE, por convenção, o import é sempre com o apelido pd:\nimport pandas as pd"
+  },
+  {
+    "objectID": "posts/introducao-ao-pandas/index.html#as-duas-estruturas-centrais",
+    "href": "posts/introducao-ao-pandas/index.html#as-duas-estruturas-centrais",
+    "title": "Introdução ao Pandas",
+    "section": "As duas estruturas centrais",
+    "text": "As duas estruturas centrais\n\nSeries — uma coluna\nUma Series é um vetor unidimensional com um índice (rótulos das linhas).\ntemperaturas = pd.Series(\n    [28.1, 30.4, 27.9, 31.2],\n    index=[\"seg\", \"ter\", \"qua\", \"qui\"],\n    name=\"temperatura\",\n)\n\ntemperaturas[\"ter\"]      # 30.4\ntemperaturas.mean()      # 29.4\ntemperaturas &gt; 30        # Series de booleanos\n\n\nDataFrame — a tabela\nUm DataFrame é um conjunto de Series que compartilham o mesmo índice: linhas e colunas, como uma planilha.\ndf = pd.DataFrame({\n    \"cidade\": [\"São Paulo\", \"Rio\", \"Curitiba\", \"Recife\"],\n    \"populacao_mi\": [12.3, 6.7, 1.9, 1.7],\n    \"regiao\": [\"Sudeste\", \"Sudeste\", \"Sul\", \"Nordeste\"],\n})"
+  },
+  {
+    "objectID": "posts/introducao-ao-pandas/index.html#lendo-dados-de-verdade",
+    "href": "posts/introducao-ao-pandas/index.html#lendo-dados-de-verdade",
+    "title": "Introdução ao Pandas",
+    "section": "Lendo dados de verdade",
+    "text": "Lendo dados de verdade\nNa prática você raramente digita os dados à mão. O pandas lê dezenas de formatos:\ndf = pd.read_csv(\"dados.csv\")\ndf = pd.read_excel(\"planilha.xlsx\", sheet_name=\"2026\")\ndf = pd.read_parquet(\"dados.parquet\")\nPrimeiro contato com qualquer tabela nova:\ndf.head()        # primeiras linhas\ndf.shape         # (linhas, colunas)\ndf.info()        # tipos e valores nulos\ndf.describe()    # estatísticas das colunas numéricas"
+  },
+  {
+    "objectID": "posts/introducao-ao-pandas/index.html#selecionando-e-filtrando",
+    "href": "posts/introducao-ao-pandas/index.html#selecionando-e-filtrando",
+    "title": "Introdução ao Pandas",
+    "section": "Selecionando e filtrando",
+    "text": "Selecionando e filtrando\ndf[\"populacao_mi\"]              # uma coluna (Series)\ndf[[\"cidade\", \"regiao\"]]        # várias colunas (DataFrame)\n\ndf.loc[0]                       # linha pelo rótulo do índice\ndf.iloc[0]                      # linha pela posição\n\n# filtro por condição (boolean indexing)\ndf[df[\"populacao_mi\"] &gt; 5]\n\n# combinando condições: use & | e parênteses\ndf[(df[\"regiao\"] == \"Sudeste\") & (df[\"populacao_mi\"] &gt; 10)]"
+  },
+  {
+    "objectID": "posts/introducao-ao-pandas/index.html#criando-colunas",
+    "href": "posts/introducao-ao-pandas/index.html#criando-colunas",
+    "title": "Introdução ao Pandas",
+    "section": "Criando colunas",
+    "text": "Criando colunas\ndf[\"populacao_abs\"] = df[\"populacao_mi\"] * 1_000_000\n\ndf[\"porte\"] = df[\"populacao_mi\"].apply(\n    lambda p: \"grande\" if p &gt;= 5 else \"médio\" if p &gt;= 2 else \"pequeno\"\n)"
+  },
+  {
+    "objectID": "posts/introducao-ao-pandas/index.html#agrupando-split-apply-combine",
+    "href": "posts/introducao-ao-pandas/index.html#agrupando-split-apply-combine",
+    "title": "Introdução ao Pandas",
+    "section": "Agrupando: split-apply-combine",
+    "text": "Agrupando: split-apply-combine\nO groupby é o coração da análise exploratória: divide os dados por uma chave, aplica uma agregação e junta o resultado.\ndf.groupby(\"regiao\")[\"populacao_mi\"].sum()\n\ndf.groupby(\"regiao\").agg(\n    n_cidades=(\"cidade\", \"count\"),\n    pop_total=(\"populacao_mi\", \"sum\"),\n    pop_media=(\"populacao_mi\", \"mean\"),\n)"
+  },
+  {
+    "objectID": "posts/introducao-ao-pandas/index.html#valores-ausentes",
+    "href": "posts/introducao-ao-pandas/index.html#valores-ausentes",
+    "title": "Introdução ao Pandas",
+    "section": "Valores ausentes",
+    "text": "Valores ausentes\ndf.isna().sum()                 # nulos por coluna\ndf.dropna(subset=[\"populacao_mi\"])\ndf[\"regiao\"].fillna(\"desconhecida\")"
+  },
+  {
+    "objectID": "posts/introducao-ao-pandas/index.html#resumo",
+    "href": "posts/introducao-ao-pandas/index.html#resumo",
+    "title": "Introdução ao Pandas",
+    "section": "Resumo",
+    "text": "Resumo\n\nSeries = coluna; DataFrame = tabela.\nread_csv / read_excel / read_parquet para carregar dados.\nhead, info, describe para o primeiro diagnóstico.\nloc / iloc e boolean indexing para recortar.\ngroupby + agg para resumir.\n\nA documentação oficial tem um guia “10 minutes to pandas” que vale a leitura depois deste post."
+  },
+  {
+    "objectID": "posts/post-with-code/index.html",
+    "href": "posts/post-with-code/index.html",
+    "title": "Post With Code",
+    "section": "",
+    "text": "This is a post with executable code."
   },
   {
     "objectID": "posts/novo-post/index.html",
@@ -26,19 +194,5 @@
     "title": "About",
     "section": "",
     "text": "About this blog"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "blog_001",
-    "section": "",
-    "text": "Novo post\n\n\n\nnovidade\n\npython\n\nanalysis\n\n\n\n\n\n\n\n\n\nSep 3, 2026\n\n\nPedro Nakashima\n\n\n\n\n\n\n\n\n\n\n\n\nPost With Code\n\n\n\nnews\n\ncode\n\nanalysis\n\n\n\n\n\n\n\n\n\nSep 3, 2026\n\n\nHarlow Malloc\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nAug 31, 2026\n\n\nTristan O’Malley\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "posts/post-with-code/index.html",
-    "href": "posts/post-with-code/index.html",
-    "title": "Post With Code",
-    "section": "",
-    "text": "This is a post with executable code."
   }
 ]
