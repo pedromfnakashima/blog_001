@@ -2,9 +2,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "blog_001",
+    "title": "Análises e guias sobre Dados, Tecnologia, Economia e Direito",
     "section": "",
-    "text": "Moneyball: a lição de ciência de dados por trás do filme\n\n\n\nciência de dados\n\nmachine learning\n\ncinema\n\nmétodos preditivos\n\n\n\nMoneyball, com Brad Pitt, é mais que um filme de beisebol: mostra como a ciência de dados e os métodos preditivos vencem a intuição na hora de decidir.\n\n\n\n\n\nSep 6, 2026\n\n\nPedro Nakashima\n\n\n\n\n\n\n\n\n\n\n\n\nIntrodução ao Pandas: guia prático de análise de dados\n\n\n\npython\n\npandas\n\nanálise de dados\n\n\n\nIntrodução ao pandas em Python: entenda Series e DataFrame, leia CSV e Excel, filtre linhas, crie colunas e agrupe dados com groupby neste guia prático.\n\n\n\n\n\nSep 6, 2026\n\n\nPedro Nakashima\n\n\n\n\n\n\n\n\n\n\n\n\nIntrodução ao Pandas\n\n\n\npython\n\npandas\n\nanalysis\n\n\n\nPrimeiros passos com a biblioteca pandas: Series, DataFrame, leitura de dados e as operações que você usa todo dia.\n\n\n\n\n\nSep 6, 2026\n\n\nPedro Nakashima\n\n\n\n\n\n\n\n\n\n\n\n\nPost With Code\n\n\n\nnews\n\ncode\n\nanalysis\n\n\n\n\n\n\n\n\n\nSep 3, 2026\n\n\nHarlow Malloc\n\n\n\n\n\n\n\n\n\n\n\n\nNovo post\n\n\n\nnovidade\n\npython\n\nanalysis\n\n\n\n\n\n\n\n\n\nSep 3, 2026\n\n\nPedro Nakashima\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nAug 31, 2026\n\n\nTristan O’Malley\n\n\n\n\n\nNo matching items"
+    "text": "Vida dos golfinhos: como vivem, se comunicam e se organizam\n\n\n\nnatureza\n\nbiologia\n\nvida marinha\n\ngolfinhos\n\n\n\nVida dos golfinhos: como esses mamíferos marinhos respiram, dormem, o que comem, como usam assobios e ecolocalização e por que formam sociedades complexas.\n\n\n\n\n\nSep 6, 2026\n\n5 min\n\n\n\n\n\n\n\n\n\n\n\nMoneyball: a lição de ciência de dados por trás do filme\n\n\n\nciência de dados\n\nmachine learning\n\ncinema\n\nmétodos preditivos\n\n\n\nMoneyball, com Brad Pitt, é mais que um filme de beisebol: mostra como a ciência de dados e os métodos preditivos vencem a intuição na hora de decidir.\n\n\n\n\n\nSep 6, 2026\n\n5 min\n\n\n\n\n\n\n\n\n\n\n\nIntrodução ao Pandas: guia prático de análise de dados\n\n\n\npython\n\npandas\n\nanálise de dados\n\n\n\nIntrodução ao pandas em Python: entenda Series e DataFrame, leia CSV e Excel, filtre linhas, crie colunas e agrupe dados com groupby neste guia prático.\n\n\n\n\n\nSep 6, 2026\n\n5 min\n\n\n\n\n\n\n\n\n\n\n\nIntrodução ao Pandas\n\n\n\npython\n\npandas\n\nanalysis\n\n\n\nPrimeiros passos com a biblioteca pandas: Series, DataFrame, leitura de dados e as operações que você usa todo dia.\n\n\n\n\n\nSep 6, 2026\n\n3 min\n\n\n\n\n\n\n\n\n\n\n\nPost With Code\n\n\n\nnews\n\ncode\n\nanalysis\n\n\n\n\n\n\n\n\n\nSep 3, 2026\n\n1 min\n\n\n\n\n\n\n\n\n\n\n\nNovo post\n\n\n\nnovidade\n\npython\n\nanalysis\n\n\n\n\n\n\n\n\n\nSep 3, 2026\n\n1 min\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nAug 31, 2026\n\n1 min\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/moneyball-ciencia-de-dados/index.html",
@@ -56,11 +56,11 @@
     "text": "Here is some lovely text and an equation.\n\\[ a^2 + b^2 = c^2 \\]\nHere’s a list.\n\na link to an external website.\na link to another post in this blog."
   },
   {
-    "objectID": "posts/post-with-code/index.html",
-    "href": "posts/post-with-code/index.html",
-    "title": "Post With Code",
+    "objectID": "posts/welcome/index.html",
+    "href": "posts/welcome/index.html",
+    "title": "Welcome To My Blog",
     "section": "",
-    "text": "This is a post with executable code."
+    "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
   },
   {
     "objectID": "posts/introducao-ao-pandas/index.html",
@@ -126,11 +126,95 @@
     "text": "Resumo\n\nSeries = coluna; DataFrame = tabela.\nread_csv / read_excel / read_parquet para carregar dados.\nhead, info, describe para o primeiro diagnóstico.\nloc / iloc e boolean indexing para recortar.\ngroupby + agg para resumir.\n\nA documentação oficial tem um guia “10 minutes to pandas” que vale a leitura depois deste post."
   },
   {
-    "objectID": "posts/welcome/index.html",
-    "href": "posts/welcome/index.html",
-    "title": "Welcome To My Blog",
+    "objectID": "posts/post-with-code/index.html",
+    "href": "posts/post-with-code/index.html",
+    "title": "Post With Code",
     "section": "",
-    "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
+    "text": "This is a post with executable code."
+  },
+  {
+    "objectID": "posts/vida-golfinhos/index.html",
+    "href": "posts/vida-golfinhos/index.html",
+    "title": "Vida dos golfinhos: como vivem, se comunicam e se organizam",
+    "section": "",
+    "text": "Publicado em 6 de setembro de 2026, às 18:27, por Pedro Nakashima\nEntender a vida dos golfinhos é entender um mamífero que deixou a terra firme há dezenas de milhões de anos e resolveu, no mar, quase todos os problemas que nós resolvemos em terra: respirar, dormir, caçar em grupo, criar filhotes por anos e se comunicar. Este guia reúne o essencial sobre como os golfinhos vivem — onde habitam, quanto tempo duram, o que comem, como enxergam com som e como se organizam socialmente."
+  },
+  {
+    "objectID": "posts/vida-golfinhos/index.html#o-que-são-os-golfinhos",
+    "href": "posts/vida-golfinhos/index.html#o-que-são-os-golfinhos",
+    "title": "Vida dos golfinhos: como vivem, se comunicam e se organizam",
+    "section": "O que são os golfinhos?",
+    "text": "O que são os golfinhos?\nGolfinhos são cetáceos com dentes (odontocetos), a maioria da família dos delfinídeos, além de alguns grupos de água doce. São mamíferos: respiram ar pelos pulmões, têm sangue quente e amamentam os filhotes. Existem cerca de 40 espécies; a mais conhecida é o golfinho-nariz-de-garrafa (Tursiops truncatus), e a maior de todas é a orca, que apesar do apelido “baleia-assassina” é, tecnicamente, um golfinho."
+  },
+  {
+    "objectID": "posts/vida-golfinhos/index.html#onde-vivem-e-quanto-tempo",
+    "href": "posts/vida-golfinhos/index.html#onde-vivem-e-quanto-tempo",
+    "title": "Vida dos golfinhos: como vivem, se comunicam e se organizam",
+    "section": "Onde vivem e quanto tempo",
+    "text": "Onde vivem e quanto tempo\nHá golfinhos em todos os oceanos, do Ártico aos trópicos, além de espécies de rio como o boto-cor-de-rosa da Amazônia e o golfinho do Ganges. A expectativa de vida varia muito por espécie: o golfinho-nariz-de-garrafa costuma viver até cerca de 40 anos, com fêmeas passando dos 60 em populações bem monitoradas, segundo a NOAA Fisheries; orcas fêmeas podem chegar aos 80 ou 90."
+  },
+  {
+    "objectID": "posts/vida-golfinhos/index.html#como-respiram-e-dormem",
+    "href": "posts/vida-golfinhos/index.html#como-respiram-e-dormem",
+    "title": "Vida dos golfinhos: como vivem, se comunicam e se organizam",
+    "section": "Como respiram e dormem",
+    "text": "Como respiram e dormem\nA respiração do golfinho é voluntária: ele decide cada ida à superfície e expira pelo espiráculo no topo da cabeça. Isso cria um problema — como dormir sem parar de respirar? A solução é o sono uni-hemisférico: metade do cérebro dorme enquanto a outra metade mantém a respiração e um olho aberto, alternando os lados ao longo das horas. Trabalhos reunidos pela Whale and Dolphin Conservation mostram que golfinhos conseguem manter vigilância por ecolocalização por até 15 dias seguidos sem perda de desempenho."
+  },
+  {
+    "objectID": "posts/vida-golfinhos/index.html#o-que-comem",
+    "href": "posts/vida-golfinhos/index.html#o-que-comem",
+    "title": "Vida dos golfinhos: como vivem, se comunicam e se organizam",
+    "section": "O que comem",
+    "text": "O que comem\nO cardápio é sobretudo peixe e lula, com crustáceos em algumas populações. A caça costuma ser cooperativa: o grupo cerca um cardume e os indivíduos se revezam avançando sobre ele. Há técnicas locais notáveis — golfinhos que encurralam peixes contra a lama formando anéis, os que perseguem presas até a praia e, na Baía Shark, na Austrália, os que usam esponjas do mar como luva no focinho para revirar o fundo sem se machucar. Esse “sponging” é o caso mais bem documentado de uso de ferramenta por um cetáceo selvagem e passa de mãe para filha."
+  },
+  {
+    "objectID": "posts/vida-golfinhos/index.html#comunicação-e-ecolocalização",
+    "href": "posts/vida-golfinhos/index.html#comunicação-e-ecolocalização",
+    "title": "Vida dos golfinhos: como vivem, se comunicam e se organizam",
+    "section": "Comunicação e ecolocalização",
+    "text": "Comunicação e ecolocalização\nOs golfinhos produzem dois tipos principais de som. Os cliques servem para ecolocalização: o animal emite pulsos de alta frequência e lê os ecos para saber tamanho, forma, distância e velocidade de um objeto ou presa, mesmo na água turva ou no escuro. Os assobios são sociais. Cada golfinho desenvolve nos primeiros meses de vida um assobio-assinatura, único, que funciona como um nome: outros indivíduos memorizam esse assobio e o usam para “chamar” aquele golfinho específico — o primeiro caso conhecido de nomes próprios fora da espécie humana."
+  },
+  {
+    "objectID": "posts/vida-golfinhos/index.html#vida-social",
+    "href": "posts/vida-golfinhos/index.html#vida-social",
+    "title": "Vida dos golfinhos: como vivem, se comunicam e se organizam",
+    "section": "Vida social",
+    "text": "Vida social\nA sociedade dos golfinhos é de fissão-fusão: os grupos (chamados de “escolas” ou pods) se formam, se dividem e se reagrupam ao longo do dia, tipicamente com 10 a 15 animais no caso do nariz-de-garrafa. Machos formam alianças de longo prazo para cortejar fêmeas; há contato corporal amistoso, brincadeira e comportamentos que se transmitem culturalmente dentro de linhagens, como o próprio uso da esponja."
+  },
+  {
+    "objectID": "posts/vida-golfinhos/index.html#reprodução-e-cuidado-com-os-filhotes",
+    "href": "posts/vida-golfinhos/index.html#reprodução-e-cuidado-com-os-filhotes",
+    "title": "Vida dos golfinhos: como vivem, se comunicam e se organizam",
+    "section": "Reprodução e cuidado com os filhotes",
+    "text": "Reprodução e cuidado com os filhotes\nA gestação dura cerca de 12 meses e quase sempre nasce um único filhote. Ele mama por um a três anos e permanece perto da mãe por vários anos, aprendendo rotas, técnicas de caça e a rede social do grupo. Esse investimento longo em poucos filhotes é típico de animais de vida longa e cérebro grande."
+  },
+  {
+    "objectID": "posts/vida-golfinhos/index.html#inteligência",
+    "href": "posts/vida-golfinhos/index.html#inteligência",
+    "title": "Vida dos golfinhos: como vivem, se comunicam e se organizam",
+    "section": "Inteligência",
+    "text": "Inteligência\nGolfinhos têm cérebros grandes em relação ao corpo, reconhecem-se no espelho, resolvem problemas novos e mantêm tradições locais de forrageio. Nada disso equivale à linguagem humana, mas indica uma cognição social sofisticada, construída em cima da vida em grupo."
+  },
+  {
+    "objectID": "posts/vida-golfinhos/index.html#ameaças",
+    "href": "posts/vida-golfinhos/index.html#ameaças",
+    "title": "Vida dos golfinhos: como vivem, se comunicam e se organizam",
+    "section": "Ameaças",
+    "text": "Ameaças\nAs maiores pressões sobre a vida dos golfinhos hoje são de origem humana: captura acidental em redes de pesca (bycatch), poluição química e plástica, ruído submarino que interfere na ecolocalização, perda de habitat costeiro e de rio, e a captura para cativeiro. Vários golfinhos de rio estão ameaçados, e o baiji, do rio Yangtzé, foi declarado funcionalmente extinto em 2006."
+  },
+  {
+    "objectID": "posts/vida-golfinhos/index.html#perguntas-frequentes",
+    "href": "posts/vida-golfinhos/index.html#perguntas-frequentes",
+    "title": "Vida dos golfinhos: como vivem, se comunicam e se organizam",
+    "section": "Perguntas frequentes",
+    "text": "Perguntas frequentes\n\nGolfinho é peixe ou mamífero?\nMamífero. Respira ar, tem sangue quente, dá à luz filhotes vivos e os amamenta. A semelhança com peixes é convergência evolutiva: corpo hidrodinâmico e nadadeiras para a mesma função, mas origem diferente.\n\n\nGolfinhos dormem?\nSim, mas com metade do cérebro por vez (sono uni-hemisférico), para não parar de respirar nem baixar a guarda contra predadores.\n\n\nGolfinhos têm nome?\nNa prática, sim. Cada um cria um assobio-assinatura único que os outros reconhecem e usam para se dirigir a ele — o equivalente funcional de um nome próprio.\n\n\nQuanto tempo vive um golfinho?\nDepende da espécie. O golfinho-nariz-de-garrafa costuma viver até cerca de 40 anos (fêmeas mais), e orcas fêmeas podem passar dos 80.\n\n\nGolfinho selvagem é perigoso?\nAtaques a pessoas são raros, mas são animais grandes e selvagens. Alimentar ou tocar golfinhos selvagens é desaconselhado (e ilegal em vários países): muda o comportamento deles e aumenta o risco para os dois lados."
+  },
+  {
+    "objectID": "posts/vida-golfinhos/index.html#conclusão",
+    "href": "posts/vida-golfinhos/index.html#conclusão",
+    "title": "Vida dos golfinhos: como vivem, se comunicam e se organizam",
+    "section": "Conclusão",
+    "text": "Conclusão\n\nGolfinhos são mamíferos marinhos (odontocetos); a orca é o maior deles.\nRespiração voluntária e sono uni-hemisférico são as adaptações que permitem dormir no mar.\nCaçam em grupo e algumas populações usam ferramentas, com técnicas transmitidas culturalmente.\nCliques servem para ecolocalização; assobios, para a vida social, incluindo um “nome” individual.\nA sociedade é de fissão-fusão, com laços longos e cuidado parental prolongado.\nAs ameaças relevantes são humanas: redes, poluição, ruído e cativeiro.\n\n\nTópicos: #Golfinhos #VidaMarinha #Cetáceos #Natureza #Biologia"
   },
   {
     "objectID": "posts/introducao-pandas/index.html",
@@ -226,8 +310,8 @@
   {
     "objectID": "about.html",
     "href": "about.html",
-    "title": "About",
+    "title": "Sobre / About",
     "section": "",
-    "text": "About this blog"
+    "text": "Sou Pedro Nakashima e moro no Brasil. Economista e programador, formado em Direito, atuo na interseção entre dados, economia, direito e tecnologia: uso ciência de dados, estatística e econometria para transformar informação em evidência e em decisão bem fundamentada.\nAqui escrevo sobre o que estudo e pratico: programação, ciência de dados, machine learning e inteligência artificial; economia, econometria, direito, legislação e perícia; e a leitura de política e geopolítica com esse mesmo instrumental. Também trato de temas que acompanho de perto — cinema, séries e futebol. A régua é sempre a mesma: método, fontes primárias e uma posição argumentada, sem hype.\nNo YouTube, o canal Pedro On Data traz o mesmo tipo de conteúdo em vídeo. Para conversar sobre um projeto, uma análise ou uma ideia de pauta, me chame no LinkedIn ou por e-mail.\n\nI’m Pedro Nakashima, and I live in Brazil. An economist and programmer with a law degree, I work at the intersection of data, economics, law and technology: using data science, statistics and econometrics to turn information into evidence and well-grounded decisions.\nHere I write about what I study and practice: programming, data science, machine learning and artificial intelligence; economics, econometrics, law, legislation and forensic analysis; and reading politics and geopolitics with those same tools. I also cover subjects I follow closely — film, TV series and football. The standard is always the same: method, primary sources and a reasoned position, without hype.\nOn YouTube, the Pedro On Data channel brings the same kind of content in video form. To talk about a project, an analysis or a story idea, reach me on LinkedIn or by email."
   }
 ]

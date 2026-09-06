@@ -2,18 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://pedronakashima.com/index.html</loc>
-    <lastmod>2026-09-06T16:29:34.058Z</lastmod>
+    <lastmod>2026-09-06T22:54:15.497Z</lastmod>
   </url>
   <url>
     <loc>https://pedronakashima.com/posts/moneyball-ciencia-de-dados/index.html</loc>
-    <lastmod>2026-09-06T19:59:17.762Z</lastmod>
+    <lastmod>2026-09-06T22:15:36.054Z</lastmod>
   </url>
   <url>
     <loc>https://pedronakashima.com/posts/novo-post/index.html</loc>
     <lastmod>2026-09-04T20:57:00.536Z</lastmod>
   </url>
   <url>
-    <loc>https://pedronakashima.com/posts/post-with-code/index.html</loc>
+    <loc>https://pedronakashima.com/posts/welcome/index.html</loc>
     <lastmod>2026-09-04T20:57:00.536Z</lastmod>
   </url>
   <url>
@@ -21,8 +21,12 @@
     <lastmod>2026-09-06T16:30:17.429Z</lastmod>
   </url>
   <url>
-    <loc>https://pedronakashima.com/posts/welcome/index.html</loc>
+    <loc>https://pedronakashima.com/posts/post-with-code/index.html</loc>
     <lastmod>2026-09-04T20:57:00.536Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pedronakashima.com/posts/vida-golfinhos/index.html</loc>
+    <lastmod>2026-09-06T22:29:31.195Z</lastmod>
   </url>
   <url>
     <loc>https://pedronakashima.com/posts/introducao-pandas/index.html</loc>
@@ -30,6 +34,6 @@
   </url>
   <url>
     <loc>https://pedronakashima.com/about.html</loc>
-    <lastmod>2026-09-04T20:57:00.535Z</lastmod>
+    <lastmod>2026-09-06T21:13:10.235Z</lastmod>
   </url>
 </urlset>
