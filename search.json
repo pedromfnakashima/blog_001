@@ -4,7 +4,133 @@
     "href": "index.html",
     "title": "blog_001",
     "section": "",
-    "text": "Introdução ao Pandas: guia prático de análise de dados\n\n\n\npython\n\npandas\n\nanálise de dados\n\n\n\nIntrodução ao pandas em Python: entenda Series e DataFrame, leia CSV e Excel, filtre linhas, crie colunas e agrupe dados com groupby neste guia prático.\n\n\n\n\n\nSep 6, 2026\n\n\nPedro Nakashima\n\n\n\n\n\n\n\n\n\n\n\n\nIntrodução ao Pandas\n\n\n\npython\n\npandas\n\nanalysis\n\n\n\nPrimeiros passos com a biblioteca pandas: Series, DataFrame, leitura de dados e as operações que você usa todo dia.\n\n\n\n\n\nSep 6, 2026\n\n\nPedro Nakashima\n\n\n\n\n\n\n\n\n\n\n\n\nPost With Code\n\n\n\nnews\n\ncode\n\nanalysis\n\n\n\n\n\n\n\n\n\nSep 3, 2026\n\n\nHarlow Malloc\n\n\n\n\n\n\n\n\n\n\n\n\nNovo post\n\n\n\nnovidade\n\npython\n\nanalysis\n\n\n\n\n\n\n\n\n\nSep 3, 2026\n\n\nPedro Nakashima\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nAug 31, 2026\n\n\nTristan O’Malley\n\n\n\n\n\nNo matching items"
+    "text": "Moneyball: a lição de ciência de dados por trás do filme\n\n\n\nciência de dados\n\nmachine learning\n\ncinema\n\nmétodos preditivos\n\n\n\nMoneyball, com Brad Pitt, é mais que um filme de beisebol: mostra como a ciência de dados e os métodos preditivos vencem a intuição na hora de decidir.\n\n\n\n\n\nSep 6, 2026\n\n\nPedro Nakashima\n\n\n\n\n\n\n\n\n\n\n\n\nIntrodução ao Pandas: guia prático de análise de dados\n\n\n\npython\n\npandas\n\nanálise de dados\n\n\n\nIntrodução ao pandas em Python: entenda Series e DataFrame, leia CSV e Excel, filtre linhas, crie colunas e agrupe dados com groupby neste guia prático.\n\n\n\n\n\nSep 6, 2026\n\n\nPedro Nakashima\n\n\n\n\n\n\n\n\n\n\n\n\nIntrodução ao Pandas\n\n\n\npython\n\npandas\n\nanalysis\n\n\n\nPrimeiros passos com a biblioteca pandas: Series, DataFrame, leitura de dados e as operações que você usa todo dia.\n\n\n\n\n\nSep 6, 2026\n\n\nPedro Nakashima\n\n\n\n\n\n\n\n\n\n\n\n\nPost With Code\n\n\n\nnews\n\ncode\n\nanalysis\n\n\n\n\n\n\n\n\n\nSep 3, 2026\n\n\nHarlow Malloc\n\n\n\n\n\n\n\n\n\n\n\n\nNovo post\n\n\n\nnovidade\n\npython\n\nanalysis\n\n\n\n\n\n\n\n\n\nSep 3, 2026\n\n\nPedro Nakashima\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nAug 31, 2026\n\n\nTristan O’Malley\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/moneyball-ciencia-de-dados/index.html",
+    "href": "posts/moneyball-ciencia-de-dados/index.html",
+    "title": "Moneyball: a lição de ciência de dados por trás do filme",
+    "section": "",
+    "text": "Publicado em 6 de setembro de 2026, às 15:57, por Pedro Nakashima\nMoneyball, o filme de 2011 dirigido por Bennett Miller com Brad Pitt no papel de Billy Beane, virou a referência pop da tomada de decisão baseada em dados. A leitura mais comum — “um time pobre venceu os ricos com estatística” — é a menos interessante. O que Moneyball de fato ilustra é uma tese de ciência de dados: quando se mede a variável certa e se confia num método preditivo em vez da intuição de especialistas, muda-se a probabilidade a favor de quem decide. Essa tese, hoje, move mesas de investimento, campanhas eleitorais, hospitais e departamentos de recursos humanos, e não apenas um time de beisebol."
+  },
+  {
+    "objectID": "posts/moneyball-ciencia-de-dados/index.html#o-filme-e-o-caso-real",
+    "href": "posts/moneyball-ciencia-de-dados/index.html#o-filme-e-o-caso-real",
+    "title": "Moneyball: a lição de ciência de dados por trás do filme",
+    "section": "O filme e o caso real",
+    "text": "O filme e o caso real\nO roteiro de Steven Zaillian e Aaron Sorkin adapta o livro de 2003 de Michael Lewis, Moneyball: The Art of Winning an Unfair Game. A história é a temporada de 2002 do Oakland Athletics. Com uma folha salarial de cerca de 41 milhões de dólares, uma fração da dos grandes clubes, o gerente-geral Billy Beane e seu assistente Peter Brand — versão ficcional do analista Paul DePodesta, vivido por Jonah Hill — montaram o elenco a partir de jogadores que o mercado subavaliava. O time engatou 20 vitórias seguidas, fechou a temporada em 103 vitórias e 59 derrotas e ganhou a divisão. O filme recebeu seis indicações ao Oscar, incluindo melhor filme e melhor ator para Pitt. E perdeu na primeira rodada dos playoffs para o Minnesota Twins — um detalhe que o roteiro trata quase como nota de rodapé, mas onde mora metade da lição."
+  },
+  {
+    "objectID": "posts/moneyball-ciencia-de-dados/index.html#escolher-a-variável-certa",
+    "href": "posts/moneyball-ciencia-de-dados/index.html#escolher-a-variável-certa",
+    "title": "Moneyball: a lição de ciência de dados por trás do filme",
+    "section": "Escolher a variável certa",
+    "text": "Escolher a variável certa\nO núcleo técnico de Moneyball é um problema clássico de ciência de dados: qual métrica prevê melhor o resultado que interessa? Os olheiros tradicionais avaliavam jogadores pelo que enxergavam no campo — velocidade, defesa, média de rebatidas, às vezes até a aparência física. Beane e DePodesta partiram da sabermetria, a análise estatística do beisebol popularizada por Bill James e pela Society for American Baseball Research, e perguntaram o que de fato produz corridas e, portanto, vitórias. A resposta era a frequência com que o jogador chega à base, a on-base percentage. Era uma variável barata: o mercado pagava caro por home runs e por bases roubadas, e quase nada por um jogador que simplesmente não dava out. Traduzido para o vocabulário de quem trabalha com dados, o Oakland fez seleção de atributos, trocou um alvo mal definido — “talento” — por um mensurável — corridas esperadas — e explorou uma ineficiência de mercado até ela desaparecer. É a mesma lógica de um fundo quantitativo que encontra um fator de risco mal precificado antes dos concorrentes."
+  },
+  {
+    "objectID": "posts/moneyball-ciencia-de-dados/index.html#de-regressão-linear-a-machine-learning",
+    "href": "posts/moneyball-ciencia-de-dados/index.html#de-regressão-linear-a-machine-learning",
+    "title": "Moneyball: a lição de ciência de dados por trás do filme",
+    "section": "De regressão linear a machine learning",
+    "text": "De regressão linear a machine learning\nConvém lembrar a escala do que se fazia em 2002. As ferramentas eram planilhas e regressões sobre estatísticas de súmula, o equivalente esportivo de um modelo linear bem construído; hoje o mesmo trabalho começaria em ferramentas como o pandas. O que veio depois é que aproximou o beisebol da ciência de dados contemporânea: rastreamento óptico de jogadores e da bola, métricas “esperadas” calculadas por modelos e previsão de desempenho com aprendizado de máquina. O mesmo caminho se repetiu no basquete, no futebol e fora do esporte. O próprio DePodesta deixou o beisebol em 2016 para chefiar a estratégia do Cleveland Browns, da NFL. “Moneyball para X” virou clichê de consultoria justamente porque o método é agnóstico ao domínio: defina o objetivo, descubra o que o prevê, aja pela estimativa mesmo quando ela contraria o consenso."
+  },
+  {
+    "objectID": "posts/moneyball-ciencia-de-dados/index.html#os-limites-do-método",
+    "href": "posts/moneyball-ciencia-de-dados/index.html#os-limites-do-método",
+    "title": "Moneyball: a lição de ciência de dados por trás do filme",
+    "section": "Os limites do método",
+    "text": "Os limites do método\nA parte que o filme subestima é tão instrutiva quanto o resto. Primeiro, o Oakland de 2002 não era só porcentagem de base: três dos melhores jogadores do elenco eram os arremessadores Tim Hudson, Mark Mulder e Barry Zito, um trio que colocou o time no topo da liga em defesa, e boa parte da crítica ao livro aponta que a narrativa em torno da on-base percentage escondeu o quanto Beane era bom em achar e formar arremessadores. Segundo, os playoffs são uma amostra pequena e ruidosa: vencer 103 de 162 jogos é sinal forte; perder uma série de cinco jogos não refuta o método, é variância, e o próprio DePodesta descreveria a pós-temporada como um cara ou coroa. Terceiro, assim que a ineficiência ficou pública — e o livro a tornou pública —, ela foi arbitrada, e hoje se paga caro por on-base percentage. Há ainda o risco que todo modelo preditivo carrega: ele aprende os vieses dos dados com que foi treinado, e fatores como liderança, entrosamento e lesão resistem à quantificação.\nNada disso invalida a ideia central. Um método preditivo não é bola de cristal: ele desloca as probabilidades, não garante o resultado, e saber distinguir as duas coisas é parte da competência de quem usa dados para decidir.\nÉ por isso que Moneyball envelheceu bem, mesmo com o beisebol tendo mudado de patamar analítico. A vantagem do Oakland nunca foi “ter dados”; foi a disciplina de definir o objetivo com clareza, medir o que o prevê, agir pela estimativa ainda que ela contrarie o consenso e permanecer honesto sobre a incerteza. Troque “corridas” por retorno de um fundo, intenção de voto, risco de readmissão hospitalar ou rotatividade de funcionários, e a receita é a mesma. O filme é sobre um time pobre de beisebol; a lição é sobre como pensar.\n\nTópicos: #Moneyball #CiênciaDeDados #MachineLearning #MétodosPreditivos #AnáliseEsportiva"
+  },
+  {
+    "objectID": "posts/novo-post/index.html",
+    "href": "posts/novo-post/index.html",
+    "title": "Novo post",
+    "section": "",
+    "text": "Here is some lovely text and an equation.\n\\[ a^2 + b^2 = c^2 \\]\nHere’s a list.\n\na link to an external website.\na link to another post in this blog."
+  },
+  {
+    "objectID": "posts/novo-post/index.html#um-bom-cabeçalho",
+    "href": "posts/novo-post/index.html#um-bom-cabeçalho",
+    "title": "Novo post",
+    "section": "",
+    "text": "Here is some lovely text and an equation.\n\\[ a^2 + b^2 = c^2 \\]\nHere’s a list.\n\na link to an external website.\na link to another post in this blog."
+  },
+  {
+    "objectID": "posts/post-with-code/index.html",
+    "href": "posts/post-with-code/index.html",
+    "title": "Post With Code",
+    "section": "",
+    "text": "This is a post with executable code."
+  },
+  {
+    "objectID": "posts/introducao-ao-pandas/index.html",
+    "href": "posts/introducao-ao-pandas/index.html",
+    "title": "Introdução ao Pandas",
+    "section": "",
+    "text": "O pandas é a biblioteca padrão para manipulação de dados tabulares em Python. Se você já trabalhou com planilhas, a ideia é a mesma — só que programável, reproduzível e capaz de lidar com milhões de linhas."
+  },
+  {
+    "objectID": "posts/introducao-ao-pandas/index.html#instalação",
+    "href": "posts/introducao-ao-pandas/index.html#instalação",
+    "title": "Introdução ao Pandas",
+    "section": "Instalação",
+    "text": "Instalação\npip install pandas\nE, por convenção, o import é sempre com o apelido pd:\nimport pandas as pd"
+  },
+  {
+    "objectID": "posts/introducao-ao-pandas/index.html#as-duas-estruturas-centrais",
+    "href": "posts/introducao-ao-pandas/index.html#as-duas-estruturas-centrais",
+    "title": "Introdução ao Pandas",
+    "section": "As duas estruturas centrais",
+    "text": "As duas estruturas centrais\n\nSeries — uma coluna\nUma Series é um vetor unidimensional com um índice (rótulos das linhas).\ntemperaturas = pd.Series(\n    [28.1, 30.4, 27.9, 31.2],\n    index=[\"seg\", \"ter\", \"qua\", \"qui\"],\n    name=\"temperatura\",\n)\n\ntemperaturas[\"ter\"]      # 30.4\ntemperaturas.mean()      # 29.4\ntemperaturas &gt; 30        # Series de booleanos\n\n\nDataFrame — a tabela\nUm DataFrame é um conjunto de Series que compartilham o mesmo índice: linhas e colunas, como uma planilha.\ndf = pd.DataFrame({\n    \"cidade\": [\"São Paulo\", \"Rio\", \"Curitiba\", \"Recife\"],\n    \"populacao_mi\": [12.3, 6.7, 1.9, 1.7],\n    \"regiao\": [\"Sudeste\", \"Sudeste\", \"Sul\", \"Nordeste\"],\n})"
+  },
+  {
+    "objectID": "posts/introducao-ao-pandas/index.html#lendo-dados-de-verdade",
+    "href": "posts/introducao-ao-pandas/index.html#lendo-dados-de-verdade",
+    "title": "Introdução ao Pandas",
+    "section": "Lendo dados de verdade",
+    "text": "Lendo dados de verdade\nNa prática você raramente digita os dados à mão. O pandas lê dezenas de formatos:\ndf = pd.read_csv(\"dados.csv\")\ndf = pd.read_excel(\"planilha.xlsx\", sheet_name=\"2026\")\ndf = pd.read_parquet(\"dados.parquet\")\nPrimeiro contato com qualquer tabela nova:\ndf.head()        # primeiras linhas\ndf.shape         # (linhas, colunas)\ndf.info()        # tipos e valores nulos\ndf.describe()    # estatísticas das colunas numéricas"
+  },
+  {
+    "objectID": "posts/introducao-ao-pandas/index.html#selecionando-e-filtrando",
+    "href": "posts/introducao-ao-pandas/index.html#selecionando-e-filtrando",
+    "title": "Introdução ao Pandas",
+    "section": "Selecionando e filtrando",
+    "text": "Selecionando e filtrando\ndf[\"populacao_mi\"]              # uma coluna (Series)\ndf[[\"cidade\", \"regiao\"]]        # várias colunas (DataFrame)\n\ndf.loc[0]                       # linha pelo rótulo do índice\ndf.iloc[0]                      # linha pela posição\n\n# filtro por condição (boolean indexing)\ndf[df[\"populacao_mi\"] &gt; 5]\n\n# combinando condições: use & | e parênteses\ndf[(df[\"regiao\"] == \"Sudeste\") & (df[\"populacao_mi\"] &gt; 10)]"
+  },
+  {
+    "objectID": "posts/introducao-ao-pandas/index.html#criando-colunas",
+    "href": "posts/introducao-ao-pandas/index.html#criando-colunas",
+    "title": "Introdução ao Pandas",
+    "section": "Criando colunas",
+    "text": "Criando colunas\ndf[\"populacao_abs\"] = df[\"populacao_mi\"] * 1_000_000\n\ndf[\"porte\"] = df[\"populacao_mi\"].apply(\n    lambda p: \"grande\" if p &gt;= 5 else \"médio\" if p &gt;= 2 else \"pequeno\"\n)"
+  },
+  {
+    "objectID": "posts/introducao-ao-pandas/index.html#agrupando-split-apply-combine",
+    "href": "posts/introducao-ao-pandas/index.html#agrupando-split-apply-combine",
+    "title": "Introdução ao Pandas",
+    "section": "Agrupando: split-apply-combine",
+    "text": "Agrupando: split-apply-combine\nO groupby é o coração da análise exploratória: divide os dados por uma chave, aplica uma agregação e junta o resultado.\ndf.groupby(\"regiao\")[\"populacao_mi\"].sum()\n\ndf.groupby(\"regiao\").agg(\n    n_cidades=(\"cidade\", \"count\"),\n    pop_total=(\"populacao_mi\", \"sum\"),\n    pop_media=(\"populacao_mi\", \"mean\"),\n)"
+  },
+  {
+    "objectID": "posts/introducao-ao-pandas/index.html#valores-ausentes",
+    "href": "posts/introducao-ao-pandas/index.html#valores-ausentes",
+    "title": "Introdução ao Pandas",
+    "section": "Valores ausentes",
+    "text": "Valores ausentes\ndf.isna().sum()                 # nulos por coluna\ndf.dropna(subset=[\"populacao_mi\"])\ndf[\"regiao\"].fillna(\"desconhecida\")"
+  },
+  {
+    "objectID": "posts/introducao-ao-pandas/index.html#resumo",
+    "href": "posts/introducao-ao-pandas/index.html#resumo",
+    "title": "Introdução ao Pandas",
+    "section": "Resumo",
+    "text": "Resumo\n\nSeries = coluna; DataFrame = tabela.\nread_csv / read_excel / read_parquet para carregar dados.\nhead, info, describe para o primeiro diagnóstico.\nloc / iloc e boolean indexing para recortar.\ngroupby + agg para resumir.\n\nA documentação oficial tem um guia “10 minutes to pandas” que vale a leitura depois deste post."
+  },
+  {
+    "objectID": "posts/welcome/index.html",
+    "href": "posts/welcome/index.html",
+    "title": "Welcome To My Blog",
+    "section": "",
+    "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
   },
   {
     "objectID": "posts/introducao-pandas/index.html",
@@ -96,97 +222,6 @@
     "title": "Introdução ao Pandas: guia prático de análise de dados",
     "section": "Conclusão",
     "text": "Conclusão\n\nSeries é uma coluna; DataFrame é a tabela.\nread_csv, read_excel e read_parquet carregam os dados; head, info e describe dão o primeiro diagnóstico.\nloc / iloc e boolean indexing recortam linhas e colunas.\ngroupby + agg resumem os dados por categoria.\nisna, dropna e fillna cuidam dos valores ausentes.\n\nPara se aprofundar, vale ler o guia 10 minutes to pandas da documentação oficial do pandas e o livro Python for Data Analysis, de Wes McKinney, criador da biblioteca. Aqui no blog, veja também o exemplo com código executável.\n\nTópicos: #Pandas #Python #AnáliseDeDados #CiênciaDeDados #DataFrame"
-  },
-  {
-    "objectID": "posts/welcome/index.html",
-    "href": "posts/welcome/index.html",
-    "title": "Welcome To My Blog",
-    "section": "",
-    "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
-  },
-  {
-    "objectID": "posts/introducao-ao-pandas/index.html",
-    "href": "posts/introducao-ao-pandas/index.html",
-    "title": "Introdução ao Pandas",
-    "section": "",
-    "text": "O pandas é a biblioteca padrão para manipulação de dados tabulares em Python. Se você já trabalhou com planilhas, a ideia é a mesma — só que programável, reproduzível e capaz de lidar com milhões de linhas."
-  },
-  {
-    "objectID": "posts/introducao-ao-pandas/index.html#instalação",
-    "href": "posts/introducao-ao-pandas/index.html#instalação",
-    "title": "Introdução ao Pandas",
-    "section": "Instalação",
-    "text": "Instalação\npip install pandas\nE, por convenção, o import é sempre com o apelido pd:\nimport pandas as pd"
-  },
-  {
-    "objectID": "posts/introducao-ao-pandas/index.html#as-duas-estruturas-centrais",
-    "href": "posts/introducao-ao-pandas/index.html#as-duas-estruturas-centrais",
-    "title": "Introdução ao Pandas",
-    "section": "As duas estruturas centrais",
-    "text": "As duas estruturas centrais\n\nSeries — uma coluna\nUma Series é um vetor unidimensional com um índice (rótulos das linhas).\ntemperaturas = pd.Series(\n    [28.1, 30.4, 27.9, 31.2],\n    index=[\"seg\", \"ter\", \"qua\", \"qui\"],\n    name=\"temperatura\",\n)\n\ntemperaturas[\"ter\"]      # 30.4\ntemperaturas.mean()      # 29.4\ntemperaturas &gt; 30        # Series de booleanos\n\n\nDataFrame — a tabela\nUm DataFrame é um conjunto de Series que compartilham o mesmo índice: linhas e colunas, como uma planilha.\ndf = pd.DataFrame({\n    \"cidade\": [\"São Paulo\", \"Rio\", \"Curitiba\", \"Recife\"],\n    \"populacao_mi\": [12.3, 6.7, 1.9, 1.7],\n    \"regiao\": [\"Sudeste\", \"Sudeste\", \"Sul\", \"Nordeste\"],\n})"
-  },
-  {
-    "objectID": "posts/introducao-ao-pandas/index.html#lendo-dados-de-verdade",
-    "href": "posts/introducao-ao-pandas/index.html#lendo-dados-de-verdade",
-    "title": "Introdução ao Pandas",
-    "section": "Lendo dados de verdade",
-    "text": "Lendo dados de verdade\nNa prática você raramente digita os dados à mão. O pandas lê dezenas de formatos:\ndf = pd.read_csv(\"dados.csv\")\ndf = pd.read_excel(\"planilha.xlsx\", sheet_name=\"2026\")\ndf = pd.read_parquet(\"dados.parquet\")\nPrimeiro contato com qualquer tabela nova:\ndf.head()        # primeiras linhas\ndf.shape         # (linhas, colunas)\ndf.info()        # tipos e valores nulos\ndf.describe()    # estatísticas das colunas numéricas"
-  },
-  {
-    "objectID": "posts/introducao-ao-pandas/index.html#selecionando-e-filtrando",
-    "href": "posts/introducao-ao-pandas/index.html#selecionando-e-filtrando",
-    "title": "Introdução ao Pandas",
-    "section": "Selecionando e filtrando",
-    "text": "Selecionando e filtrando\ndf[\"populacao_mi\"]              # uma coluna (Series)\ndf[[\"cidade\", \"regiao\"]]        # várias colunas (DataFrame)\n\ndf.loc[0]                       # linha pelo rótulo do índice\ndf.iloc[0]                      # linha pela posição\n\n# filtro por condição (boolean indexing)\ndf[df[\"populacao_mi\"] &gt; 5]\n\n# combinando condições: use & | e parênteses\ndf[(df[\"regiao\"] == \"Sudeste\") & (df[\"populacao_mi\"] &gt; 10)]"
-  },
-  {
-    "objectID": "posts/introducao-ao-pandas/index.html#criando-colunas",
-    "href": "posts/introducao-ao-pandas/index.html#criando-colunas",
-    "title": "Introdução ao Pandas",
-    "section": "Criando colunas",
-    "text": "Criando colunas\ndf[\"populacao_abs\"] = df[\"populacao_mi\"] * 1_000_000\n\ndf[\"porte\"] = df[\"populacao_mi\"].apply(\n    lambda p: \"grande\" if p &gt;= 5 else \"médio\" if p &gt;= 2 else \"pequeno\"\n)"
-  },
-  {
-    "objectID": "posts/introducao-ao-pandas/index.html#agrupando-split-apply-combine",
-    "href": "posts/introducao-ao-pandas/index.html#agrupando-split-apply-combine",
-    "title": "Introdução ao Pandas",
-    "section": "Agrupando: split-apply-combine",
-    "text": "Agrupando: split-apply-combine\nO groupby é o coração da análise exploratória: divide os dados por uma chave, aplica uma agregação e junta o resultado.\ndf.groupby(\"regiao\")[\"populacao_mi\"].sum()\n\ndf.groupby(\"regiao\").agg(\n    n_cidades=(\"cidade\", \"count\"),\n    pop_total=(\"populacao_mi\", \"sum\"),\n    pop_media=(\"populacao_mi\", \"mean\"),\n)"
-  },
-  {
-    "objectID": "posts/introducao-ao-pandas/index.html#valores-ausentes",
-    "href": "posts/introducao-ao-pandas/index.html#valores-ausentes",
-    "title": "Introdução ao Pandas",
-    "section": "Valores ausentes",
-    "text": "Valores ausentes\ndf.isna().sum()                 # nulos por coluna\ndf.dropna(subset=[\"populacao_mi\"])\ndf[\"regiao\"].fillna(\"desconhecida\")"
-  },
-  {
-    "objectID": "posts/introducao-ao-pandas/index.html#resumo",
-    "href": "posts/introducao-ao-pandas/index.html#resumo",
-    "title": "Introdução ao Pandas",
-    "section": "Resumo",
-    "text": "Resumo\n\nSeries = coluna; DataFrame = tabela.\nread_csv / read_excel / read_parquet para carregar dados.\nhead, info, describe para o primeiro diagnóstico.\nloc / iloc e boolean indexing para recortar.\ngroupby + agg para resumir.\n\nA documentação oficial tem um guia “10 minutes to pandas” que vale a leitura depois deste post."
-  },
-  {
-    "objectID": "posts/post-with-code/index.html",
-    "href": "posts/post-with-code/index.html",
-    "title": "Post With Code",
-    "section": "",
-    "text": "This is a post with executable code."
-  },
-  {
-    "objectID": "posts/novo-post/index.html",
-    "href": "posts/novo-post/index.html",
-    "title": "Novo post",
-    "section": "",
-    "text": "Here is some lovely text and an equation.\n\\[ a^2 + b^2 = c^2 \\]\nHere’s a list.\n\na link to an external website.\na link to another post in this blog."
-  },
-  {
-    "objectID": "posts/novo-post/index.html#um-bom-cabeçalho",
-    "href": "posts/novo-post/index.html#um-bom-cabeçalho",
-    "title": "Novo post",
-    "section": "",
-    "text": "Here is some lovely text and an equation.\n\\[ a^2 + b^2 = c^2 \\]\nHere’s a list.\n\na link to an external website.\na link to another post in this blog."
   },
   {
     "objectID": "about.html",

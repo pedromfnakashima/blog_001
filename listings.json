@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/moneyball-ciencia-de-dados/index.html",
       "/posts/introducao-pandas/index.html",
       "/posts/introducao-ao-pandas/index.html",
       "/posts/post-with-code/index.html",

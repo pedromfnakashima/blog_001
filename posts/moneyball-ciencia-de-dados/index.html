@@ -1,13 +1,16 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR" xml:lang="pt-BR"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.9.38">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Pedro Nakashima">
+<meta name="keywords" content="moneyball, ciência de dados, machine learning, métodos preditivos, sabermetria, tomada de decisão baseada em dados">
+<meta name="description" content="Moneyball, com Brad Pitt, é mais que um filme de beisebol: mostra como a ciência de dados e os métodos preditivos vencem a intuição na hora de decidir.">
 
-<title>blog_001 – Pedro Nakashima</title>
+<title>Moneyball: a lição de ciência de dados por trás do filme – Pedro Nakashima</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -26,25 +29,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-0ed462561a0fff13a3aed3c1af43d342.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-0ed462561a0fff13a3aed3c1af43d342.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -59,101 +60,43 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Nenhum resultado",
+    "search-matching-documents-text": "documentos correspondentes",
+    "search-copy-link-title": "Copiar link para a busca",
+    "search-hide-matches-text": "Esconder correspondências adicionais",
+    "search-more-match-text": "mais correspondência neste documento",
+    "search-more-matches-text": "mais correspondências neste documento",
+    "search-clear-button-title": "Limpar",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Procurar"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
+<link rel="stylesheet" href="../../styles.css">
+</head>
 
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="styles.css">
-<link rel="alternate" type="application/rss+xml" title="Pedro Nakashima" href="index.xml" data-external="1"></head>
-
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Pedro Nakashima</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Procurar"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Alternar de navegação" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
@@ -176,244 +119,101 @@ window.Quarto = {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
-      <h1 class="title">blog_001</h1>
-                      </div>
+    <div class="quarto-title column-body">
+      <h1 class="title">Moneyball: a lição de ciência de dados por trás do filme</h1>
+                  <div>
+        <div class="description">
+          Moneyball, com Brad Pitt, é mais que um filme de beisebol: mostra como a ciência de dados e os métodos preditivos vencem a intuição na hora de decidir.
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">ciência de dados</div>
+                <div class="quarto-category">machine learning</div>
+                <div class="quarto-category">cinema</div>
+                <div class="quarto-category">métodos preditivos</div>
+              </div>
+                  </div>
   </div>
     
   
-  <div class="quarto-title-meta column-page-left">
+  <div class="quarto-title-meta">
 
+      <div>
+      <div class="quarto-title-meta-heading">Autor</div>
+      <div class="quarto-title-meta-contents">
+               <p>Pedro Nakashima </p>
+            </div>
+    </div>
       
+      <div>
+      <div class="quarto-title-meta-heading">Data de Publicação</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">6 de setembro de 2026</p>
+      </div>
+    </div>
     
       
     </div>
     
+
+  <div>
+    <div class="keywords">
+      <div class="block-title">Palavras-chave</div>
+      <p>moneyball, ciência de dados, machine learning, métodos preditivos, sabermetria, tomada de decisão baseada em dados</p>
+    </div>
+  </div>
   
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(6)</span></div><div class="category" data-category="YW4lQzMlQTFsaXNlJTIwZGUlMjBkYWRvcw==">análise de dados <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YW5hbHlzaXM=">analysis <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Y2klQzMlQUFuY2lhJTIwZGUlMjBkYWRvcw==">ciência de dados <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y2luZW1h">cinema <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y29kZQ==">code <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWFjaGluZSUyMGxlYXJuaW5n">machine learning <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bSVDMyVBOXRvZG9zJTIwcHJlZGl0aXZvcw==">métodos preditivos <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bmV3cw==">news <span class="quarto-category-count">(2)</span></div><div class="category" data-category="bm92aWRhZGU=">novidade <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cGFuZGFz">pandas <span class="quarto-category-count">(2)</span></div><div class="category" data-category="cHl0aG9u">python <span class="quarto-category-count">(3)</span></div></div></div>
+    
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
 
+<p><em>Publicado em 6 de setembro de 2026, às 15:57, por Pedro Nakashima</em></p>
+<p>Moneyball, o filme de 2011 dirigido por Bennett Miller com Brad Pitt no papel de Billy Beane, virou a referência pop da tomada de decisão baseada em dados. A leitura mais comum — “um time pobre venceu os ricos com estatística” — é a menos interessante. O que Moneyball de fato ilustra é uma tese de ciência de dados: quando se mede a variável certa e se confia num método preditivo em vez da intuição de especialistas, muda-se a probabilidade a favor de quem decide. Essa tese, hoje, move mesas de investimento, campanhas eleitorais, hospitais e departamentos de recursos humanos, e não apenas um time de beisebol.</p>
+<section id="o-filme-e-o-caso-real" class="level2">
+<h2 class="anchored" data-anchor-id="o-filme-e-o-caso-real">O filme e o caso real</h2>
+<p>O roteiro de Steven Zaillian e Aaron Sorkin adapta o livro de 2003 de Michael Lewis, <a href="https://en.wikipedia.org/wiki/Moneyball"><em>Moneyball: The Art of Winning an Unfair Game</em></a>. A história é a temporada de 2002 do Oakland Athletics. Com uma folha salarial de cerca de 41 milhões de dólares, uma fração da dos grandes clubes, o gerente-geral Billy Beane e seu assistente Peter Brand — versão ficcional do analista Paul DePodesta, vivido por Jonah Hill — montaram o elenco a partir de jogadores que o mercado subavaliava. O time engatou 20 vitórias seguidas, fechou a temporada em 103 vitórias e 59 derrotas e ganhou a divisão. <a href="https://en.wikipedia.org/wiki/Moneyball_(film)">O filme</a> recebeu seis indicações ao Oscar, incluindo melhor filme e melhor ator para Pitt. E perdeu na primeira rodada dos playoffs para o Minnesota Twins — um detalhe que o roteiro trata quase como nota de rodapé, mas onde mora metade da lição.</p>
+</section>
+<section id="escolher-a-variável-certa" class="level2">
+<h2 class="anchored" data-anchor-id="escolher-a-variável-certa">Escolher a variável certa</h2>
+<p>O núcleo técnico de Moneyball é um problema clássico de ciência de dados: qual métrica prevê melhor o resultado que interessa? Os olheiros tradicionais avaliavam jogadores pelo que enxergavam no campo — velocidade, defesa, média de rebatidas, às vezes até a aparência física. Beane e DePodesta partiram da sabermetria, a análise estatística do beisebol popularizada por Bill James e pela <a href="https://sabr.org/">Society for American Baseball Research</a>, e perguntaram o que de fato produz corridas e, portanto, vitórias. A resposta era a frequência com que o jogador chega à base, a <em>on-base percentage</em>. Era uma variável barata: o mercado pagava caro por home runs e por bases roubadas, e quase nada por um jogador que simplesmente não dava out. Traduzido para o vocabulário de quem trabalha com dados, o Oakland fez seleção de atributos, trocou um alvo mal definido — “talento” — por um mensurável — corridas esperadas — e explorou uma ineficiência de mercado até ela desaparecer. É a mesma lógica de um fundo quantitativo que encontra um fator de risco mal precificado antes dos concorrentes.</p>
+</section>
+<section id="de-regressão-linear-a-machine-learning" class="level2">
+<h2 class="anchored" data-anchor-id="de-regressão-linear-a-machine-learning">De regressão linear a machine learning</h2>
+<p>Convém lembrar a escala do que se fazia em 2002. As ferramentas eram planilhas e regressões sobre estatísticas de súmula, o equivalente esportivo de um modelo linear bem construído; hoje o mesmo trabalho começaria em <a href="../../posts/introducao-pandas/index.html">ferramentas como o pandas</a>. O que veio depois é que aproximou o beisebol da ciência de dados contemporânea: rastreamento óptico de jogadores e da bola, métricas “esperadas” calculadas por modelos e previsão de desempenho com aprendizado de máquina. O mesmo caminho se repetiu no basquete, no futebol e fora do esporte. O próprio DePodesta deixou o beisebol em 2016 para chefiar a estratégia do Cleveland Browns, da NFL. “Moneyball para X” virou clichê de consultoria justamente porque o método é agnóstico ao domínio: defina o objetivo, descubra o que o prevê, aja pela estimativa mesmo quando ela contraria o consenso.</p>
+</section>
+<section id="os-limites-do-método" class="level2">
+<h2 class="anchored" data-anchor-id="os-limites-do-método">Os limites do método</h2>
+<p>A parte que o filme subestima é tão instrutiva quanto o resto. Primeiro, o Oakland de 2002 não era só porcentagem de base: três dos melhores jogadores do elenco eram os arremessadores Tim Hudson, Mark Mulder e Barry Zito, um trio que colocou o time no topo da liga em defesa, e <a href="https://grantland.com/the-triangle/mlb-oakland-as-big-three-tim-hudson-barry-zito-mark-mulder-billy-beane-moneyball/">boa parte da crítica ao livro</a> aponta que a narrativa em torno da <em>on-base percentage</em> escondeu o quanto Beane era bom em achar e formar arremessadores. Segundo, os playoffs são uma amostra pequena e ruidosa: vencer 103 de 162 jogos é sinal forte; perder uma série de cinco jogos não refuta o método, é variância, e o próprio DePodesta descreveria a pós-temporada como um cara ou coroa. Terceiro, assim que a ineficiência ficou pública — e o livro a tornou pública —, ela foi arbitrada, e hoje se paga caro por <em>on-base percentage</em>. Há ainda o risco que todo modelo preditivo carrega: ele aprende os vieses dos dados com que foi treinado, e fatores como liderança, entrosamento e lesão resistem à quantificação.</p>
+<p>Nada disso invalida a ideia central. Um método preditivo não é bola de cristal: ele desloca as probabilidades, não garante o resultado, e saber distinguir as duas coisas é parte da competência de quem usa dados para decidir.</p>
+<p>É por isso que Moneyball envelheceu bem, mesmo com o beisebol tendo mudado de patamar analítico. A vantagem do Oakland nunca foi “ter dados”; foi a disciplina de definir o objetivo com clareza, medir o que o prevê, agir pela estimativa ainda que ela contrarie o consenso e permanecer honesto sobre a incerteza. Troque “corridas” por retorno de um fundo, intenção de voto, risco de readmissão hospitalar ou rotatividade de funcionários, e a receita é a mesma. O filme é sobre um time pobre de beisebol; a lição é sobre como pensar.</p>
+<hr>
+<p><strong>Tópicos:</strong> #Moneyball #CiênciaDeDados #MachineLearning #MétodosPreditivos #AnáliseEsportiva</p>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Moneyball: a lição de ciência de dados por trás do filme",
+  "description": "Moneyball, com Brad Pitt, é mais que um filme de beisebol: mostra como a ciência de dados e os métodos preditivos vencem a intuição na hora de decidir.",
+  "inLanguage": "pt-BR",
+  "datePublished": "2026-09-06T15:57:59-04:00",
+  "dateModified": "2026-09-06T15:57:59-04:00",
+  "author": { "@type": "Person", "name": "Pedro Nakashima" },
+  "mainEntityOfPage": "https://pedronakashima.com/posts/moneyball-ciencia-de-dados/",
+  "keywords": "moneyball, ciência de dados, machine learning, métodos preditivos, sabermetria, tomada de decisão baseada em dados"
+}
+</script>
 
 
+</section>
 
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="Y2klQzMlQUFuY2lhJTIwZGUlMjBkYWRvcyUyQ21hY2hpbmUlMjBsZWFybmluZyUyQ2NpbmVtYSUyQ20lQzMlQTl0b2RvcyUyMHByZWRpdGl2b3M=" data-listing-date-sort="1788724679000" data-listing-file-modified-sort="1788724757762" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="979">
-<div class="thumbnail"><a href="./posts/moneyball-ciencia-de-dados/index.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/moneyball-ciencia-de-dados/index.html" class="no-external">Moneyball: a lição de ciência de dados por trás do filme</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y2klQzMlQUFuY2lhJTIwZGUlMjBkYWRvcw=='); return false;">ciência de dados</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('bWFjaGluZSUyMGxlYXJuaW5n'); return false;">machine learning</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y2luZW1h'); return false;">cinema</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('bSVDMyVBOXRvZG9zJTIwcHJlZGl0aXZvcw=='); return false;">métodos preditivos</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/moneyball-ciencia-de-dados/index.html" class="no-external">
-<p>Moneyball, com Brad Pitt, é mais que um filme de beisebol: mostra como a ciência de dados e os métodos preditivos vencem a intuição na hora de decidir.</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/moneyball-ciencia-de-dados/index.html" class="no-external">
-<div class="listing-date">
-Sep 6, 2026
-</div>
-<div class="listing-author">
-Pedro Nakashima
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="cHl0aG9uJTJDcGFuZGFzJTJDYW4lQzMlQTFsaXNlJTIwZGUlMjBkYWRvcw==" data-listing-date-sort="1788710876000" data-listing-file-modified-sort="1788712201822" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="927">
-<div class="thumbnail"><a href="./posts/introducao-pandas/index.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/introducao-pandas/index.html" class="no-external">Introdução ao Pandas: guia prático de análise de dados</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('cHl0aG9u'); return false;">python</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('cGFuZGFz'); return false;">pandas</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YW4lQzMlQTFsaXNlJTIwZGUlMjBkYWRvcw=='); return false;">análise de dados</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/introducao-pandas/index.html" class="no-external">
-<p>Introdução ao pandas em Python: entenda Series e DataFrame, leia CSV e Excel, filtre linhas, crie colunas e agrupe dados com groupby neste guia prático.</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/introducao-pandas/index.html" class="no-external">
-<div class="listing-date">
-Sep 6, 2026
-</div>
-<div class="listing-author">
-Pedro Nakashima
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="cHl0aG9uJTJDcGFuZGFzJTJDYW5hbHlzaXM=" data-listing-date-sort="1788710756000" data-listing-file-modified-sort="1788712217429" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="472">
-<div class="thumbnail"><a href="./posts/introducao-ao-pandas/index.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/introducao-ao-pandas/index.html" class="no-external">Introdução ao Pandas</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('cHl0aG9u'); return false;">python</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('cGFuZGFz'); return false;">pandas</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">analysis</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/introducao-ao-pandas/index.html" class="no-external">
-<p>Primeiros passos com a biblioteca pandas: Series, DataFrame, leitura de dados e as operações que você usa todo dia.</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/introducao-ao-pandas/index.html" class="no-external">
-<div class="listing-date">
-Sep 6, 2026
-</div>
-<div class="listing-author">
-Pedro Nakashima
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="bmV3cyUyQ2NvZGUlMkNhbmFseXNpcw==" data-listing-date-sort="1788408000000" data-listing-file-modified-sort="1788555420536" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="7">
-<div class="thumbnail"><a href="./posts/post-with-code/index.html" class="no-external">
-
-<img loading="lazy" src="./posts/post-with-code/image.jpg" class="thumbnail-image">
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/post-with-code/index.html" class="no-external">Post With Code</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('bmV3cw=='); return false;">news</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y29kZQ=='); return false;">code</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">analysis</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/post-with-code/index.html" class="no-external">
-This is a post with executable code.
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/post-with-code/index.html" class="no-external">
-<div class="listing-date">
-Sep 3, 2026
-</div>
-<div class="listing-author">
-Harlow Malloc
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="4" data-categories="bm92aWRhZGUlMkNweXRob24lMkNhbmFseXNpcw==" data-listing-date-sort="1788408000000" data-listing-file-modified-sort="1788555420536" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="30">
-<div class="thumbnail"><a href="./posts/novo-post/index.html" class="no-external">
-
-<img loading="lazy" src="./posts/novo-post/image.jpg" class="thumbnail-image">
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/novo-post/index.html" class="no-external">Novo post</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('bm92aWRhZGU='); return false;">novidade</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('cHl0aG9u'); return false;">python</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">analysis</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/novo-post/index.html" class="no-external">
-Here is some lovely text and an equation.
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/novo-post/index.html" class="no-external">
-<div class="listing-date">
-Sep 3, 2026
-</div>
-<div class="listing-author">
-Pedro Nakashima
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="5" data-categories="bmV3cw==" data-listing-date-sort="1788148800000" data-listing-file-modified-sort="1788555420536" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="32">
-<div class="thumbnail"><a href="./posts/welcome/index.html" class="no-external">
-
-<p class="card-img-top"><img loading='lazy' src="posts/welcome/thumbnail.jpg"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/welcome/index.html" class="no-external">Welcome To My Blog</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('bmV3cw=='); return false;">news</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/welcome/index.html" class="no-external">
-This is the first post in a Quarto blog. Welcome!
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/welcome/index.html" class="no-external">
-<div class="listing-date">
-Aug 31, 2026
-</div>
-<div class="listing-author">
-Tristan O’Malley
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -439,12 +239,12 @@ Tristan O’Malley
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copiada");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copiada");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",
