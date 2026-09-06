@@ -1,0 +1,134 @@
+---
+title: "Introdução ao Pandas"
+author: "Pedro Nakashima"
+date: "2026-09-06 12:05:56"
+categories: [python, pandas, analysis]
+description: "Primeiros passos com a biblioteca pandas: Series, DataFrame, leitura de dados e as operações que você usa todo dia."
+---
+
+O **pandas** é a biblioteca padrão para manipulação de dados tabulares em Python. Se
+você já trabalhou com planilhas, a ideia é a mesma — só que programável, reproduzível
+e capaz de lidar com milhões de linhas.
+
+## Instalação
+
+```bash
+pip install pandas
+```
+
+E, por convenção, o import é sempre com o apelido `pd`:
+
+```python
+import pandas as pd
+```
+
+## As duas estruturas centrais
+
+### Series — uma coluna
+
+Uma `Series` é um vetor unidimensional com um índice (rótulos das linhas).
+
+```python
+temperaturas = pd.Series(
+    [28.1, 30.4, 27.9, 31.2],
+    index=["seg", "ter", "qua", "qui"],
+    name="temperatura",
+)
+
+temperaturas["ter"]      # 30.4
+temperaturas.mean()      # 29.4
+temperaturas > 30        # Series de booleanos
+```
+
+### DataFrame — a tabela
+
+Um `DataFrame` é um conjunto de `Series` que compartilham o mesmo índice: linhas e
+colunas, como uma planilha.
+
+```python
+df = pd.DataFrame({
+    "cidade": ["São Paulo", "Rio", "Curitiba", "Recife"],
+    "populacao_mi": [12.3, 6.7, 1.9, 1.7],
+    "regiao": ["Sudeste", "Sudeste", "Sul", "Nordeste"],
+})
+```
+
+## Lendo dados de verdade
+
+Na prática você raramente digita os dados à mão. O pandas lê dezenas de formatos:
+
+```python
+df = pd.read_csv("dados.csv")
+df = pd.read_excel("planilha.xlsx", sheet_name="2026")
+df = pd.read_parquet("dados.parquet")
+```
+
+Primeiro contato com qualquer tabela nova:
+
+```python
+df.head()        # primeiras linhas
+df.shape         # (linhas, colunas)
+df.info()        # tipos e valores nulos
+df.describe()    # estatísticas das colunas numéricas
+```
+
+## Selecionando e filtrando
+
+```python
+df["populacao_mi"]              # uma coluna (Series)
+df[["cidade", "regiao"]]        # várias colunas (DataFrame)
+
+df.loc[0]                       # linha pelo rótulo do índice
+df.iloc[0]                      # linha pela posição
+
+# filtro por condição (boolean indexing)
+df[df["populacao_mi"] > 5]
+
+# combinando condições: use & | e parênteses
+df[(df["regiao"] == "Sudeste") & (df["populacao_mi"] > 10)]
+```
+
+## Criando colunas
+
+```python
+df["populacao_abs"] = df["populacao_mi"] * 1_000_000
+
+df["porte"] = df["populacao_mi"].apply(
+    lambda p: "grande" if p >= 5 else "médio" if p >= 2 else "pequeno"
+)
+```
+
+## Agrupando: split-apply-combine
+
+O `groupby` é o coração da análise exploratória: divide os dados por uma chave,
+aplica uma agregação e junta o resultado.
+
+```python
+df.groupby("regiao")["populacao_mi"].sum()
+
+df.groupby("regiao").agg(
+    n_cidades=("cidade", "count"),
+    pop_total=("populacao_mi", "sum"),
+    pop_media=("populacao_mi", "mean"),
+)
+```
+
+## Valores ausentes
+
+```python
+df.isna().sum()                 # nulos por coluna
+df.dropna(subset=["populacao_mi"])
+df["regiao"].fillna("desconhecida")
+```
+
+## Resumo
+
+- `Series` = coluna; `DataFrame` = tabela.
+- `read_csv` / `read_excel` / `read_parquet` para carregar dados.
+- `head`, `info`, `describe` para o primeiro diagnóstico.
+- `loc` / `iloc` e boolean indexing para recortar.
+- `groupby` + `agg` para resumir.
+
+A [documentação oficial](https://pandas.pydata.org/docs/) tem um guia
+["10 minutes to pandas"](https://pandas.pydata.org/docs/user_guide/10min.html) que
+vale a leitura depois deste post.

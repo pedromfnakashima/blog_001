@@ -1,4 +1,31 @@
+# Quarto
 /.quarto/
 /_site/
-.*
+/.luarc.json
 **/*.quarto_ipynb
+**/*_files/
+# NÃO ignore /_freeze/ nem /_publish.yml — são versionados de propósito
+
+# Editores / IDEs
+.vscode/
+.idea/
+*.code-workspace
+*~
+*.swp
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Python (posts com código / scripts auxiliares)
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# Ambiente / segredos
+.env
+.env.*

@@ -1,0 +1,220 @@
+---
+title: "Introdução ao Pandas: guia prático de análise de dados"
+description: "Introdução ao pandas em Python: entenda Series e DataFrame, leia CSV e Excel, filtre linhas, crie colunas e agrupe dados com groupby neste guia prático."
+author: "Pedro Nakashima"
+date: "2026-09-06 12:07:56"
+time: "12:07:56"
+lang: "pt-BR"
+categories: [python, pandas, "análise de dados"]
+keywords: [pandas python, dataframe, series, groupby, ler csv com pandas, análise de dados]
+---
+
+*Publicado em 6 de setembro de 2026, às 12:07, por Pedro Nakashima*
+
+O **pandas** é a biblioteca padrão de Python para trabalhar com dados em formato de
+tabela. Esta introdução ao pandas cobre o essencial do dia a dia: as estruturas
+`Series` e `DataFrame`, como carregar dados de arquivos CSV e Excel, como filtrar e
+transformar linhas e colunas e como resumir informação com `groupby`. Os exemplos são
+curtos e você pode reproduzir cada um no seu próprio ambiente.
+
+## O que é o pandas?
+
+O pandas é uma biblioteca de código aberto construída sobre o NumPy que adiciona
+estruturas de dados rotuladas e ferramentas de análise ao Python. Na prática, ele faz o
+papel de uma planilha programável: você lê dados de várias fontes, limpa, combina,
+agrega e exporta — tudo em código versionável e reproduzível, e com desempenho adequado
+a milhões de linhas.
+
+## Instalação e import
+
+```bash
+pip install pandas
+```
+
+Por convenção, o import usa o apelido `pd`:
+
+```python
+import pandas as pd
+```
+
+## Series: uma coluna com índice
+
+Uma `Series` é um vetor unidimensional com um índice (os rótulos das linhas). É a peça
+básica do pandas.
+
+```python
+temperaturas = pd.Series(
+    [28.1, 30.4, 27.9, 31.2],
+    index=["seg", "ter", "qua", "qui"],
+    name="temperatura",
+)
+
+temperaturas["ter"]                # 30.4
+temperaturas.mean()                # 29.4
+temperaturas[temperaturas > 30]    # ter e qui
+```
+
+## DataFrame: a tabela
+
+Um `DataFrame` reúne várias `Series` que compartilham o mesmo índice. São linhas e
+colunas, como uma planilha ou uma tabela de banco de dados.
+
+```python
+df = pd.DataFrame({
+    "cidade": ["São Paulo", "Rio de Janeiro", "Curitiba", "Recife"],
+    "populacao_mi": [12.3, 6.7, 1.9, 1.7],
+    "regiao": ["Sudeste", "Sudeste", "Sul", "Nordeste"],
+})
+```
+
+## Lendo dados de arquivos
+
+Na prática você quase nunca digita os dados à mão. O pandas lê dezenas de formatos com
+uma linha:
+
+```python
+df = pd.read_csv("dados.csv")
+df = pd.read_excel("planilha.xlsx", sheet_name="2026")
+df = pd.read_parquet("dados.parquet")
+```
+
+Parâmetros úteis no `read_csv`: `sep` (separador de campos), `decimal`, `encoding`,
+`parse_dates` e `nrows` para carregar apenas uma amostra.
+
+Para gravar o resultado do seu trabalho, cada leitor tem um escritor correspondente:
+`df.to_csv("saida.csv", index=False)`, `df.to_excel(...)` e `df.to_parquet(...)`. O
+formato Parquet preserva os tipos das colunas e ocupa bem menos espaço que CSV.
+
+## Primeiro diagnóstico dos dados
+
+Antes de analisar, olhe a cara da tabela:
+
+```python
+df.head()       # primeiras linhas
+df.shape        # (linhas, colunas)
+df.info()       # tipo de cada coluna e contagem de nulos
+df.describe()   # estatísticas das colunas numéricas
+```
+
+Para variáveis categóricas, `df["regiao"].value_counts()` mostra a frequência de cada
+valor, e `df["regiao"].unique()` lista os valores distintos. Esse par revela erros de
+digitação e categorias inesperadas logo no começo da análise.
+
+## Selecionar e filtrar
+
+### Colunas
+
+```python
+df["populacao_mi"]           # uma coluna  -> Series
+df[["cidade", "regiao"]]     # várias colunas -> DataFrame
+```
+
+### Linhas: `loc` e `iloc`
+
+```python
+df.loc[0]       # linha pelo rótulo do índice
+df.iloc[0]      # linha pela posição
+df.loc[df["regiao"] == "Sudeste", ["cidade", "populacao_mi"]]
+```
+
+### Filtro por condição (boolean indexing)
+
+```python
+df[df["populacao_mi"] > 5]
+df[(df["regiao"] == "Sudeste") & (df["populacao_mi"] > 10)]
+```
+
+Use `&`, `|` e `~` (não `and` / `or`) e envolva cada condição em parênteses.
+
+## Criar e transformar colunas
+
+```python
+df["populacao_abs"] = df["populacao_mi"] * 1_000_000
+
+df["porte"] = pd.cut(
+    df["populacao_mi"],
+    bins=[0, 2, 5, float("inf")],
+    labels=["pequeno", "médio", "grande"],
+)
+```
+
+## Agrupar com `groupby`
+
+O `groupby` implementa o padrão *split-apply-combine*: divide as linhas por uma chave,
+aplica uma função de agregação e junta o resultado.
+
+```python
+df.groupby("regiao")["populacao_mi"].sum()
+
+df.groupby("regiao").agg(
+    n_cidades=("cidade", "count"),
+    pop_total=("populacao_mi", "sum"),
+    pop_media=("populacao_mi", "mean"),
+)
+```
+
+## Tratar valores ausentes
+
+```python
+df.isna().sum()                      # nulos por coluna
+df.dropna(subset=["populacao_mi"])   # remove linhas sem população
+df["regiao"] = df["regiao"].fillna("desconhecida")
+```
+
+## Perguntas frequentes
+
+### Qual a diferença entre Series e DataFrame?
+
+A `Series` é unidimensional (uma coluna com índice); o `DataFrame` é bidimensional
+(várias colunas com o mesmo índice). Cada coluna de um `DataFrame` é uma `Series`.
+
+### Quando usar `loc` em vez de `iloc`?
+
+Use `loc` para selecionar por rótulo (nome do índice ou da coluna) e `iloc` para
+selecionar por posição inteira. Em fatias, `loc` inclui o limite final; `iloc` não.
+
+### Como ler só uma parte de um arquivo grande?
+
+Passe `nrows` para limitar as linhas ou `usecols` para escolher colunas no `read_csv`.
+Para processar em blocos, use `chunksize`, que devolve um iterador de `DataFrame`.
+
+### Pandas ou Polars?
+
+O pandas tem o maior ecossistema e é o padrão de mercado. O Polars costuma ser mais
+rápido e econômico em memória para volumes grandes. Para aprender os conceitos de dados
+tabulares, o pandas continua sendo o melhor ponto de partida.
+
+## Conclusão
+
+- `Series` é uma coluna; `DataFrame` é a tabela.
+- `read_csv`, `read_excel` e `read_parquet` carregam os dados; `head`, `info` e
+  `describe` dão o primeiro diagnóstico.
+- `loc` / `iloc` e boolean indexing recortam linhas e colunas.
+- `groupby` + `agg` resumem os dados por categoria.
+- `isna`, `dropna` e `fillna` cuidam dos valores ausentes.
+
+Para se aprofundar, vale ler o guia
+[10 minutes to pandas](https://pandas.pydata.org/docs/user_guide/10min.html) da
+[documentação oficial do pandas](https://pandas.pydata.org/docs/) e o livro
+[Python for Data Analysis](https://wesmckinney.com/book/), de Wes McKinney, criador da
+biblioteca. Aqui no blog, veja também o
+[exemplo com código executável](/posts/post-with-code/index.qmd).
+
+---
+
+**Tópicos:** #Pandas #Python #AnáliseDeDados #CiênciaDeDados #DataFrame
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Introdução ao Pandas: guia prático de análise de dados",
+  "description": "Introdução ao pandas em Python: entenda Series e DataFrame, leia CSV e Excel, filtre linhas, crie colunas e agrupe dados com groupby neste guia prático.",
+  "inLanguage": "pt-BR",
+  "datePublished": "2026-09-06T12:07:56-04:00",
+  "dateModified": "2026-09-06T12:07:56-04:00",
+  "author": { "@type": "Person", "name": "Pedro Nakashima" },
+  "mainEntityOfPage": "https://pedronakashima.com/posts/introducao-pandas/",
+  "keywords": "pandas, python, dataframe, series, groupby, análise de dados"
+}
+</script>
