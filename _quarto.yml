@@ -2,18 +2,24 @@ project:
   type: website
   resources:
     - CNAME
+    - assets
 
 website:
-  description: "Um blog com coisas muito legais."
+  description: "Análises e guias de Pedro Nakashima sobre ciência de dados, machine learning, IA e tecnologia — e também economia, direito, política, cinema e futebol."
   site-url: https://pedronakashima.com # you must change this appropriately for RSS feeds to work properly
-  title: "Pedro Nakashima"
+  title: "Pedro Nakashima - Blog"
   navbar:
     right:
       - about.qmd
-      - icon: github
-        href: https://github.com/
-      - icon: bluesky
-        href: https://bsky.app/
+      - icon: linkedin
+        href: https://www.linkedin.com/in/pedronakashima/
+        aria-label: LinkedIn
+      - icon: twitter-x
+        href: https://x.com/PedroOnData
+        aria-label: X
+      - icon: youtube
+        href: https://www.youtube.com/@PedroOnData
+        aria-label: YouTube
 format:
   html:
     theme:

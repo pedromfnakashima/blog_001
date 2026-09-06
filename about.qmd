@@ -1,19 +1,55 @@
 ---
-title: "About"
+title: "Sobre / About"
 image: profile.jpg
 about:
-  template: jolla
+  template: trestles
+  image-shape: round
+  image-width: 12em
   links:
-    - icon: bluesky
-      text: Bluesky
-      href: https://bsky.app/
     - icon: linkedin
       text: LinkedIn
-      href: https://linkedin.com
-    - icon: github
-      text: Github
-      href: https://github.com
+      href: https://www.linkedin.com/in/pedronakashima/
+    - icon: twitter-x
+      text: X
+      href: https://x.com/PedroOnData
+    - icon: youtube
+      text: YouTube
+      href: https://www.youtube.com/@PedroOnData
+    - icon: envelope
+      text: "E-mail / Email"
+      href: mailto:pedro.nakashima.mail@gmail.com
+---
+
+Sou **Pedro Nakashima** e moro no Brasil. Economista e programador, formado em Direito,
+atuo na interseção entre **dados, economia, direito e tecnologia**: uso ciência de dados,
+estatística e econometria para transformar informação em evidência e em decisão bem
+fundamentada.
+
+Aqui escrevo sobre o que estudo e pratico: programação, ciência de dados, machine
+learning e inteligência artificial; economia, econometria, direito, legislação e
+perícia; e a leitura de política e geopolítica com esse mesmo instrumental. Também
+trato de temas que acompanho de perto — cinema, séries e futebol. A régua é sempre a
+mesma: método, fontes primárias e uma posição argumentada, sem hype.
+
+No YouTube, o canal [Pedro On Data](https://www.youtube.com/@PedroOnData) traz o mesmo
+tipo de conteúdo em vídeo. Para conversar sobre um projeto, uma análise ou uma ideia de
+pauta, me chame no [LinkedIn](https://www.linkedin.com/in/pedronakashima/) ou por
+[e-mail](mailto:pedro.nakashima.mail@gmail.com).
 
 ---
 
-About this blog
+I'm **Pedro Nakashima**, and I live in Brazil. An economist and programmer with a law
+degree, I work at the intersection of **data, economics, law and technology**: using data science,
+statistics and econometrics to turn information into evidence and well-grounded
+decisions.
+
+Here I write about what I study and practice: programming, data science, machine
+learning and artificial intelligence; economics, econometrics, law, legislation and
+forensic analysis; and reading politics and geopolitics with those same tools. I also
+cover subjects I follow closely — film, TV series and football. The standard is always
+the same: method, primary sources and a reasoned position, without hype.
+
+On YouTube, the [Pedro On Data](https://www.youtube.com/@PedroOnData) channel brings
+the same kind of content in video form. To talk about a project, an analysis or a story
+idea, reach me on [LinkedIn](https://www.linkedin.com/in/pedronakashima/) or by
+[email](mailto:pedro.nakashima.mail@gmail.com).

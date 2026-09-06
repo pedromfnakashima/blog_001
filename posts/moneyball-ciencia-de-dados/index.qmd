@@ -5,6 +5,7 @@ author: "Pedro Nakashima"
 date: "2026-09-06 15:57:59"
 time: "15:57:59"
 lang: "pt-BR"
+image: "/assets/coloque_aqui_a_imagem.jpeg"
 categories: ["ciência de dados", "machine learning", cinema, "métodos preditivos"]
 keywords: [moneyball, ciência de dados, machine learning, métodos preditivos, sabermetria, tomada de decisão baseada em dados]
 ---

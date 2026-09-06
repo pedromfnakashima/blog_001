@@ -1,0 +1,155 @@
+---
+title: "Vida dos golfinhos: como vivem, se comunicam e se organizam"
+description: "Vida dos golfinhos: como esses mamíferos marinhos respiram, dormem, o que comem, como usam assobios e ecolocalização e por que formam sociedades complexas."
+author: "Pedro Nakashima"
+date: "2026-09-06 18:27:44"
+lang: "pt-BR"
+categories: [natureza, biologia, "vida marinha", golfinhos]
+keywords: [vida dos golfinhos, golfinhos, comportamento dos golfinhos, ecolocalização, assobio-assinatura, mamíferos marinhos]
+image: "/assets/coloque_aqui_a_imagem.jpeg"
+image-alt: "Um grupo de golfinhos-nariz-de-garrafa nadando logo abaixo da superfície do mar, com um deles saltando fora d'água ao fundo."
+---
+
+*Publicado em 6 de setembro de 2026, às 18:27, por Pedro Nakashima*
+
+Entender a vida dos golfinhos é entender um mamífero que deixou a terra firme há dezenas
+de milhões de anos e resolveu, no mar, quase todos os problemas que nós resolvemos em
+terra: respirar, dormir, caçar em grupo, criar filhotes por anos e se comunicar. Este
+guia reúne o essencial sobre como os golfinhos vivem — onde habitam, quanto tempo duram,
+o que comem, como enxergam com som e como se organizam socialmente.
+
+## O que são os golfinhos?
+
+Golfinhos são cetáceos com dentes (odontocetos), a maioria da família dos delfinídeos,
+além de alguns grupos de água doce. São mamíferos: respiram ar pelos pulmões, têm sangue
+quente e amamentam os filhotes. Existem cerca de 40 espécies; a mais conhecida é o
+golfinho-nariz-de-garrafa (*Tursiops truncatus*), e a maior de todas é a orca, que
+apesar do apelido "baleia-assassina" é, tecnicamente, um golfinho.
+
+## Onde vivem e quanto tempo
+
+Há golfinhos em todos os oceanos, do Ártico aos trópicos, além de espécies de rio como
+o boto-cor-de-rosa da Amazônia e o golfinho do Ganges. A expectativa de vida varia muito
+por espécie: o golfinho-nariz-de-garrafa costuma viver até cerca de 40 anos, com fêmeas
+passando dos 60 em populações bem monitoradas, [segundo a NOAA
+Fisheries](https://www.fisheries.noaa.gov/species/common-bottlenose-dolphin); orcas
+fêmeas podem chegar aos 80 ou 90.
+
+## Como respiram e dormem
+
+A respiração do golfinho é voluntária: ele decide cada ida à superfície e expira pelo
+espiráculo no topo da cabeça. Isso cria um problema — como dormir sem parar de respirar?
+A solução é o sono uni-hemisférico: **metade do cérebro dorme enquanto a outra metade
+mantém a respiração e um olho aberto**, alternando os lados ao longo das horas.
+[Trabalhos reunidos pela Whale and Dolphin
+Conservation](https://us.whales.org/whales-dolphins/how-do-dolphins-sleep/) mostram que
+golfinhos conseguem manter vigilância por ecolocalização por até 15 dias seguidos sem
+perda de desempenho.
+
+## O que comem
+
+O cardápio é sobretudo peixe e lula, com crustáceos em algumas populações. A caça
+costuma ser cooperativa: o grupo cerca um cardume e os indivíduos se revezam avançando
+sobre ele. Há técnicas locais notáveis — golfinhos que encurralam peixes contra a lama
+formando anéis, os que perseguem presas até a praia e, na Baía Shark, na Austrália, os
+que **usam esponjas do mar como luva no focinho** para revirar o fundo sem se machucar.
+[Esse "sponging"](https://us.whales.org/2021/06/29/did-you-know-dolphins-use-tools-meet-the-shark-bay-spongers/)
+é o caso mais bem documentado de uso de ferramenta por um cetáceo selvagem e passa de
+mãe para filha.
+
+## Comunicação e ecolocalização
+
+Os golfinhos produzem dois tipos principais de som. Os **cliques** servem para
+ecolocalização: o animal emite pulsos de alta frequência e lê os ecos para saber
+tamanho, forma, distância e velocidade de um objeto ou presa, mesmo na água turva ou no
+escuro. Os **assobios** são sociais. Cada golfinho desenvolve nos primeiros meses de
+vida um **assobio-assinatura**, único, que funciona como um nome: outros indivíduos
+memorizam esse assobio e o usam para "chamar" aquele golfinho específico — [o primeiro
+caso conhecido de nomes próprios fora da espécie
+humana](https://theconversation.com/dolphins-use-signature-whistles-to-represent-other-dolphins-similarly-to-how-humans-use-names-188332).
+
+## Vida social
+
+A sociedade dos golfinhos é de fissão-fusão: os grupos (chamados de "escolas" ou pods)
+se formam, se dividem e se reagrupam ao longo do dia, tipicamente com 10 a 15 animais no
+caso do nariz-de-garrafa. Machos formam alianças de longo prazo para cortejar fêmeas; há
+contato corporal amistoso, brincadeira e comportamentos que se transmitem culturalmente
+dentro de linhagens, como o próprio uso da esponja.
+
+## Reprodução e cuidado com os filhotes
+
+A gestação dura cerca de 12 meses e quase sempre nasce um único filhote. Ele mama por um
+a três anos e permanece perto da mãe por vários anos, aprendendo rotas, técnicas de caça
+e a rede social do grupo. Esse investimento longo em poucos filhotes é típico de animais
+de vida longa e cérebro grande.
+
+## Inteligência
+
+Golfinhos têm cérebros grandes em relação ao corpo, reconhecem-se no espelho, resolvem
+problemas novos e mantêm tradições locais de forrageio. Nada disso equivale à linguagem
+humana, mas indica uma cognição social sofisticada, construída em cima da vida em grupo.
+
+## Ameaças
+
+As maiores pressões sobre a vida dos golfinhos hoje são de origem humana: captura
+acidental em redes de pesca (*bycatch*), poluição química e plástica, ruído submarino
+que interfere na ecolocalização, perda de habitat costeiro e de rio, e a captura para
+cativeiro. Vários golfinhos de rio estão ameaçados, e o baiji, do rio Yangtzé, foi
+declarado funcionalmente extinto em 2006.
+
+## Perguntas frequentes
+
+### Golfinho é peixe ou mamífero?
+
+Mamífero. Respira ar, tem sangue quente, dá à luz filhotes vivos e os amamenta. A
+semelhança com peixes é convergência evolutiva: corpo hidrodinâmico e nadadeiras para a
+mesma função, mas origem diferente.
+
+### Golfinhos dormem?
+
+Sim, mas com metade do cérebro por vez (sono uni-hemisférico), para não parar de
+respirar nem baixar a guarda contra predadores.
+
+### Golfinhos têm nome?
+
+Na prática, sim. Cada um cria um assobio-assinatura único que os outros reconhecem e
+usam para se dirigir a ele — o equivalente funcional de um nome próprio.
+
+### Quanto tempo vive um golfinho?
+
+Depende da espécie. O golfinho-nariz-de-garrafa costuma viver até cerca de 40 anos
+(fêmeas mais), e orcas fêmeas podem passar dos 80.
+
+### Golfinho selvagem é perigoso?
+
+Ataques a pessoas são raros, mas são animais grandes e selvagens. Alimentar ou tocar
+golfinhos selvagens é desaconselhado (e ilegal em vários países): muda o comportamento
+deles e aumenta o risco para os dois lados.
+
+## Conclusão
+
+- Golfinhos são mamíferos marinhos (odontocetos); a orca é o maior deles.
+- Respiração voluntária e sono uni-hemisférico são as adaptações que permitem dormir no mar.
+- Caçam em grupo e algumas populações usam ferramentas, com técnicas transmitidas culturalmente.
+- Cliques servem para ecolocalização; assobios, para a vida social, incluindo um "nome" individual.
+- A sociedade é de fissão-fusão, com laços longos e cuidado parental prolongado.
+- As ameaças relevantes são humanas: redes, poluição, ruído e cativeiro.
+
+---
+
+**Tópicos:** #Golfinhos #VidaMarinha #Cetáceos #Natureza #Biologia
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Vida dos golfinhos: como vivem, se comunicam e se organizam",
+  "description": "Vida dos golfinhos: como esses mamíferos marinhos respiram, dormem, o que comem, como usam assobios e ecolocalização e por que formam sociedades complexas.",
+  "inLanguage": "pt-BR",
+  "datePublished": "2026-09-06T18:27:44-04:00",
+  "dateModified": "2026-09-06T18:27:44-04:00",
+  "author": { "@type": "Person", "name": "Pedro Nakashima" },
+  "mainEntityOfPage": "https://pedronakashima.com/posts/vida-golfinhos/",
+  "keywords": "vida dos golfinhos, golfinhos, comportamento dos golfinhos, ecolocalização, assobio-assinatura, mamíferos marinhos"
+}
+</script>
