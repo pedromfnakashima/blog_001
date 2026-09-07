@@ -1,0 +1,52 @@
+---
+title: "Eleições brasileiras de 2026: o que está realmente em jogo"
+description: "Eleições brasileiras de 2026: por que a disputa Lula x Flávio Bolsonaro é um teste do bolsonarismo sem Bolsonaro e por que o Congresso pode pesar mais."
+author: "Pedro Nakashima"
+date: "2026-09-07 10:53:53"
+lang: "pt-BR"
+categories: [política, "eleições 2026", brasil, democracia]
+image: "/assets/imagem_padrao.jpeg"
+image-alt: "Eleitores em fila diante de uma seção eleitoral com urna eletrônica, sob uma bandeira do Brasil, em um dia de votação."
+keywords: [eleições brasileiras de 2026, eleição presidencial 2026, Lula 2026, Flávio Bolsonaro, bolsonarismo, Congresso Nacional 2026]
+---
+
+*Publicado em 7 de setembro de 2026, às 10:53, por Pedro Nakashima*
+
+As eleições brasileiras de 2026 chegam sem o rosto que dominou a política nacional na última década. Jair Bolsonaro está preso e inelegível, condenado pelo Supremo Tribunal Federal a mais de 27 anos por tentativa de golpe de Estado, e Lula, aos 80 anos, disputa a reeleição. O que se apresenta como uma escolha entre dois nomes é, no fundo, um teste de transferência: saber se o bolsonarismo funciona como marca sem Bolsonaro na cédula e se o lulismo ainda converte governo em voto. Enquanto os holofotes ficam no Planalto, boa parte do que vai moldar o país pelos próximos anos se decide nas eleições para o Congresso e para os governos estaduais, que acontecem no mesmo dia.
+
+O Partido Liberal oficializou em julho a candidatura de Flávio Bolsonaro, senador e filho do ex-presidente, com o deputado Alfredo Gaspar como vice. Foi o próprio Jair quem indicou o nome, depois que Tarcísio de Freitas, governador de São Paulo e preferido de parte da direita, sinalizou que buscaria a reeleição estadual. Do outro lado, Lula repete a chapa de 2022 com Geraldo Alckmin. [As pesquisas de setembro compiladas](https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026) — Quaest, Futura e outras — mostram Lula à frente, na casa dos 37% a 39%, com Flávio entre 29% e 34% e o escritor Augusto Cury, candidato de menor porte, em torno de 10%. Em simulações de segundo turno, Lula mantém vantagem, ainda que dentro de margens que uma campanha longa costuma corroer.
+
+## O bolsonarismo sem Bolsonaro
+
+A aposta da direita é que o eleitorado formado desde 2018 vote em quem carregar o sobrenome e o discurso, mesmo sem o líder na disputa. Não é uma aposta absurda: mesmo preso e fora das redes, Bolsonaro segue pautando os movimentos do campo, e a candidatura de Flávio nasce como um plebiscito sobre a herança política do pai. O risco, para esse lado, é duplo. Primeiro, marca política raramente se transfere inteira — parte do voto bolsonarista era adesão pessoal, difícil de herdar. Segundo, fazer da eleição um referendo sobre a "perseguição" a Bolsonaro mobiliza a base já convencida, mas tem alcance limitado entre os indecisos, que tendem a decidir por custo de vida e segurança, não por lealdade a uma figura.
+
+Do lado do governo, o desafio é o oposto: transformar entrega em entusiasmo. Lula lidera, mas com aprovação que oscila perto da linha em que uma reeleição deixa de ser tranquila. A campanha governista aposta em três frentes — a agenda social e o salário mínimo, a bandeira da soberania nacional depois do tarifaço imposto pelos Estados Unidos em 2025, e uma resposta à insegurança, ancorada na PEC da Segurança Pública. O ponto fraco é conhecido: governos em terceiro mandato acumulam desgaste, e a economia, mesmo com desemprego baixo, ainda é sentida pelo eleitor sobretudo pelo preço da comida.
+
+## A eleição debaixo da presidencial
+
+No mesmo 4 de outubro, o país renova por inteiro a Câmara dos Deputados, dois terços do Senado, todas as assembleias legislativas e escolhe 27 governadores. É aí que o resultado costuma ter efeito mais duradouro do que a troca — ou não — de faixa presidencial. Um presidente eleito sem maioria no Congresso governa por concessão, como Lula tem feito desde 2023 diante de um Legislativo que ampliou o próprio poder sobre o Orçamento. A composição do Senado que sair de 2026 vai definir, por exemplo, a margem para indicações ao Supremo nos próximos anos. E os governos estaduais grandes funcionam como plataformas para 2030: quem vencer em São Paulo, Minas Gerais e no Rio de Janeiro larga na frente da corrida presidencial seguinte.
+
+Há quem diga que nada disso importa muito, porque a polarização estaria congelada e o resultado, dado. É uma leitura preguiçosa. Três eleições seguidas mostraram viradas de dois dígitos na intenção de voto ao longo da campanha, e 2026 traz variáveis novas: um candidato de direita ainda pouco testado nacionalmente, um presidente na idade mais avançada já vista num disputante e um ambiente externo volátil, com os Estados Unidos usando tarifas e sanções como instrumento político contra o Brasil. Qualquer um desses fatores pode mover a agulha mais do que a memória de 2022 sugere.
+
+Some-se o pano de fundo institucional. O julgamento e a prisão de Bolsonaro puseram o Judiciário no centro do debate eleitoral: a direita transforma [decisões do STF](https://www.cnnbrasil.com.br/politica/como-resultado-do-julgamento-de-bolsonaro-pode-afetar-eleicoes-de-2026/) em prova de perseguição, e o campo governista as apresenta como o Estado de Direito funcionando. A discussão sobre uma eventual anistia aos condenados pelos atos de 8 de janeiro de 2023 seguirá viva no Congresso durante a campanha e será instrumentalizada pelos dois lados. É um terreno em que ganho eleitoral de curto prazo e custo institucional de longo prazo nem sempre andam juntos.
+
+O mais provável, hoje, é uma eleição presidencial decidida no segundo turno de [25 de outubro](https://www.tse.jus.br/eleicoes/eleicoes-2026), entre continuidade e alternância, com margem estreita. Mas fixar-se só nesse duelo é perder o essencial. As eleições brasileiras de 2026 vão responder três perguntas de peso: se um projeto político sobrevive à ausência de quem o fundou, se o desgaste de um governo longo pesa mais que o receio do que vem depois, e que Congresso o próximo presidente terá de negociar. As duas primeiras se resolvem em outubro. A terceira vai condicionar tudo o que for possível fazer até 2030.
+
+---
+
+**Tópicos:** #Eleições2026 #Brasil #Política #Congresso #Democracia
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Eleições brasileiras de 2026: o que está realmente em jogo",
+  "description": "Eleições brasileiras de 2026: por que a disputa Lula x Flávio Bolsonaro é um teste do bolsonarismo sem Bolsonaro e por que o Congresso pode pesar mais.",
+  "inLanguage": "pt-BR",
+  "datePublished": "2026-09-07T10:53:53-03:00",
+  "dateModified": "2026-09-07T10:53:53-03:00",
+  "author": { "@type": "Person", "name": "Pedro Nakashima" },
+  "mainEntityOfPage": "https://pedronakashima.com/posts/eleicoes-brasileiras-2026/",
+  "keywords": "eleições brasileiras de 2026, eleição presidencial 2026, Lula, Flávio Bolsonaro, bolsonarismo, Congresso Nacional"
+}
+</script>
