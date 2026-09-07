@@ -2,6 +2,8 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/eleicoes-brasileiras-2026/index.html",
+      "/posts/reproducao-tartarugas-marinhas/index.html",
       "/posts/vida-golfinhos/index.html",
       "/posts/moneyball-ciencia-de-dados/index.html",
       "/posts/introducao-pandas/index.html",
