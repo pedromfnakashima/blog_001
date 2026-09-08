@@ -1,0 +1,225 @@
+---
+title: "The Price Table in Python: Calculating Loan Instalments"
+description: "The Price Table in Python: the instalment formula, the full amortization schedule in pandas, and the three mistakes that make the numbers close wrong."
+author: "Pedro Nakashima"
+date: "2026-09-08 12:59:50"
+lang: "en-US"
+categories: [python, "financial mathematics", "price table", amortization]
+image: "/assets/imagem_padrao.jpeg"
+image-alt: "Laptop screen showing a loan amortization spreadsheet with columns for instalment, interest, and outstanding balance."
+keywords: [price table python, loan amortization schedule, instalment calculation, french amortization system, price table vs sac, pmt in python]
+---
+
+*Published on September 8, 2026 at 12:59 PM by Pedro Nakashima*
+
+The Price Table is the amortization system in which every instalment of a loan has the same nominal value, and implementing it in Python takes three lines. The instalment formula is the easy part, and it is the only part most tutorials show. What separates a correct implementation from one that is off by a few cents — or by hundreds of dollars — is what comes after: the rate's time unit, the numeric type, and the residual on the final instalment. This guide covers both sides: the formula with the reasoning behind it, the full amortization schedule, the comparison against the constant-amortization method, and the three mistakes that make the numbers close wrong.
+
+## What the Price Table is
+
+The Price Table, known internationally as the French amortization system, is the payment plan in which the nominal value of the instalment stays constant from the first month to the last. What changes each period is the instalment's internal composition: the interest slice shrinks and the principal slice grows, because interest is always charged on a smaller outstanding balance. It is the method behind most car loans, personal loans, and instalment credit in Brazil, and it is the same constant-payment mechanic used for fixed-rate mortgages and consumer loans elsewhere.
+
+The contrast is with the constant-amortization method (SAC, in Brazil), in which the principal slice is fixed and the instalment itself declines month over month. Both schedules pay off the same debt; they distribute the payment differently over time, and that difference has real consequences for cash flow and total cost.
+
+## The instalment formula
+
+The instalment value comes from the capital recovery factor:
+
+$$
+PMT = PV \cdot \frac{i\,(1+i)^{n}}{(1+i)^{n} - 1}
+$$
+
+Where `PMT` is the instalment, `PV` the amount financed, `i` the rate per period, and `n` the number of periods. An algebraically identical form, more numerically stable when `n` is large, avoids raising `(1+i)` to a large positive exponent:
+
+$$
+PMT = \frac{PV \cdot i}{1 - (1+i)^{-n}}
+$$
+
+**The rate and the term have to share the same time unit.** A monthly rate requires the term in months. It sounds obvious, and it accounts for a large share of the implementation errors covered further down.
+
+It is worth noting where the formula comes from, because that makes the rest of the article predictable: the instalment is the value that makes the present value of all `n` payments, discounted at rate `i`, exactly equal to the amount financed. Amortizing is, by definition, paying off the present value of the debt.
+
+## Calculating the instalment in Python
+
+No dependency required beyond the standard library:
+
+```python
+def pmt(pv: float, i: float, n: int) -> float:
+    """Fixed instalment of the Price Table. `i` and `n` in the same unit."""
+    if i == 0:
+        return pv / n
+    return pv * i / (1 - (1 + i) ** -n)
+```
+
+The `i == 0` guard is not paranoia: without it the formula divides by zero, and zero-interest loans exist — retail promotions, internal advances, scenario simulations. Without the guard, the function breaks on the simplest case.
+
+For a $100,000 loan at 1% per month over 120 months:
+
+```python
+pmt(100_000, 0.01, 120)
+# 1434.709484025873
+```
+
+The instalment is **$1,434.71**. Over the 120 months, the borrower pays $172,165.14 in total, of which $72,165.14 is interest: 72% of the amount financed, purely for the term.
+
+Anyone who would rather not write the function can reach for `numpy-financial`, a separate package since these functions left NumPy in version 1.20. The [`npf.pmt` documentation](https://numpy.org/numpy-financial/latest/pmt.html) explains the sign convention: it returns a negative value for a payment, following spreadsheet tradition.
+
+```python
+import numpy_financial as npf
+
+-npf.pmt(rate=0.01, nper=120, pv=100_000)
+# 1434.709484025873
+```
+
+To check a result against an independent source, the Brazilian central bank's [Calculadora do Cidadão](https://www3.bcb.gov.br/CALCIDADAO/publico/index.jsp) has a fixed-instalment financing module and uses the same convention.
+
+## The full amortization schedule
+
+The instalment alone answers little. What matters for an audit, a contract review, or any early-payoff decision is the line-by-line schedule: how much of each instalment is interest, how much reduces the debt, and how much is still owed.
+
+The rule for each period is short. Interest for the month is charged on the previous month's outstanding balance, and whatever is left of the instalment amortizes it:
+
+$$
+J_k = i \cdot OB_{k-1} \qquad A_k = PMT - J_k \qquad OB_k = OB_{k-1} - A_k
+$$
+
+In Python, as a generator, already rounding to whole cents:
+
+```python
+def schedule(pv, i, n):
+    """Yield the amortization schedule, line by line, rounded to cents."""
+    p = round(pmt(pv, i, n), 2)
+    balance = pv
+    for k in range(1, n + 1):
+        interest = round(balance * i, 2)
+        principal = round(p - interest, 2) if k < n else balance
+        balance = round(balance - principal, 2)
+        yield k, round(interest + principal, 2), interest, round(principal, 2), balance
+```
+
+The line `principal = ... if k < n else balance` is the point most tutorials skip, and the third mistake on the list below. On the last instalment, the principal portion is not `PMT - interest`: it is whatever is left of the balance, whatever that amount turns out to be. That is what makes the debt close to exactly zero.
+
+Feeding it into a `DataFrame`:
+
+```python
+import pandas as pd
+
+cols = ["k", "instalment", "interest", "principal", "balance"]
+df = pd.DataFrame(schedule(100_000, 0.01, 120), columns=cols)
+```
+
+The first and last rows show the movement that defines the Price Table:
+
+| k | instalment | interest | principal | balance |
+|---|---|---|---|---|
+| 1 | 1,434.71 | 1,000.00 | 434.71 | 99,565.29 |
+| 2 | 1,434.71 | 995.65 | 439.06 | 99,126.23 |
+| 3 | 1,434.71 | 991.26 | 443.45 | 98,682.78 |
+| … | … | … | … | … |
+| 119 | 1,434.71 | 28.27 | 1,406.44 | 1,420.37 |
+| 120 | 1,434.57 | 14.20 | 1,420.37 | 0.00 |
+
+On the first instalment, $1,000.00 of the $1,434.71 is interest: **70% of what is paid in the first month does not reduce the debt at all**. On the last one, interest drops to $14.20. The principal portion grows 3.27 times from start to finish, and it grows at the exact rate of `(1 + i)` per period — the geometric progression is what gives the Price Table its characteristic shape.
+
+There is a direct practical consequence: **the outstanding balance is not the sum of the remaining instalments**, it is their present value. Confusing the two is the most common mistake in early payoff calculations, and the difference is large early in the loan.
+
+$$
+OB_k = PMT \cdot \frac{1 - (1+i)^{-(n-k)}}{i}
+$$
+
+## Price Table or constant amortization: what the choice costs
+
+With the same amount, the same rate, and the same term, the two systems produce very different numbers:
+
+| | Price Table | Constant amortization |
+|---|---|---|
+| 1st instalment | $1,434.71 | $1,833.33 |
+| Last instalment | $1,434.57 | $841.67 |
+| Total interest | $72,165.14 | $60,500.00 |
+
+The Price Table pays **$11,665.14 more in interest**, or 19.3% more than the constant-amortization method. The reason is straightforward and has nothing irregular about it: under constant amortization the principal is returned faster, so the balance that accrues interest shrinks sooner. Interest is the price of money for the time it stays with the borrower.
+
+In exchange, the Price Table's first instalment is $398.62 lower — 21.7% below the constant-amortization method's first payment. For anyone with income constraints at the time of borrowing, or anyone who needs to demonstrate repayment capacity, that difference is what makes the loan viable at all. Neither system is better in the abstract: one costs less today, the other costs less overall, and they are almost never the same choice.
+
+## Three mistakes that make the numbers close wrong
+
+### 1. Mixing up nominal and effective rates
+
+By far the most expensive mistake. A loan advertised as "12% per year" can mean two different things, and the conversion to a monthly rate changes depending on which one applies:
+
+```python
+nominal = 0.12
+i_linear     = nominal / 12                   # 1.0000% monthly
+i_compounded = (1 + nominal) ** (1 / 12) - 1  # 0.9489% monthly
+```
+
+A **nominal** rate of 12% per year with monthly compounding is equivalent to 1% per month, which works out to an **effective** annual rate of 12.6825% — not 12%. An effective rate of 12% per year, on the other hand, corresponds to 0.9489% per month. These are distinct quantities carrying the same label.
+
+In this loan, the gap between the two readings is $35.24 per month, or **$4,228.53 over the life of the loan**. Before calculating any instalment, it is essential to know which of the two the contract actually specifies.
+
+### 2. Using `float` where the contract demands whole cents
+
+`float` is binary and cannot represent $0.10 exactly. In a single instalment that is invisible; across 120 iterations that feed back into the balance, the error accumulates. Summing the schedule with rounding applied at every cent, the total paid comes out to $172,165.06 — eight cents below the $172,165.14 that comes from the continuous, floating-point calculation.
+
+Eight cents will not ruin anyone, but that is not the point: **there are two defensible numbers, and they do not match**. In a formal audit, a contract reconciliation, or a system that has to match a bank statement, the rounding rule has to be stated explicitly and applied consistently across the whole series. For those cases, `decimal.Decimal` with `ROUND_HALF_UP` reproduces the commercial rounding that banking systems typically use, instead of Python's own banker's rounding to even.
+
+### 3. Forgetting that the last instalment is different
+
+Because the instalment is rounded to cents, the sum of the principal portions does not close the loan exactly. In this example, the last instalment comes out to $1,434.57, not $1,434.71 — fourteen cents lower. An implementation that applies `PMT - interest` on the final period too ends up with a residual outstanding balance — positive or negative — instead of zero.
+
+An amortization schedule that does not close at zero is wrong, and the check is one line:
+
+```python
+assert df["balance"].iloc[-1] == 0
+assert round(df["principal"].sum(), 2) == 100_000
+```
+
+## Is the Price Table a form of compound-interest abuse?
+
+It is a question that comes up often in Brazilian consumer litigation, and it has been settled for over a decade. In **Tema 572** (a binding precedent, REsp 1.124.552/RS), the STJ (Brazil's Superior Court of Justice) ruled that the question is one of **fact, not law**: adopting the Price Table does not, by itself, imply improper compounding, and demonstrating unlawful capitalization requires case-specific evidence, established through expert examination. The precedent can be reviewed at the [Tema 572 record](https://tesesesumulas.com.br/tese/stj/572).
+
+Add to that Súmula 539, which allows capitalization at intervals shorter than a year in contracts with institutions under Brazil's National Financial System signed on or after March 31, 2000, provided it is expressly agreed upon. In practice, the useful discussion stopped being "is the Price Table illegal" and became "what did this specific contract agree to, and what did the lender actually charge" — which is exactly the calculation the code above makes it possible to redo.
+
+## FAQ
+
+### Is the Price Table the same thing as compound interest?
+
+The Price Table is a payment plan, not an interest regime. It is built on compound interest, because it discounts the instalments to present value, but that does not imply charging interest on interest that is already due and unpaid. That distinction is exactly what Brazil's Tema 572 requires courts to examine case by case.
+
+### How do I calculate the outstanding balance for an early payoff?
+
+Use the present value of the remaining instalments, with the `OB_k` formula above, not their nominal sum. In this example, by instalment 60 the gap between the two figures exceeds $20,000.
+
+### Do I need numpy-financial for this?
+
+No. The four-line `pmt` function is enough, and writing it yourself is what lets you audit the calculation. `numpy-financial` pays off once you are already working with arrays and want the rest of the family (`ipmt`, `ppmt`, `nper`, `irr`).
+
+### Why doesn't my instalment match the bank's?
+
+In this order: check whether the rate is nominal or effective; check for insurance, fees, or taxes bundled into the financed amount; and check the rounding convention. The third case usually explains a few-cent gap, and the first two usually explain a gap measured in whole dollars.
+
+## Conclusion
+
+- The Price Table keeps the instalment constant and lets the principal portion grow at the rate of `(1 + i)` per period; the instalment formula fits in one line of Python.
+- The full schedule is what matters in practice: in the $100,000-at-1%-monthly example, 70% of the first instalment is interest, and the outstanding balance is the present value of the remaining instalments, never their sum.
+- Against constant amortization, the Price Table costs 19.3% more in total interest but delivers a first instalment 21.7% lower. The choice is about cash flow, not legality.
+- The three mistakes that make the numbers close wrong are a nominal rate treated as effective, `float` where the contract needs whole cents, and the final instalment calculated like all the others.
+- In Brazilian courts, Tema 572 turned the compounding debate into a matter of expert evidence, which makes the ability to rebuild the amortization schedule a practical skill, not a theoretical one.
+
+---
+
+**Topics:** #PriceTable #FinancialMathematics #Python #Amortization #LoanCalculation
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "The Price Table in Python: Calculating Loan Instalments",
+  "description": "The Price Table in Python: the instalment formula, the full amortization schedule in pandas, and the three mistakes that make the numbers close wrong.",
+  "inLanguage": "en-US",
+  "datePublished": "2026-09-08T12:59:50-03:00",
+  "dateModified": "2026-09-08T12:59:50-03:00",
+  "author": { "@type": "Person", "name": "Pedro Nakashima" },
+  "mainEntityOfPage": "https://pedronakashima.com/posts/price-table-python/",
+  "keywords": "python, financial mathematics, price table, amortization, french amortization system, price table vs constant amortization"
+}
+</script>
