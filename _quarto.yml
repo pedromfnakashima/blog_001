@@ -11,6 +11,9 @@ website:
   navbar:
     right:
       - about.qmd
+      - icon: globe
+        href: https://pedroondata.com
+        aria-label: Site pessoal / Personal website
       - icon: linkedin
         href: https://www.linkedin.com/in/pedronakashima/
         aria-label: LinkedIn
@@ -20,6 +23,9 @@ website:
       - icon: youtube
         href: https://www.youtube.com/@PedroOnData
         aria-label: YouTube
+      - icon: instagram
+        href: https://www.instagram.com/pedroondata/
+        aria-label: Instagram
 format:
   html:
     theme:

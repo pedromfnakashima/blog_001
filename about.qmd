@@ -6,6 +6,9 @@ about:
   image-shape: round
   image-width: 12em
   links:
+    - icon: globe
+      text: "Site pessoal / Personal website"
+      href: https://pedroondata.com
     - icon: linkedin
       text: LinkedIn
       href: https://www.linkedin.com/in/pedronakashima/
@@ -15,6 +18,9 @@ about:
     - icon: youtube
       text: YouTube
       href: https://www.youtube.com/@PedroOnData
+    - icon: instagram
+      text: Instagram
+      href: https://www.instagram.com/pedroondata/
     - icon: envelope
       text: "E-mail / Email"
       href: mailto:pedro.nakashima.mail@gmail.com
@@ -32,9 +38,11 @@ trato de temas que acompanho de perto — cinema, séries e futebol. A régua é
 mesma: método, fontes primárias e uma posição argumentada, sem hype.
 
 No YouTube, o canal [Pedro On Data](https://www.youtube.com/@PedroOnData) traz o mesmo
-tipo de conteúdo em vídeo. Para conversar sobre um projeto, uma análise ou uma ideia de
-pauta, me chame no [LinkedIn](https://www.linkedin.com/in/pedronakashima/) ou por
-[e-mail](mailto:pedro.nakashima.mail@gmail.com).
+tipo de conteúdo em vídeo, e no [Instagram](https://www.instagram.com/pedroondata/)
+publico recortes mais curtos. Tenho ainda outro site pessoal em
+[pedroondata.com](https://pedroondata.com). Para conversar sobre um projeto, uma análise
+ou uma ideia de pauta, me chame no [LinkedIn](https://www.linkedin.com/in/pedronakashima/)
+ou por [e-mail](mailto:pedro.nakashima.mail@gmail.com).
 
 ---
 
@@ -50,6 +58,9 @@ cover subjects I follow closely — film, TV series and football. The standard i
 the same: method, primary sources and a reasoned position, without hype.
 
 On YouTube, the [Pedro On Data](https://www.youtube.com/@PedroOnData) channel brings
-the same kind of content in video form. To talk about a project, an analysis or a story
-idea, reach me on [LinkedIn](https://www.linkedin.com/in/pedronakashima/) or by
+the same kind of content in video form, and on
+[Instagram](https://www.instagram.com/pedroondata/) I post shorter clips. I also keep
+another personal site at [pedroondata.com](https://pedroondata.com). To talk about a
+project, an analysis or a story idea, reach me on
+[LinkedIn](https://www.linkedin.com/in/pedronakashima/) or by
 [email](mailto:pedro.nakashima.mail@gmail.com).

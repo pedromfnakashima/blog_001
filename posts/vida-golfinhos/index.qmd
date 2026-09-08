@@ -6,7 +6,7 @@ date: "2026-09-06 18:27:44"
 lang: "pt-BR"
 categories: [natureza, biologia, "vida marinha", golfinhos]
 keywords: [vida dos golfinhos, golfinhos, comportamento dos golfinhos, ecolocalização, assobio-assinatura, mamíferos marinhos]
-image: "/assets/coloque_aqui_a_imagem.jpeg"
+image: "/assets/imagem_padrao.jpeg"
 image-alt: "Um grupo de golfinhos-nariz-de-garrafa nadando logo abaixo da superfície do mar, com um deles saltando fora d'água ao fundo."
 ---
 
