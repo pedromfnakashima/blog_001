@@ -9,7 +9,7 @@
 <link>https://pedronakashima.com/</link>
 <atom:link href="https://pedronakashima.com/index.xml" rel="self" type="application/rss+xml"/>
 <description>Análises e guias de Pedro Nakashima sobre ciência de dados, machine learning, IA e tecnologia — e também economia, direito, política, cinema e futebol.</description>
-<generator>quarto-1.9.38</generator>
+<generator>quarto-1.10.18</generator>
 <lastBuildDate>Mon, 07 Sep 2026 14:53:53 GMT</lastBuildDate>
 <item>
   <title>Eleições brasileiras de 2026: o que está realmente em jogo</title>
@@ -357,7 +357,7 @@
   <category>golfinhos</category>
   <guid>https://pedronakashima.com/posts/vida-golfinhos/</guid>
   <pubDate>Sun, 06 Sep 2026 22:27:44 GMT</pubDate>
-  <media:content url="https://pedronakashima.com/assets/coloque_aqui_a_imagem.jpeg" medium="image" type="image/jpeg"/>
+  <media:content url="https://pedronakashima.com/assets/imagem_padrao.jpeg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Moneyball: a lição de ciência de dados por trás do filme</title>
@@ -415,7 +415,7 @@
   <category>métodos preditivos</category>
   <guid>https://pedronakashima.com/posts/moneyball-ciencia-de-dados/</guid>
   <pubDate>Sun, 06 Sep 2026 19:57:59 GMT</pubDate>
-  <media:content url="https://pedronakashima.com/assets/coloque_aqui_a_imagem.jpeg" medium="image" type="image/jpeg"/>
+  <media:content url="https://pedronakashima.com/assets/imagem_padrao.jpeg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Introdução ao Pandas: guia prático de análise de dados</title>
@@ -1148,28 +1148,6 @@ font-style: inherit;">"desconhecida"</span>)</span></code></pre></div></div>
   <pubDate>Sun, 06 Sep 2026 16:05:56 GMT</pubDate>
 </item>
 <item>
-  <title>Post With Code</title>
-  <dc:creator>Harlow Malloc</dc:creator>
-  <link>https://pedronakashima.com/posts/post-with-code/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<p>This is a post with executable code.</p>
-
-
-
- ]]></description>
-  <category>news</category>
-  <category>code</category>
-  <category>analysis</category>
-  <guid>https://pedronakashima.com/posts/post-with-code/</guid>
-  <pubDate>Thu, 03 Sep 2026 04:00:00 GMT</pubDate>
-  <media:content url="https://pedronakashima.com/posts/post-with-code/image.jpg" medium="image" type="image/jpeg"/>
-</item>
-<item>
   <title>Novo post</title>
   <dc:creator>Pedro Nakashima</dc:creator>
   <link>https://pedronakashima.com/posts/novo-post/</link>
@@ -1199,6 +1177,28 @@ font-style: inherit;">"desconhecida"</span>)</span></code></pre></div></div>
   <guid>https://pedronakashima.com/posts/novo-post/</guid>
   <pubDate>Thu, 03 Sep 2026 04:00:00 GMT</pubDate>
   <media:content url="https://pedronakashima.com/posts/novo-post/image.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>Post With Code</title>
+  <dc:creator>Harlow Malloc</dc:creator>
+  <link>https://pedronakashima.com/posts/post-with-code/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>This is a post with executable code.</p>
+
+
+
+ ]]></description>
+  <category>news</category>
+  <category>code</category>
+  <category>analysis</category>
+  <guid>https://pedronakashima.com/posts/post-with-code/</guid>
+  <pubDate>Thu, 03 Sep 2026 04:00:00 GMT</pubDate>
+  <media:content url="https://pedronakashima.com/posts/post-with-code/image.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Welcome To My Blog</title>

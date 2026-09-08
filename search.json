@@ -1,45 +1,73 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Análises e guias sobre Dados, Tecnologia, Economia e Direito",
+    "objectID": "posts/welcome/index.html",
+    "href": "posts/welcome/index.html",
+    "title": "Welcome To My Blog",
     "section": "",
-    "text": "Eleições brasileiras de 2026: o que está realmente em jogo\n\n\n\npolítica\n\neleições 2026\n\nbrasil\n\ndemocracia\n\n\n\nEleições brasileiras de 2026: por que a disputa Lula x Flávio Bolsonaro é um teste do bolsonarismo sem Bolsonaro e por que o Congresso pode pesar mais.\n\n\n\n\n\nSep 7, 2026\n\n5 min\n\n\n\n\n\n\n\n\n\n\n\nReprodução das tartarugas marinhas: as 7 espécies comparadas\n\n\n\nnatureza\n\nbiologia\n\nvida marinha\n\ntartarugas marinhas\n\n\n\nReprodução das tartarugas marinhas: como as sete espécies diferem em época de desova, tamanho de ninhada, intervalo entre temporadas e praias de nidificação.\n\n\n\n\n\nSep 7, 2026\n\n7 min\n\n\n\n\n\n\n\n\n\n\n\nVida dos golfinhos: como vivem, se comunicam e se organizam\n\n\n\nnatureza\n\nbiologia\n\nvida marinha\n\ngolfinhos\n\n\n\nVida dos golfinhos: como esses mamíferos marinhos respiram, dormem, o que comem, como usam assobios e ecolocalização e por que formam sociedades complexas.\n\n\n\n\n\nSep 6, 2026\n\n5 min\n\n\n\n\n\n\n\n\n\n\n\nMoneyball: a lição de ciência de dados por trás do filme\n\n\n\nciência de dados\n\nmachine learning\n\ncinema\n\nmétodos preditivos\n\n\n\nMoneyball, com Brad Pitt, é mais que um filme de beisebol: mostra como a ciência de dados e os métodos preditivos vencem a intuição na hora de decidir.\n\n\n\n\n\nSep 6, 2026\n\n5 min\n\n\n\n\n\n\n\n\n\n\n\nIntrodução ao Pandas: guia prático de análise de dados\n\n\n\npython\n\npandas\n\nanálise de dados\n\n\n\nIntrodução ao pandas em Python: entenda Series e DataFrame, leia CSV e Excel, filtre linhas, crie colunas e agrupe dados com groupby neste guia prático.\n\n\n\n\n\nSep 6, 2026\n\n5 min\n\n\n\n\n\n\n\n\n\n\n\nIntrodução ao Pandas\n\n\n\npython\n\npandas\n\nanalysis\n\n\n\nPrimeiros passos com a biblioteca pandas: Series, DataFrame, leitura de dados e as operações que você usa todo dia.\n\n\n\n\n\nSep 6, 2026\n\n3 min\n\n\n\n\n\n\n\n\n\n\n\nPost With Code\n\n\n\nnews\n\ncode\n\nanalysis\n\n\n\n\n\n\n\n\n\nSep 3, 2026\n\n1 min\n\n\n\n\n\n\n\n\n\n\n\nNovo post\n\n\n\nnovidade\n\npython\n\nanalysis\n\n\n\n\n\n\n\n\n\nSep 3, 2026\n\n1 min\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nAug 31, 2026\n\n1 min\n\n\n\n\nNo matching items"
+    "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
   },
   {
-    "objectID": "posts/moneyball-ciencia-de-dados/index.html",
-    "href": "posts/moneyball-ciencia-de-dados/index.html",
-    "title": "Moneyball: a lição de ciência de dados por trás do filme",
+    "objectID": "posts/reproducao-tartarugas-marinhas/index.html",
+    "href": "posts/reproducao-tartarugas-marinhas/index.html",
+    "title": "Reprodução das tartarugas marinhas: as 7 espécies comparadas",
     "section": "",
-    "text": "Publicado em 6 de setembro de 2026, às 15:57, por Pedro Nakashima\nMoneyball, o filme de 2011 dirigido por Bennett Miller com Brad Pitt no papel de Billy Beane, virou a referência pop da tomada de decisão baseada em dados. A leitura mais comum — “um time pobre venceu os ricos com estatística” — é a menos interessante. O que Moneyball de fato ilustra é uma tese de ciência de dados: quando se mede a variável certa e se confia num método preditivo em vez da intuição de especialistas, muda-se a probabilidade a favor de quem decide. Essa tese, hoje, move mesas de investimento, campanhas eleitorais, hospitais e departamentos de recursos humanos, e não apenas um time de beisebol."
+    "text": "Publicado em 7 de setembro de 2026, às 10:32, por Pedro Nakashima\nA reprodução das tartarugas marinhas segue o mesmo roteiro em todas as espécies — acasalamento na água, fêmea que sobe à praia, ninho cavado na areia, incubação sem cuidado parental e filhotes que correm sozinhos para o mar —, mas os números por trás desse roteiro variam muito. Uma tartaruga-de-couro põe mais de 500 ovos numa temporada e some por três anos; uma tartaruga-australiana põe cerca de 50 e nunca sai da plataforma continental. Este guia compara como se reproduzem as sete espécies de tartaruga marinha: quando desovam, quantos ovos botam, de quanto em quanto tempo voltam e onde fazem ninho."
   },
   {
-    "objectID": "posts/moneyball-ciencia-de-dados/index.html#o-filme-e-o-caso-real",
-    "href": "posts/moneyball-ciencia-de-dados/index.html#o-filme-e-o-caso-real",
-    "title": "Moneyball: a lição de ciência de dados por trás do filme",
-    "section": "O filme e o caso real",
-    "text": "O filme e o caso real\nO roteiro de Steven Zaillian e Aaron Sorkin adapta o livro de 2003 de Michael Lewis, Moneyball: The Art of Winning an Unfair Game. A história é a temporada de 2002 do Oakland Athletics. Com uma folha salarial de cerca de 41 milhões de dólares, uma fração da dos grandes clubes, o gerente-geral Billy Beane e seu assistente Peter Brand — versão ficcional do analista Paul DePodesta, vivido por Jonah Hill — montaram o elenco a partir de jogadores que o mercado subavaliava. O time engatou 20 vitórias seguidas, fechou a temporada em 103 vitórias e 59 derrotas e ganhou a divisão. O filme recebeu seis indicações ao Oscar, incluindo melhor filme e melhor ator para Pitt. E perdeu na primeira rodada dos playoffs para o Minnesota Twins — um detalhe que o roteiro trata quase como nota de rodapé, mas onde mora metade da lição."
+    "objectID": "posts/reproducao-tartarugas-marinhas/index.html#o-que-é-igual-nas-sete-espécies",
+    "href": "posts/reproducao-tartarugas-marinhas/index.html#o-que-é-igual-nas-sete-espécies",
+    "title": "Reprodução das tartarugas marinhas: as 7 espécies comparadas",
+    "section": "O que é igual nas sete espécies",
+    "text": "O que é igual nas sete espécies\nAntes das diferenças, vale fixar o que não muda. Todas têm determinação sexual pela temperatura: não há cromossomo sexual, e a proporção de machos e fêmeas do ninho é definida pelo calor da areia durante o terço médio da incubação, com ponto de equilíbrio perto de 29 °C. Todas praticam filopatria natal — as fêmeas voltam para desovar na praia onde nasceram, ou muito perto dela. Todas desovam de noite, com a exceção das arribadas diurnas das tartarugas-oliva e de-Kemp. E em nenhuma há qualquer cuidado com ovos ou filhotes: a fêmea cobre o ninho, disfarça o local e volta ao mar.\nE em nenhuma há cuidado com ovos ou filhotes: ao contrário de mamíferos marinhos de vida longa como os golfinhos, que investem anos em cada cria, a tartaruga aposta tudo no número — muitos ovos, nenhuma proteção. A partir daí, cada espécie tem o seu calendário e a sua aritmética."
   },
   {
-    "objectID": "posts/moneyball-ciencia-de-dados/index.html#escolher-a-variável-certa",
-    "href": "posts/moneyball-ciencia-de-dados/index.html#escolher-a-variável-certa",
-    "title": "Moneyball: a lição de ciência de dados por trás do filme",
-    "section": "Escolher a variável certa",
-    "text": "Escolher a variável certa\nO núcleo técnico de Moneyball é um problema clássico de ciência de dados: qual métrica prevê melhor o resultado que interessa? Os olheiros tradicionais avaliavam jogadores pelo que enxergavam no campo — velocidade, defesa, média de rebatidas, às vezes até a aparência física. Beane e DePodesta partiram da sabermetria, a análise estatística do beisebol popularizada por Bill James e pela Society for American Baseball Research, e perguntaram o que de fato produz corridas e, portanto, vitórias. A resposta era a frequência com que o jogador chega à base, a on-base percentage. Era uma variável barata: o mercado pagava caro por home runs e por bases roubadas, e quase nada por um jogador que simplesmente não dava out. Traduzido para o vocabulário de quem trabalha com dados, o Oakland fez seleção de atributos, trocou um alvo mal definido — “talento” — por um mensurável — corridas esperadas — e explorou uma ineficiência de mercado até ela desaparecer. É a mesma lógica de um fundo quantitativo que encontra um fator de risco mal precificado antes dos concorrentes."
+    "objectID": "posts/reproducao-tartarugas-marinhas/index.html#espécie-por-espécie",
+    "href": "posts/reproducao-tartarugas-marinhas/index.html#espécie-por-espécie",
+    "title": "Reprodução das tartarugas marinhas: as 7 espécies comparadas",
+    "section": "Espécie por espécie",
+    "text": "Espécie por espécie\n\nTartaruga-cabeçuda (Caretta caretta)\nAmadurece por volta dos 20 a 30 anos. Cada fêmea faz de 3 a 5 ninhos por temporada, com cerca de 100 a 125 ovos por ninho, e só volta a se reproduzir a cada 2 ou 3 anos. A incubação dura de 50 a 60 dias. Nidifica sozinha, em praias temperadas e subtropicais — é a espécie que mais desova no Brasil, sobretudo na Bahia, no Espírito Santo, em Sergipe e no norte do Rio de Janeiro.\n\n\nTartaruga-verde (Chelonia mydas)\nÉ a que amadurece mais tarde: 25 a 35 anos, às vezes mais. Põe de 3 a 5 ninhos por temporada, com cerca de 110 a 115 ovos cada, e tem o maior intervalo entre temporadas — de 2 a 5 anos. Faz as migrações reprodutivas mais longas: populações que se alimentam no litoral brasileiro cruzam cerca de 2.000 km até a Ilha de Ascensão para desovar. No Brasil, a desova concentra-se na Ilha da Trindade; ao longo da costa, a espécie aparece sobretudo se alimentando.\n\n\nTartaruga-de-pente (Eretmochelys imbricata)\nAmadurece entre 20 e 35 anos. Tem uma das maiores ninhadas — frequentemente acima de 130 ovos, podendo passar de 160 em algumas populações —, com 3 a 5 ninhos por temporada e retorno a cada 2 ou 3 anos. Prefere praias tropicais associadas a recifes e costuma pôr o ninho junto à vegetação. No Brasil, desova principalmente na Bahia, no Rio Grande do Norte e em Sergipe.\n\n\nTartaruga-oliva (Lepidochelys olivacea)\nA mais abundante do mundo e uma das mais precoces: reproduz-se por volta dos 12 a 18 anos. Faz de 1 a 3 ninhos por temporada, com cerca de 100 a 110 ovos, e incubação curta, de 45 a 55 dias. É uma das duas espécies de arribada: em poucos lugares — como Odisha, na Índia, e Ostional, na Costa Rica — milhares de fêmeas sobem à mesma praia em poucos dias; no resto da distribuição, incluindo Sergipe e o norte da Bahia, a desova é solitária.\n\n\nTartaruga-de-Kemp (Lepidochelys kempii)\nA menor e a mais ameaçada. É praticamente endêmica do Golfo do México, com a desova concentrada numa única praia — Rancho Nuevo, no México — em arribadas diurnas. Amadurece cedo, entre 10 e 15 anos, põe cerca de 100 ovos por ninho e tem o ciclo mais acelerado das sete: remigração de 1 a 2 anos, contra os 2 a 4 anos das demais. Não ocorre no Brasil.\n\n\nTartaruga-de-couro (Dermochelys coriacea)\nA maior tartaruga viva, com mais de 600 kg, e a única sem casco ósseo. A ninhada tem cerca de 80 ovos com gema mais dezenas de ovos menores sem gema, que não geram filhotes. É a recordista em número de ninhos por temporada — de 5 a 7 —, com intervalos de apenas 9 a 10 dias entre eles, e incubação de 60 a 65 dias. Nidifica em praias tropicais de areia funda com acesso a água profunda. No Brasil, a única área regular de desova fica no norte do Espírito Santo, com uma população pequena.\n\n\nTartaruga-australiana (Natator depressus)\nEndêmica da plataforma continental da Austrália, onde nidifica exclusivamente. Tem a menor ninhada — cerca de 50 ovos —, mas põe ovos e filhotes maiores que os das outras espécies. É a única sem a fase oceânica dos “anos perdidos”: os filhotes permanecem em águas rasas e turvas perto da costa. Não ocorre no Brasil."
   },
   {
-    "objectID": "posts/moneyball-ciencia-de-dados/index.html#de-regressão-linear-a-machine-learning",
-    "href": "posts/moneyball-ciencia-de-dados/index.html#de-regressão-linear-a-machine-learning",
-    "title": "Moneyball: a lição de ciência de dados por trás do filme",
-    "section": "De regressão linear a machine learning",
-    "text": "De regressão linear a machine learning\nConvém lembrar a escala do que se fazia em 2002. As ferramentas eram planilhas e regressões sobre estatísticas de súmula, o equivalente esportivo de um modelo linear bem construído; hoje o mesmo trabalho começaria em ferramentas como o pandas. O que veio depois é que aproximou o beisebol da ciência de dados contemporânea: rastreamento óptico de jogadores e da bola, métricas “esperadas” calculadas por modelos e previsão de desempenho com aprendizado de máquina. O mesmo caminho se repetiu no basquete, no futebol e fora do esporte. O próprio DePodesta deixou o beisebol em 2016 para chefiar a estratégia do Cleveland Browns, da NFL. “Moneyball para X” virou clichê de consultoria justamente porque o método é agnóstico ao domínio: defina o objetivo, descubra o que o prevê, aja pela estimativa mesmo quando ela contraria o consenso."
+    "objectID": "posts/reproducao-tartarugas-marinhas/index.html#as-diferenças-num-quadro",
+    "href": "posts/reproducao-tartarugas-marinhas/index.html#as-diferenças-num-quadro",
+    "title": "Reprodução das tartarugas marinhas: as 7 espécies comparadas",
+    "section": "As diferenças num quadro",
+    "text": "As diferenças num quadro\n\n\n\n\n\n\n\n\n\n\nEspécie\nMaturidade (anos)\nOvos por ninho\nNinhos por temporada\nIntervalo entre temporadas\n\n\n\n\nCabeçuda\n20–30\n~100–125\n3–5\n2–3 anos\n\n\nVerde\n25–35+\n~110–115\n3–5\n2–5 anos\n\n\nDe-pente\n20–35\n~130–160\n3–5\n2–3 anos\n\n\nOliva\n12–18\n~100–110\n1–3\n1–2 anos\n\n\nDe-Kemp\n10–15\n~100\n2–3\n1–2 anos\n\n\nDe-couro\n~9–15\n~80 (+ sem gema)\n5–7\n2–3 anos\n\n\nAustraliana\n~15–20\n~50\n2–3\n2–3 anos"
   },
   {
-    "objectID": "posts/moneyball-ciencia-de-dados/index.html#os-limites-do-método",
-    "href": "posts/moneyball-ciencia-de-dados/index.html#os-limites-do-método",
-    "title": "Moneyball: a lição de ciência de dados por trás do filme",
-    "section": "Os limites do método",
-    "text": "Os limites do método\nA parte que o filme subestima é tão instrutiva quanto o resto. Primeiro, o Oakland de 2002 não era só porcentagem de base: três dos melhores jogadores do elenco eram os arremessadores Tim Hudson, Mark Mulder e Barry Zito, um trio que colocou o time no topo da liga em defesa, e boa parte da crítica ao livro aponta que a narrativa em torno da on-base percentage escondeu o quanto Beane era bom em achar e formar arremessadores. Segundo, os playoffs são uma amostra pequena e ruidosa: vencer 103 de 162 jogos é sinal forte; perder uma série de cinco jogos não refuta o método, é variância, e o próprio DePodesta descreveria a pós-temporada como um cara ou coroa. Terceiro, assim que a ineficiência ficou pública — e o livro a tornou pública —, ela foi arbitrada, e hoje se paga caro por on-base percentage. Há ainda o risco que todo modelo preditivo carrega: ele aprende os vieses dos dados com que foi treinado, e fatores como liderança, entrosamento e lesão resistem à quantificação.\nNada disso invalida a ideia central. Um método preditivo não é bola de cristal: ele desloca as probabilidades, não garante o resultado, e saber distinguir as duas coisas é parte da competência de quem usa dados para decidir.\nÉ por isso que Moneyball envelheceu bem, mesmo com o beisebol tendo mudado de patamar analítico. A vantagem do Oakland nunca foi “ter dados”; foi a disciplina de definir o objetivo com clareza, medir o que o prevê, agir pela estimativa ainda que ela contrarie o consenso e permanecer honesto sobre a incerteza. Troque “corridas” por retorno de um fundo, intenção de voto, risco de readmissão hospitalar ou rotatividade de funcionários, e a receita é a mesma. O filme é sobre um time pobre de beisebol; a lição é sobre como pensar.\n\nTópicos: #Moneyball #CiênciaDeDados #MachineLearning #MétodosPreditivos #AnáliseEsportiva"
+    "objectID": "posts/reproducao-tartarugas-marinhas/index.html#a-reprodução-das-tartarugas-marinhas-no-brasil",
+    "href": "posts/reproducao-tartarugas-marinhas/index.html#a-reprodução-das-tartarugas-marinhas-no-brasil",
+    "title": "Reprodução das tartarugas marinhas: as 7 espécies comparadas",
+    "section": "A reprodução das tartarugas marinhas no Brasil",
+    "text": "A reprodução das tartarugas marinhas no Brasil\nO litoral brasileiro abriga cinco das sete espécies — cabeçuda, verde, de-pente, oliva e de-couro —, e é um dos poucos pontos do Atlântico Sul onde a cabeçuda ainda desova em número relevante. O monitoramento dessas praias é feito desde 1980 pelo Projeto TAMAR, que já manejou centenas de milhares de ninhos ao longo da costa do Nordeste e do Sudeste. As tartarugas-de-Kemp e as australianas não aparecem por aqui: a primeira é restrita ao Atlântico noroeste, a segunda, à Austrália, conforme as fichas de cada espécie da NOAA Fisheries."
+  },
+  {
+    "objectID": "posts/reproducao-tartarugas-marinhas/index.html#perguntas-frequentes",
+    "href": "posts/reproducao-tartarugas-marinhas/index.html#perguntas-frequentes",
+    "title": "Reprodução das tartarugas marinhas: as 7 espécies comparadas",
+    "section": "Perguntas frequentes",
+    "text": "Perguntas frequentes\n\nQuantas espécies de tartaruga marinha existem?\nSete: cabeçuda, verde, de-pente, oliva, de-Kemp, de-couro e australiana. Há discussão taxonômica sobre uma possível oitava, a tartaruga-preta do Pacífico oriental, hoje tratada como população da tartaruga-verde.\n\n\nQual espécie põe mais ovos por temporada?\nA tartaruga-de-couro. Embora a ninhada média seja menor (~80 ovos com gema), ela faz de 5 a 7 ninhos por temporada, somando mais de 500 ovos.\n\n\nQual põe menos?\nA tartaruga-australiana, com cerca de 50 ovos por ninho — em compensação, os ovos e os filhotes são maiores.\n\n\nO que é arribada?\nA desova sincronizada em massa das tartarugas-oliva e de-Kemp: milhares de fêmeas sobem à mesma praia em poucos dias, muitas vezes de dia. A hipótese principal é a saturação de predadores.\n\n\nTodas as espécies ocorrem no Brasil?\nNão. Cinco desovam ou se alimentam no litoral brasileiro; a tartaruga-de-Kemp e a australiana não ocorrem por aqui."
+  },
+  {
+    "objectID": "posts/reproducao-tartarugas-marinhas/index.html#conclusão",
+    "href": "posts/reproducao-tartarugas-marinhas/index.html#conclusão",
+    "title": "Reprodução das tartarugas marinhas: as 7 espécies comparadas",
+    "section": "Conclusão",
+    "text": "Conclusão\n\nAs sete espécies compartilham o mesmo roteiro reprodutivo: filopatria natal, incubação sem cuidado parental e sexo definido pela temperatura.\nA cabeçuda e a verde amadurecem tarde (20 a 35 anos); a de-Kemp e a oliva, cedo (10 a 18).\nA de-couro faz mais ninhos por temporada (5 a 7) e soma mais ovos; a australiana faz a menor ninhada (~50).\nOliva e de-Kemp têm a desova em massa (arribada); as demais nidificam sozinhas.\nNo Brasil ocorrem cinco espécies, monitoradas pelo Projeto TAMAR desde 1980.\n\n\nTópicos: #TartarugasMarinhas #VidaMarinha #Biologia #Natureza #Conservação"
+  },
+  {
+    "objectID": "posts/novo-post/index.html",
+    "href": "posts/novo-post/index.html",
+    "title": "Novo post",
+    "section": "",
+    "text": "Here is some lovely text and an equation.\n\\[ a^2 + b^2 = c^2 \\]\nHere’s a list.\n\na link to an external website.\na link to another post in this blog."
+  },
+  {
+    "objectID": "posts/novo-post/index.html#um-bom-cabeçalho",
+    "href": "posts/novo-post/index.html#um-bom-cabeçalho",
+    "title": "Novo post",
+    "section": "",
+    "text": "Here is some lovely text and an equation.\n\\[ a^2 + b^2 = c^2 \\]\nHere’s a list.\n\na link to an external website.\na link to another post in this blog."
   },
   {
     "objectID": "posts/introducao-pandas/index.html",
@@ -133,6 +161,146 @@
     "text": "Conclusão\n\nSeries é uma coluna; DataFrame é a tabela.\nread_csv, read_excel e read_parquet carregam os dados; head, info e describe dão o primeiro diagnóstico.\nloc / iloc e boolean indexing recortam linhas e colunas.\ngroupby + agg resumem os dados por categoria.\nisna, dropna e fillna cuidam dos valores ausentes.\n\nPara se aprofundar, vale ler o guia 10 minutes to pandas da documentação oficial do pandas e o livro Python for Data Analysis, de Wes McKinney, criador da biblioteca. Aqui no blog, veja também o exemplo com código executável.\n\nTópicos: #Pandas #Python #AnáliseDeDados #CiênciaDeDados #DataFrame"
   },
   {
+    "objectID": "posts/eleicoes-brasileiras-2026/index.html",
+    "href": "posts/eleicoes-brasileiras-2026/index.html",
+    "title": "Eleições brasileiras de 2026: o que está realmente em jogo",
+    "section": "",
+    "text": "Publicado em 7 de setembro de 2026, às 10:53, por Pedro Nakashima\nAs eleições brasileiras de 2026 chegam sem o rosto que dominou a política nacional na última década. Jair Bolsonaro está preso e inelegível, condenado pelo Supremo Tribunal Federal a mais de 27 anos por tentativa de golpe de Estado, e Lula, aos 80 anos, disputa a reeleição. O que se apresenta como uma escolha entre dois nomes é, no fundo, um teste de transferência: saber se o bolsonarismo funciona como marca sem Bolsonaro na cédula e se o lulismo ainda converte governo em voto. Enquanto os holofotes ficam no Planalto, boa parte do que vai moldar o país pelos próximos anos se decide nas eleições para o Congresso e para os governos estaduais, que acontecem no mesmo dia.\nO Partido Liberal oficializou em julho a candidatura de Flávio Bolsonaro, senador e filho do ex-presidente, com o deputado Alfredo Gaspar como vice. Foi o próprio Jair quem indicou o nome, depois que Tarcísio de Freitas, governador de São Paulo e preferido de parte da direita, sinalizou que buscaria a reeleição estadual. Do outro lado, Lula repete a chapa de 2022 com Geraldo Alckmin. As pesquisas de setembro compiladas — Quaest, Futura e outras — mostram Lula à frente, na casa dos 37% a 39%, com Flávio entre 29% e 34% e o escritor Augusto Cury, candidato de menor porte, em torno de 10%. Em simulações de segundo turno, Lula mantém vantagem, ainda que dentro de margens que uma campanha longa costuma corroer."
+  },
+  {
+    "objectID": "posts/eleicoes-brasileiras-2026/index.html#o-bolsonarismo-sem-bolsonaro",
+    "href": "posts/eleicoes-brasileiras-2026/index.html#o-bolsonarismo-sem-bolsonaro",
+    "title": "Eleições brasileiras de 2026: o que está realmente em jogo",
+    "section": "O bolsonarismo sem Bolsonaro",
+    "text": "O bolsonarismo sem Bolsonaro\nA aposta da direita é que o eleitorado formado desde 2018 vote em quem carregar o sobrenome e o discurso, mesmo sem o líder na disputa. Não é uma aposta absurda: mesmo preso e fora das redes, Bolsonaro segue pautando os movimentos do campo, e a candidatura de Flávio nasce como um plebiscito sobre a herança política do pai. O risco, para esse lado, é duplo. Primeiro, marca política raramente se transfere inteira — parte do voto bolsonarista era adesão pessoal, difícil de herdar. Segundo, fazer da eleição um referendo sobre a “perseguição” a Bolsonaro mobiliza a base já convencida, mas tem alcance limitado entre os indecisos, que tendem a decidir por custo de vida e segurança, não por lealdade a uma figura.\nDo lado do governo, o desafio é o oposto: transformar entrega em entusiasmo. Lula lidera, mas com aprovação que oscila perto da linha em que uma reeleição deixa de ser tranquila. A campanha governista aposta em três frentes — a agenda social e o salário mínimo, a bandeira da soberania nacional depois do tarifaço imposto pelos Estados Unidos em 2025, e uma resposta à insegurança, ancorada na PEC da Segurança Pública. O ponto fraco é conhecido: governos em terceiro mandato acumulam desgaste, e a economia, mesmo com desemprego baixo, ainda é sentida pelo eleitor sobretudo pelo preço da comida."
+  },
+  {
+    "objectID": "posts/eleicoes-brasileiras-2026/index.html#a-eleição-debaixo-da-presidencial",
+    "href": "posts/eleicoes-brasileiras-2026/index.html#a-eleição-debaixo-da-presidencial",
+    "title": "Eleições brasileiras de 2026: o que está realmente em jogo",
+    "section": "A eleição debaixo da presidencial",
+    "text": "A eleição debaixo da presidencial\nNo mesmo 4 de outubro, o país renova por inteiro a Câmara dos Deputados, dois terços do Senado, todas as assembleias legislativas e escolhe 27 governadores. É aí que o resultado costuma ter efeito mais duradouro do que a troca — ou não — de faixa presidencial. Um presidente eleito sem maioria no Congresso governa por concessão, como Lula tem feito desde 2023 diante de um Legislativo que ampliou o próprio poder sobre o Orçamento. A composição do Senado que sair de 2026 vai definir, por exemplo, a margem para indicações ao Supremo nos próximos anos. E os governos estaduais grandes funcionam como plataformas para 2030: quem vencer em São Paulo, Minas Gerais e no Rio de Janeiro larga na frente da corrida presidencial seguinte.\nHá quem diga que nada disso importa muito, porque a polarização estaria congelada e o resultado, dado. É uma leitura preguiçosa. Três eleições seguidas mostraram viradas de dois dígitos na intenção de voto ao longo da campanha, e 2026 traz variáveis novas: um candidato de direita ainda pouco testado nacionalmente, um presidente na idade mais avançada já vista num disputante e um ambiente externo volátil, com os Estados Unidos usando tarifas e sanções como instrumento político contra o Brasil. Qualquer um desses fatores pode mover a agulha mais do que a memória de 2022 sugere.\nSome-se o pano de fundo institucional. O julgamento e a prisão de Bolsonaro puseram o Judiciário no centro do debate eleitoral: a direita transforma decisões do STF em prova de perseguição, e o campo governista as apresenta como o Estado de Direito funcionando. A discussão sobre uma eventual anistia aos condenados pelos atos de 8 de janeiro de 2023 seguirá viva no Congresso durante a campanha e será instrumentalizada pelos dois lados. É um terreno em que ganho eleitoral de curto prazo e custo institucional de longo prazo nem sempre andam juntos.\nO mais provável, hoje, é uma eleição presidencial decidida no segundo turno de 25 de outubro, entre continuidade e alternância, com margem estreita. Mas fixar-se só nesse duelo é perder o essencial. As eleições brasileiras de 2026 vão responder três perguntas de peso: se um projeto político sobrevive à ausência de quem o fundou, se o desgaste de um governo longo pesa mais que o receio do que vem depois, e que Congresso o próximo presidente terá de negociar. As duas primeiras se resolvem em outubro. A terceira vai condicionar tudo o que for possível fazer até 2030.\n\nTópicos: #Eleições2026 #Brasil #Política #Congresso #Democracia"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "Sobre / About",
+    "section": "",
+    "text": "Sou Pedro Nakashima e moro no Brasil. Economista e programador, formado em Direito, atuo na interseção entre dados, economia, direito e tecnologia: uso ciência de dados, estatística e econometria para transformar informação em evidência e em decisão bem fundamentada.\nAqui escrevo sobre o que estudo e pratico: programação, ciência de dados, machine learning e inteligência artificial; economia, econometria, direito, legislação e perícia; e a leitura de política e geopolítica com esse mesmo instrumental. Também trato de temas que acompanho de perto — cinema, séries e futebol. A régua é sempre a mesma: método, fontes primárias e uma posição argumentada, sem hype.\nNo YouTube, o canal Pedro On Data traz o mesmo tipo de conteúdo em vídeo, e no Instagram publico recortes mais curtos. Tenho ainda outro site pessoal em pedroondata.com. Para conversar sobre um projeto, uma análise ou uma ideia de pauta, me chame no LinkedIn ou por e-mail.\n\nI’m Pedro Nakashima, and I live in Brazil. An economist and programmer with a law degree, I work at the intersection of data, economics, law and technology: using data science, statistics and econometrics to turn information into evidence and well-grounded decisions.\nHere I write about what I study and practice: programming, data science, machine learning and artificial intelligence; economics, econometrics, law, legislation and forensic analysis; and reading politics and geopolitics with those same tools. I also cover subjects I follow closely — film, TV series and football. The standard is always the same: method, primary sources and a reasoned position, without hype.\nOn YouTube, the Pedro On Data channel brings the same kind of content in video form, and on Instagram I post shorter clips. I also keep another personal site at pedroondata.com. To talk about a project, an analysis or a story idea, reach me on LinkedIn or by email."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Análises e guias sobre Dados, Tecnologia, Economia e Direito",
+    "section": "",
+    "text": "Eleições brasileiras de 2026: o que está realmente em jogo\n\n\n\npolítica\n\neleições 2026\n\nbrasil\n\ndemocracia\n\n\n\nEleições brasileiras de 2026: por que a disputa Lula x Flávio Bolsonaro é um teste do bolsonarismo sem Bolsonaro e por que o Congresso pode pesar mais.\n\n\n\n\n\nSep 7, 2026\n\n5 min\n\n\n\n\n\n\n\n\n\n\n\nReprodução das tartarugas marinhas: as 7 espécies comparadas\n\n\n\nnatureza\n\nbiologia\n\nvida marinha\n\ntartarugas marinhas\n\n\n\nReprodução das tartarugas marinhas: como as sete espécies diferem em época de desova, tamanho de ninhada, intervalo entre temporadas e praias de nidificação.\n\n\n\n\n\nSep 7, 2026\n\n7 min\n\n\n\n\n\n\n\n\n\n\n\nVida dos golfinhos: como vivem, se comunicam e se organizam\n\n\n\nnatureza\n\nbiologia\n\nvida marinha\n\ngolfinhos\n\n\n\nVida dos golfinhos: como esses mamíferos marinhos respiram, dormem, o que comem, como usam assobios e ecolocalização e por que formam sociedades complexas.\n\n\n\n\n\nSep 6, 2026\n\n5 min\n\n\n\n\n\n\n\n\n\n\n\nMoneyball: a lição de ciência de dados por trás do filme\n\n\n\nciência de dados\n\nmachine learning\n\ncinema\n\nmétodos preditivos\n\n\n\nMoneyball, com Brad Pitt, é mais que um filme de beisebol: mostra como a ciência de dados e os métodos preditivos vencem a intuição na hora de decidir.\n\n\n\n\n\nSep 6, 2026\n\n5 min\n\n\n\n\n\n\n\n\n\n\n\nIntrodução ao Pandas: guia prático de análise de dados\n\n\n\npython\n\npandas\n\nanálise de dados\n\n\n\nIntrodução ao pandas em Python: entenda Series e DataFrame, leia CSV e Excel, filtre linhas, crie colunas e agrupe dados com groupby neste guia prático.\n\n\n\n\n\nSep 6, 2026\n\n5 min\n\n\n\n\n\n\n\n\n\n\n\nIntrodução ao Pandas\n\n\n\npython\n\npandas\n\nanalysis\n\n\n\nPrimeiros passos com a biblioteca pandas: Series, DataFrame, leitura de dados e as operações que você usa todo dia.\n\n\n\n\n\nSep 6, 2026\n\n3 min\n\n\n\n\n\n\n\n\n\n\n\nNovo post\n\n\n\nnovidade\n\npython\n\nanalysis\n\n\n\n\n\n\n\n\n\nSep 3, 2026\n\n1 min\n\n\n\n\n\n\n\n\n\n\n\nPost With Code\n\n\n\nnews\n\ncode\n\nanalysis\n\n\n\n\n\n\n\n\n\nSep 3, 2026\n\n1 min\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nAug 31, 2026\n\n1 min\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/introducao-ao-pandas/index.html",
+    "href": "posts/introducao-ao-pandas/index.html",
+    "title": "Introdução ao Pandas",
+    "section": "",
+    "text": "O pandas é a biblioteca padrão para manipulação de dados tabulares em Python. Se você já trabalhou com planilhas, a ideia é a mesma — só que programável, reproduzível e capaz de lidar com milhões de linhas."
+  },
+  {
+    "objectID": "posts/introducao-ao-pandas/index.html#instalação",
+    "href": "posts/introducao-ao-pandas/index.html#instalação",
+    "title": "Introdução ao Pandas",
+    "section": "Instalação",
+    "text": "Instalação\npip install pandas\nE, por convenção, o import é sempre com o apelido pd:\nimport pandas as pd"
+  },
+  {
+    "objectID": "posts/introducao-ao-pandas/index.html#as-duas-estruturas-centrais",
+    "href": "posts/introducao-ao-pandas/index.html#as-duas-estruturas-centrais",
+    "title": "Introdução ao Pandas",
+    "section": "As duas estruturas centrais",
+    "text": "As duas estruturas centrais\n\nSeries — uma coluna\nUma Series é um vetor unidimensional com um índice (rótulos das linhas).\ntemperaturas = pd.Series(\n    [28.1, 30.4, 27.9, 31.2],\n    index=[\"seg\", \"ter\", \"qua\", \"qui\"],\n    name=\"temperatura\",\n)\n\ntemperaturas[\"ter\"]      # 30.4\ntemperaturas.mean()      # 29.4\ntemperaturas &gt; 30        # Series de booleanos\n\n\nDataFrame — a tabela\nUm DataFrame é um conjunto de Series que compartilham o mesmo índice: linhas e colunas, como uma planilha.\ndf = pd.DataFrame({\n    \"cidade\": [\"São Paulo\", \"Rio\", \"Curitiba\", \"Recife\"],\n    \"populacao_mi\": [12.3, 6.7, 1.9, 1.7],\n    \"regiao\": [\"Sudeste\", \"Sudeste\", \"Sul\", \"Nordeste\"],\n})"
+  },
+  {
+    "objectID": "posts/introducao-ao-pandas/index.html#lendo-dados-de-verdade",
+    "href": "posts/introducao-ao-pandas/index.html#lendo-dados-de-verdade",
+    "title": "Introdução ao Pandas",
+    "section": "Lendo dados de verdade",
+    "text": "Lendo dados de verdade\nNa prática você raramente digita os dados à mão. O pandas lê dezenas de formatos:\ndf = pd.read_csv(\"dados.csv\")\ndf = pd.read_excel(\"planilha.xlsx\", sheet_name=\"2026\")\ndf = pd.read_parquet(\"dados.parquet\")\nPrimeiro contato com qualquer tabela nova:\ndf.head()        # primeiras linhas\ndf.shape         # (linhas, colunas)\ndf.info()        # tipos e valores nulos\ndf.describe()    # estatísticas das colunas numéricas"
+  },
+  {
+    "objectID": "posts/introducao-ao-pandas/index.html#selecionando-e-filtrando",
+    "href": "posts/introducao-ao-pandas/index.html#selecionando-e-filtrando",
+    "title": "Introdução ao Pandas",
+    "section": "Selecionando e filtrando",
+    "text": "Selecionando e filtrando\ndf[\"populacao_mi\"]              # uma coluna (Series)\ndf[[\"cidade\", \"regiao\"]]        # várias colunas (DataFrame)\n\ndf.loc[0]                       # linha pelo rótulo do índice\ndf.iloc[0]                      # linha pela posição\n\n# filtro por condição (boolean indexing)\ndf[df[\"populacao_mi\"] &gt; 5]\n\n# combinando condições: use & | e parênteses\ndf[(df[\"regiao\"] == \"Sudeste\") & (df[\"populacao_mi\"] &gt; 10)]"
+  },
+  {
+    "objectID": "posts/introducao-ao-pandas/index.html#criando-colunas",
+    "href": "posts/introducao-ao-pandas/index.html#criando-colunas",
+    "title": "Introdução ao Pandas",
+    "section": "Criando colunas",
+    "text": "Criando colunas\ndf[\"populacao_abs\"] = df[\"populacao_mi\"] * 1_000_000\n\ndf[\"porte\"] = df[\"populacao_mi\"].apply(\n    lambda p: \"grande\" if p &gt;= 5 else \"médio\" if p &gt;= 2 else \"pequeno\"\n)"
+  },
+  {
+    "objectID": "posts/introducao-ao-pandas/index.html#agrupando-split-apply-combine",
+    "href": "posts/introducao-ao-pandas/index.html#agrupando-split-apply-combine",
+    "title": "Introdução ao Pandas",
+    "section": "Agrupando: split-apply-combine",
+    "text": "Agrupando: split-apply-combine\nO groupby é o coração da análise exploratória: divide os dados por uma chave, aplica uma agregação e junta o resultado.\ndf.groupby(\"regiao\")[\"populacao_mi\"].sum()\n\ndf.groupby(\"regiao\").agg(\n    n_cidades=(\"cidade\", \"count\"),\n    pop_total=(\"populacao_mi\", \"sum\"),\n    pop_media=(\"populacao_mi\", \"mean\"),\n)"
+  },
+  {
+    "objectID": "posts/introducao-ao-pandas/index.html#valores-ausentes",
+    "href": "posts/introducao-ao-pandas/index.html#valores-ausentes",
+    "title": "Introdução ao Pandas",
+    "section": "Valores ausentes",
+    "text": "Valores ausentes\ndf.isna().sum()                 # nulos por coluna\ndf.dropna(subset=[\"populacao_mi\"])\ndf[\"regiao\"].fillna(\"desconhecida\")"
+  },
+  {
+    "objectID": "posts/introducao-ao-pandas/index.html#resumo",
+    "href": "posts/introducao-ao-pandas/index.html#resumo",
+    "title": "Introdução ao Pandas",
+    "section": "Resumo",
+    "text": "Resumo\n\nSeries = coluna; DataFrame = tabela.\nread_csv / read_excel / read_parquet para carregar dados.\nhead, info, describe para o primeiro diagnóstico.\nloc / iloc e boolean indexing para recortar.\ngroupby + agg para resumir.\n\nA documentação oficial tem um guia “10 minutes to pandas” que vale a leitura depois deste post."
+  },
+  {
+    "objectID": "posts/moneyball-ciencia-de-dados/index.html",
+    "href": "posts/moneyball-ciencia-de-dados/index.html",
+    "title": "Moneyball: a lição de ciência de dados por trás do filme",
+    "section": "",
+    "text": "Publicado em 6 de setembro de 2026, às 15:57, por Pedro Nakashima\nMoneyball, o filme de 2011 dirigido por Bennett Miller com Brad Pitt no papel de Billy Beane, virou a referência pop da tomada de decisão baseada em dados. A leitura mais comum — “um time pobre venceu os ricos com estatística” — é a menos interessante. O que Moneyball de fato ilustra é uma tese de ciência de dados: quando se mede a variável certa e se confia num método preditivo em vez da intuição de especialistas, muda-se a probabilidade a favor de quem decide. Essa tese, hoje, move mesas de investimento, campanhas eleitorais, hospitais e departamentos de recursos humanos, e não apenas um time de beisebol."
+  },
+  {
+    "objectID": "posts/moneyball-ciencia-de-dados/index.html#o-filme-e-o-caso-real",
+    "href": "posts/moneyball-ciencia-de-dados/index.html#o-filme-e-o-caso-real",
+    "title": "Moneyball: a lição de ciência de dados por trás do filme",
+    "section": "O filme e o caso real",
+    "text": "O filme e o caso real\nO roteiro de Steven Zaillian e Aaron Sorkin adapta o livro de 2003 de Michael Lewis, Moneyball: The Art of Winning an Unfair Game. A história é a temporada de 2002 do Oakland Athletics. Com uma folha salarial de cerca de 41 milhões de dólares, uma fração da dos grandes clubes, o gerente-geral Billy Beane e seu assistente Peter Brand — versão ficcional do analista Paul DePodesta, vivido por Jonah Hill — montaram o elenco a partir de jogadores que o mercado subavaliava. O time engatou 20 vitórias seguidas, fechou a temporada em 103 vitórias e 59 derrotas e ganhou a divisão. O filme recebeu seis indicações ao Oscar, incluindo melhor filme e melhor ator para Pitt. E perdeu na primeira rodada dos playoffs para o Minnesota Twins — um detalhe que o roteiro trata quase como nota de rodapé, mas onde mora metade da lição."
+  },
+  {
+    "objectID": "posts/moneyball-ciencia-de-dados/index.html#escolher-a-variável-certa",
+    "href": "posts/moneyball-ciencia-de-dados/index.html#escolher-a-variável-certa",
+    "title": "Moneyball: a lição de ciência de dados por trás do filme",
+    "section": "Escolher a variável certa",
+    "text": "Escolher a variável certa\nO núcleo técnico de Moneyball é um problema clássico de ciência de dados: qual métrica prevê melhor o resultado que interessa? Os olheiros tradicionais avaliavam jogadores pelo que enxergavam no campo — velocidade, defesa, média de rebatidas, às vezes até a aparência física. Beane e DePodesta partiram da sabermetria, a análise estatística do beisebol popularizada por Bill James e pela Society for American Baseball Research, e perguntaram o que de fato produz corridas e, portanto, vitórias. A resposta era a frequência com que o jogador chega à base, a on-base percentage. Era uma variável barata: o mercado pagava caro por home runs e por bases roubadas, e quase nada por um jogador que simplesmente não dava out. Traduzido para o vocabulário de quem trabalha com dados, o Oakland fez seleção de atributos, trocou um alvo mal definido — “talento” — por um mensurável — corridas esperadas — e explorou uma ineficiência de mercado até ela desaparecer. É a mesma lógica de um fundo quantitativo que encontra um fator de risco mal precificado antes dos concorrentes."
+  },
+  {
+    "objectID": "posts/moneyball-ciencia-de-dados/index.html#de-regressão-linear-a-machine-learning",
+    "href": "posts/moneyball-ciencia-de-dados/index.html#de-regressão-linear-a-machine-learning",
+    "title": "Moneyball: a lição de ciência de dados por trás do filme",
+    "section": "De regressão linear a machine learning",
+    "text": "De regressão linear a machine learning\nConvém lembrar a escala do que se fazia em 2002. As ferramentas eram planilhas e regressões sobre estatísticas de súmula, o equivalente esportivo de um modelo linear bem construído; hoje o mesmo trabalho começaria em ferramentas como o pandas. O que veio depois é que aproximou o beisebol da ciência de dados contemporânea: rastreamento óptico de jogadores e da bola, métricas “esperadas” calculadas por modelos e previsão de desempenho com aprendizado de máquina. O mesmo caminho se repetiu no basquete, no futebol e fora do esporte. O próprio DePodesta deixou o beisebol em 2016 para chefiar a estratégia do Cleveland Browns, da NFL. “Moneyball para X” virou clichê de consultoria justamente porque o método é agnóstico ao domínio: defina o objetivo, descubra o que o prevê, aja pela estimativa mesmo quando ela contraria o consenso."
+  },
+  {
+    "objectID": "posts/moneyball-ciencia-de-dados/index.html#os-limites-do-método",
+    "href": "posts/moneyball-ciencia-de-dados/index.html#os-limites-do-método",
+    "title": "Moneyball: a lição de ciência de dados por trás do filme",
+    "section": "Os limites do método",
+    "text": "Os limites do método\nA parte que o filme subestima é tão instrutiva quanto o resto. Primeiro, o Oakland de 2002 não era só porcentagem de base: três dos melhores jogadores do elenco eram os arremessadores Tim Hudson, Mark Mulder e Barry Zito, um trio que colocou o time no topo da liga em defesa, e boa parte da crítica ao livro aponta que a narrativa em torno da on-base percentage escondeu o quanto Beane era bom em achar e formar arremessadores. Segundo, os playoffs são uma amostra pequena e ruidosa: vencer 103 de 162 jogos é sinal forte; perder uma série de cinco jogos não refuta o método, é variância, e o próprio DePodesta descreveria a pós-temporada como um cara ou coroa. Terceiro, assim que a ineficiência ficou pública — e o livro a tornou pública —, ela foi arbitrada, e hoje se paga caro por on-base percentage. Há ainda o risco que todo modelo preditivo carrega: ele aprende os vieses dos dados com que foi treinado, e fatores como liderança, entrosamento e lesão resistem à quantificação.\nNada disso invalida a ideia central. Um método preditivo não é bola de cristal: ele desloca as probabilidades, não garante o resultado, e saber distinguir as duas coisas é parte da competência de quem usa dados para decidir.\nÉ por isso que Moneyball envelheceu bem, mesmo com o beisebol tendo mudado de patamar analítico. A vantagem do Oakland nunca foi “ter dados”; foi a disciplina de definir o objetivo com clareza, medir o que o prevê, agir pela estimativa ainda que ela contrarie o consenso e permanecer honesto sobre a incerteza. Troque “corridas” por retorno de um fundo, intenção de voto, risco de readmissão hospitalar ou rotatividade de funcionários, e a receita é a mesma. O filme é sobre um time pobre de beisebol; a lição é sobre como pensar.\n\nTópicos: #Moneyball #CiênciaDeDados #MachineLearning #MétodosPreditivos #AnáliseEsportiva"
+  },
+  {
+    "objectID": "posts/post-with-code/index.html",
+    "href": "posts/post-with-code/index.html",
+    "title": "Post With Code",
+    "section": "",
+    "text": "This is a post with executable code."
+  },
+  {
     "objectID": "posts/vida-golfinhos/index.html",
     "href": "posts/vida-golfinhos/index.html",
     "title": "Vida dos golfinhos: como vivem, se comunicam e se organizam",
@@ -215,173 +383,5 @@
     "title": "Vida dos golfinhos: como vivem, se comunicam e se organizam",
     "section": "Conclusão",
     "text": "Conclusão\n\nGolfinhos são mamíferos marinhos (odontocetos); a orca é o maior deles.\nRespiração voluntária e sono uni-hemisférico são as adaptações que permitem dormir no mar.\nCaçam em grupo e algumas populações usam ferramentas, com técnicas transmitidas culturalmente.\nCliques servem para ecolocalização; assobios, para a vida social, incluindo um “nome” individual.\nA sociedade é de fissão-fusão, com laços longos e cuidado parental prolongado.\nAs ameaças relevantes são humanas: redes, poluição, ruído e cativeiro.\n\n\nTópicos: #Golfinhos #VidaMarinha #Cetáceos #Natureza #Biologia"
-  },
-  {
-    "objectID": "posts/post-with-code/index.html",
-    "href": "posts/post-with-code/index.html",
-    "title": "Post With Code",
-    "section": "",
-    "text": "This is a post with executable code."
-  },
-  {
-    "objectID": "posts/introducao-ao-pandas/index.html",
-    "href": "posts/introducao-ao-pandas/index.html",
-    "title": "Introdução ao Pandas",
-    "section": "",
-    "text": "O pandas é a biblioteca padrão para manipulação de dados tabulares em Python. Se você já trabalhou com planilhas, a ideia é a mesma — só que programável, reproduzível e capaz de lidar com milhões de linhas."
-  },
-  {
-    "objectID": "posts/introducao-ao-pandas/index.html#instalação",
-    "href": "posts/introducao-ao-pandas/index.html#instalação",
-    "title": "Introdução ao Pandas",
-    "section": "Instalação",
-    "text": "Instalação\npip install pandas\nE, por convenção, o import é sempre com o apelido pd:\nimport pandas as pd"
-  },
-  {
-    "objectID": "posts/introducao-ao-pandas/index.html#as-duas-estruturas-centrais",
-    "href": "posts/introducao-ao-pandas/index.html#as-duas-estruturas-centrais",
-    "title": "Introdução ao Pandas",
-    "section": "As duas estruturas centrais",
-    "text": "As duas estruturas centrais\n\nSeries — uma coluna\nUma Series é um vetor unidimensional com um índice (rótulos das linhas).\ntemperaturas = pd.Series(\n    [28.1, 30.4, 27.9, 31.2],\n    index=[\"seg\", \"ter\", \"qua\", \"qui\"],\n    name=\"temperatura\",\n)\n\ntemperaturas[\"ter\"]      # 30.4\ntemperaturas.mean()      # 29.4\ntemperaturas &gt; 30        # Series de booleanos\n\n\nDataFrame — a tabela\nUm DataFrame é um conjunto de Series que compartilham o mesmo índice: linhas e colunas, como uma planilha.\ndf = pd.DataFrame({\n    \"cidade\": [\"São Paulo\", \"Rio\", \"Curitiba\", \"Recife\"],\n    \"populacao_mi\": [12.3, 6.7, 1.9, 1.7],\n    \"regiao\": [\"Sudeste\", \"Sudeste\", \"Sul\", \"Nordeste\"],\n})"
-  },
-  {
-    "objectID": "posts/introducao-ao-pandas/index.html#lendo-dados-de-verdade",
-    "href": "posts/introducao-ao-pandas/index.html#lendo-dados-de-verdade",
-    "title": "Introdução ao Pandas",
-    "section": "Lendo dados de verdade",
-    "text": "Lendo dados de verdade\nNa prática você raramente digita os dados à mão. O pandas lê dezenas de formatos:\ndf = pd.read_csv(\"dados.csv\")\ndf = pd.read_excel(\"planilha.xlsx\", sheet_name=\"2026\")\ndf = pd.read_parquet(\"dados.parquet\")\nPrimeiro contato com qualquer tabela nova:\ndf.head()        # primeiras linhas\ndf.shape         # (linhas, colunas)\ndf.info()        # tipos e valores nulos\ndf.describe()    # estatísticas das colunas numéricas"
-  },
-  {
-    "objectID": "posts/introducao-ao-pandas/index.html#selecionando-e-filtrando",
-    "href": "posts/introducao-ao-pandas/index.html#selecionando-e-filtrando",
-    "title": "Introdução ao Pandas",
-    "section": "Selecionando e filtrando",
-    "text": "Selecionando e filtrando\ndf[\"populacao_mi\"]              # uma coluna (Series)\ndf[[\"cidade\", \"regiao\"]]        # várias colunas (DataFrame)\n\ndf.loc[0]                       # linha pelo rótulo do índice\ndf.iloc[0]                      # linha pela posição\n\n# filtro por condição (boolean indexing)\ndf[df[\"populacao_mi\"] &gt; 5]\n\n# combinando condições: use & | e parênteses\ndf[(df[\"regiao\"] == \"Sudeste\") & (df[\"populacao_mi\"] &gt; 10)]"
-  },
-  {
-    "objectID": "posts/introducao-ao-pandas/index.html#criando-colunas",
-    "href": "posts/introducao-ao-pandas/index.html#criando-colunas",
-    "title": "Introdução ao Pandas",
-    "section": "Criando colunas",
-    "text": "Criando colunas\ndf[\"populacao_abs\"] = df[\"populacao_mi\"] * 1_000_000\n\ndf[\"porte\"] = df[\"populacao_mi\"].apply(\n    lambda p: \"grande\" if p &gt;= 5 else \"médio\" if p &gt;= 2 else \"pequeno\"\n)"
-  },
-  {
-    "objectID": "posts/introducao-ao-pandas/index.html#agrupando-split-apply-combine",
-    "href": "posts/introducao-ao-pandas/index.html#agrupando-split-apply-combine",
-    "title": "Introdução ao Pandas",
-    "section": "Agrupando: split-apply-combine",
-    "text": "Agrupando: split-apply-combine\nO groupby é o coração da análise exploratória: divide os dados por uma chave, aplica uma agregação e junta o resultado.\ndf.groupby(\"regiao\")[\"populacao_mi\"].sum()\n\ndf.groupby(\"regiao\").agg(\n    n_cidades=(\"cidade\", \"count\"),\n    pop_total=(\"populacao_mi\", \"sum\"),\n    pop_media=(\"populacao_mi\", \"mean\"),\n)"
-  },
-  {
-    "objectID": "posts/introducao-ao-pandas/index.html#valores-ausentes",
-    "href": "posts/introducao-ao-pandas/index.html#valores-ausentes",
-    "title": "Introdução ao Pandas",
-    "section": "Valores ausentes",
-    "text": "Valores ausentes\ndf.isna().sum()                 # nulos por coluna\ndf.dropna(subset=[\"populacao_mi\"])\ndf[\"regiao\"].fillna(\"desconhecida\")"
-  },
-  {
-    "objectID": "posts/introducao-ao-pandas/index.html#resumo",
-    "href": "posts/introducao-ao-pandas/index.html#resumo",
-    "title": "Introdução ao Pandas",
-    "section": "Resumo",
-    "text": "Resumo\n\nSeries = coluna; DataFrame = tabela.\nread_csv / read_excel / read_parquet para carregar dados.\nhead, info, describe para o primeiro diagnóstico.\nloc / iloc e boolean indexing para recortar.\ngroupby + agg para resumir.\n\nA documentação oficial tem um guia “10 minutes to pandas” que vale a leitura depois deste post."
-  },
-  {
-    "objectID": "posts/eleicoes-brasileiras-2026/index.html",
-    "href": "posts/eleicoes-brasileiras-2026/index.html",
-    "title": "Eleições brasileiras de 2026: o que está realmente em jogo",
-    "section": "",
-    "text": "Publicado em 7 de setembro de 2026, às 10:53, por Pedro Nakashima\nAs eleições brasileiras de 2026 chegam sem o rosto que dominou a política nacional na última década. Jair Bolsonaro está preso e inelegível, condenado pelo Supremo Tribunal Federal a mais de 27 anos por tentativa de golpe de Estado, e Lula, aos 80 anos, disputa a reeleição. O que se apresenta como uma escolha entre dois nomes é, no fundo, um teste de transferência: saber se o bolsonarismo funciona como marca sem Bolsonaro na cédula e se o lulismo ainda converte governo em voto. Enquanto os holofotes ficam no Planalto, boa parte do que vai moldar o país pelos próximos anos se decide nas eleições para o Congresso e para os governos estaduais, que acontecem no mesmo dia.\nO Partido Liberal oficializou em julho a candidatura de Flávio Bolsonaro, senador e filho do ex-presidente, com o deputado Alfredo Gaspar como vice. Foi o próprio Jair quem indicou o nome, depois que Tarcísio de Freitas, governador de São Paulo e preferido de parte da direita, sinalizou que buscaria a reeleição estadual. Do outro lado, Lula repete a chapa de 2022 com Geraldo Alckmin. As pesquisas de setembro compiladas — Quaest, Futura e outras — mostram Lula à frente, na casa dos 37% a 39%, com Flávio entre 29% e 34% e o escritor Augusto Cury, candidato de menor porte, em torno de 10%. Em simulações de segundo turno, Lula mantém vantagem, ainda que dentro de margens que uma campanha longa costuma corroer."
-  },
-  {
-    "objectID": "posts/eleicoes-brasileiras-2026/index.html#o-bolsonarismo-sem-bolsonaro",
-    "href": "posts/eleicoes-brasileiras-2026/index.html#o-bolsonarismo-sem-bolsonaro",
-    "title": "Eleições brasileiras de 2026: o que está realmente em jogo",
-    "section": "O bolsonarismo sem Bolsonaro",
-    "text": "O bolsonarismo sem Bolsonaro\nA aposta da direita é que o eleitorado formado desde 2018 vote em quem carregar o sobrenome e o discurso, mesmo sem o líder na disputa. Não é uma aposta absurda: mesmo preso e fora das redes, Bolsonaro segue pautando os movimentos do campo, e a candidatura de Flávio nasce como um plebiscito sobre a herança política do pai. O risco, para esse lado, é duplo. Primeiro, marca política raramente se transfere inteira — parte do voto bolsonarista era adesão pessoal, difícil de herdar. Segundo, fazer da eleição um referendo sobre a “perseguição” a Bolsonaro mobiliza a base já convencida, mas tem alcance limitado entre os indecisos, que tendem a decidir por custo de vida e segurança, não por lealdade a uma figura.\nDo lado do governo, o desafio é o oposto: transformar entrega em entusiasmo. Lula lidera, mas com aprovação que oscila perto da linha em que uma reeleição deixa de ser tranquila. A campanha governista aposta em três frentes — a agenda social e o salário mínimo, a bandeira da soberania nacional depois do tarifaço imposto pelos Estados Unidos em 2025, e uma resposta à insegurança, ancorada na PEC da Segurança Pública. O ponto fraco é conhecido: governos em terceiro mandato acumulam desgaste, e a economia, mesmo com desemprego baixo, ainda é sentida pelo eleitor sobretudo pelo preço da comida."
-  },
-  {
-    "objectID": "posts/eleicoes-brasileiras-2026/index.html#a-eleição-debaixo-da-presidencial",
-    "href": "posts/eleicoes-brasileiras-2026/index.html#a-eleição-debaixo-da-presidencial",
-    "title": "Eleições brasileiras de 2026: o que está realmente em jogo",
-    "section": "A eleição debaixo da presidencial",
-    "text": "A eleição debaixo da presidencial\nNo mesmo 4 de outubro, o país renova por inteiro a Câmara dos Deputados, dois terços do Senado, todas as assembleias legislativas e escolhe 27 governadores. É aí que o resultado costuma ter efeito mais duradouro do que a troca — ou não — de faixa presidencial. Um presidente eleito sem maioria no Congresso governa por concessão, como Lula tem feito desde 2023 diante de um Legislativo que ampliou o próprio poder sobre o Orçamento. A composição do Senado que sair de 2026 vai definir, por exemplo, a margem para indicações ao Supremo nos próximos anos. E os governos estaduais grandes funcionam como plataformas para 2030: quem vencer em São Paulo, Minas Gerais e no Rio de Janeiro larga na frente da corrida presidencial seguinte.\nHá quem diga que nada disso importa muito, porque a polarização estaria congelada e o resultado, dado. É uma leitura preguiçosa. Três eleições seguidas mostraram viradas de dois dígitos na intenção de voto ao longo da campanha, e 2026 traz variáveis novas: um candidato de direita ainda pouco testado nacionalmente, um presidente na idade mais avançada já vista num disputante e um ambiente externo volátil, com os Estados Unidos usando tarifas e sanções como instrumento político contra o Brasil. Qualquer um desses fatores pode mover a agulha mais do que a memória de 2022 sugere.\nSome-se o pano de fundo institucional. O julgamento e a prisão de Bolsonaro puseram o Judiciário no centro do debate eleitoral: a direita transforma decisões do STF em prova de perseguição, e o campo governista as apresenta como o Estado de Direito funcionando. A discussão sobre uma eventual anistia aos condenados pelos atos de 8 de janeiro de 2023 seguirá viva no Congresso durante a campanha e será instrumentalizada pelos dois lados. É um terreno em que ganho eleitoral de curto prazo e custo institucional de longo prazo nem sempre andam juntos.\nO mais provável, hoje, é uma eleição presidencial decidida no segundo turno de 25 de outubro, entre continuidade e alternância, com margem estreita. Mas fixar-se só nesse duelo é perder o essencial. As eleições brasileiras de 2026 vão responder três perguntas de peso: se um projeto político sobrevive à ausência de quem o fundou, se o desgaste de um governo longo pesa mais que o receio do que vem depois, e que Congresso o próximo presidente terá de negociar. As duas primeiras se resolvem em outubro. A terceira vai condicionar tudo o que for possível fazer até 2030.\n\nTópicos: #Eleições2026 #Brasil #Política #Congresso #Democracia"
-  },
-  {
-    "objectID": "posts/welcome/index.html",
-    "href": "posts/welcome/index.html",
-    "title": "Welcome To My Blog",
-    "section": "",
-    "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
-  },
-  {
-    "objectID": "posts/novo-post/index.html",
-    "href": "posts/novo-post/index.html",
-    "title": "Novo post",
-    "section": "",
-    "text": "Here is some lovely text and an equation.\n\\[ a^2 + b^2 = c^2 \\]\nHere’s a list.\n\na link to an external website.\na link to another post in this blog."
-  },
-  {
-    "objectID": "posts/novo-post/index.html#um-bom-cabeçalho",
-    "href": "posts/novo-post/index.html#um-bom-cabeçalho",
-    "title": "Novo post",
-    "section": "",
-    "text": "Here is some lovely text and an equation.\n\\[ a^2 + b^2 = c^2 \\]\nHere’s a list.\n\na link to an external website.\na link to another post in this blog."
-  },
-  {
-    "objectID": "posts/reproducao-tartarugas-marinhas/index.html",
-    "href": "posts/reproducao-tartarugas-marinhas/index.html",
-    "title": "Reprodução das tartarugas marinhas: as 7 espécies comparadas",
-    "section": "",
-    "text": "Publicado em 7 de setembro de 2026, às 10:32, por Pedro Nakashima\nA reprodução das tartarugas marinhas segue o mesmo roteiro em todas as espécies — acasalamento na água, fêmea que sobe à praia, ninho cavado na areia, incubação sem cuidado parental e filhotes que correm sozinhos para o mar —, mas os números por trás desse roteiro variam muito. Uma tartaruga-de-couro põe mais de 500 ovos numa temporada e some por três anos; uma tartaruga-australiana põe cerca de 50 e nunca sai da plataforma continental. Este guia compara como se reproduzem as sete espécies de tartaruga marinha: quando desovam, quantos ovos botam, de quanto em quanto tempo voltam e onde fazem ninho."
-  },
-  {
-    "objectID": "posts/reproducao-tartarugas-marinhas/index.html#o-que-é-igual-nas-sete-espécies",
-    "href": "posts/reproducao-tartarugas-marinhas/index.html#o-que-é-igual-nas-sete-espécies",
-    "title": "Reprodução das tartarugas marinhas: as 7 espécies comparadas",
-    "section": "O que é igual nas sete espécies",
-    "text": "O que é igual nas sete espécies\nAntes das diferenças, vale fixar o que não muda. Todas têm determinação sexual pela temperatura: não há cromossomo sexual, e a proporção de machos e fêmeas do ninho é definida pelo calor da areia durante o terço médio da incubação, com ponto de equilíbrio perto de 29 °C. Todas praticam filopatria natal — as fêmeas voltam para desovar na praia onde nasceram, ou muito perto dela. Todas desovam de noite, com a exceção das arribadas diurnas das tartarugas-oliva e de-Kemp. E em nenhuma há qualquer cuidado com ovos ou filhotes: a fêmea cobre o ninho, disfarça o local e volta ao mar.\nE em nenhuma há cuidado com ovos ou filhotes: ao contrário de mamíferos marinhos de vida longa como os golfinhos, que investem anos em cada cria, a tartaruga aposta tudo no número — muitos ovos, nenhuma proteção. A partir daí, cada espécie tem o seu calendário e a sua aritmética."
-  },
-  {
-    "objectID": "posts/reproducao-tartarugas-marinhas/index.html#espécie-por-espécie",
-    "href": "posts/reproducao-tartarugas-marinhas/index.html#espécie-por-espécie",
-    "title": "Reprodução das tartarugas marinhas: as 7 espécies comparadas",
-    "section": "Espécie por espécie",
-    "text": "Espécie por espécie\n\nTartaruga-cabeçuda (Caretta caretta)\nAmadurece por volta dos 20 a 30 anos. Cada fêmea faz de 3 a 5 ninhos por temporada, com cerca de 100 a 125 ovos por ninho, e só volta a se reproduzir a cada 2 ou 3 anos. A incubação dura de 50 a 60 dias. Nidifica sozinha, em praias temperadas e subtropicais — é a espécie que mais desova no Brasil, sobretudo na Bahia, no Espírito Santo, em Sergipe e no norte do Rio de Janeiro.\n\n\nTartaruga-verde (Chelonia mydas)\nÉ a que amadurece mais tarde: 25 a 35 anos, às vezes mais. Põe de 3 a 5 ninhos por temporada, com cerca de 110 a 115 ovos cada, e tem o maior intervalo entre temporadas — de 2 a 5 anos. Faz as migrações reprodutivas mais longas: populações que se alimentam no litoral brasileiro cruzam cerca de 2.000 km até a Ilha de Ascensão para desovar. No Brasil, a desova concentra-se na Ilha da Trindade; ao longo da costa, a espécie aparece sobretudo se alimentando.\n\n\nTartaruga-de-pente (Eretmochelys imbricata)\nAmadurece entre 20 e 35 anos. Tem uma das maiores ninhadas — frequentemente acima de 130 ovos, podendo passar de 160 em algumas populações —, com 3 a 5 ninhos por temporada e retorno a cada 2 ou 3 anos. Prefere praias tropicais associadas a recifes e costuma pôr o ninho junto à vegetação. No Brasil, desova principalmente na Bahia, no Rio Grande do Norte e em Sergipe.\n\n\nTartaruga-oliva (Lepidochelys olivacea)\nA mais abundante do mundo e uma das mais precoces: reproduz-se por volta dos 12 a 18 anos. Faz de 1 a 3 ninhos por temporada, com cerca de 100 a 110 ovos, e incubação curta, de 45 a 55 dias. É uma das duas espécies de arribada: em poucos lugares — como Odisha, na Índia, e Ostional, na Costa Rica — milhares de fêmeas sobem à mesma praia em poucos dias; no resto da distribuição, incluindo Sergipe e o norte da Bahia, a desova é solitária.\n\n\nTartaruga-de-Kemp (Lepidochelys kempii)\nA menor e a mais ameaçada. É praticamente endêmica do Golfo do México, com a desova concentrada numa única praia — Rancho Nuevo, no México — em arribadas diurnas. Amadurece cedo, entre 10 e 15 anos, põe cerca de 100 ovos por ninho e tem o ciclo mais acelerado das sete: remigração de 1 a 2 anos, contra os 2 a 4 anos das demais. Não ocorre no Brasil.\n\n\nTartaruga-de-couro (Dermochelys coriacea)\nA maior tartaruga viva, com mais de 600 kg, e a única sem casco ósseo. A ninhada tem cerca de 80 ovos com gema mais dezenas de ovos menores sem gema, que não geram filhotes. É a recordista em número de ninhos por temporada — de 5 a 7 —, com intervalos de apenas 9 a 10 dias entre eles, e incubação de 60 a 65 dias. Nidifica em praias tropicais de areia funda com acesso a água profunda. No Brasil, a única área regular de desova fica no norte do Espírito Santo, com uma população pequena.\n\n\nTartaruga-australiana (Natator depressus)\nEndêmica da plataforma continental da Austrália, onde nidifica exclusivamente. Tem a menor ninhada — cerca de 50 ovos —, mas põe ovos e filhotes maiores que os das outras espécies. É a única sem a fase oceânica dos “anos perdidos”: os filhotes permanecem em águas rasas e turvas perto da costa. Não ocorre no Brasil."
-  },
-  {
-    "objectID": "posts/reproducao-tartarugas-marinhas/index.html#as-diferenças-num-quadro",
-    "href": "posts/reproducao-tartarugas-marinhas/index.html#as-diferenças-num-quadro",
-    "title": "Reprodução das tartarugas marinhas: as 7 espécies comparadas",
-    "section": "As diferenças num quadro",
-    "text": "As diferenças num quadro\n\n\n\n\n\n\n\n\n\n\nEspécie\nMaturidade (anos)\nOvos por ninho\nNinhos por temporada\nIntervalo entre temporadas\n\n\n\n\nCabeçuda\n20–30\n~100–125\n3–5\n2–3 anos\n\n\nVerde\n25–35+\n~110–115\n3–5\n2–5 anos\n\n\nDe-pente\n20–35\n~130–160\n3–5\n2–3 anos\n\n\nOliva\n12–18\n~100–110\n1–3\n1–2 anos\n\n\nDe-Kemp\n10–15\n~100\n2–3\n1–2 anos\n\n\nDe-couro\n~9–15\n~80 (+ sem gema)\n5–7\n2–3 anos\n\n\nAustraliana\n~15–20\n~50\n2–3\n2–3 anos"
-  },
-  {
-    "objectID": "posts/reproducao-tartarugas-marinhas/index.html#a-reprodução-das-tartarugas-marinhas-no-brasil",
-    "href": "posts/reproducao-tartarugas-marinhas/index.html#a-reprodução-das-tartarugas-marinhas-no-brasil",
-    "title": "Reprodução das tartarugas marinhas: as 7 espécies comparadas",
-    "section": "A reprodução das tartarugas marinhas no Brasil",
-    "text": "A reprodução das tartarugas marinhas no Brasil\nO litoral brasileiro abriga cinco das sete espécies — cabeçuda, verde, de-pente, oliva e de-couro —, e é um dos poucos pontos do Atlântico Sul onde a cabeçuda ainda desova em número relevante. O monitoramento dessas praias é feito desde 1980 pelo Projeto TAMAR, que já manejou centenas de milhares de ninhos ao longo da costa do Nordeste e do Sudeste. As tartarugas-de-Kemp e as australianas não aparecem por aqui: a primeira é restrita ao Atlântico noroeste, a segunda, à Austrália, conforme as fichas de cada espécie da NOAA Fisheries."
-  },
-  {
-    "objectID": "posts/reproducao-tartarugas-marinhas/index.html#perguntas-frequentes",
-    "href": "posts/reproducao-tartarugas-marinhas/index.html#perguntas-frequentes",
-    "title": "Reprodução das tartarugas marinhas: as 7 espécies comparadas",
-    "section": "Perguntas frequentes",
-    "text": "Perguntas frequentes\n\nQuantas espécies de tartaruga marinha existem?\nSete: cabeçuda, verde, de-pente, oliva, de-Kemp, de-couro e australiana. Há discussão taxonômica sobre uma possível oitava, a tartaruga-preta do Pacífico oriental, hoje tratada como população da tartaruga-verde.\n\n\nQual espécie põe mais ovos por temporada?\nA tartaruga-de-couro. Embora a ninhada média seja menor (~80 ovos com gema), ela faz de 5 a 7 ninhos por temporada, somando mais de 500 ovos.\n\n\nQual põe menos?\nA tartaruga-australiana, com cerca de 50 ovos por ninho — em compensação, os ovos e os filhotes são maiores.\n\n\nO que é arribada?\nA desova sincronizada em massa das tartarugas-oliva e de-Kemp: milhares de fêmeas sobem à mesma praia em poucos dias, muitas vezes de dia. A hipótese principal é a saturação de predadores.\n\n\nTodas as espécies ocorrem no Brasil?\nNão. Cinco desovam ou se alimentam no litoral brasileiro; a tartaruga-de-Kemp e a australiana não ocorrem por aqui."
-  },
-  {
-    "objectID": "posts/reproducao-tartarugas-marinhas/index.html#conclusão",
-    "href": "posts/reproducao-tartarugas-marinhas/index.html#conclusão",
-    "title": "Reprodução das tartarugas marinhas: as 7 espécies comparadas",
-    "section": "Conclusão",
-    "text": "Conclusão\n\nAs sete espécies compartilham o mesmo roteiro reprodutivo: filopatria natal, incubação sem cuidado parental e sexo definido pela temperatura.\nA cabeçuda e a verde amadurecem tarde (20 a 35 anos); a de-Kemp e a oliva, cedo (10 a 18).\nA de-couro faz mais ninhos por temporada (5 a 7) e soma mais ovos; a australiana faz a menor ninhada (~50).\nOliva e de-Kemp têm a desova em massa (arribada); as demais nidificam sozinhas.\nNo Brasil ocorrem cinco espécies, monitoradas pelo Projeto TAMAR desde 1980.\n\n\nTópicos: #TartarugasMarinhas #VidaMarinha #Biologia #Natureza #Conservação"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "Sobre / About",
-    "section": "",
-    "text": "Sou Pedro Nakashima e moro no Brasil. Economista e programador, formado em Direito, atuo na interseção entre dados, economia, direito e tecnologia: uso ciência de dados, estatística e econometria para transformar informação em evidência e em decisão bem fundamentada.\nAqui escrevo sobre o que estudo e pratico: programação, ciência de dados, machine learning e inteligência artificial; economia, econometria, direito, legislação e perícia; e a leitura de política e geopolítica com esse mesmo instrumental. Também trato de temas que acompanho de perto — cinema, séries e futebol. A régua é sempre a mesma: método, fontes primárias e uma posição argumentada, sem hype.\nNo YouTube, o canal Pedro On Data traz o mesmo tipo de conteúdo em vídeo. Para conversar sobre um projeto, uma análise ou uma ideia de pauta, me chame no LinkedIn ou por e-mail.\n\nI’m Pedro Nakashima, and I live in Brazil. An economist and programmer with a law degree, I work at the intersection of data, economics, law and technology: using data science, statistics and econometrics to turn information into evidence and well-grounded decisions.\nHere I write about what I study and practice: programming, data science, machine learning and artificial intelligence; economics, econometrics, law, legislation and forensic analysis; and reading politics and geopolitics with those same tools. I also cover subjects I follow closely — film, TV series and football. The standard is always the same: method, primary sources and a reasoned position, without hype.\nOn YouTube, the Pedro On Data channel brings the same kind of content in video form. To talk about a project, an analysis or a story idea, reach me on LinkedIn or by email."
   }
 ]
