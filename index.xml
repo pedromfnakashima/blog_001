@@ -9,46 +9,216 @@
 <link>https://pedronakashima.com/</link>
 <atom:link href="https://pedronakashima.com/index.xml" rel="self" type="application/rss+xml"/>
 <description>Análises e guias de Pedro Nakashima sobre ciência de dados, machine learning, IA e tecnologia — e também economia, direito, política, cinema e futebol.</description>
-<generator>quarto-1.10.18</generator>
-<lastBuildDate>Mon, 07 Sep 2026 14:53:53 GMT</lastBuildDate>
+<generator>quarto-1.9.38</generator>
+<lastBuildDate>Wed, 09 Sep 2026 23:19:36 GMT</lastBuildDate>
 <item>
-  <title>Eleições brasileiras de 2026: o que está realmente em jogo</title>
+  <title>Why Learn Python in 2026, Even Though AI Writes Code</title>
   <dc:creator>Pedro Nakashima</dc:creator>
-  <link>https://pedronakashima.com/posts/eleicoes-brasileiras-2026/</link>
+  <link>https://pedronakashima.com/posts/learn-python-2026/</link>
   <description><![CDATA[ 
 
 
 
 
 
-<p><em>Publicado em 7 de setembro de 2026, às 10:53, por Pedro Nakashima</em></p>
-<p>As eleições brasileiras de 2026 chegam sem o rosto que dominou a política nacional na última década. Jair Bolsonaro está preso e inelegível, condenado pelo Supremo Tribunal Federal a mais de 27 anos por tentativa de golpe de Estado, e Lula, aos 80 anos, disputa a reeleição. O que se apresenta como uma escolha entre dois nomes é, no fundo, um teste de transferência: saber se o bolsonarismo funciona como marca sem Bolsonaro na cédula e se o lulismo ainda converte governo em voto. Enquanto os holofotes ficam no Planalto, boa parte do que vai moldar o país pelos próximos anos se decide nas eleições para o Congresso e para os governos estaduais, que acontecem no mesmo dia.</p>
-<p>O Partido Liberal oficializou em julho a candidatura de Flávio Bolsonaro, senador e filho do ex-presidente, com o deputado Alfredo Gaspar como vice. Foi o próprio Jair quem indicou o nome, depois que Tarcísio de Freitas, governador de São Paulo e preferido de parte da direita, sinalizou que buscaria a reeleição estadual. Do outro lado, Lula repete a chapa de 2022 com Geraldo Alckmin. <a href="https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026">As pesquisas de setembro compiladas</a> — Quaest, Futura e outras — mostram Lula à frente, na casa dos 37% a 39%, com Flávio entre 29% e 34% e o escritor Augusto Cury, candidato de menor porte, em torno de 10%. Em simulações de segundo turno, Lula mantém vantagem, ainda que dentro de margens que uma campanha longa costuma corroer.</p>
-<section id="o-bolsonarismo-sem-bolsonaro" class="level2">
-<h2 class="anchored" data-anchor-id="o-bolsonarismo-sem-bolsonaro">O bolsonarismo sem Bolsonaro</h2>
-<p>A aposta da direita é que o eleitorado formado desde 2018 vote em quem carregar o sobrenome e o discurso, mesmo sem o líder na disputa. Não é uma aposta absurda: mesmo preso e fora das redes, Bolsonaro segue pautando os movimentos do campo, e a candidatura de Flávio nasce como um plebiscito sobre a herança política do pai. O risco, para esse lado, é duplo. Primeiro, marca política raramente se transfere inteira — parte do voto bolsonarista era adesão pessoal, difícil de herdar. Segundo, fazer da eleição um referendo sobre a “perseguição” a Bolsonaro mobiliza a base já convencida, mas tem alcance limitado entre os indecisos, que tendem a decidir por custo de vida e segurança, não por lealdade a uma figura.</p>
-<p>Do lado do governo, o desafio é o oposto: transformar entrega em entusiasmo. Lula lidera, mas com aprovação que oscila perto da linha em que uma reeleição deixa de ser tranquila. A campanha governista aposta em três frentes — a agenda social e o salário mínimo, a bandeira da soberania nacional depois do tarifaço imposto pelos Estados Unidos em 2025, e uma resposta à insegurança, ancorada na PEC da Segurança Pública. O ponto fraco é conhecido: governos em terceiro mandato acumulam desgaste, e a economia, mesmo com desemprego baixo, ainda é sentida pelo eleitor sobretudo pelo preço da comida.</p>
+<p><em>Published on September 9, 2026 at 7:19 PM by Pedro Nakashima</em></p>
+<p>If you are an economist, a lawyer, an accountant, a physician, or anything else that is not a software developer, the question worth asking is not whether it would be fun to <strong>learn Python</strong>. It is whether it still makes sense to put a few dozen hours into it in 2026, at a moment when any language model writes better code than most beginners. My answer is that it does, for a reason almost nobody explains properly: knowing how to program does not compete with artificial intelligence. It <strong>multiplies</strong> what you can do with it. This post is about that, and about what the language actually lets you build.</p>
+<section id="what-python-is-in-two-sentences" class="level2">
+<h2 class="anchored" data-anchor-id="what-python-is-in-two-sentences">What Python is, in two sentences</h2>
+<p>Python is a general-purpose programming language, designed to be read easily by people and not merely executed by machines. In practice, it is the tool you use to describe, step by step, what you want the computer to do — open files, calculate, query a system, produce a report — and then run that as many times as you like, identically every time.</p>
+<p>To anyone who already codes: the next few paragraphs will tell you things you know by heart. Feel free to skip ahead to the section on the LLM objection.</p>
+<p>The language was born in the late 1980s, when <strong>Guido van Rossum</strong>, then at CWI (the Dutch national research institute for mathematics and computer science, in Amsterdam), started writing it as a holiday project. The first public release came in 1991. And the name did not come from the snake: it came from <em>Monty Python’s Flying Circus</em>, the BBC comedy series Guido was a fan of, as <a href="https://docs.python.org/3/faq/general.html#why-is-it-called-python">the official Python documentation confirms</a>. The snake showed up later, in the logo, once the joke was no longer obvious to everyone.</p>
+<p>This is not decorative trivia. A language created by someone who cared about humor and readability ended up becoming the language the world does data science in — and that is less of a coincidence than it looks.</p>
 </section>
-<section id="a-eleição-debaixo-da-presidencial" class="level2">
-<h2 class="anchored" data-anchor-id="a-eleição-debaixo-da-presidencial">A eleição debaixo da presidencial</h2>
-<p>No mesmo 4 de outubro, o país renova por inteiro a Câmara dos Deputados, dois terços do Senado, todas as assembleias legislativas e escolhe 27 governadores. É aí que o resultado costuma ter efeito mais duradouro do que a troca — ou não — de faixa presidencial. Um presidente eleito sem maioria no Congresso governa por concessão, como Lula tem feito desde 2023 diante de um Legislativo que ampliou o próprio poder sobre o Orçamento. A composição do Senado que sair de 2026 vai definir, por exemplo, a margem para indicações ao Supremo nos próximos anos. E os governos estaduais grandes funcionam como plataformas para 2030: quem vencer em São Paulo, Minas Gerais e no Rio de Janeiro larga na frente da corrida presidencial seguinte.</p>
-<p>Há quem diga que nada disso importa muito, porque a polarização estaria congelada e o resultado, dado. É uma leitura preguiçosa. Três eleições seguidas mostraram viradas de dois dígitos na intenção de voto ao longo da campanha, e 2026 traz variáveis novas: um candidato de direita ainda pouco testado nacionalmente, um presidente na idade mais avançada já vista num disputante e um ambiente externo volátil, com os Estados Unidos usando tarifas e sanções como instrumento político contra o Brasil. Qualquer um desses fatores pode mover a agulha mais do que a memória de 2022 sugere.</p>
-<p>Some-se o pano de fundo institucional. O julgamento e a prisão de Bolsonaro puseram o Judiciário no centro do debate eleitoral: a direita transforma <a href="https://www.cnnbrasil.com.br/politica/como-resultado-do-julgamento-de-bolsonaro-pode-afetar-eleicoes-de-2026/">decisões do STF</a> em prova de perseguição, e o campo governista as apresenta como o Estado de Direito funcionando. A discussão sobre uma eventual anistia aos condenados pelos atos de 8 de janeiro de 2023 seguirá viva no Congresso durante a campanha e será instrumentalizada pelos dois lados. É um terreno em que ganho eleitoral de curto prazo e custo institucional de longo prazo nem sempre andam juntos.</p>
-<p>O mais provável, hoje, é uma eleição presidencial decidida no segundo turno de <a href="https://www.tse.jus.br/eleicoes/eleicoes-2026">25 de outubro</a>, entre continuidade e alternância, com margem estreita. Mas fixar-se só nesse duelo é perder o essencial. As eleições brasileiras de 2026 vão responder três perguntas de peso: se um projeto político sobrevive à ausência de quem o fundou, se o desgaste de um governo longo pesa mais que o receio do que vem depois, e que Congresso o próximo presidente terá de negociar. As duas primeiras se resolvem em outubro. A terceira vai condicionar tudo o que for possível fazer até 2030.</p>
+<section id="import-this-the-language-ships-with-a-statement-of-principles" class="level2">
+<h2 class="anchored" data-anchor-id="import-this-the-language-ships-with-a-statement-of-principles"><code>import this</code>: the language ships with a statement of principles</h2>
+<p>Open Python and type two words:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> this</span></code></pre></div></div>
+<p>Here is what appears:</p>
+<pre class="text"><code>The Zen of Python, by Tim Peters
+
+Beautiful is better than ugly.
+Explicit is better than implicit.
+Simple is better than complex.
+Complex is better than complicated.
+Flat is better than nested.
+Sparse is better than dense.
+Readability counts.
+Special cases aren't special enough to break the rules.
+Although practicality beats purity.
+Errors should never pass silently.
+Unless explicitly silenced.
+In the face of ambiguity, refuse the temptation to guess.
+There should be one-- and preferably only one --obvious way to do it.
+Although that way may not be obvious at first unless you're Dutch.
+Now is better than never.
+Although never is often better than *right* now.
+If the implementation is hard to explain, it's a bad idea.
+If the implementation is easy to explain, it may be a good idea.
+Namespaces are one honking great idea -- let's do more of those!</code></pre>
+<p>It is a joke hidden inside the language, and at the same time it is not a joke at all. This text is the <strong>Zen of Python</strong>, written by Tim Peters and formally recorded as <a href="https://peps.python.org/pep-0020/">PEP 20, one of the language’s official design proposals</a>. It announces twenty aphorisms, but only nineteen were ever written down — the twentieth line has never existed, and the running gag is now decades old.</p>
+<p>Three of those lines explain why the language works so well for people who are not career programmers. <strong>“Readability counts”</strong>: code is read far more often than it is written, and the person rereading your script six months from now is you, remembering nothing. <strong>“Explicit is better than implicit”</strong>: the language would rather you say what you are doing than hide it behind magic. And <strong>“Errors should never pass silently”</strong>: when something goes wrong, Python complains loudly instead of handing back a wrong result wearing the face of a right one — which is precisely the nightmare of anyone who works with numbers.</p>
+<p>The line about being Dutch is a joke at Guido’s own expense. But the practical effect of all this is serious: a piece of Python tends to be legible even to someone who has never programmed. Look at this one, which totals sales by representative from a spreadsheet:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> pandas <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> pd</span>
+<span id="cb3-2"></span>
+<span id="cb3-3">sales <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> pd.read_excel(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"sales.xlsx"</span>)</span>
+<span id="cb3-4"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(sales.groupby(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"rep"</span>)[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"amount"</span>].<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">sum</span>())</span></code></pre></div></div>
+<p>Four lines. You probably understood what they do before I explained, and that is the difference between a language you pick up over a few weekends and one that demands a semester before it produces anything useful.</p>
+</section>
+<section id="if-ai-writes-the-code-why-would-i-learn" class="level2">
+<h2 class="anchored" data-anchor-id="if-ai-writes-the-code-why-would-i-learn">“If AI writes the code, why would I learn?”</h2>
+<p>This is the serious objection, and it deserves a serious answer rather than a motivational speech. I will split it into three parts, because they are three different problems.</p>
+<section id="if-you-cannot-read-code-you-cannot-tell-whether-the-result-is-right" class="level3">
+<h3 class="anchored" data-anchor-id="if-you-cannot-read-code-you-cannot-tell-whether-the-result-is-right">If you cannot read code, you cannot tell whether the result is right</h3>
+<p>A language model produces plausible code very easily. Plausible is not a synonym for correct. It can filter the wrong column, handle missing values in a way that biases the result, read dates as MM/DD when the source is DD/MM, or apply a monthly rate to an annual series. None of that raises an error. It produces a number.</p>
+<p>That is the point separating the casual user from someone who has to stand behind the output. If your report goes to a client, a judge, a board, or a patient, somebody needs to be able to look at the fifteen lines that produced that number and say whether they do what they claim to do. Reading code has become a form of <strong>quality control</strong> — and it is a far cheaper skill to acquire than writing code from scratch.</p>
+</section>
+<section id="deterministic-and-probabilistic-are-good-at-different-things" class="level3">
+<h3 class="anchored" data-anchor-id="deterministic-and-probabilistic-are-good-at-different-things">Deterministic and probabilistic are good at different things</h3>
+<p>A language model is probabilistic: ask the same question twice and you may get different answers. A program is deterministic: given the same input, it returns exactly the same output, today and two years from now.</p>
+<p>Both properties are useful, for opposite purposes. You want the probabilistic tool to interpret ambiguous text, summarize, classify, extract meaning. You want the deterministic one to compute interest, reconcile totals, apply a rule, validate an identifier, and guarantee that the same process ran identically across all 4,000 documents. Anyone holding only one of the two ends up using the wrong one — and using a language model for financial arithmetic is an expensive way to discover this.</p>
+</section>
+<section id="ai-gets-far-more-powerful-in-the-hands-of-someone-who-programs" class="level3">
+<h3 class="anchored" data-anchor-id="ai-gets-far-more-powerful-in-the-hands-of-someone-who-programs">AI gets far more powerful in the hands of someone who programs</h3>
+<p>Here is the argument that turns the objection inside out. The genuinely powerful use of an LLM in 2026 is not chatting in a text box: it is <strong>wiring the model into a system</strong>, and the system is written in Python.</p>
+<p>In practice that means reaching models through APIs, or running them locally with <strong>Ollama</strong> and open models from <strong>Hugging Face</strong> when the data is confidential and cannot leave your machine. It means turning your own documents into <strong>embeddings</strong>, storing them in a vector database and assembling a <strong>RAG</strong> setup, so the model answers from your corpus rather than from what it thinks it knows. It means using <strong>structured outputs</strong> to get JSON with predictable fields instead of loose prose, handing the model <strong>tools</strong> through function calling, and writing <strong>guardrails</strong> — deterministic code that checks the model’s answer before it turns into a decision.</p>
+<p>That is why the skill is not being replaced: it moved. Python became the <strong>orchestration layer</strong> — the thing that calls the model, decides when to trust it, verifies what came back, and connects the result to the rest of the process.</p>
+</section>
+</section>
+<section id="what-you-can-actually-build" class="level2">
+<h2 class="anchored" data-anchor-id="what-you-can-actually-build">What you can actually build</h2>
+<p>Showing beats arguing. These are the five big blocks, and the interesting part starts when they come together.</p>
+<section id="automation-the-work-nobody-should-do-twice" class="level3">
+<h3 class="anchored" data-anchor-id="automation-the-work-nobody-should-do-twice">Automation: the work nobody should do twice</h3>
+<p>This is the first payoff and the most immediate one. Renaming and organizing hundreds of files and folders; consolidating dozens of spreadsheets into one; splitting PDFs and pulling out pages; generating contracts or reports from a template; reading and sending email; pulling data from a site that offers no export (<strong>web scraping</strong>, with <strong>Playwright</strong> or <strong>Selenium</strong> when the page needs a real browser); querying the <strong>APIs</strong> of systems you already pay for.</p>
+<p>In this area Python is what people call a <strong>glue language</strong>: it talks to almost everything, which makes it the right tool for tying together systems that were never designed to speak to each other. Once the script exists, it becomes a scheduled job, runs by itself overnight, and the gain is not only time — it is <strong>standardization</strong>: the process now happens the same way every time, which eliminates the entire class of human error that shows up when someone repeats the same dull task for the fortieth time.</p>
+</section>
+<section id="forecasting-from-a-guess-to-an-interval" class="level3">
+<h3 class="anchored" data-anchor-id="forecasting-from-a-guess-to-an-interval">Forecasting: from a guess to an interval</h3>
+<p>Forecasting demand, prices, revenue, defaults, an economic indicator, or a sports result is the same kind of problem wearing different clothes. Python covers everything from the simple and sturdy — <strong>regression</strong>, exponential smoothing, <strong>ARIMA</strong> and <strong>SARIMA</strong>, state space models, <strong>Monte Carlo</strong> simulation — through machine learning with <strong>scikit-learn</strong>, <strong>XGBoost</strong>, and neural networks, and hybrid models that combine both worlds.</p>
+<p>But what separates forecasting from guessing is not the models; it is the discipline around them: <strong>temporal validation</strong> (testing only against data that existed before that date), <strong>backtesting</strong>, automated comparison between alternatives, and above all <strong>prediction intervals</strong>. A lone number is an opinion wearing the costume of a fact; a number with a band of uncertainty is a forecast. That distinction is easy to enforce in code and nearly impossible to maintain by hand.</p>
+</section>
+<section id="documents-and-images-reading-what-nobody-has-time-to-read" class="level3">
+<h3 class="anchored" data-anchor-id="documents-and-images-reading-what-nobody-has-time-to-read">Documents and images: reading what nobody has time to read</h3>
+<p>This is the block that matters most to people in law, accounting, healthcare, and research. You can extract text and <strong>tables</strong> from PDFs, turn documents into structured data, process DOCX, XLSX and HTML, and run <strong>OCR</strong> over scanned material — including straightening the page and cleaning up the image first with <strong>Pillow</strong> or <strong>OpenCV</strong>, which usually decides whether the recognition is any good.</p>
+<p>From there comes the good part: recognizing entities (dates, amounts, names, case numbers), classifying documents by type, comparing two versions of a contract and pointing to exactly what changed, and indexing an entire archive for semantic search — asking “where does an acceleration clause appear?” and getting the passages back, not a list of filenames. Multimodal models close the loop, reading what is in the image when there is no text at all.</p>
+</section>
+<section id="dashboards-you-control" class="level3">
+<h3 class="anchored" data-anchor-id="dashboards-you-control">Dashboards you control</h3>
+<p>With <strong>Streamlit</strong>, <strong>Dash</strong>, <strong>Panel</strong>, and <strong>Plotly</strong>, an interactive dashboard — filters, maps, time series, forecasts, confidence bands — is code, not a separate product. The practical difference from drag-and-drop tools is not looks: a dashboard written in code is <strong>versioned in Git</strong>, reproducible, self-updating, and connected straight to the database or API that produces the data. It complements Power BI very well, and sometimes replaces it.</p>
+</section>
+<section id="the-payoff-the-pipeline" class="level3">
+<h3 class="anchored" data-anchor-id="the-payoff-the-pipeline">The payoff: the pipeline</h3>
+<p>What ties everything together is that these pieces live in the same language, and so they become one thing. A realistic flow today looks like this: a script collects the source documents and data; text, tables, and images get extracted; a forecasting model runs over the resulting series; an LLM classifies, summarizes, and explains what changed; a set of deterministic checks verifies the numbers; and a dashboard presents the result, refreshed without anyone touching it. That is an entire manual process becoming a reproducible pipeline — and that, far more than memorizing syntax, is what “knowing Python” means in practice.</p>
+<p>If you want to see why I keep insisting on this crossing between fields, I wrote about it in <a href="../../posts/economics-law-code/index.html">this blog’s opening post</a>.</p>
+</section>
+</section>
+<section id="where-to-start-practically" class="level2">
+<h2 class="anchored" data-anchor-id="where-to-start-practically">Where to start, practically</h2>
+<p>The classic mistake is beginning with a forty-hour course on programming logic and quitting at hour ten. The path that works runs the other way: pick <strong>one dull, real task</strong> from your week and automate it badly. Then improve it.</p>
+<ol type="1">
+<li><strong>Install the essentials.</strong> Get Python from <a href="https://www.python.org/">python.org</a>, or install the Anaconda distribution, which already ships with the data libraries. Write in VS Code or a Jupyter Notebook.</li>
+<li><strong>Pick the right problem.</strong> It is not “learn Python”: it is “merge the 30 spreadsheets I get every month”, “pull the due dates out of these 200 contracts”, “download the indicator I track every week”. Small, repetitive, yours.</li>
+<li><strong>Write the first ugly script.</strong> It will have bad variable names and no error handling. That is fine. It only has to work once.</li>
+<li><strong>Use the LLM as a tutor, not an oracle.</strong> Ask for the code, then ask it to explain the code line by line. The explanation is the course; the code is just the output. This is where you actually learn, and fast.</li>
+<li><strong>Check the result by hand the first time.</strong> Run the script and compare its output against what you would have done manually, on a small case. If it matches, you just gained a process you can trust. If it does not, you just learned why.</li>
+</ol>
+<p>Here is what fits in step 3 — standardizing the filename of every PDF in a folder:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">from</span> pathlib <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> Path</span>
+<span id="cb4-2"></span>
+<span id="cb4-3"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">file</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> Path(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"contracts"</span>).glob(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"*.pdf"</span>):</span>
+<span id="cb4-4">    new_name <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">file</span>.name.replace(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">" "</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"-"</span>).lower()</span>
+<span id="cb4-5">    <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">file</span>.rename(<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">file</span>.with_name(new_name))</span></code></pre></div></div>
+<p>Three useful lines, doing in one second what would take an afternoon. The first script that solves a problem of your own is the moment the learning curve stops being effort and starts being return. <a href="https://docs.python.org/3/tutorial/">The official language tutorial</a> is free, good, and friendlier than its reputation suggests.</p>
+</section>
+<section id="faq" class="level2">
+<h2 class="anchored" data-anchor-id="faq">FAQ</h2>
+<section id="do-i-need-math-to-learn-python" class="level3">
+<h3 class="anchored" data-anchor-id="do-i-need-math-to-learn-python">Do I need math to learn Python?</h3>
+<p>For automation, document processing, and dashboards, no — the math you already use at work is enough. For statistical modeling and forecasting you need to understand the concepts (what a residual is, what a confidence interval means), but you do not need to derive the formulas: the libraries do the computing. Understanding what a model assumes matters far more than being able to implement it.</p>
+</section>
+<section id="how-long-until-it-is-useful" class="level3">
+<h3 class="anchored" data-anchor-id="how-long-until-it-is-useful">How long until it is useful?</h3>
+<p>It depends on what you call useful. To automate one simple repetitive task, a few weeks of intermittent use is reasonable. For independent data analysis, a few months. With an LLM beside you explaining every line, that is considerably faster than it was five years ago — which is another reason the age of the models is a good moment to begin, not a bad one.</p>
+</section>
+<section id="python-or-excel" class="level3">
+<h3 class="anchored" data-anchor-id="python-or-excel">Python or Excel?</h3>
+<p>It is not a choice. Excel remains unbeatable for exploring a small dataset and showing someone something quickly. Python takes over when the volume exceeds what a spreadsheet can hold, when the task repeats every month, when the process has to be auditable, or when you need an exact record of what was done so someone else can reproduce it. In most professional routines the two coexist: Python processes, Excel presents.</p>
+</section>
+<section id="what-if-i-learn-this-and-ai-makes-it-obsolete-in-two-years" class="level3">
+<h3 class="anchored" data-anchor-id="what-if-i-learn-this-and-ai-makes-it-obsolete-in-two-years">What if I learn this and AI makes it obsolete in two years?</h3>
+<p>It is a fair concern, and I have no certainty about the future. What I observe is that every recent advance has increased, not decreased, the value of understanding what code does: someone still has to frame the problem, choose the data, judge the output, and answer for the result. What changes is the ratio between typing and judging. The part being automated is precisely the part that asked the least of you.</p>
+</section>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<ul>
+<li><strong>Learning Python in 2026 still pays off</strong>, and the main reason has changed: it is no longer about writing code faster, it is about being able to judge, verify, and orchestrate what the AI produces.</li>
+<li>Language models are probabilistic and <strong>programs are deterministic</strong> — using each in the right place is the skill that separates a result from an accident.</li>
+<li>Readable syntax is not an aesthetic detail: it is what makes the language viable for people who will never program full-time, and <code>import this</code> shows that this was a design decision, not luck.</li>
+<li>The practical return shows up across five fronts — <strong>automation, forecasting, documents and images, integrated LLMs, and dashboards</strong> — and the real power is in joining them into a single pipeline.</li>
+<li>Start with one dull, real task from your week, write the first ugly script, and use the LLM to explain each line rather than merely hand them over.</li>
+</ul>
 <hr>
-<p><strong>Tópicos:</strong> #Eleições2026 #Brasil #Política #Congresso #Democracia</p>
+<p><strong>Topics:</strong> #Python #Programming #ArtificialIntelligence #Automation #DataScience</p>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "Eleições brasileiras de 2026: o que está realmente em jogo",
-  "description": "Eleições brasileiras de 2026: por que a disputa Lula x Flávio Bolsonaro é um teste do bolsonarismo sem Bolsonaro e por que o Congresso pode pesar mais.",
-  "inLanguage": "pt-BR",
-  "datePublished": "2026-09-07T10:53:53-03:00",
-  "dateModified": "2026-09-07T10:53:53-03:00",
+  "@type": "BlogPosting",
+  "headline": "Why Learn Python in 2026, Even Though AI Writes Code",
+  "description": "Learning Python in 2026 still pays off even with AI writing code: what the language actually does, why it makes LLM users stronger, and where to start today.",
+  "inLanguage": "en-US",
+  "datePublished": "2026-09-09T19:19:36-04:00",
+  "dateModified": "2026-09-09T19:19:36-04:00",
   "author": { "@type": "Person", "name": "Pedro Nakashima" },
-  "mainEntityOfPage": "https://pedronakashima.com/posts/eleicoes-brasileiras-2026/",
-  "keywords": "eleições brasileiras de 2026, eleição presidencial 2026, Lula, Flávio Bolsonaro, bolsonarismo, Congresso Nacional"
+  "mainEntityOfPage": "https://pedronakashima.com/posts/learn-python-2026/",
+  "keywords": "learn Python, Python 2026, Python automation, LLM, data science, dashboards, document processing"
 }
 </script>
 
@@ -56,184 +226,215 @@
 </section>
 
  ]]></description>
-  <category>política</category>
-  <category>eleições 2026</category>
-  <category>brasil</category>
-  <category>democracia</category>
-  <guid>https://pedronakashima.com/posts/eleicoes-brasileiras-2026/</guid>
-  <pubDate>Mon, 07 Sep 2026 14:53:53 GMT</pubDate>
-  <media:content url="https://pedronakashima.com/assets/imagem_padrao.jpeg" medium="image" type="image/jpeg"/>
+  <category>python</category>
+  <category>programming</category>
+  <category>artificial intelligence</category>
+  <category>automation</category>
+  <category>data science</category>
+  <guid>https://pedronakashima.com/posts/learn-python-2026/</guid>
+  <pubDate>Wed, 09 Sep 2026 23:19:36 GMT</pubDate>
+  <media:content url="https://pedronakashima.com/posts/learn-python-2026/image.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
-  <title>Reprodução das tartarugas marinhas: as 7 espécies comparadas</title>
+  <title>Por que aprender Python em 2026, mesmo na era dos LLMs</title>
   <dc:creator>Pedro Nakashima</dc:creator>
-  <link>https://pedronakashima.com/posts/reproducao-tartarugas-marinhas/</link>
+  <link>https://pedronakashima.com/posts/aprender-python-2026/</link>
   <description><![CDATA[ 
 
 
 
 
 
-<p><em>Publicado em 7 de setembro de 2026, às 10:32, por Pedro Nakashima</em></p>
-<p>A reprodução das tartarugas marinhas segue o mesmo roteiro em todas as espécies — acasalamento na água, fêmea que sobe à praia, ninho cavado na areia, incubação sem cuidado parental e filhotes que correm sozinhos para o mar —, mas os números por trás desse roteiro variam muito. Uma tartaruga-de-couro põe mais de 500 ovos numa temporada e some por três anos; uma tartaruga-australiana põe cerca de 50 e nunca sai da plataforma continental. Este guia compara como se reproduzem as sete espécies de tartaruga marinha: quando desovam, quantos ovos botam, de quanto em quanto tempo voltam e onde fazem ninho.</p>
-<section id="o-que-é-igual-nas-sete-espécies" class="level2">
-<h2 class="anchored" data-anchor-id="o-que-é-igual-nas-sete-espécies">O que é igual nas sete espécies</h2>
-<p>Antes das diferenças, vale fixar o que não muda. Todas têm <strong>determinação sexual pela temperatura</strong>: não há cromossomo sexual, e a proporção de machos e fêmeas do ninho é definida pelo calor da areia durante o terço médio da incubação, com ponto de equilíbrio perto de 29 °C. Todas praticam <strong>filopatria natal</strong> — as fêmeas voltam para desovar na praia onde nasceram, ou muito perto dela. Todas desovam <strong>de noite</strong>, com a exceção das arribadas diurnas das tartarugas-oliva e de-Kemp. E em nenhuma há qualquer cuidado com ovos ou filhotes: a fêmea cobre o ninho, disfarça o local e volta ao mar.</p>
-<p>E em nenhuma há cuidado com ovos ou filhotes: ao contrário de mamíferos marinhos de vida longa como os <a href="../../posts/vida-golfinhos/index.html">golfinhos</a>, que investem anos em cada cria, a tartaruga aposta tudo no número — muitos ovos, nenhuma proteção. A partir daí, cada espécie tem o seu calendário e a sua aritmética.</p>
+<p><em>Publicado em 9 de setembro de 2026, às 19:04, por Pedro Nakashima</em></p>
+<p>Se você é economista, advogado, contador, administrador, médico ou qualquer outra coisa que não seja programador, a pergunta que interessa não é se vale a pena <strong>aprender Python</strong> por diversão. É se ainda faz sentido investir algumas dezenas de horas nisso em 2026, num momento em que qualquer modelo de linguagem escreve código melhor do que a maioria dos iniciantes. Minha resposta é que faz, e por um motivo que quase ninguém explica direito: saber programar não compete com a inteligência artificial, ela <strong>multiplica</strong> o que você consegue fazer com ela. Este texto é sobre isso, e sobre o que a linguagem realmente permite construir.</p>
+<section id="o-que-é-python-em-duas-frases" class="level2">
+<h2 class="anchored" data-anchor-id="o-que-é-python-em-duas-frases">O que é Python, em duas frases</h2>
+<p>Python é uma linguagem de programação de uso geral, criada para ser lida com facilidade por gente e não apenas executada por máquina. Na prática, é a ferramenta com que você descreve, passo a passo, o que quer que o computador faça — abrir arquivos, calcular, consultar um sistema, gerar um relatório — e depois manda executar isso quantas vezes quiser, sempre igual.</p>
+<p>Peço licença a quem já programa: os próximos parágrafos vão contar coisas que você sabe de cor. Vale a pena pular para a seção sobre a objeção dos LLMs.</p>
+<p>A linguagem nasceu no fim dos anos 1980, quando <strong>Guido van Rossum</strong>, então no CWI (o instituto nacional holandês de pesquisa em matemática e computação, em Amsterdã), começou a escrevê-la como projeto de fim de ano. A primeira versão pública saiu em 1991. E o nome não veio da cobra: veio de <em>Monty Python’s Flying Circus</em>, o programa de humor da BBC, de que Guido era fã — o que <a href="https://docs.python.org/3/faq/general.html#why-is-it-called-python">a própria documentação oficial do Python confirma</a>. A cobra apareceu depois, no logotipo, quando a piada já não era óbvia para todo mundo.</p>
+<p>Isso não é curiosidade decorativa. Uma linguagem criada por alguém que se importava com humor e legibilidade acabou virando a linguagem em que o mundo faz ciência de dados — e essa não é uma coincidência tão grande quanto parece.</p>
 </section>
-<section id="espécie-por-espécie" class="level2">
-<h2 class="anchored" data-anchor-id="espécie-por-espécie">Espécie por espécie</h2>
-<section id="tartaruga-cabeçuda-caretta-caretta" class="level3">
-<h3 class="anchored" data-anchor-id="tartaruga-cabeçuda-caretta-caretta">Tartaruga-cabeçuda (<em>Caretta caretta</em>)</h3>
-<p>Amadurece por volta dos 20 a 30 anos. Cada fêmea faz de 3 a 5 ninhos por temporada, com cerca de 100 a 125 ovos por ninho, e só volta a se reproduzir a cada 2 ou 3 anos. A incubação dura de 50 a 60 dias. Nidifica sozinha, em praias temperadas e subtropicais — é a espécie que mais desova no Brasil, sobretudo na Bahia, no Espírito Santo, em Sergipe e no norte do Rio de Janeiro.</p>
+<section id="import-this-a-linguagem-tem-uma-declaração-de-princípios" class="level2">
+<h2 class="anchored" data-anchor-id="import-this-a-linguagem-tem-uma-declaração-de-princípios"><code>import this</code>: a linguagem tem uma declaração de princípios</h2>
+<p>Abra o Python e digite duas palavras:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> this</span></code></pre></div></div>
+<p>O que aparece é isto:</p>
+<pre class="text"><code>The Zen of Python, by Tim Peters
+
+Beautiful is better than ugly.
+Explicit is better than implicit.
+Simple is better than complex.
+Complex is better than complicated.
+Flat is better than nested.
+Sparse is better than dense.
+Readability counts.
+Special cases aren't special enough to break the rules.
+Although practicality beats purity.
+Errors should never pass silently.
+Unless explicitly silenced.
+In the face of ambiguity, refuse the temptation to guess.
+There should be one-- and preferably only one --obvious way to do it.
+Although that way may not be obvious at first unless you're Dutch.
+Now is better than never.
+Although never is often better than *right* now.
+If the implementation is hard to explain, it's a bad idea.
+If the implementation is easy to explain, it may be a good idea.
+Namespaces are one honking great idea -- let's do more of those!</code></pre>
+<p>É uma piada escondida na linguagem, e ao mesmo tempo não é piada nenhuma. Esse texto é o <strong>Zen of Python</strong>, escrito por Tim Peters e registrado formalmente como <a href="https://peps.python.org/pep-0020/">a PEP 20, uma das propostas oficiais de design da linguagem</a>. Ele anuncia vinte aforismos, mas só dezenove foram escritos — a vigésima linha nunca existiu, e a brincadeira já dura décadas.</p>
+<p>Três dessas linhas explicam por que a linguagem é boa para quem não é programador de carreira. “<strong>Readability counts</strong>” (legibilidade importa): o código é lido muitas vezes mais do que é escrito, e quem vai reler o seu script daqui a seis meses é você, sem lembrar de nada. “<strong>Explicit is better than implicit</strong>” (explícito é melhor que implícito): a linguagem prefere que você diga o que está fazendo a esconder mágica. E “<strong>Errors should never pass silently</strong>” (erros nunca deveriam passar em silêncio): quando algo dá errado, Python reclama alto, em vez de devolver um resultado errado com cara de certo — que é exatamente o pesadelo de quem trabalha com número.</p>
+<p>A frase sobre ser holandês é uma piada com o próprio Guido. Mas o efeito prático de tudo isso é sério: um trecho de Python costuma ser legível mesmo para quem nunca programou. Veja este, que soma vendas por vendedor a partir de uma planilha:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> pandas <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> pd</span>
+<span id="cb3-2"></span>
+<span id="cb3-3">vendas <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> pd.read_excel(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"vendas.xlsx"</span>)</span>
+<span id="cb3-4"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(vendas.groupby(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"vendedor"</span>)[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"valor"</span>].<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">sum</span>())</span></code></pre></div></div>
+<p>Quatro linhas. Você provavelmente entendeu o que elas fazem antes de eu explicar, e essa é a diferença entre uma linguagem que você aprende em fins de semana e uma que exige um semestre antes de produzir qualquer coisa útil.</p>
 </section>
-<section id="tartaruga-verde-chelonia-mydas" class="level3">
-<h3 class="anchored" data-anchor-id="tartaruga-verde-chelonia-mydas">Tartaruga-verde (<em>Chelonia mydas</em>)</h3>
-<p>É a que amadurece mais tarde: 25 a 35 anos, às vezes mais. Põe de 3 a 5 ninhos por temporada, com cerca de 110 a 115 ovos cada, e tem o maior intervalo entre temporadas — de 2 a 5 anos. Faz as migrações reprodutivas mais longas: populações que se alimentam no litoral brasileiro cruzam cerca de 2.000 km até a Ilha de Ascensão para desovar. No Brasil, a desova concentra-se na Ilha da Trindade; ao longo da costa, a espécie aparece sobretudo se alimentando.</p>
+<section id="se-a-ia-escreve-o-código-por-que-eu-aprenderia" class="level2">
+<h2 class="anchored" data-anchor-id="se-a-ia-escreve-o-código-por-que-eu-aprenderia">“Se a IA escreve o código, por que eu aprenderia?”</h2>
+<p>Esta é a objeção séria, e ela merece uma resposta séria em vez de um discurso motivacional. Vou dividi-la em três partes, porque são três problemas diferentes.</p>
+<section id="quem-não-lê-código-não-sabe-se-o-resultado-está-certo" class="level3">
+<h3 class="anchored" data-anchor-id="quem-não-lê-código-não-sabe-se-o-resultado-está-certo">Quem não lê código não sabe se o resultado está certo</h3>
+<p>Um modelo de linguagem escreve código plausível com muita facilidade. Plausível não é sinônimo de correto. Ele pode filtrar a coluna errada, tratar valores ausentes de um jeito que enviesa o resultado, converter data no formato americano quando a base está no brasileiro, ou aplicar uma taxa mensal onde a série é anual. Nada disso gera erro: gera um número.</p>
+<p>Esse é o ponto que separa o usuário casual de quem trabalha com o resultado. Se o seu relatório vai para um cliente, para um juiz, para um conselho ou para um paciente, alguém precisa ser capaz de olhar as quinze linhas que produziram aquele número e dizer se elas fazem o que dizem fazer. Saber ler código é, hoje, uma forma de <strong>controle de qualidade</strong> — e é uma habilidade bem mais barata de adquirir do que saber escrever código do zero.</p>
 </section>
-<section id="tartaruga-de-pente-eretmochelys-imbricata" class="level3">
-<h3 class="anchored" data-anchor-id="tartaruga-de-pente-eretmochelys-imbricata">Tartaruga-de-pente (<em>Eretmochelys imbricata</em>)</h3>
-<p>Amadurece entre 20 e 35 anos. Tem uma das maiores ninhadas — frequentemente acima de 130 ovos, podendo passar de 160 em algumas populações —, com 3 a 5 ninhos por temporada e retorno a cada 2 ou 3 anos. Prefere praias tropicais associadas a recifes e costuma pôr o ninho junto à vegetação. No Brasil, desova principalmente na Bahia, no Rio Grande do Norte e em Sergipe.</p>
+<section id="determinístico-e-probabilístico-servem-para-coisas-diferentes" class="level3">
+<h3 class="anchored" data-anchor-id="determinístico-e-probabilístico-servem-para-coisas-diferentes">Determinístico e probabilístico servem para coisas diferentes</h3>
+<p>Um modelo de linguagem é probabilístico: fazendo a mesma pergunta duas vezes, você pode receber respostas diferentes. Um programa é determinístico: com a mesma entrada, ele devolve exatamente a mesma saída, hoje e daqui a dois anos.</p>
+<p>As duas propriedades são úteis, para coisas opostas. Você quer o modelo probabilístico para interpretar um texto ambíguo, resumir, classificar, extrair sentido. Você quer o programa determinístico para calcular juros, conferir totais, aplicar uma regra, validar um CPF, garantir que o mesmo processo rodou igual nos 4.000 documentos. Quem só tem uma das duas ferramentas acaba usando a errada — e usar modelo de linguagem para aritmética financeira é um jeito caro de descobrir isso.</p>
 </section>
-<section id="tartaruga-oliva-lepidochelys-olivacea" class="level3">
-<h3 class="anchored" data-anchor-id="tartaruga-oliva-lepidochelys-olivacea">Tartaruga-oliva (<em>Lepidochelys olivacea</em>)</h3>
-<p>A mais abundante do mundo e uma das mais precoces: reproduz-se por volta dos 12 a 18 anos. Faz de 1 a 3 ninhos por temporada, com cerca de 100 a 110 ovos, e incubação curta, de 45 a 55 dias. É uma das duas espécies de <strong>arribada</strong>: em poucos lugares — como Odisha, na Índia, e Ostional, na Costa Rica — milhares de fêmeas sobem à mesma praia em poucos dias; no resto da distribuição, incluindo Sergipe e o norte da Bahia, a desova é solitária.</p>
-</section>
-<section id="tartaruga-de-kemp-lepidochelys-kempii" class="level3">
-<h3 class="anchored" data-anchor-id="tartaruga-de-kemp-lepidochelys-kempii">Tartaruga-de-Kemp (<em>Lepidochelys kempii</em>)</h3>
-<p>A menor e a mais ameaçada. É praticamente endêmica do Golfo do México, com a desova concentrada numa única praia — Rancho Nuevo, no México — em arribadas diurnas. Amadurece cedo, entre 10 e 15 anos, põe cerca de 100 ovos por ninho e tem o ciclo mais acelerado das sete: remigração de 1 a 2 anos, contra os 2 a 4 anos das demais. Não ocorre no Brasil.</p>
-</section>
-<section id="tartaruga-de-couro-dermochelys-coriacea" class="level3">
-<h3 class="anchored" data-anchor-id="tartaruga-de-couro-dermochelys-coriacea">Tartaruga-de-couro (<em>Dermochelys coriacea</em>)</h3>
-<p>A maior tartaruga viva, com mais de 600 kg, e a única sem casco ósseo. A ninhada tem cerca de 80 ovos com gema mais dezenas de ovos menores sem gema, que não geram filhotes. É a recordista em número de ninhos por temporada — de 5 a 7 —, com intervalos de apenas 9 a 10 dias entre eles, e incubação de 60 a 65 dias. Nidifica em praias tropicais de areia funda com acesso a água profunda. No Brasil, a única área regular de desova fica no norte do Espírito Santo, com uma população pequena.</p>
-</section>
-<section id="tartaruga-australiana-natator-depressus" class="level3">
-<h3 class="anchored" data-anchor-id="tartaruga-australiana-natator-depressus">Tartaruga-australiana (<em>Natator depressus</em>)</h3>
-<p>Endêmica da plataforma continental da Austrália, onde nidifica exclusivamente. Tem a menor ninhada — cerca de 50 ovos —, mas põe ovos e filhotes maiores que os das outras espécies. É a única sem a fase oceânica dos “anos perdidos”: os filhotes permanecem em águas rasas e turvas perto da costa. Não ocorre no Brasil.</p>
+<section id="a-ia-fica-muito-mais-forte-na-mão-de-quem-programa" class="level3">
+<h3 class="anchored" data-anchor-id="a-ia-fica-muito-mais-forte-na-mão-de-quem-programa">A IA fica muito mais forte na mão de quem programa</h3>
+<p>Aqui está o argumento que inverte a objeção. O uso realmente poderoso de LLM em 2026 não é conversar numa caixinha de texto: é <strong>integrá-lo a um sistema</strong>, e o sistema é escrito em Python.</p>
+<p>Na prática, isso significa acessar modelos por API, ou rodá-los localmente com <strong>Ollama</strong> e modelos abertos do <strong>Hugging Face</strong> quando o dado é sigiloso e não pode sair da sua máquina. Significa transformar seus próprios documentos em <strong>embeddings</strong>, guardá-los num banco vetorial e montar um <strong>RAG</strong>, para que o modelo responda com base no seu acervo, e não no que ele acha que sabe. Significa usar <strong>structured outputs</strong> para receber um JSON com campos previsíveis em vez de um texto solto, dar <strong>ferramentas</strong> ao modelo com <em>tool calling</em>, e escrever <strong>guardrails</strong> — código determinístico que confere a resposta do modelo antes de ela virar decisão.</p>
+<p>É por isso que a habilidade não está sendo substituída: ela mudou de posição. Python virou a <strong>camada de orquestração</strong> — quem chama o modelo, decide quando confiar nele, verifica o que ele devolveu e conecta o resultado ao resto do processo.</p>
 </section>
 </section>
-<section id="as-diferenças-num-quadro" class="level2">
-<h2 class="anchored" data-anchor-id="as-diferenças-num-quadro">As diferenças num quadro</h2>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Espécie</th>
-<th>Maturidade (anos)</th>
-<th>Ovos por ninho</th>
-<th>Ninhos por temporada</th>
-<th>Intervalo entre temporadas</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Cabeçuda</td>
-<td>20–30</td>
-<td>~100–125</td>
-<td>3–5</td>
-<td>2–3 anos</td>
-</tr>
-<tr class="even">
-<td>Verde</td>
-<td>25–35+</td>
-<td>~110–115</td>
-<td>3–5</td>
-<td>2–5 anos</td>
-</tr>
-<tr class="odd">
-<td>De-pente</td>
-<td>20–35</td>
-<td>~130–160</td>
-<td>3–5</td>
-<td>2–3 anos</td>
-</tr>
-<tr class="even">
-<td>Oliva</td>
-<td>12–18</td>
-<td>~100–110</td>
-<td>1–3</td>
-<td>1–2 anos</td>
-</tr>
-<tr class="odd">
-<td>De-Kemp</td>
-<td>10–15</td>
-<td>~100</td>
-<td>2–3</td>
-<td>1–2 anos</td>
-</tr>
-<tr class="even">
-<td>De-couro</td>
-<td>~9–15</td>
-<td>~80 (+ sem gema)</td>
-<td>5–7</td>
-<td>2–3 anos</td>
-</tr>
-<tr class="odd">
-<td>Australiana</td>
-<td>~15–20</td>
-<td>~50</td>
-<td>2–3</td>
-<td>2–3 anos</td>
-</tr>
-</tbody>
-</table>
+<section id="o-que-dá-para-fazer" class="level2">
+<h2 class="anchored" data-anchor-id="o-que-dá-para-fazer">O que dá para fazer</h2>
+<p>Vale mais mostrar do que argumentar. Estes são os cinco grandes blocos, e o interessante começa quando eles se juntam.</p>
+<section id="automação-o-trabalho-que-ninguém-deveria-fazer-duas-vezes" class="level3">
+<h3 class="anchored" data-anchor-id="automação-o-trabalho-que-ninguém-deveria-fazer-duas-vezes">Automação: o trabalho que ninguém deveria fazer duas vezes</h3>
+<p>É o primeiro retorno e o mais imediato. Renomear e organizar centenas de arquivos e pastas; consolidar dezenas de planilhas numa só; extrair páginas e dividir PDFs; gerar contratos ou relatórios a partir de um modelo; ler e disparar e-mails; baixar dados de um site que não oferece exportação (<strong>web scraping</strong>, com <strong>Playwright</strong> ou <strong>Selenium</strong> quando a página depende de navegador); consultar <strong>APIs</strong> de sistemas que você já usa.</p>
+<p>Python é, nessa área, o que se costuma chamar de <strong>linguagem de cola</strong>: ela conversa com quase tudo, e por isso serve para amarrar sistemas que não foram feitos para se falar. Montado o script, ele vira rotina agendada, roda sozinho de madrugada, e o ganho não é só de tempo — é de <strong>padronização</strong>: o processo passa a acontecer do mesmo jeito toda vez, o que elimina a classe inteira de erro humano que aparece quando alguém repete a mesma tarefa chata pela quadragésima vez.</p>
 </section>
-<section id="a-reprodução-das-tartarugas-marinhas-no-brasil" class="level2">
-<h2 class="anchored" data-anchor-id="a-reprodução-das-tartarugas-marinhas-no-brasil">A reprodução das tartarugas marinhas no Brasil</h2>
-<p>O litoral brasileiro abriga cinco das sete espécies — cabeçuda, verde, de-pente, oliva e de-couro —, e é um dos poucos pontos do Atlântico Sul onde a cabeçuda ainda desova em número relevante. O monitoramento dessas praias é feito desde 1980 pelo <a href="https://www.tamar.org.br/">Projeto TAMAR</a>, que já manejou centenas de milhares de ninhos ao longo da costa do Nordeste e do Sudeste. As tartarugas-de-Kemp e as australianas não aparecem por aqui: a primeira é restrita ao Atlântico noroeste, a segunda, à Austrália, <a href="https://www.fisheries.noaa.gov/sea-turtles">conforme as fichas de cada espécie da NOAA Fisheries</a>.</p>
+<section id="previsão-do-palpite-ao-intervalo" class="level3">
+<h3 class="anchored" data-anchor-id="previsão-do-palpite-ao-intervalo">Previsão: do palpite ao intervalo</h3>
+<p>Prever demanda, preço, receita, inadimplência, indicador econômico ou resultado esportivo é o mesmo tipo de problema com roupas diferentes. Python cobre desde o simples e sólido — <strong>regressão</strong>, suavização exponencial, <strong>ARIMA</strong> e <strong>SARIMA</strong>, modelos de espaço de estados, simulação de <strong>Monte Carlo</strong> — até aprendizado de máquina com <strong>scikit-learn</strong>, <strong>XGBoost</strong> e redes neurais, e modelos híbridos que combinam os dois mundos.</p>
+<p>Mas o que separa previsão de chute não são os modelos, e sim a disciplina em volta deles: <strong>validação temporal</strong> (testar só com dados que existiam antes daquela data), <strong>backtesting</strong>, comparação automatizada entre alternativas e, sobretudo, <strong>intervalos de previsão</strong>. Um número sozinho é uma opinião com aparência de fato; um número com faixa de incerteza é uma previsão. Essa distinção é fácil de aplicar em código e quase impossível de manter na mão.</p>
+</section>
+<section id="documentos-e-imagens-ler-o-que-ninguém-tem-tempo-de-ler" class="level3">
+<h3 class="anchored" data-anchor-id="documentos-e-imagens-ler-o-que-ninguém-tem-tempo-de-ler">Documentos e imagens: ler o que ninguém tem tempo de ler</h3>
+<p>Este é o bloco que mais interessa a quem trabalha com direito, contabilidade, saúde ou pesquisa. Dá para extrair texto e <strong>tabelas</strong> de PDFs, converter documentos em dados estruturados, processar DOCX, XLSX e HTML, e aplicar <strong>OCR</strong> em material escaneado — inclusive corrigindo rotação e melhorando a imagem antes, com <strong>Pillow</strong> ou <strong>OpenCV</strong>, o que costuma decidir se o reconhecimento presta ou não.</p>
+<p>A partir daí vem a parte boa: reconhecer entidades (datas, valores, nomes, números de processo), classificar documentos por tipo, comparar duas versões de um contrato e apontar exatamente o que mudou, e indexar um acervo inteiro para busca semântica — perguntar “onde aparece cláusula de vencimento antecipado?” e receber as passagens, não uma lista de arquivos. Modelos multimodais fecham o ciclo, lendo o que está na imagem quando não há texto nenhum.</p>
+</section>
+<section id="dashboards-que-você-controla" class="level3">
+<h3 class="anchored" data-anchor-id="dashboards-que-você-controla">Dashboards que você controla</h3>
+<p>Com <strong>Streamlit</strong>, <strong>Dash</strong>, <strong>Panel</strong> e <strong>Plotly</strong>, um painel interativo — com filtros, mapas, séries, previsão e intervalo de confiança — é código, não uma ferramenta separada. A diferença prática para as soluções de arrastar-e-soltar não é aparência: é que um dashboard em código é <strong>versionável no Git</strong>, reproduzível, atualizável sozinho e conectado direto ao banco ou à API que produz o dado. Ele complementa muito bem o Power BI, e às vezes o substitui.</p>
+</section>
+<section id="o-encaixe-o-pipeline" class="level3">
+<h3 class="anchored" data-anchor-id="o-encaixe-o-pipeline">O encaixe: o pipeline</h3>
+<p>O ponto que amarra tudo é que essas peças moram na mesma linguagem, e por isso viram uma coisa só. Um fluxo realista hoje é assim: um script coleta os documentos e os dados de origem; extrai texto, tabelas e imagens; um modelo de previsão roda sobre a série resultante; um LLM classifica, resume e explica o que mudou; um conjunto de verificações determinísticas confere os números; e um dashboard apresenta o resultado, atualizado sem ninguém encostar. É o processo manual inteiro virando um pipeline reproduzível — e é isso que “saber Python” significa na prática, muito mais do que decorar sintaxe.</p>
+<p>Se você quer ver por que insisto tanto nesse cruzamento entre áreas, escrevi sobre isso no <a href="../../posts/economia-direito-codigo/index.html">texto de abertura deste blog</a>.</p>
+</section>
+</section>
+<section id="por-onde-começar-na-prática" class="level2">
+<h2 class="anchored" data-anchor-id="por-onde-começar-na-prática">Por onde começar, na prática</h2>
+<p>O erro clássico é começar por um curso de lógica de programação de quarenta horas e desistir na décima. O caminho que funciona é o contrário: escolher <strong>uma tarefa chata e real</strong> da sua semana e automatizá-la mal. Depois melhorar.</p>
+<ol type="1">
+<li><strong>Instale o essencial.</strong> Baixe o Python em <a href="https://www.python.org/">python.org</a> ou instale a distribuição Anaconda, que já vem com as bibliotecas de dados. Use o VS Code ou o Jupyter Notebook para escrever.</li>
+<li><strong>Escolha o problema certo.</strong> Não é “aprender Python”: é “juntar as 30 planilhas que recebo por mês”, “extrair as datas de vencimento desses 200 contratos”, “baixar toda semana a série do indicador que eu acompanho”. Tarefa pequena, repetitiva, sua.</li>
+<li><strong>Escreva o primeiro script feio.</strong> Ele vai ter nome de variável ruim e nenhum tratamento de erro. Não importa. Ele precisa funcionar uma vez.</li>
+<li><strong>Use o LLM como monitor, não como oráculo.</strong> Peça o código, e então peça para ele explicar linha por linha o que aquilo faz. A explicação é o curso; o código é só o resultado. É aqui que você aprende de verdade e rápido.</li>
+<li><strong>Confira o resultado à mão, na primeira vez.</strong> Rode o script e confira a saída contra o que você faria manualmente, num caso pequeno. Se bater, você acabou de ganhar um processo confiável. Se não bater, você acabou de aprender por quê.</li>
+</ol>
+<p>Um exemplo do que cabe no passo 3 — padronizar o nome de todos os PDFs de uma pasta:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">from</span> pathlib <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> Path</span>
+<span id="cb4-2"></span>
+<span id="cb4-3"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> arquivo <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> Path(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"contratos"</span>).glob(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"*.pdf"</span>):</span>
+<span id="cb4-4">    novo_nome <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> arquivo.name.replace(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">" "</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"-"</span>).lower()</span>
+<span id="cb4-5">    arquivo.rename(arquivo.with_name(novo_nome))</span></code></pre></div></div>
+<p>São três linhas úteis, e elas fazem em um segundo o que levaria uma tarde. O primeiro script que resolve um problema seu é o momento em que a curva de aprendizado deixa de ser esforço e passa a ser retorno. A <a href="https://docs.python.org/3/tutorial/">documentação oficial da linguagem</a> é gratuita, boa e mais didática do que a fama sugere.</p>
 </section>
 <section id="perguntas-frequentes" class="level2">
 <h2 class="anchored" data-anchor-id="perguntas-frequentes">Perguntas frequentes</h2>
-<section id="quantas-espécies-de-tartaruga-marinha-existem" class="level3">
-<h3 class="anchored" data-anchor-id="quantas-espécies-de-tartaruga-marinha-existem">Quantas espécies de tartaruga marinha existem?</h3>
-<p>Sete: cabeçuda, verde, de-pente, oliva, de-Kemp, de-couro e australiana. Há discussão taxonômica sobre uma possível oitava, a tartaruga-preta do Pacífico oriental, hoje tratada como população da tartaruga-verde.</p>
+<section id="preciso-saber-matemática-para-aprender-python" class="level3">
+<h3 class="anchored" data-anchor-id="preciso-saber-matemática-para-aprender-python">Preciso saber matemática para aprender Python?</h3>
+<p>Para automação, processamento de documentos e dashboards, não — basta a matemática que você já usa no trabalho. Para modelagem estatística e previsão, você precisa entender os conceitos (o que é um resíduo, o que significa um intervalo de confiança), mas não precisa deduzir as fórmulas: as bibliotecas fazem o cálculo. Entender o que o modelo assume é mais importante do que saber implementá-lo.</p>
 </section>
-<section id="qual-espécie-põe-mais-ovos-por-temporada" class="level3">
-<h3 class="anchored" data-anchor-id="qual-espécie-põe-mais-ovos-por-temporada">Qual espécie põe mais ovos por temporada?</h3>
-<p>A tartaruga-de-couro. Embora a ninhada média seja menor (~80 ovos com gema), ela faz de 5 a 7 ninhos por temporada, somando mais de 500 ovos.</p>
+<section id="quanto-tempo-leva-até-ser-útil" class="level3">
+<h3 class="anchored" data-anchor-id="quanto-tempo-leva-até-ser-útil">Quanto tempo leva até ser útil?</h3>
+<p>Depende do que você chama de útil. Para automatizar uma tarefa repetitiva simples, é razoável esperar algumas semanas de uso intermitente. Para análise de dados com autonomia, alguns meses. Isso, hoje, com um LLM ao lado explicando cada linha, é bem mais rápido do que era há cinco anos — e é outro motivo pelo qual a era dos modelos é um bom momento para começar, não um mau.</p>
 </section>
-<section id="qual-põe-menos" class="level3">
-<h3 class="anchored" data-anchor-id="qual-põe-menos">Qual põe menos?</h3>
-<p>A tartaruga-australiana, com cerca de 50 ovos por ninho — em compensação, os ovos e os filhotes são maiores.</p>
+<section id="python-ou-excel" class="level3">
+<h3 class="anchored" data-anchor-id="python-ou-excel">Python ou Excel?</h3>
+<p>Não é uma escolha. O Excel continua imbatível para explorar um conjunto pequeno de dados e mostrar algo rapidamente a alguém. Python entra quando o volume passa do que a planilha aguenta, quando a tarefa se repete todo mês, quando o processo precisa ser auditável, ou quando você precisa registrar exatamente o que foi feito para outra pessoa reproduzir. Na maior parte das rotinas profissionais, os dois convivem: Python processa, o Excel apresenta.</p>
 </section>
-<section id="o-que-é-arribada" class="level3">
-<h3 class="anchored" data-anchor-id="o-que-é-arribada">O que é arribada?</h3>
-<p>A desova sincronizada em massa das tartarugas-oliva e de-Kemp: milhares de fêmeas sobem à mesma praia em poucos dias, muitas vezes de dia. A hipótese principal é a saturação de predadores.</p>
-</section>
-<section id="todas-as-espécies-ocorrem-no-brasil" class="level3">
-<h3 class="anchored" data-anchor-id="todas-as-espécies-ocorrem-no-brasil">Todas as espécies ocorrem no Brasil?</h3>
-<p>Não. Cinco desovam ou se alimentam no litoral brasileiro; a tartaruga-de-Kemp e a australiana não ocorrem por aqui.</p>
+<section id="e-se-eu-aprender-e-a-ia-tornar-isso-obsoleto-em-dois-anos" class="level3">
+<h3 class="anchored" data-anchor-id="e-se-eu-aprender-e-a-ia-tornar-isso-obsoleto-em-dois-anos">E se eu aprender e a IA tornar isso obsoleto em dois anos?</h3>
+<p>É uma preocupação legítima, e não tenho certeza absoluta sobre o futuro. O que observo é que cada avanço recente aumentou, e não diminuiu, o valor de entender o que o código faz: alguém precisa especificar o problema, escolher os dados, avaliar a saída e responder pelo resultado. O que muda é a proporção entre digitar e julgar. A parte que está sendo automatizada é justamente a que menos exigia de você.</p>
 </section>
 </section>
 <section id="conclusão" class="level2">
 <h2 class="anchored" data-anchor-id="conclusão">Conclusão</h2>
 <ul>
-<li>As sete espécies compartilham o mesmo roteiro reprodutivo: filopatria natal, incubação sem cuidado parental e sexo definido pela temperatura.</li>
-<li>A cabeçuda e a verde amadurecem tarde (20 a 35 anos); a de-Kemp e a oliva, cedo (10 a 18).</li>
-<li>A de-couro faz mais ninhos por temporada (5 a 7) e soma mais ovos; a australiana faz a menor ninhada (~50).</li>
-<li>Oliva e de-Kemp têm a desova em massa (arribada); as demais nidificam sozinhas.</li>
-<li>No Brasil ocorrem cinco espécies, monitoradas pelo Projeto TAMAR desde 1980.</li>
+<li><strong>Aprender Python em 2026 ainda compensa</strong>, e o principal motivo mudou: não é escrever código mais rápido, é conseguir avaliar, verificar e orquestrar o que a IA produz.</li>
+<li>Modelos de linguagem são probabilísticos e <strong>programas são determinísticos</strong> — usar cada um no lugar certo é a habilidade que separa resultado de acidente.</li>
+<li>A sintaxe legível não é detalhe estético: ela é o que torna a linguagem viável para quem não vai programar em tempo integral, e o <code>import this</code> mostra que isso foi decisão de projeto, não sorte.</li>
+<li>O retorno prático aparece em cinco frentes — <strong>automação, previsão, documentos e imagens, LLMs integrados e dashboards</strong> — e a força real está em juntá-las num único pipeline.</li>
+<li>Comece por uma tarefa chata e real da sua semana, escreva o primeiro script feio e use o LLM para explicar cada linha em vez de apenas entregá-las prontas.</li>
 </ul>
 <hr>
-<p><strong>Tópicos:</strong> #TartarugasMarinhas #VidaMarinha #Biologia #Natureza #Conservação</p>
+<p><strong>Tópicos:</strong> #Python #Programacao #InteligenciaArtificial #Automacao #CienciaDeDados</p>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "Reprodução das tartarugas marinhas: as 7 espécies comparadas",
-  "description": "Reprodução das tartarugas marinhas: como as sete espécies diferem em época de desova, tamanho de ninhada, intervalo entre temporadas e praias de nidificação.",
+  "headline": "Por que aprender Python em 2026, mesmo na era dos LLMs",
+  "description": "Aprender Python em 2026 vale a pena mesmo com a IA escrevendo código: o que a linguagem faz, por que ela potencializa quem usa LLMs e por onde começar hoje.",
   "inLanguage": "pt-BR",
-  "datePublished": "2026-09-07T10:32:06-03:00",
-  "dateModified": "2026-09-07T10:32:06-03:00",
+  "datePublished": "2026-09-09T19:04:10-04:00",
+  "dateModified": "2026-09-09T19:04:10-04:00",
   "author": { "@type": "Person", "name": "Pedro Nakashima" },
-  "mainEntityOfPage": "https://pedronakashima.com/posts/reproducao-tartarugas-marinhas/",
-  "keywords": "reprodução das tartarugas marinhas, espécies de tartaruga marinha, desova, arribada, tartaruga-de-couro, tartaruga-cabeçuda, Projeto TAMAR"
+  "mainEntityOfPage": "https://pedronakashima.com/posts/aprender-python-2026/",
+  "keywords": "aprender Python, Python 2026, automação com Python, LLM, ciência de dados, dashboards, processamento de documentos"
 }
 </script>
 
@@ -241,560 +442,58 @@
 </section>
 
  ]]></description>
-  <category>natureza</category>
-  <category>biologia</category>
-  <category>vida marinha</category>
-  <category>tartarugas marinhas</category>
-  <guid>https://pedronakashima.com/posts/reproducao-tartarugas-marinhas/</guid>
-  <pubDate>Mon, 07 Sep 2026 14:32:06 GMT</pubDate>
-  <media:content url="https://pedronakashima.com/assets/imagem_padrao.jpeg" medium="image" type="image/jpeg"/>
-</item>
-<item>
-  <title>Vida dos golfinhos: como vivem, se comunicam e se organizam</title>
-  <dc:creator>Pedro Nakashima</dc:creator>
-  <link>https://pedronakashima.com/posts/vida-golfinhos/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<p><em>Publicado em 6 de setembro de 2026, às 18:27, por Pedro Nakashima</em></p>
-<p>Entender a vida dos golfinhos é entender um mamífero que deixou a terra firme há dezenas de milhões de anos e resolveu, no mar, quase todos os problemas que nós resolvemos em terra: respirar, dormir, caçar em grupo, criar filhotes por anos e se comunicar. Este guia reúne o essencial sobre como os golfinhos vivem — onde habitam, quanto tempo duram, o que comem, como enxergam com som e como se organizam socialmente.</p>
-<section id="o-que-são-os-golfinhos" class="level2">
-<h2 class="anchored" data-anchor-id="o-que-são-os-golfinhos">O que são os golfinhos?</h2>
-<p>Golfinhos são cetáceos com dentes (odontocetos), a maioria da família dos delfinídeos, além de alguns grupos de água doce. São mamíferos: respiram ar pelos pulmões, têm sangue quente e amamentam os filhotes. Existem cerca de 40 espécies; a mais conhecida é o golfinho-nariz-de-garrafa (<em>Tursiops truncatus</em>), e a maior de todas é a orca, que apesar do apelido “baleia-assassina” é, tecnicamente, um golfinho.</p>
-</section>
-<section id="onde-vivem-e-quanto-tempo" class="level2">
-<h2 class="anchored" data-anchor-id="onde-vivem-e-quanto-tempo">Onde vivem e quanto tempo</h2>
-<p>Há golfinhos em todos os oceanos, do Ártico aos trópicos, além de espécies de rio como o boto-cor-de-rosa da Amazônia e o golfinho do Ganges. A expectativa de vida varia muito por espécie: o golfinho-nariz-de-garrafa costuma viver até cerca de 40 anos, com fêmeas passando dos 60 em populações bem monitoradas, <a href="https://www.fisheries.noaa.gov/species/common-bottlenose-dolphin">segundo a NOAA Fisheries</a>; orcas fêmeas podem chegar aos 80 ou 90.</p>
-</section>
-<section id="como-respiram-e-dormem" class="level2">
-<h2 class="anchored" data-anchor-id="como-respiram-e-dormem">Como respiram e dormem</h2>
-<p>A respiração do golfinho é voluntária: ele decide cada ida à superfície e expira pelo espiráculo no topo da cabeça. Isso cria um problema — como dormir sem parar de respirar? A solução é o sono uni-hemisférico: <strong>metade do cérebro dorme enquanto a outra metade mantém a respiração e um olho aberto</strong>, alternando os lados ao longo das horas. <a href="https://us.whales.org/whales-dolphins/how-do-dolphins-sleep/">Trabalhos reunidos pela Whale and Dolphin Conservation</a> mostram que golfinhos conseguem manter vigilância por ecolocalização por até 15 dias seguidos sem perda de desempenho.</p>
-</section>
-<section id="o-que-comem" class="level2">
-<h2 class="anchored" data-anchor-id="o-que-comem">O que comem</h2>
-<p>O cardápio é sobretudo peixe e lula, com crustáceos em algumas populações. A caça costuma ser cooperativa: o grupo cerca um cardume e os indivíduos se revezam avançando sobre ele. Há técnicas locais notáveis — golfinhos que encurralam peixes contra a lama formando anéis, os que perseguem presas até a praia e, na Baía Shark, na Austrália, os que <strong>usam esponjas do mar como luva no focinho</strong> para revirar o fundo sem se machucar. <a href="https://us.whales.org/2021/06/29/did-you-know-dolphins-use-tools-meet-the-shark-bay-spongers/">Esse “sponging”</a> é o caso mais bem documentado de uso de ferramenta por um cetáceo selvagem e passa de mãe para filha.</p>
-</section>
-<section id="comunicação-e-ecolocalização" class="level2">
-<h2 class="anchored" data-anchor-id="comunicação-e-ecolocalização">Comunicação e ecolocalização</h2>
-<p>Os golfinhos produzem dois tipos principais de som. Os <strong>cliques</strong> servem para ecolocalização: o animal emite pulsos de alta frequência e lê os ecos para saber tamanho, forma, distância e velocidade de um objeto ou presa, mesmo na água turva ou no escuro. Os <strong>assobios</strong> são sociais. Cada golfinho desenvolve nos primeiros meses de vida um <strong>assobio-assinatura</strong>, único, que funciona como um nome: outros indivíduos memorizam esse assobio e o usam para “chamar” aquele golfinho específico — <a href="https://theconversation.com/dolphins-use-signature-whistles-to-represent-other-dolphins-similarly-to-how-humans-use-names-188332">o primeiro caso conhecido de nomes próprios fora da espécie humana</a>.</p>
-</section>
-<section id="vida-social" class="level2">
-<h2 class="anchored" data-anchor-id="vida-social">Vida social</h2>
-<p>A sociedade dos golfinhos é de fissão-fusão: os grupos (chamados de “escolas” ou pods) se formam, se dividem e se reagrupam ao longo do dia, tipicamente com 10 a 15 animais no caso do nariz-de-garrafa. Machos formam alianças de longo prazo para cortejar fêmeas; há contato corporal amistoso, brincadeira e comportamentos que se transmitem culturalmente dentro de linhagens, como o próprio uso da esponja.</p>
-</section>
-<section id="reprodução-e-cuidado-com-os-filhotes" class="level2">
-<h2 class="anchored" data-anchor-id="reprodução-e-cuidado-com-os-filhotes">Reprodução e cuidado com os filhotes</h2>
-<p>A gestação dura cerca de 12 meses e quase sempre nasce um único filhote. Ele mama por um a três anos e permanece perto da mãe por vários anos, aprendendo rotas, técnicas de caça e a rede social do grupo. Esse investimento longo em poucos filhotes é típico de animais de vida longa e cérebro grande.</p>
-</section>
-<section id="inteligência" class="level2">
-<h2 class="anchored" data-anchor-id="inteligência">Inteligência</h2>
-<p>Golfinhos têm cérebros grandes em relação ao corpo, reconhecem-se no espelho, resolvem problemas novos e mantêm tradições locais de forrageio. Nada disso equivale à linguagem humana, mas indica uma cognição social sofisticada, construída em cima da vida em grupo.</p>
-</section>
-<section id="ameaças" class="level2">
-<h2 class="anchored" data-anchor-id="ameaças">Ameaças</h2>
-<p>As maiores pressões sobre a vida dos golfinhos hoje são de origem humana: captura acidental em redes de pesca (<em>bycatch</em>), poluição química e plástica, ruído submarino que interfere na ecolocalização, perda de habitat costeiro e de rio, e a captura para cativeiro. Vários golfinhos de rio estão ameaçados, e o baiji, do rio Yangtzé, foi declarado funcionalmente extinto em 2006.</p>
-</section>
-<section id="perguntas-frequentes" class="level2">
-<h2 class="anchored" data-anchor-id="perguntas-frequentes">Perguntas frequentes</h2>
-<section id="golfinho-é-peixe-ou-mamífero" class="level3">
-<h3 class="anchored" data-anchor-id="golfinho-é-peixe-ou-mamífero">Golfinho é peixe ou mamífero?</h3>
-<p>Mamífero. Respira ar, tem sangue quente, dá à luz filhotes vivos e os amamenta. A semelhança com peixes é convergência evolutiva: corpo hidrodinâmico e nadadeiras para a mesma função, mas origem diferente.</p>
-</section>
-<section id="golfinhos-dormem" class="level3">
-<h3 class="anchored" data-anchor-id="golfinhos-dormem">Golfinhos dormem?</h3>
-<p>Sim, mas com metade do cérebro por vez (sono uni-hemisférico), para não parar de respirar nem baixar a guarda contra predadores.</p>
-</section>
-<section id="golfinhos-têm-nome" class="level3">
-<h3 class="anchored" data-anchor-id="golfinhos-têm-nome">Golfinhos têm nome?</h3>
-<p>Na prática, sim. Cada um cria um assobio-assinatura único que os outros reconhecem e usam para se dirigir a ele — o equivalente funcional de um nome próprio.</p>
-</section>
-<section id="quanto-tempo-vive-um-golfinho" class="level3">
-<h3 class="anchored" data-anchor-id="quanto-tempo-vive-um-golfinho">Quanto tempo vive um golfinho?</h3>
-<p>Depende da espécie. O golfinho-nariz-de-garrafa costuma viver até cerca de 40 anos (fêmeas mais), e orcas fêmeas podem passar dos 80.</p>
-</section>
-<section id="golfinho-selvagem-é-perigoso" class="level3">
-<h3 class="anchored" data-anchor-id="golfinho-selvagem-é-perigoso">Golfinho selvagem é perigoso?</h3>
-<p>Ataques a pessoas são raros, mas são animais grandes e selvagens. Alimentar ou tocar golfinhos selvagens é desaconselhado (e ilegal em vários países): muda o comportamento deles e aumenta o risco para os dois lados.</p>
-</section>
-</section>
-<section id="conclusão" class="level2">
-<h2 class="anchored" data-anchor-id="conclusão">Conclusão</h2>
-<ul>
-<li>Golfinhos são mamíferos marinhos (odontocetos); a orca é o maior deles.</li>
-<li>Respiração voluntária e sono uni-hemisférico são as adaptações que permitem dormir no mar.</li>
-<li>Caçam em grupo e algumas populações usam ferramentas, com técnicas transmitidas culturalmente.</li>
-<li>Cliques servem para ecolocalização; assobios, para a vida social, incluindo um “nome” individual.</li>
-<li>A sociedade é de fissão-fusão, com laços longos e cuidado parental prolongado.</li>
-<li>As ameaças relevantes são humanas: redes, poluição, ruído e cativeiro.</li>
-</ul>
-<hr>
-<p><strong>Tópicos:</strong> #Golfinhos #VidaMarinha #Cetáceos #Natureza #Biologia</p>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "Vida dos golfinhos: como vivem, se comunicam e se organizam",
-  "description": "Vida dos golfinhos: como esses mamíferos marinhos respiram, dormem, o que comem, como usam assobios e ecolocalização e por que formam sociedades complexas.",
-  "inLanguage": "pt-BR",
-  "datePublished": "2026-09-06T18:27:44-04:00",
-  "dateModified": "2026-09-06T18:27:44-04:00",
-  "author": { "@type": "Person", "name": "Pedro Nakashima" },
-  "mainEntityOfPage": "https://pedronakashima.com/posts/vida-golfinhos/",
-  "keywords": "vida dos golfinhos, golfinhos, comportamento dos golfinhos, ecolocalização, assobio-assinatura, mamíferos marinhos"
-}
-</script>
-
-
-</section>
-
- ]]></description>
-  <category>natureza</category>
-  <category>biologia</category>
-  <category>vida marinha</category>
-  <category>golfinhos</category>
-  <guid>https://pedronakashima.com/posts/vida-golfinhos/</guid>
-  <pubDate>Sun, 06 Sep 2026 22:27:44 GMT</pubDate>
-  <media:content url="https://pedronakashima.com/assets/imagem_padrao.jpeg" medium="image" type="image/jpeg"/>
-</item>
-<item>
-  <title>Moneyball: a lição de ciência de dados por trás do filme</title>
-  <dc:creator>Pedro Nakashima</dc:creator>
-  <link>https://pedronakashima.com/posts/moneyball-ciencia-de-dados/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<p><em>Publicado em 6 de setembro de 2026, às 15:57, por Pedro Nakashima</em></p>
-<p>Moneyball, o filme de 2011 dirigido por Bennett Miller com Brad Pitt no papel de Billy Beane, virou a referência pop da tomada de decisão baseada em dados. A leitura mais comum — “um time pobre venceu os ricos com estatística” — é a menos interessante. O que Moneyball de fato ilustra é uma tese de ciência de dados: quando se mede a variável certa e se confia num método preditivo em vez da intuição de especialistas, muda-se a probabilidade a favor de quem decide. Essa tese, hoje, move mesas de investimento, campanhas eleitorais, hospitais e departamentos de recursos humanos, e não apenas um time de beisebol.</p>
-<section id="o-filme-e-o-caso-real" class="level2">
-<h2 class="anchored" data-anchor-id="o-filme-e-o-caso-real">O filme e o caso real</h2>
-<p>O roteiro de Steven Zaillian e Aaron Sorkin adapta o livro de 2003 de Michael Lewis, <a href="https://en.wikipedia.org/wiki/Moneyball"><em>Moneyball: The Art of Winning an Unfair Game</em></a>. A história é a temporada de 2002 do Oakland Athletics. Com uma folha salarial de cerca de 41 milhões de dólares, uma fração da dos grandes clubes, o gerente-geral Billy Beane e seu assistente Peter Brand — versão ficcional do analista Paul DePodesta, vivido por Jonah Hill — montaram o elenco a partir de jogadores que o mercado subavaliava. O time engatou 20 vitórias seguidas, fechou a temporada em 103 vitórias e 59 derrotas e ganhou a divisão. <a href="https://en.wikipedia.org/wiki/Moneyball_(film)">O filme</a> recebeu seis indicações ao Oscar, incluindo melhor filme e melhor ator para Pitt. E perdeu na primeira rodada dos playoffs para o Minnesota Twins — um detalhe que o roteiro trata quase como nota de rodapé, mas onde mora metade da lição.</p>
-</section>
-<section id="escolher-a-variável-certa" class="level2">
-<h2 class="anchored" data-anchor-id="escolher-a-variável-certa">Escolher a variável certa</h2>
-<p>O núcleo técnico de Moneyball é um problema clássico de ciência de dados: qual métrica prevê melhor o resultado que interessa? Os olheiros tradicionais avaliavam jogadores pelo que enxergavam no campo — velocidade, defesa, média de rebatidas, às vezes até a aparência física. Beane e DePodesta partiram da sabermetria, a análise estatística do beisebol popularizada por Bill James e pela <a href="https://sabr.org/">Society for American Baseball Research</a>, e perguntaram o que de fato produz corridas e, portanto, vitórias. A resposta era a frequência com que o jogador chega à base, a <em>on-base percentage</em>. Era uma variável barata: o mercado pagava caro por home runs e por bases roubadas, e quase nada por um jogador que simplesmente não dava out. Traduzido para o vocabulário de quem trabalha com dados, o Oakland fez seleção de atributos, trocou um alvo mal definido — “talento” — por um mensurável — corridas esperadas — e explorou uma ineficiência de mercado até ela desaparecer. É a mesma lógica de um fundo quantitativo que encontra um fator de risco mal precificado antes dos concorrentes.</p>
-</section>
-<section id="de-regressão-linear-a-machine-learning" class="level2">
-<h2 class="anchored" data-anchor-id="de-regressão-linear-a-machine-learning">De regressão linear a machine learning</h2>
-<p>Convém lembrar a escala do que se fazia em 2002. As ferramentas eram planilhas e regressões sobre estatísticas de súmula, o equivalente esportivo de um modelo linear bem construído; hoje o mesmo trabalho começaria em <a href="../../posts/introducao-pandas/index.html">ferramentas como o pandas</a>. O que veio depois é que aproximou o beisebol da ciência de dados contemporânea: rastreamento óptico de jogadores e da bola, métricas “esperadas” calculadas por modelos e previsão de desempenho com aprendizado de máquina. O mesmo caminho se repetiu no basquete, no futebol e fora do esporte. O próprio DePodesta deixou o beisebol em 2016 para chefiar a estratégia do Cleveland Browns, da NFL. “Moneyball para X” virou clichê de consultoria justamente porque o método é agnóstico ao domínio: defina o objetivo, descubra o que o prevê, aja pela estimativa mesmo quando ela contraria o consenso.</p>
-</section>
-<section id="os-limites-do-método" class="level2">
-<h2 class="anchored" data-anchor-id="os-limites-do-método">Os limites do método</h2>
-<p>A parte que o filme subestima é tão instrutiva quanto o resto. Primeiro, o Oakland de 2002 não era só porcentagem de base: três dos melhores jogadores do elenco eram os arremessadores Tim Hudson, Mark Mulder e Barry Zito, um trio que colocou o time no topo da liga em defesa, e <a href="https://grantland.com/the-triangle/mlb-oakland-as-big-three-tim-hudson-barry-zito-mark-mulder-billy-beane-moneyball/">boa parte da crítica ao livro</a> aponta que a narrativa em torno da <em>on-base percentage</em> escondeu o quanto Beane era bom em achar e formar arremessadores. Segundo, os playoffs são uma amostra pequena e ruidosa: vencer 103 de 162 jogos é sinal forte; perder uma série de cinco jogos não refuta o método, é variância, e o próprio DePodesta descreveria a pós-temporada como um cara ou coroa. Terceiro, assim que a ineficiência ficou pública — e o livro a tornou pública —, ela foi arbitrada, e hoje se paga caro por <em>on-base percentage</em>. Há ainda o risco que todo modelo preditivo carrega: ele aprende os vieses dos dados com que foi treinado, e fatores como liderança, entrosamento e lesão resistem à quantificação.</p>
-<p>Nada disso invalida a ideia central. Um método preditivo não é bola de cristal: ele desloca as probabilidades, não garante o resultado, e saber distinguir as duas coisas é parte da competência de quem usa dados para decidir.</p>
-<p>É por isso que Moneyball envelheceu bem, mesmo com o beisebol tendo mudado de patamar analítico. A vantagem do Oakland nunca foi “ter dados”; foi a disciplina de definir o objetivo com clareza, medir o que o prevê, agir pela estimativa ainda que ela contrarie o consenso e permanecer honesto sobre a incerteza. Troque “corridas” por retorno de um fundo, intenção de voto, risco de readmissão hospitalar ou rotatividade de funcionários, e a receita é a mesma. O filme é sobre um time pobre de beisebol; a lição é sobre como pensar.</p>
-<hr>
-<p><strong>Tópicos:</strong> #Moneyball #CiênciaDeDados #MachineLearning #MétodosPreditivos #AnáliseEsportiva</p>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "Moneyball: a lição de ciência de dados por trás do filme",
-  "description": "Moneyball, com Brad Pitt, é mais que um filme de beisebol: mostra como a ciência de dados e os métodos preditivos vencem a intuição na hora de decidir.",
-  "inLanguage": "pt-BR",
-  "datePublished": "2026-09-06T15:57:59-04:00",
-  "dateModified": "2026-09-06T15:57:59-04:00",
-  "author": { "@type": "Person", "name": "Pedro Nakashima" },
-  "mainEntityOfPage": "https://pedronakashima.com/posts/moneyball-ciencia-de-dados/",
-  "keywords": "moneyball, ciência de dados, machine learning, métodos preditivos, sabermetria, tomada de decisão baseada em dados"
-}
-</script>
-
-
-</section>
-
- ]]></description>
+  <category>python</category>
+  <category>programação</category>
+  <category>inteligência artificial</category>
+  <category>automação</category>
   <category>ciência de dados</category>
-  <category>machine learning</category>
-  <category>cinema</category>
-  <category>métodos preditivos</category>
-  <guid>https://pedronakashima.com/posts/moneyball-ciencia-de-dados/</guid>
-  <pubDate>Sun, 06 Sep 2026 19:57:59 GMT</pubDate>
-  <media:content url="https://pedronakashima.com/assets/imagem_padrao.jpeg" medium="image" type="image/jpeg"/>
+  <guid>https://pedronakashima.com/posts/aprender-python-2026/</guid>
+  <pubDate>Wed, 09 Sep 2026 23:04:10 GMT</pubDate>
+  <media:content url="https://pedronakashima.com/posts/aprender-python-2026/image.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
-  <title>Introdução ao Pandas: guia prático de análise de dados</title>
+  <title>Economics, Law, and Code: An Introduction to This Blog</title>
   <dc:creator>Pedro Nakashima</dc:creator>
-  <link>https://pedronakashima.com/posts/introducao-pandas/</link>
+  <link>https://pedronakashima.com/posts/economics-law-code/</link>
   <description><![CDATA[ 
 
 
 
 
 
-<p><em>Publicado em 6 de setembro de 2026, às 12:07, por Pedro Nakashima</em></p>
-<p>O <strong>pandas</strong> é a biblioteca padrão de Python para trabalhar com dados em formato de tabela. Esta introdução ao pandas cobre o essencial do dia a dia: as estruturas <code>Series</code> e <code>DataFrame</code>, como carregar dados de arquivos CSV e Excel, como filtrar e transformar linhas e colunas e como resumir informação com <code>groupby</code>. Os exemplos são curtos e você pode reproduzir cada um no seu próprio ambiente.</p>
-<section id="o-que-é-o-pandas" class="level2">
-<h2 class="anchored" data-anchor-id="o-que-é-o-pandas">O que é o pandas?</h2>
-<p>O pandas é uma biblioteca de código aberto construída sobre o NumPy que adiciona estruturas de dados rotuladas e ferramentas de análise ao Python. Na prática, ele faz o papel de uma planilha programável: você lê dados de várias fontes, limpa, combina, agrega e exporta — tudo em código versionável e reproduzível, e com desempenho adequado a milhões de linhas.</p>
+<p><em>Published on September 9, 2026 at 6:42 PM by Pedro Nakashima</em></p>
+<p>Welcome. This is the first post of a blog that will move between economics, law, and programming, and the first thing I owe anyone landing here is an honest account of what I plan to do with this space. My name is Pedro Nakashima. I live in Campo Grande, a city in Brazil’s Midwest region, roughly the size of a mid-sized American city, best known outside Brazil, if it is known at all, for sitting close to the Pantanal wetlands. The idea behind everything that follows is fairly simple: the most interesting questions I have run into over the past few years were almost never at the center of a single field. They lived at the border between two or three.</p>
+<p>Before I get to the topics, I would rather talk about the method, because it is the method that defines the kind of reading you will find here. I am not attached to fixed ideas, and I feel no embarrassment about changing my mind, especially when I realize I was wrong. I would rather have a well-built argument than an old conviction, and a verifiable data point than an elegant one. That implies a practical commitment I will try to honor in every post: keeping a clear line between what is fact, what is evidence, what is my own analysis, and what is simply opinion. These are four different things, and a good share of public confusion about economics and law comes precisely from treating them as one.</p>
+<p>I am an economist by training and hold a law degree, and that combination explains most of what interests me. I learned to program during my master’s degree in Economics at PUC-Rio, a university in Rio de Janeiro, when programming became a natural tool for working with data, models, and economic problems. Economics gave me the habit of asking how much, at what magnitude, and under which assumptions; programming gave me the ability to turn those questions into concrete analysis: pulling datasets, cleaning them, cross-referencing, calculating, modeling, testing; and law added the habit of asking on what legal basis, through which procedure, and with what consequences. Together, these fields taught me that a question does not have to end in a printout. It can end in evidence, in a number, in a clearly identified rule, or, just as valuably, in the realization that the available information does not yet allow for an answer.</p>
+<section id="questions-that-live-at-the-border" class="level2">
+<h2 class="anchored" data-anchor-id="questions-that-live-at-the-border">Questions that live at the border</h2>
+<p>That is why I do not intend to fit this blog into a single niche. Here, economics will meet programming, law will meet data science, and public datasets will be used to investigate questions that started out as legal or economic. Language models and other artificial intelligence tools will show up in the role they actually play well, which is processing a volume of documents and text that no person could read in reasonable time. And programming will appear in the role I most enjoy giving it: turning theoretical analysis into an actual tool, one that runs, that breaks, that can be fixed, and that anyone else can run again.</p>
+<p>My favorite programming language is Python, and it should show up often, in conceptual posts, in short examples, in experiments, in automation, in models, and in larger projects. Not because it is the best language for everything, which it is not, but because it is where I can get from a question to a result by the shortest path, and because the data-analysis ecosystem built around it is hard to beat. When code is part of the argument, it comes along with the text, not hidden behind a finished chart.</p>
+<p>A meaningful part of what I plan to publish has to do with datasets, and that is an area usually treated as a technical detail when it is actually half the work. Finding out that a source exists, learning how to obtain it, organizing it, processing it, checking its consistency, and only then analyzing it: each of these steps decides the quality of the final answer. Brazil, in that respect, is more generous than people assume. The time series and open data from the Central Bank of Brazil, <a href="https://sidra.ibge.gov.br/">IBGE’s SIDRA platform</a> (the national statistics agency’s data portal), <a href="https://dadosabertos.camara.leg.br/">the Chamber of Deputies’ open data</a> (Brazil’s lower house of Congress), and <a href="https://www.lexml.gov.br/">LexML’s legislative archive</a> support, on their own, an enormous number of concrete questions that almost nobody bothers to ask. I plan to show the whole path, including the tedious parts, because that is where the result is won or lost.</p>
+<p>On the legal side, my interest centers on banking law, tax law, constitutional law, financial law, and the legislative process. I have a particular interest in forensic banking analysis, which is perhaps the clearest example of everything I described above happening at once: a legal dispute that can only be settled with financial mathematics, over documents that need to be read at scale, with an outcome that depends entirely on correctly reconstructing a sequence of calculations. It is not a topic that ends in opinion, and that is exactly why I like it.</p>
 </section>
-<section id="instalação-e-import" class="level2">
-<h2 class="anchored" data-anchor-id="instalação-e-import">Instalação e import</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">pip</span> install pandas</span></code></pre></div></div>
-<p>Por convenção, o import usa o apelido <code>pd</code>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">import</span> pandas <span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">as</span> pd</span></code></pre></div></div>
-</section>
-<section id="series-uma-coluna-com-índice" class="level2">
-<h2 class="anchored" data-anchor-id="series-uma-coluna-com-índice">Series: uma coluna com índice</h2>
-<p>Uma <code>Series</code> é um vetor unidimensional com um índice (os rótulos das linhas). É a peça básica do pandas.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1">temperaturas <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> pd.Series(</span>
-<span id="cb3-2">    [<span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">28.1</span>, <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">30.4</span>, <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">27.9</span>, <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">31.2</span>],</span>
-<span id="cb3-3">    index<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span>[<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"seg"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"ter"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"qua"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"qui"</span>],</span>
-<span id="cb3-4">    name<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"temperatura"</span>,</span>
-<span id="cb3-5">)</span>
-<span id="cb3-6"></span>
-<span id="cb3-7">temperaturas[<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"ter"</span>]                <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># 30.4</span></span>
-<span id="cb3-8">temperaturas.mean()                <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># 29.4</span></span>
-<span id="cb3-9">temperaturas[temperaturas <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">30</span>]    <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># ter e qui</span></span></code></pre></div></div>
-</section>
-<section id="dataframe-a-tabela" class="level2">
-<h2 class="anchored" data-anchor-id="dataframe-a-tabela">DataFrame: a tabela</h2>
-<p>Um <code>DataFrame</code> reúne várias <code>Series</code> que compartilham o mesmo índice. São linhas e colunas, como uma planilha ou uma tabela de banco de dados.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1">df <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> pd.DataFrame({</span>
-<span id="cb4-2">    <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"cidade"</span>: [<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"São Paulo"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Rio de Janeiro"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Curitiba"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Recife"</span>],</span>
-<span id="cb4-3">    <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"populacao_mi"</span>: [<span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">12.3</span>, <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">6.7</span>, <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1.9</span>, <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1.7</span>],</span>
-<span id="cb4-4">    <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"regiao"</span>: [<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Sudeste"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Sudeste"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Sul"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Nordeste"</span>],</span>
-<span id="cb4-5">})</span></code></pre></div></div>
-</section>
-<section id="lendo-dados-de-arquivos" class="level2">
-<h2 class="anchored" data-anchor-id="lendo-dados-de-arquivos">Lendo dados de arquivos</h2>
-<p>Na prática você quase nunca digita os dados à mão. O pandas lê dezenas de formatos com uma linha:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1">df <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> pd.read_csv(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"dados.csv"</span>)</span>
-<span id="cb5-2">df <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> pd.read_excel(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"planilha.xlsx"</span>, sheet_name<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"2026"</span>)</span>
-<span id="cb5-3">df <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> pd.read_parquet(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"dados.parquet"</span>)</span></code></pre></div></div>
-<p>Parâmetros úteis no <code>read_csv</code>: <code>sep</code> (separador de campos), <code>decimal</code>, <code>encoding</code>, <code>parse_dates</code> e <code>nrows</code> para carregar apenas uma amostra.</p>
-<p>Para gravar o resultado do seu trabalho, cada leitor tem um escritor correspondente: <code>df.to_csv("saida.csv", index=False)</code>, <code>df.to_excel(...)</code> e <code>df.to_parquet(...)</code>. O formato Parquet preserva os tipos das colunas e ocupa bem menos espaço que CSV.</p>
-</section>
-<section id="primeiro-diagnóstico-dos-dados" class="level2">
-<h2 class="anchored" data-anchor-id="primeiro-diagnóstico-dos-dados">Primeiro diagnóstico dos dados</h2>
-<p>Antes de analisar, olhe a cara da tabela:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1">df.head()       <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># primeiras linhas</span></span>
-<span id="cb6-2">df.shape        <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># (linhas, colunas)</span></span>
-<span id="cb6-3">df.info()       <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># tipo de cada coluna e contagem de nulos</span></span>
-<span id="cb6-4">df.describe()   <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># estatísticas das colunas numéricas</span></span></code></pre></div></div>
-<p>Para variáveis categóricas, <code>df["regiao"].value_counts()</code> mostra a frequência de cada valor, e <code>df["regiao"].unique()</code> lista os valores distintos. Esse par revela erros de digitação e categorias inesperadas logo no começo da análise.</p>
-</section>
-<section id="selecionar-e-filtrar" class="level2">
-<h2 class="anchored" data-anchor-id="selecionar-e-filtrar">Selecionar e filtrar</h2>
-<section id="colunas" class="level3">
-<h3 class="anchored" data-anchor-id="colunas">Colunas</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1">df[<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"populacao_mi"</span>]           <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># uma coluna  -&gt; Series</span></span>
-<span id="cb7-2">df[[<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"cidade"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"regiao"</span>]]     <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># várias colunas -&gt; DataFrame</span></span></code></pre></div></div>
-</section>
-<section id="linhas-loc-e-iloc" class="level3">
-<h3 class="anchored" data-anchor-id="linhas-loc-e-iloc">Linhas: <code>loc</code> e <code>iloc</code></h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1">df.loc[<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span>]       <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># linha pelo rótulo do índice</span></span>
-<span id="cb8-2">df.iloc[<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span>]      <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># linha pela posição</span></span>
-<span id="cb8-3">df.loc[df[<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"regiao"</span>] <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">==</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Sudeste"</span>, [<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"cidade"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"populacao_mi"</span>]]</span></code></pre></div></div>
-</section>
-<section id="filtro-por-condição-boolean-indexing" class="level3">
-<h3 class="anchored" data-anchor-id="filtro-por-condição-boolean-indexing">Filtro por condição (boolean indexing)</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1">df[df[<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"populacao_mi"</span>] <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">5</span>]</span>
-<span id="cb9-2">df[(df[<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"regiao"</span>] <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">==</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Sudeste"</span>) <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&amp;</span> (df[<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"populacao_mi"</span>] <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">10</span>)]</span></code></pre></div></div>
-<p>Use <code>&amp;</code>, <code>|</code> e <code>~</code> (não <code>and</code> / <code>or</code>) e envolva cada condição em parênteses.</p>
-</section>
-</section>
-<section id="criar-e-transformar-colunas" class="level2">
-<h2 class="anchored" data-anchor-id="criar-e-transformar-colunas">Criar e transformar colunas</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1">df[<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"populacao_abs"</span>] <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> df[<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"populacao_mi"</span>] <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">*</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1_000_000</span></span>
-<span id="cb10-2"></span>
-<span id="cb10-3">df[<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"porte"</span>] <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> pd.cut(</span>
-<span id="cb10-4">    df[<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"populacao_mi"</span>],</span>
-<span id="cb10-5">    bins<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span>[<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">5</span>, <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">float</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"inf"</span>)],</span>
-<span id="cb10-6">    labels<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span>[<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"pequeno"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"médio"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"grande"</span>],</span>
-<span id="cb10-7">)</span></code></pre></div></div>
-</section>
-<section id="agrupar-com-groupby" class="level2">
-<h2 class="anchored" data-anchor-id="agrupar-com-groupby">Agrupar com <code>groupby</code></h2>
-<p>O <code>groupby</code> implementa o padrão <em>split-apply-combine</em>: divide as linhas por uma chave, aplica uma função de agregação e junta o resultado.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1">df.groupby(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"regiao"</span>)[<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"populacao_mi"</span>].<span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">sum</span>()</span>
-<span id="cb11-2"></span>
-<span id="cb11-3">df.groupby(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"regiao"</span>).agg(</span>
-<span id="cb11-4">    n_cidades<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"cidade"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"count"</span>),</span>
-<span id="cb11-5">    pop_total<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"populacao_mi"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"sum"</span>),</span>
-<span id="cb11-6">    pop_media<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"populacao_mi"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"mean"</span>),</span>
-<span id="cb11-7">)</span></code></pre></div></div>
-</section>
-<section id="tratar-valores-ausentes" class="level2">
-<h2 class="anchored" data-anchor-id="tratar-valores-ausentes">Tratar valores ausentes</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1">df.isna().<span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">sum</span>()                      <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># nulos por coluna</span></span>
-<span id="cb12-2">df.dropna(subset<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span>[<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"populacao_mi"</span>])   <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># remove linhas sem população</span></span>
-<span id="cb12-3">df[<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"regiao"</span>] <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> df[<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"regiao"</span>].fillna(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"desconhecida"</span>)</span></code></pre></div></div>
-</section>
-<section id="perguntas-frequentes" class="level2">
-<h2 class="anchored" data-anchor-id="perguntas-frequentes">Perguntas frequentes</h2>
-<section id="qual-a-diferença-entre-series-e-dataframe" class="level3">
-<h3 class="anchored" data-anchor-id="qual-a-diferença-entre-series-e-dataframe">Qual a diferença entre Series e DataFrame?</h3>
-<p>A <code>Series</code> é unidimensional (uma coluna com índice); o <code>DataFrame</code> é bidimensional (várias colunas com o mesmo índice). Cada coluna de um <code>DataFrame</code> é uma <code>Series</code>.</p>
-</section>
-<section id="quando-usar-loc-em-vez-de-iloc" class="level3">
-<h3 class="anchored" data-anchor-id="quando-usar-loc-em-vez-de-iloc">Quando usar <code>loc</code> em vez de <code>iloc</code>?</h3>
-<p>Use <code>loc</code> para selecionar por rótulo (nome do índice ou da coluna) e <code>iloc</code> para selecionar por posição inteira. Em fatias, <code>loc</code> inclui o limite final; <code>iloc</code> não.</p>
-</section>
-<section id="como-ler-só-uma-parte-de-um-arquivo-grande" class="level3">
-<h3 class="anchored" data-anchor-id="como-ler-só-uma-parte-de-um-arquivo-grande">Como ler só uma parte de um arquivo grande?</h3>
-<p>Passe <code>nrows</code> para limitar as linhas ou <code>usecols</code> para escolher colunas no <code>read_csv</code>. Para processar em blocos, use <code>chunksize</code>, que devolve um iterador de <code>DataFrame</code>.</p>
-</section>
-<section id="pandas-ou-polars" class="level3">
-<h3 class="anchored" data-anchor-id="pandas-ou-polars">Pandas ou Polars?</h3>
-<p>O pandas tem o maior ecossistema e é o padrão de mercado. O Polars costuma ser mais rápido e econômico em memória para volumes grandes. Para aprender os conceitos de dados tabulares, o pandas continua sendo o melhor ponto de partida.</p>
-</section>
-</section>
-<section id="conclusão" class="level2">
-<h2 class="anchored" data-anchor-id="conclusão">Conclusão</h2>
-<ul>
-<li><code>Series</code> é uma coluna; <code>DataFrame</code> é a tabela.</li>
-<li><code>read_csv</code>, <code>read_excel</code> e <code>read_parquet</code> carregam os dados; <code>head</code>, <code>info</code> e <code>describe</code> dão o primeiro diagnóstico.</li>
-<li><code>loc</code> / <code>iloc</code> e boolean indexing recortam linhas e colunas.</li>
-<li><code>groupby</code> + <code>agg</code> resumem os dados por categoria.</li>
-<li><code>isna</code>, <code>dropna</code> e <code>fillna</code> cuidam dos valores ausentes.</li>
-</ul>
-<p>Para se aprofundar, vale ler o guia <a href="https://pandas.pydata.org/docs/user_guide/10min.html">10 minutes to pandas</a> da <a href="https://pandas.pydata.org/docs/">documentação oficial do pandas</a> e o livro <a href="https://wesmckinney.com/book/">Python for Data Analysis</a>, de Wes McKinney, criador da biblioteca. Aqui no blog, veja também o <a href="../../posts/post-with-code/index.html">exemplo com código executável</a>.</p>
+<section id="what-this-space-does-not-intend-to-be" class="level2">
+<h2 class="anchored" data-anchor-id="what-this-space-does-not-intend-to-be">What this space does not intend to be</h2>
+<p>Politics will show up here, and I would rather make that clear in the very first post, along with an equally clear caveat: I have never had, do not have, and do not intend to have any political or electoral ambitions. I enjoy the topic, and it interests me as an object of analysis, especially where it touches economics, institutions, public policy, and data. What I write should be predominantly technical and analytical, and my ambition, whenever I write about it, is for the piece to be useful even to someone who disagrees with my conclusion.</p>
+<p>I also see no contradiction between being a Christian and valuing science deeply. I have never had to choose between the two, and I do not think valuing faith requires rejecting scientific knowledge or distrusting the method that produces it. I mention this not to turn the blog into a space for religious debate, but because it is part of who is writing, and I would rather readers know where I am coming from.</p>
+<p>This blog is not, and will not present itself as, the work of someone who has mastered every subject it touches. There are topics where I have years of hands-on work and topics where I am simply a fairly stubborn student, and I will try to signal the difference whenever it matters. This space is meant both for publishing what I already know and for studying in public: testing a hypothesis, building an experiment, getting the first approach wrong, redoing it, and describing what I learned along the way. A piece that only shows the finished version is usually more comfortable to write and considerably less useful to read.</p>
+<p>My goal is not to go viral or chase audience numbers. The purpose is to share work, projects, studies, analysis, and points of view, and if that finds the right readers, it will already have done what I hoped for. I also know that publishing on the internet means exposure, and that exposure eventually brings harsh criticism, disagreement, and some outright hostility. I consider that an inherent cost of putting ideas up for discussion, and it is a cost I accept. Criticism backed by argument, for that matter, is the good part of the deal: it is the cheapest mechanism there is for finding out you were wrong.</p>
+<p>Not everything here will be technical. I enjoy music, film, and good television, and those subjects should show up now and then, without asking permission. And posts may come out in either Portuguese or English, because I want the content to reach people interested in these topics regardless of whether they are in Brazil or somewhere else.</p>
+<p>That is it. Welcome to this space, which starts now and will probably change shape as I figure out what works. If any of the topics above sparked your curiosity, it is worth following the next posts: this first one only served to say where I am starting from and where I intend to go. The real work begins with the next one.</p>
 <hr>
-<p><strong>Tópicos:</strong> #Pandas #Python #AnáliseDeDados #CiênciaDeDados #DataFrame</p>
+<p><strong>Topics:</strong> #Economics #Law #Python #DataScience #OpenData</p>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "Introdução ao Pandas: guia prático de análise de dados",
-  "description": "Introdução ao pandas em Python: entenda Series e DataFrame, leia CSV e Excel, filtre linhas, crie colunas e agrupe dados com groupby neste guia prático.",
-  "inLanguage": "pt-BR",
-  "datePublished": "2026-09-06T12:07:56-04:00",
-  "dateModified": "2026-09-06T12:07:56-04:00",
+  "@type": "Article",
+  "headline": "Economics, Law, and Code: An Introduction to This Blog",
+  "description": "Economics, law, programming, and data in one place. Who I am, what this blog will cover, and why the best questions live between fields, not inside one.",
+  "inLanguage": "en-US",
+  "datePublished": "2026-09-09T18:42:21-03:00",
+  "dateModified": "2026-09-09T18:42:21-03:00",
   "author": { "@type": "Person", "name": "Pedro Nakashima" },
-  "mainEntityOfPage": "https://pedronakashima.com/posts/introducao-pandas/",
-  "keywords": "pandas, python, dataframe, series, groupby, análise de dados"
+  "mainEntityOfPage": "https://pedronakashima.com/posts/economics-law-code/",
+  "keywords": "economics, law, programming, data science, Python, open data, forensic banking analysis"
 }
 </script>
 
@@ -802,424 +501,73 @@ font-style: inherit;">"desconhecida"</span>)</span></code></pre></div></div>
 </section>
 
  ]]></description>
-  <category>python</category>
-  <category>pandas</category>
-  <category>análise de dados</category>
-  <guid>https://pedronakashima.com/posts/introducao-pandas/</guid>
-  <pubDate>Sun, 06 Sep 2026 16:07:56 GMT</pubDate>
+  <category>introduction</category>
+  <category>economics</category>
+  <category>law</category>
+  <category>programming</category>
+  <category>data science</category>
+  <guid>https://pedronakashima.com/posts/economics-law-code/</guid>
+  <pubDate>Wed, 09 Sep 2026 22:42:21 GMT</pubDate>
+  <media:content url="https://pedronakashima.com/posts/economics-law-code/image.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
-  <title>Introdução ao Pandas</title>
+  <title>Economia, direito e código: por que este blog existe</title>
   <dc:creator>Pedro Nakashima</dc:creator>
-  <link>https://pedronakashima.com/posts/introducao-ao-pandas/</link>
+  <link>https://pedronakashima.com/posts/economia-direito-codigo/</link>
   <description><![CDATA[ 
 
 
 
 
 
-<p>O <strong>pandas</strong> é a biblioteca padrão para manipulação de dados tabulares em Python. Se você já trabalhou com planilhas, a ideia é a mesma — só que programável, reproduzível e capaz de lidar com milhões de linhas.</p>
-<section id="instalação" class="level2">
-<h2 class="anchored" data-anchor-id="instalação">Instalação</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">pip</span> install pandas</span></code></pre></div></div>
-<p>E, por convenção, o import é sempre com o apelido <code>pd</code>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">import</span> pandas <span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">as</span> pd</span></code></pre></div></div>
+<p><em>Publicado em 9 de setembro de 2026, às 18:22, por Pedro Nakashima</em></p>
+<p>Seja bem-vindo. Este é o primeiro texto de um blog que vai transitar entre economia, direito e programação, e a primeira coisa que devo a quem chegou até aqui é uma explicação honesta sobre o que pretendo fazer com este espaço. Meu nome é Pedro Nakashima, moro em Campo Grande, no Mato Grosso do Sul, e a ideia que sustenta tudo o que vier depois é razoavelmente simples: as perguntas mais interessantes que encontrei nos últimos anos quase nunca estavam no centro de uma dessas áreas, e sim na fronteira entre elas.</p>
+<p>Antes de falar dos assuntos, prefiro falar do método, porque é ele que define o tipo de leitura que você vai encontrar por aqui. Não sou apaixonado por ideias fixas e não tenho nenhuma vergonha de mudar de opinião — principalmente quando percebo que estava errado. Prefiro um argumento bem construído a uma convicção antiga, e prefiro um dado verificável a um argumento elegante. Isso implica um compromisso prático que vou tentar honrar em cada texto: separar com clareza o que é fato, o que é evidência, o que é análise minha e o que é apenas opinião. São quatro coisas diferentes, e boa parte da confusão pública sobre economia e sobre direito nasce exatamente de tratá-las como se fossem a mesma.</p>
+<p>Sou economista e formado em Direito, e essa combinação explica boa parte do que me interessa. Aprendi a programar durante o mestrado em Economia na PUC-Rio, quando a programação se tornou uma ferramenta natural para trabalhar com dados, modelos e problemas econômicos. A economia me deu o hábito de perguntar quanto, em que magnitude e sob quais hipóteses; a programação, a capacidade de transformar essas perguntas em análises concretas — baixar bases, limpar, cruzar, calcular, modelar e testar; e o direito acrescentou o hábito de perguntar com base em qual norma, segundo qual procedimento e com quais consequências. Juntas, essas áreas me ensinaram que uma pergunta não precisa terminar em impressão: ela pode terminar em evidência, em um número, em uma regra claramente identificada ou, o que é igualmente valioso, na constatação de que as informações disponíveis ainda não permitem uma resposta.</p>
+<section id="as-perguntas-que-moram-nas-fronteiras" class="level2">
+<h2 class="anchored" data-anchor-id="as-perguntas-que-moram-nas-fronteiras">As perguntas que moram nas fronteiras</h2>
+<p>É por isso que não pretendo enquadrar este blog em um nicho único. Aqui a economia vai encontrar a programação, o direito vai encontrar a ciência de dados, e bases públicas vão ser usadas para investigar questões que começaram como jurídicas ou econômicas. Modelos de linguagem e outras ferramentas de inteligência artificial vão aparecer no papel que de fato desempenham bem, que é processar volume de documento e texto que nenhuma pessoa leria em tempo hábil. E programação vai aparecer no papel que mais gosto de dar a ela: transformar análise teórica em ferramenta concreta, que roda, que erra, que pode ser corrigida e que qualquer pessoa pode executar de novo.</p>
+<p>Minha linguagem favorita é Python, e ela deve aparecer com frequência — em artigos conceituais, em exemplos curtos, em experimentos, em automações, em modelos e em projetos maiores. Não porque seja a melhor linguagem para tudo, que não é, mas porque é onde consigo ir de uma pergunta a um resultado no menor caminho, e porque o ecossistema de análise de dados construído em torno dela é difícil de bater. Quando o código for parte do argumento, ele vem junto do texto, e não escondido atrás de um gráfico pronto.</p>
+<p>Uma parte considerável do que pretendo publicar tem a ver com bases de dados, e essa é uma área que costuma ser tratada como detalhe técnico quando na verdade é metade do trabalho. Descobrir que a fonte existe, entender como obtê-la, organizar, processar, checar a consistência e só então analisar: cada uma dessas etapas decide a qualidade da resposta final. O Brasil, nesse aspecto, é mais generoso do que se imagina — as séries temporais e os dados abertos do Banco Central, <a href="https://sidra.ibge.gov.br/">o SIDRA do IBGE</a>, <a href="https://dadosabertos.camara.leg.br/">os dados abertos da Câmara dos Deputados</a> e <a href="https://www.lexml.gov.br/">o acervo legislativo do LexML</a> sustentam, sozinhos, uma quantidade enorme de perguntas concretas que quase ninguém se dá ao trabalho de fazer. Pretendo mostrar o caminho inteiro, inclusive as partes chatas, porque é nelas que o resultado se ganha ou se perde.</p>
+<p>No campo jurídico, meu interesse se concentra em direito bancário, tributário, constitucional, financeiro e no processo legislativo. Tenho especial interesse por perícia bancária, que é talvez o exemplo mais nítido de tudo o que descrevi acima acontecendo ao mesmo tempo: uma discussão jurídica que só se resolve com matemática financeira, sobre documentos que precisam ser lidos em escala, com um resultado que depende inteiramente de reconstruir corretamente uma sequência de cálculos. Não é um tema que se esgote em opinião, e é justamente por isso que gosto dele.</p>
 </section>
-<section id="as-duas-estruturas-centrais" class="level2">
-<h2 class="anchored" data-anchor-id="as-duas-estruturas-centrais">As duas estruturas centrais</h2>
-<section id="series-uma-coluna" class="level3">
-<h3 class="anchored" data-anchor-id="series-uma-coluna">Series — uma coluna</h3>
-<p>Uma <code>Series</code> é um vetor unidimensional com um índice (rótulos das linhas).</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1">temperaturas <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> pd.Series(</span>
-<span id="cb3-2">    [<span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">28.1</span>, <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">30.4</span>, <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">27.9</span>, <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">31.2</span>],</span>
-<span id="cb3-3">    index<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span>[<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"seg"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"ter"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"qua"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"qui"</span>],</span>
-<span id="cb3-4">    name<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"temperatura"</span>,</span>
-<span id="cb3-5">)</span>
-<span id="cb3-6"></span>
-<span id="cb3-7">temperaturas[<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"ter"</span>]      <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># 30.4</span></span>
-<span id="cb3-8">temperaturas.mean()      <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># 29.4</span></span>
-<span id="cb3-9">temperaturas <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">30</span>        <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Series de booleanos</span></span></code></pre></div></div>
-</section>
-<section id="dataframe-a-tabela" class="level3">
-<h3 class="anchored" data-anchor-id="dataframe-a-tabela">DataFrame — a tabela</h3>
-<p>Um <code>DataFrame</code> é um conjunto de <code>Series</code> que compartilham o mesmo índice: linhas e colunas, como uma planilha.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1">df <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> pd.DataFrame({</span>
-<span id="cb4-2">    <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"cidade"</span>: [<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"São Paulo"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Rio"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Curitiba"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Recife"</span>],</span>
-<span id="cb4-3">    <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"populacao_mi"</span>: [<span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">12.3</span>, <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">6.7</span>, <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1.9</span>, <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1.7</span>],</span>
-<span id="cb4-4">    <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"regiao"</span>: [<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Sudeste"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Sudeste"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Sul"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Nordeste"</span>],</span>
-<span id="cb4-5">})</span></code></pre></div></div>
-</section>
-</section>
-<section id="lendo-dados-de-verdade" class="level2">
-<h2 class="anchored" data-anchor-id="lendo-dados-de-verdade">Lendo dados de verdade</h2>
-<p>Na prática você raramente digita os dados à mão. O pandas lê dezenas de formatos:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1">df <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> pd.read_csv(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"dados.csv"</span>)</span>
-<span id="cb5-2">df <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> pd.read_excel(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"planilha.xlsx"</span>, sheet_name<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"2026"</span>)</span>
-<span id="cb5-3">df <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> pd.read_parquet(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"dados.parquet"</span>)</span></code></pre></div></div>
-<p>Primeiro contato com qualquer tabela nova:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1">df.head()        <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># primeiras linhas</span></span>
-<span id="cb6-2">df.shape         <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># (linhas, colunas)</span></span>
-<span id="cb6-3">df.info()        <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># tipos e valores nulos</span></span>
-<span id="cb6-4">df.describe()    <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># estatísticas das colunas numéricas</span></span></code></pre></div></div>
-</section>
-<section id="selecionando-e-filtrando" class="level2">
-<h2 class="anchored" data-anchor-id="selecionando-e-filtrando">Selecionando e filtrando</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1">df[<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"populacao_mi"</span>]              <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># uma coluna (Series)</span></span>
-<span id="cb7-2">df[[<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"cidade"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"regiao"</span>]]        <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># várias colunas (DataFrame)</span></span>
-<span id="cb7-3"></span>
-<span id="cb7-4">df.loc[<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span>]                       <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># linha pelo rótulo do índice</span></span>
-<span id="cb7-5">df.iloc[<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span>]                      <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># linha pela posição</span></span>
-<span id="cb7-6"></span>
-<span id="cb7-7"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># filtro por condição (boolean indexing)</span></span>
-<span id="cb7-8">df[df[<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"populacao_mi"</span>] <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">5</span>]</span>
-<span id="cb7-9"></span>
-<span id="cb7-10"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># combinando condições: use &amp; | e parênteses</span></span>
-<span id="cb7-11">df[(df[<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"regiao"</span>] <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">==</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Sudeste"</span>) <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&amp;</span> (df[<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"populacao_mi"</span>] <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">10</span>)]</span></code></pre></div></div>
-</section>
-<section id="criando-colunas" class="level2">
-<h2 class="anchored" data-anchor-id="criando-colunas">Criando colunas</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1">df[<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"populacao_abs"</span>] <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> df[<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"populacao_mi"</span>] <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">*</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1_000_000</span></span>
-<span id="cb8-2"></span>
-<span id="cb8-3">df[<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"porte"</span>] <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> df[<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"populacao_mi"</span>].<span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">apply</span>(</span>
-<span id="cb8-4">    <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">lambda</span> p: <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"grande"</span> <span class="cf" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">if</span> p <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;=</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">5</span> <span class="cf" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">else</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"médio"</span> <span class="cf" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">if</span> p <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;=</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span> <span class="cf" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">else</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"pequeno"</span></span>
-<span id="cb8-5">)</span></code></pre></div></div>
-</section>
-<section id="agrupando-split-apply-combine" class="level2">
-<h2 class="anchored" data-anchor-id="agrupando-split-apply-combine">Agrupando: split-apply-combine</h2>
-<p>O <code>groupby</code> é o coração da análise exploratória: divide os dados por uma chave, aplica uma agregação e junta o resultado.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1">df.groupby(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"regiao"</span>)[<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"populacao_mi"</span>].<span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">sum</span>()</span>
-<span id="cb9-2"></span>
-<span id="cb9-3">df.groupby(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"regiao"</span>).agg(</span>
-<span id="cb9-4">    n_cidades<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"cidade"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"count"</span>),</span>
-<span id="cb9-5">    pop_total<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"populacao_mi"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"sum"</span>),</span>
-<span id="cb9-6">    pop_media<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"populacao_mi"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"mean"</span>),</span>
-<span id="cb9-7">)</span></code></pre></div></div>
-</section>
-<section id="valores-ausentes" class="level2">
-<h2 class="anchored" data-anchor-id="valores-ausentes">Valores ausentes</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1">df.isna().<span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">sum</span>()                 <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># nulos por coluna</span></span>
-<span id="cb10-2">df.dropna(subset<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span>[<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"populacao_mi"</span>])</span>
-<span id="cb10-3">df[<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"regiao"</span>].fillna(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"desconhecida"</span>)</span></code></pre></div></div>
-</section>
-<section id="resumo" class="level2">
-<h2 class="anchored" data-anchor-id="resumo">Resumo</h2>
-<ul>
-<li><code>Series</code> = coluna; <code>DataFrame</code> = tabela.</li>
-<li><code>read_csv</code> / <code>read_excel</code> / <code>read_parquet</code> para carregar dados.</li>
-<li><code>head</code>, <code>info</code>, <code>describe</code> para o primeiro diagnóstico.</li>
-<li><code>loc</code> / <code>iloc</code> e boolean indexing para recortar.</li>
-<li><code>groupby</code> + <code>agg</code> para resumir.</li>
-</ul>
-<p>A <a href="https://pandas.pydata.org/docs/">documentação oficial</a> tem um guia <a href="https://pandas.pydata.org/docs/user_guide/10min.html">“10 minutes to pandas”</a> que vale a leitura depois deste post.</p>
+<section id="o-que-este-espaço-não-pretende-ser" class="level2">
+<h2 class="anchored" data-anchor-id="o-que-este-espaço-não-pretende-ser">O que este espaço não pretende ser</h2>
+<p>Política vai aparecer aqui, e prefiro deixar isso claro logo no primeiro texto, junto de uma ressalva igualmente clara: nunca tive, não tenho e não pretendo ter qualquer pretensão política ou eleitoral. Gosto do tema e ele me interessa como objeto de análise, sobretudo quando encosta em economia, instituições, políticas públicas, orçamento e dados. O perfil do que pretendo escrever é predominantemente técnico e analítico, e minha ambição, quando escrever sobre isso, é que o texto seja útil inclusive para quem discorda da minha conclusão.</p>
+<p>Também não vejo contradição em ser cristão e valorizar profundamente a ciência. Nunca precisei escolher entre as duas coisas, e não acho que valorizar a fé exija rejeitar o conhecimento científico ou desconfiar do método que o produz. Menciono isso não para transformar o blog em espaço de discussão religiosa, mas porque faz parte de quem escreve, e prefiro que quem lê saiba de onde eu falo.</p>
+<p>Este blog não é, e não vai se apresentar como, o lugar de alguém que domina todos os assuntos que menciona. Há temas em que tenho anos de trabalho e temas em que sou apenas um estudante razoavelmente teimoso, e vou tentar sinalizar a diferença sempre que ela importar. O espaço serve tanto para publicar o que já sei quanto para estudar em público: testar uma hipótese, montar um experimento, errar a primeira abordagem, refazer e contar o que aprendi no caminho. Texto que só apresenta a versão final costuma ser mais confortável de escrever e bem menos útil de ler.</p>
+<p>Não tenho como objetivo viralizar nem perseguir número de audiência. O propósito é compartilhar trabalho, projetos, estudos, análises e pontos de vista, e se isso encontrar as pessoas certas já terá cumprido o que eu esperava. Sei, por outro lado, que publicar na internet significa se expor, e que exposição eventualmente traz crítica dura, discordância e alguma hostilidade gratuita. Considero isso um custo inerente à decisão de colocar ideias em discussão, e é um custo que aceito. Crítica com argumento, aliás, é a parte boa do negócio: é o mecanismo mais barato que existe para descobrir que você errou.</p>
+<p>Nem tudo por aqui vai ser técnico. Gosto de música, de cinema e de boas séries, e esses assuntos devem aparecer de vez em quando, sem pedir licença. E as publicações poderão sair tanto em português quanto em inglês, porque quero que o conteúdo alcance quem se interessa pelos temas independentemente de estar no Brasil ou fora dele.</p>
+<p>É isso. Seja muito bem-vindo a este espaço, que começa agora e que provavelmente vai mudar de forma conforme eu descobrir o que funciona. Se algum dos assuntos acima despertou sua curiosidade, vale acompanhar os próximos textos: este primeiro serviu apenas para dizer de onde parto e para onde pretendo ir. O trabalho de verdade começa no próximo.</p>
+<hr>
+<p><strong>Tópicos:</strong> #Economia #Direito #Python #CienciaDeDados #DadosAbertos</p>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Economia, direito e código: por que este blog existe",
+  "description": "Economia, direito, programação e dados em um só lugar: quem sou, o que pretendo publicar aqui e por que as melhores perguntas nascem justamente entre as áreas.",
+  "inLanguage": "pt-BR",
+  "datePublished": "2026-09-09T18:22:48-03:00",
+  "dateModified": "2026-09-09T18:22:48-03:00",
+  "author": { "@type": "Person", "name": "Pedro Nakashima" },
+  "mainEntityOfPage": "https://pedronakashima.com/posts/economia-direito-codigo/",
+  "keywords": "economia, direito, programação, ciência de dados, Python, dados abertos, perícia bancária"
+}
+</script>
 
 
 </section>
 
  ]]></description>
-  <category>python</category>
-  <category>pandas</category>
-  <category>analysis</category>
-  <guid>https://pedronakashima.com/posts/introducao-ao-pandas/</guid>
-  <pubDate>Sun, 06 Sep 2026 16:05:56 GMT</pubDate>
-</item>
-<item>
-  <title>Novo post</title>
-  <dc:creator>Pedro Nakashima</dc:creator>
-  <link>https://pedronakashima.com/posts/novo-post/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<section id="um-bom-cabeçalho" class="level2">
-<h2 class="anchored" data-anchor-id="um-bom-cabeçalho">Um bom cabeçalho</h2>
-<p>Here is some lovely text and an equation.</p>
-<p><img src="https://latex.codecogs.com/png.latex?%20a%5E2%20+%20b%5E2%20=%20c%5E2%20"></p>
-<p>Here’s a list.</p>
-<ul>
-<li>a link to an <a href="https://quarto.org">external website</a>.</li>
-<li>a link to <a href="../../posts/welcome/index.html">another post in this blog</a>.</li>
-</ul>
-
-
-</section>
-
- ]]></description>
-  <category>novidade</category>
-  <category>python</category>
-  <category>analysis</category>
-  <guid>https://pedronakashima.com/posts/novo-post/</guid>
-  <pubDate>Thu, 03 Sep 2026 04:00:00 GMT</pubDate>
-  <media:content url="https://pedronakashima.com/posts/novo-post/image.jpg" medium="image" type="image/jpeg"/>
-</item>
-<item>
-  <title>Post With Code</title>
-  <dc:creator>Harlow Malloc</dc:creator>
-  <link>https://pedronakashima.com/posts/post-with-code/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<p>This is a post with executable code.</p>
-
-
-
- ]]></description>
-  <category>news</category>
-  <category>code</category>
-  <category>analysis</category>
-  <guid>https://pedronakashima.com/posts/post-with-code/</guid>
-  <pubDate>Thu, 03 Sep 2026 04:00:00 GMT</pubDate>
-  <media:content url="https://pedronakashima.com/posts/post-with-code/image.jpg" medium="image" type="image/jpeg"/>
-</item>
-<item>
-  <title>Welcome To My Blog</title>
-  <dc:creator>Tristan O&#39;Malley</dc:creator>
-  <link>https://pedronakashima.com/posts/welcome/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<p>This is the first post in a Quarto blog. Welcome!</p>
-<p><img src="https://pedronakashima.com/posts/welcome/thumbnail.jpg" class="img-fluid"></p>
-<p>Since this post doesn’t specify an explicit <code>image</code>, the first image in the post will be used in the listing page of posts.</p>
-
-
-
- ]]></description>
-  <category>news</category>
-  <guid>https://pedronakashima.com/posts/welcome/</guid>
-  <pubDate>Mon, 31 Aug 2026 04:00:00 GMT</pubDate>
+  <category>apresentação</category>
+  <category>economia</category>
+  <category>direito</category>
+  <category>programação</category>
+  <category>ciência de dados</category>
+  <guid>https://pedronakashima.com/posts/economia-direito-codigo/</guid>
+  <pubDate>Wed, 09 Sep 2026 22:22:48 GMT</pubDate>
+  <media:content url="https://pedronakashima.com/posts/economia-direito-codigo/image.jpg" medium="image" type="image/jpeg"/>
 </item>
 </channel>
 </rss>

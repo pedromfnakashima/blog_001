@@ -2,15 +2,10 @@
   {
     "listing": "/index.html",
     "items": [
-      "/posts/eleicoes-brasileiras-2026/index.html",
-      "/posts/reproducao-tartarugas-marinhas/index.html",
-      "/posts/vida-golfinhos/index.html",
-      "/posts/moneyball-ciencia-de-dados/index.html",
-      "/posts/introducao-pandas/index.html",
-      "/posts/introducao-ao-pandas/index.html",
-      "/posts/novo-post/index.html",
-      "/posts/post-with-code/index.html",
-      "/posts/welcome/index.html"
+      "/posts/learn-python-2026/index.html",
+      "/posts/aprender-python-2026/index.html",
+      "/posts/economics-law-code/index.html",
+      "/posts/economia-direito-codigo/index.html"
     ]
   }
 ]

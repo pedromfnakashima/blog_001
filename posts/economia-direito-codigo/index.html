@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Pedro Nakashima">
-<meta name="keywords" content="moneyball, ciência de dados, machine learning, métodos preditivos, sabermetria, tomada de decisão baseada em dados">
-<meta name="description" content="Moneyball, com Brad Pitt, é mais que um filme de beisebol: mostra como a ciência de dados e os métodos preditivos vencem a intuição na hora de decidir.">
+<meta name="keywords" content="Pedro Nakashima, economia, direito, programação, Python, ciência de dados, dados abertos">
+<meta name="description" content="Economia, direito, programação e dados em um só lugar: quem sou, o que pretendo publicar aqui e por que as melhores perguntas nascem justamente entre as áreas.">
 
-<title>Moneyball: a lição de ciência de dados por trás do filme – Pedro Nakashima - Blog</title>
+<title>Economia, direito e código: por que este blog existe – Pedro Nakashima - Blog</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -100,6 +100,11 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Sobre / About</span></a>
   </li>  
   <li class="nav-item compact">
+    <a class="nav-link" href="https://pedroondata.com"> <i class="bi bi-globe" role="img" aria-label="Site pessoal / Personal website">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
     <a class="nav-link" href="https://www.linkedin.com/in/pedronakashima/"> <i class="bi bi-linkedin" role="img" aria-label="LinkedIn">
 </i> 
 <span class="menu-text"></span></a>
@@ -114,6 +119,11 @@ ul.task-list li input[type="checkbox"] {
 </i> 
 <span class="menu-text"></span></a>
   </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.instagram.com/pedroondata/"> <i class="bi bi-instagram" role="img" aria-label="Instagram">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -125,17 +135,18 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Moneyball: a lição de ciência de dados por trás do filme</h1>
+      <h1 class="title">Economia, direito e código: por que este blog existe</h1>
                   <div>
         <div class="description">
-          Moneyball, com Brad Pitt, é mais que um filme de beisebol: mostra como a ciência de dados e os métodos preditivos vencem a intuição na hora de decidir.
+          Economia, direito, programação e dados em um só lugar: quem sou, o que pretendo publicar aqui e por que as melhores perguntas nascem justamente entre as áreas.
         </div>
       </div>
                           <div class="quarto-categories">
+                <div class="quarto-category">apresentação</div>
+                <div class="quarto-category">economia</div>
+                <div class="quarto-category">direito</div>
+                <div class="quarto-category">programação</div>
                 <div class="quarto-category">ciência de dados</div>
-                <div class="quarto-category">machine learning</div>
-                <div class="quarto-category">cinema</div>
-                <div class="quarto-category">métodos preditivos</div>
               </div>
                   </div>
   </div>
@@ -153,7 +164,7 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Data de Publicação</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">6 de setembro de 2026</p>
+        <p class="date">9 de setembro de 2026</p>
       </div>
     </div>
     
@@ -164,7 +175,7 @@ ul.task-list li input[type="checkbox"] {
   <div>
     <div class="keywords">
       <div class="block-title">Palavras-chave</div>
-      <p>moneyball, ciência de dados, machine learning, métodos preditivos, sabermetria, tomada de decisão baseada em dados</p>
+      <p>Pedro Nakashima, economia, direito, programação, Python, ciência de dados, dados abertos</p>
     </div>
   </div>
   
@@ -179,39 +190,39 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p><em>Publicado em 6 de setembro de 2026, às 15:57, por Pedro Nakashima</em></p>
-<p>Moneyball, o filme de 2011 dirigido por Bennett Miller com Brad Pitt no papel de Billy Beane, virou a referência pop da tomada de decisão baseada em dados. A leitura mais comum — “um time pobre venceu os ricos com estatística” — é a menos interessante. O que Moneyball de fato ilustra é uma tese de ciência de dados: quando se mede a variável certa e se confia num método preditivo em vez da intuição de especialistas, muda-se a probabilidade a favor de quem decide. Essa tese, hoje, move mesas de investimento, campanhas eleitorais, hospitais e departamentos de recursos humanos, e não apenas um time de beisebol.</p>
-<section id="o-filme-e-o-caso-real" class="level2">
-<h2 class="anchored" data-anchor-id="o-filme-e-o-caso-real">O filme e o caso real</h2>
-<p>O roteiro de Steven Zaillian e Aaron Sorkin adapta o livro de 2003 de Michael Lewis, <a href="https://en.wikipedia.org/wiki/Moneyball"><em>Moneyball: The Art of Winning an Unfair Game</em></a>. A história é a temporada de 2002 do Oakland Athletics. Com uma folha salarial de cerca de 41 milhões de dólares, uma fração da dos grandes clubes, o gerente-geral Billy Beane e seu assistente Peter Brand — versão ficcional do analista Paul DePodesta, vivido por Jonah Hill — montaram o elenco a partir de jogadores que o mercado subavaliava. O time engatou 20 vitórias seguidas, fechou a temporada em 103 vitórias e 59 derrotas e ganhou a divisão. <a href="https://en.wikipedia.org/wiki/Moneyball_(film)">O filme</a> recebeu seis indicações ao Oscar, incluindo melhor filme e melhor ator para Pitt. E perdeu na primeira rodada dos playoffs para o Minnesota Twins — um detalhe que o roteiro trata quase como nota de rodapé, mas onde mora metade da lição.</p>
+<p><em>Publicado em 9 de setembro de 2026, às 18:22, por Pedro Nakashima</em></p>
+<p>Seja bem-vindo. Este é o primeiro texto de um blog que vai transitar entre economia, direito e programação, e a primeira coisa que devo a quem chegou até aqui é uma explicação honesta sobre o que pretendo fazer com este espaço. Meu nome é Pedro Nakashima, moro em Campo Grande, no Mato Grosso do Sul, e a ideia que sustenta tudo o que vier depois é razoavelmente simples: as perguntas mais interessantes que encontrei nos últimos anos quase nunca estavam no centro de uma dessas áreas, e sim na fronteira entre elas.</p>
+<p>Antes de falar dos assuntos, prefiro falar do método, porque é ele que define o tipo de leitura que você vai encontrar por aqui. Não sou apaixonado por ideias fixas e não tenho nenhuma vergonha de mudar de opinião — principalmente quando percebo que estava errado. Prefiro um argumento bem construído a uma convicção antiga, e prefiro um dado verificável a um argumento elegante. Isso implica um compromisso prático que vou tentar honrar em cada texto: separar com clareza o que é fato, o que é evidência, o que é análise minha e o que é apenas opinião. São quatro coisas diferentes, e boa parte da confusão pública sobre economia e sobre direito nasce exatamente de tratá-las como se fossem a mesma.</p>
+<p>Sou economista e formado em Direito, e essa combinação explica boa parte do que me interessa. Aprendi a programar durante o mestrado em Economia na PUC-Rio, quando a programação se tornou uma ferramenta natural para trabalhar com dados, modelos e problemas econômicos. A economia me deu o hábito de perguntar quanto, em que magnitude e sob quais hipóteses; a programação, a capacidade de transformar essas perguntas em análises concretas — baixar bases, limpar, cruzar, calcular, modelar e testar; e o direito acrescentou o hábito de perguntar com base em qual norma, segundo qual procedimento e com quais consequências. Juntas, essas áreas me ensinaram que uma pergunta não precisa terminar em impressão: ela pode terminar em evidência, em um número, em uma regra claramente identificada ou, o que é igualmente valioso, na constatação de que as informações disponíveis ainda não permitem uma resposta.</p>
+<section id="as-perguntas-que-moram-nas-fronteiras" class="level2">
+<h2 class="anchored" data-anchor-id="as-perguntas-que-moram-nas-fronteiras">As perguntas que moram nas fronteiras</h2>
+<p>É por isso que não pretendo enquadrar este blog em um nicho único. Aqui a economia vai encontrar a programação, o direito vai encontrar a ciência de dados, e bases públicas vão ser usadas para investigar questões que começaram como jurídicas ou econômicas. Modelos de linguagem e outras ferramentas de inteligência artificial vão aparecer no papel que de fato desempenham bem, que é processar volume de documento e texto que nenhuma pessoa leria em tempo hábil. E programação vai aparecer no papel que mais gosto de dar a ela: transformar análise teórica em ferramenta concreta, que roda, que erra, que pode ser corrigida e que qualquer pessoa pode executar de novo.</p>
+<p>Minha linguagem favorita é Python, e ela deve aparecer com frequência — em artigos conceituais, em exemplos curtos, em experimentos, em automações, em modelos e em projetos maiores. Não porque seja a melhor linguagem para tudo, que não é, mas porque é onde consigo ir de uma pergunta a um resultado no menor caminho, e porque o ecossistema de análise de dados construído em torno dela é difícil de bater. Quando o código for parte do argumento, ele vem junto do texto, e não escondido atrás de um gráfico pronto.</p>
+<p>Uma parte considerável do que pretendo publicar tem a ver com bases de dados, e essa é uma área que costuma ser tratada como detalhe técnico quando na verdade é metade do trabalho. Descobrir que a fonte existe, entender como obtê-la, organizar, processar, checar a consistência e só então analisar: cada uma dessas etapas decide a qualidade da resposta final. O Brasil, nesse aspecto, é mais generoso do que se imagina — as séries temporais e os dados abertos do Banco Central, <a href="https://sidra.ibge.gov.br/">o SIDRA do IBGE</a>, <a href="https://dadosabertos.camara.leg.br/">os dados abertos da Câmara dos Deputados</a> e <a href="https://www.lexml.gov.br/">o acervo legislativo do LexML</a> sustentam, sozinhos, uma quantidade enorme de perguntas concretas que quase ninguém se dá ao trabalho de fazer. Pretendo mostrar o caminho inteiro, inclusive as partes chatas, porque é nelas que o resultado se ganha ou se perde.</p>
+<p>No campo jurídico, meu interesse se concentra em direito bancário, tributário, constitucional, financeiro e no processo legislativo. Tenho especial interesse por perícia bancária, que é talvez o exemplo mais nítido de tudo o que descrevi acima acontecendo ao mesmo tempo: uma discussão jurídica que só se resolve com matemática financeira, sobre documentos que precisam ser lidos em escala, com um resultado que depende inteiramente de reconstruir corretamente uma sequência de cálculos. Não é um tema que se esgote em opinião, e é justamente por isso que gosto dele.</p>
 </section>
-<section id="escolher-a-variável-certa" class="level2">
-<h2 class="anchored" data-anchor-id="escolher-a-variável-certa">Escolher a variável certa</h2>
-<p>O núcleo técnico de Moneyball é um problema clássico de ciência de dados: qual métrica prevê melhor o resultado que interessa? Os olheiros tradicionais avaliavam jogadores pelo que enxergavam no campo — velocidade, defesa, média de rebatidas, às vezes até a aparência física. Beane e DePodesta partiram da sabermetria, a análise estatística do beisebol popularizada por Bill James e pela <a href="https://sabr.org/">Society for American Baseball Research</a>, e perguntaram o que de fato produz corridas e, portanto, vitórias. A resposta era a frequência com que o jogador chega à base, a <em>on-base percentage</em>. Era uma variável barata: o mercado pagava caro por home runs e por bases roubadas, e quase nada por um jogador que simplesmente não dava out. Traduzido para o vocabulário de quem trabalha com dados, o Oakland fez seleção de atributos, trocou um alvo mal definido — “talento” — por um mensurável — corridas esperadas — e explorou uma ineficiência de mercado até ela desaparecer. É a mesma lógica de um fundo quantitativo que encontra um fator de risco mal precificado antes dos concorrentes.</p>
-</section>
-<section id="de-regressão-linear-a-machine-learning" class="level2">
-<h2 class="anchored" data-anchor-id="de-regressão-linear-a-machine-learning">De regressão linear a machine learning</h2>
-<p>Convém lembrar a escala do que se fazia em 2002. As ferramentas eram planilhas e regressões sobre estatísticas de súmula, o equivalente esportivo de um modelo linear bem construído; hoje o mesmo trabalho começaria em <a href="../../posts/introducao-pandas/index.html">ferramentas como o pandas</a>. O que veio depois é que aproximou o beisebol da ciência de dados contemporânea: rastreamento óptico de jogadores e da bola, métricas “esperadas” calculadas por modelos e previsão de desempenho com aprendizado de máquina. O mesmo caminho se repetiu no basquete, no futebol e fora do esporte. O próprio DePodesta deixou o beisebol em 2016 para chefiar a estratégia do Cleveland Browns, da NFL. “Moneyball para X” virou clichê de consultoria justamente porque o método é agnóstico ao domínio: defina o objetivo, descubra o que o prevê, aja pela estimativa mesmo quando ela contraria o consenso.</p>
-</section>
-<section id="os-limites-do-método" class="level2">
-<h2 class="anchored" data-anchor-id="os-limites-do-método">Os limites do método</h2>
-<p>A parte que o filme subestima é tão instrutiva quanto o resto. Primeiro, o Oakland de 2002 não era só porcentagem de base: três dos melhores jogadores do elenco eram os arremessadores Tim Hudson, Mark Mulder e Barry Zito, um trio que colocou o time no topo da liga em defesa, e <a href="https://grantland.com/the-triangle/mlb-oakland-as-big-three-tim-hudson-barry-zito-mark-mulder-billy-beane-moneyball/">boa parte da crítica ao livro</a> aponta que a narrativa em torno da <em>on-base percentage</em> escondeu o quanto Beane era bom em achar e formar arremessadores. Segundo, os playoffs são uma amostra pequena e ruidosa: vencer 103 de 162 jogos é sinal forte; perder uma série de cinco jogos não refuta o método, é variância, e o próprio DePodesta descreveria a pós-temporada como um cara ou coroa. Terceiro, assim que a ineficiência ficou pública — e o livro a tornou pública —, ela foi arbitrada, e hoje se paga caro por <em>on-base percentage</em>. Há ainda o risco que todo modelo preditivo carrega: ele aprende os vieses dos dados com que foi treinado, e fatores como liderança, entrosamento e lesão resistem à quantificação.</p>
-<p>Nada disso invalida a ideia central. Um método preditivo não é bola de cristal: ele desloca as probabilidades, não garante o resultado, e saber distinguir as duas coisas é parte da competência de quem usa dados para decidir.</p>
-<p>É por isso que Moneyball envelheceu bem, mesmo com o beisebol tendo mudado de patamar analítico. A vantagem do Oakland nunca foi “ter dados”; foi a disciplina de definir o objetivo com clareza, medir o que o prevê, agir pela estimativa ainda que ela contrarie o consenso e permanecer honesto sobre a incerteza. Troque “corridas” por retorno de um fundo, intenção de voto, risco de readmissão hospitalar ou rotatividade de funcionários, e a receita é a mesma. O filme é sobre um time pobre de beisebol; a lição é sobre como pensar.</p>
+<section id="o-que-este-espaço-não-pretende-ser" class="level2">
+<h2 class="anchored" data-anchor-id="o-que-este-espaço-não-pretende-ser">O que este espaço não pretende ser</h2>
+<p>Política vai aparecer aqui, e prefiro deixar isso claro logo no primeiro texto, junto de uma ressalva igualmente clara: nunca tive, não tenho e não pretendo ter qualquer pretensão política ou eleitoral. Gosto do tema e ele me interessa como objeto de análise, sobretudo quando encosta em economia, instituições, políticas públicas, orçamento e dados. O perfil do que pretendo escrever é predominantemente técnico e analítico, e minha ambição, quando escrever sobre isso, é que o texto seja útil inclusive para quem discorda da minha conclusão.</p>
+<p>Também não vejo contradição em ser cristão e valorizar profundamente a ciência. Nunca precisei escolher entre as duas coisas, e não acho que valorizar a fé exija rejeitar o conhecimento científico ou desconfiar do método que o produz. Menciono isso não para transformar o blog em espaço de discussão religiosa, mas porque faz parte de quem escreve, e prefiro que quem lê saiba de onde eu falo.</p>
+<p>Este blog não é, e não vai se apresentar como, o lugar de alguém que domina todos os assuntos que menciona. Há temas em que tenho anos de trabalho e temas em que sou apenas um estudante razoavelmente teimoso, e vou tentar sinalizar a diferença sempre que ela importar. O espaço serve tanto para publicar o que já sei quanto para estudar em público: testar uma hipótese, montar um experimento, errar a primeira abordagem, refazer e contar o que aprendi no caminho. Texto que só apresenta a versão final costuma ser mais confortável de escrever e bem menos útil de ler.</p>
+<p>Não tenho como objetivo viralizar nem perseguir número de audiência. O propósito é compartilhar trabalho, projetos, estudos, análises e pontos de vista, e se isso encontrar as pessoas certas já terá cumprido o que eu esperava. Sei, por outro lado, que publicar na internet significa se expor, e que exposição eventualmente traz crítica dura, discordância e alguma hostilidade gratuita. Considero isso um custo inerente à decisão de colocar ideias em discussão, e é um custo que aceito. Crítica com argumento, aliás, é a parte boa do negócio: é o mecanismo mais barato que existe para descobrir que você errou.</p>
+<p>Nem tudo por aqui vai ser técnico. Gosto de música, de cinema e de boas séries, e esses assuntos devem aparecer de vez em quando, sem pedir licença. E as publicações poderão sair tanto em português quanto em inglês, porque quero que o conteúdo alcance quem se interessa pelos temas independentemente de estar no Brasil ou fora dele.</p>
+<p>É isso. Seja muito bem-vindo a este espaço, que começa agora e que provavelmente vai mudar de forma conforme eu descobrir o que funciona. Se algum dos assuntos acima despertou sua curiosidade, vale acompanhar os próximos textos: este primeiro serviu apenas para dizer de onde parto e para onde pretendo ir. O trabalho de verdade começa no próximo.</p>
 <hr>
-<p><strong>Tópicos:</strong> #Moneyball #CiênciaDeDados #MachineLearning #MétodosPreditivos #AnáliseEsportiva</p>
+<p><strong>Tópicos:</strong> #Economia #Direito #Python #CienciaDeDados #DadosAbertos</p>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "Moneyball: a lição de ciência de dados por trás do filme",
-  "description": "Moneyball, com Brad Pitt, é mais que um filme de beisebol: mostra como a ciência de dados e os métodos preditivos vencem a intuição na hora de decidir.",
+  "headline": "Economia, direito e código: por que este blog existe",
+  "description": "Economia, direito, programação e dados em um só lugar: quem sou, o que pretendo publicar aqui e por que as melhores perguntas nascem justamente entre as áreas.",
   "inLanguage": "pt-BR",
-  "datePublished": "2026-09-06T15:57:59-04:00",
-  "dateModified": "2026-09-06T15:57:59-04:00",
+  "datePublished": "2026-09-09T18:22:48-03:00",
+  "dateModified": "2026-09-09T18:22:48-03:00",
   "author": { "@type": "Person", "name": "Pedro Nakashima" },
-  "mainEntityOfPage": "https://pedronakashima.com/posts/moneyball-ciencia-de-dados/",
-  "keywords": "moneyball, ciência de dados, machine learning, métodos preditivos, sabermetria, tomada de decisão baseada em dados"
+  "mainEntityOfPage": "https://pedronakashima.com/posts/economia-direito-codigo/",
+  "keywords": "economia, direito, programação, ciência de dados, Python, dados abertos, perícia bancária"
 }
 </script>
 
