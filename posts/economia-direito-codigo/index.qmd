@@ -1,0 +1,62 @@
+---
+title: "Economia, direito e código: por que este blog existe"
+description: "Economia, direito, programação e dados em um só lugar: quem sou, o que pretendo publicar aqui e por que as melhores perguntas nascem justamente entre as áreas."
+author: "Pedro Nakashima"
+date: "2026-09-09 18:22:48"
+lang: "pt-BR"
+categories: [apresentação, economia, direito, programação, ciência de dados]
+image: "image.jpg"
+image-alt: "Mesa de trabalho com um caderno de anotações aberto ao lado de um notebook que exibe linhas de código e um gráfico de série temporal"
+keywords: [Pedro Nakashima, economia, direito, programação, Python, ciência de dados, dados abertos]
+---
+
+*Publicado em 9 de setembro de 2026, às 18:22, por Pedro Nakashima*
+
+Seja bem-vindo. Este é o primeiro texto de um blog que vai transitar entre economia, direito e programação, e a primeira coisa que devo a quem chegou até aqui é uma explicação honesta sobre o que pretendo fazer com este espaço. Meu nome é Pedro Nakashima, moro em Campo Grande, no Mato Grosso do Sul, e a ideia que sustenta tudo o que vier depois é razoavelmente simples: as perguntas mais interessantes que encontrei nos últimos anos quase nunca estavam no centro de uma dessas áreas, e sim na fronteira entre elas.
+
+Antes de falar dos assuntos, prefiro falar do método, porque é ele que define o tipo de leitura que você vai encontrar por aqui. Não sou apaixonado por ideias fixas e não tenho nenhuma vergonha de mudar de opinião — principalmente quando percebo que estava errado. Prefiro um argumento bem construído a uma convicção antiga, e prefiro um dado verificável a um argumento elegante. Isso implica um compromisso prático que vou tentar honrar em cada texto: separar com clareza o que é fato, o que é evidência, o que é análise minha e o que é apenas opinião. São quatro coisas diferentes, e boa parte da confusão pública sobre economia e sobre direito nasce exatamente de tratá-las como se fossem a mesma.
+
+Sou economista e formado em Direito, e essa combinação explica boa parte do que me interessa. Aprendi a programar durante o mestrado em Economia na PUC-Rio, quando a programação se tornou uma ferramenta natural para trabalhar com dados, modelos e problemas econômicos. A economia me deu o hábito de perguntar quanto, em que magnitude e sob quais hipóteses; a programação, a capacidade de transformar essas perguntas em análises concretas — baixar bases, limpar, cruzar, calcular, modelar e testar; e o direito acrescentou o hábito de perguntar com base em qual norma, segundo qual procedimento e com quais consequências. Juntas, essas áreas me ensinaram que uma pergunta não precisa terminar em impressão: ela pode terminar em evidência, em um número, em uma regra claramente identificada ou, o que é igualmente valioso, na constatação de que as informações disponíveis ainda não permitem uma resposta.
+
+## As perguntas que moram nas fronteiras
+
+É por isso que não pretendo enquadrar este blog em um nicho único. Aqui a economia vai encontrar a programação, o direito vai encontrar a ciência de dados, e bases públicas vão ser usadas para investigar questões que começaram como jurídicas ou econômicas. Modelos de linguagem e outras ferramentas de inteligência artificial vão aparecer no papel que de fato desempenham bem, que é processar volume de documento e texto que nenhuma pessoa leria em tempo hábil. E programação vai aparecer no papel que mais gosto de dar a ela: transformar análise teórica em ferramenta concreta, que roda, que erra, que pode ser corrigida e que qualquer pessoa pode executar de novo.
+
+Minha linguagem favorita é Python, e ela deve aparecer com frequência — em artigos conceituais, em exemplos curtos, em experimentos, em automações, em modelos e em projetos maiores. Não porque seja a melhor linguagem para tudo, que não é, mas porque é onde consigo ir de uma pergunta a um resultado no menor caminho, e porque o ecossistema de análise de dados construído em torno dela é difícil de bater. Quando o código for parte do argumento, ele vem junto do texto, e não escondido atrás de um gráfico pronto.
+
+Uma parte considerável do que pretendo publicar tem a ver com bases de dados, e essa é uma área que costuma ser tratada como detalhe técnico quando na verdade é metade do trabalho. Descobrir que a fonte existe, entender como obtê-la, organizar, processar, checar a consistência e só então analisar: cada uma dessas etapas decide a qualidade da resposta final. O Brasil, nesse aspecto, é mais generoso do que se imagina — as séries temporais e os dados abertos do Banco Central, [o SIDRA do IBGE](https://sidra.ibge.gov.br/), [os dados abertos da Câmara dos Deputados](https://dadosabertos.camara.leg.br/) e [o acervo legislativo do LexML](https://www.lexml.gov.br/) sustentam, sozinhos, uma quantidade enorme de perguntas concretas que quase ninguém se dá ao trabalho de fazer. Pretendo mostrar o caminho inteiro, inclusive as partes chatas, porque é nelas que o resultado se ganha ou se perde.
+
+No campo jurídico, meu interesse se concentra em direito bancário, tributário, constitucional, financeiro e no processo legislativo. Tenho especial interesse por perícia bancária, que é talvez o exemplo mais nítido de tudo o que descrevi acima acontecendo ao mesmo tempo: uma discussão jurídica que só se resolve com matemática financeira, sobre documentos que precisam ser lidos em escala, com um resultado que depende inteiramente de reconstruir corretamente uma sequência de cálculos. Não é um tema que se esgote em opinião, e é justamente por isso que gosto dele.
+
+## O que este espaço não pretende ser
+
+Política vai aparecer aqui, e prefiro deixar isso claro logo no primeiro texto, junto de uma ressalva igualmente clara: nunca tive, não tenho e não pretendo ter qualquer pretensão política ou eleitoral. Gosto do tema e ele me interessa como objeto de análise, sobretudo quando encosta em economia, instituições, políticas públicas, orçamento e dados. O perfil do que pretendo escrever é predominantemente técnico e analítico, e minha ambição, quando escrever sobre isso, é que o texto seja útil inclusive para quem discorda da minha conclusão.
+
+Também não vejo contradição em ser cristão e valorizar profundamente a ciência. Nunca precisei escolher entre as duas coisas, e não acho que valorizar a fé exija rejeitar o conhecimento científico ou desconfiar do método que o produz. Menciono isso não para transformar o blog em espaço de discussão religiosa, mas porque faz parte de quem escreve, e prefiro que quem lê saiba de onde eu falo.
+
+Este blog não é, e não vai se apresentar como, o lugar de alguém que domina todos os assuntos que menciona. Há temas em que tenho anos de trabalho e temas em que sou apenas um estudante razoavelmente teimoso, e vou tentar sinalizar a diferença sempre que ela importar. O espaço serve tanto para publicar o que já sei quanto para estudar em público: testar uma hipótese, montar um experimento, errar a primeira abordagem, refazer e contar o que aprendi no caminho. Texto que só apresenta a versão final costuma ser mais confortável de escrever e bem menos útil de ler.
+
+Não tenho como objetivo viralizar nem perseguir número de audiência. O propósito é compartilhar trabalho, projetos, estudos, análises e pontos de vista, e se isso encontrar as pessoas certas já terá cumprido o que eu esperava. Sei, por outro lado, que publicar na internet significa se expor, e que exposição eventualmente traz crítica dura, discordância e alguma hostilidade gratuita. Considero isso um custo inerente à decisão de colocar ideias em discussão, e é um custo que aceito. Crítica com argumento, aliás, é a parte boa do negócio: é o mecanismo mais barato que existe para descobrir que você errou.
+
+Nem tudo por aqui vai ser técnico. Gosto de música, de cinema e de boas séries, e esses assuntos devem aparecer de vez em quando, sem pedir licença. E as publicações poderão sair tanto em português quanto em inglês, porque quero que o conteúdo alcance quem se interessa pelos temas independentemente de estar no Brasil ou fora dele.
+
+É isso. Seja muito bem-vindo a este espaço, que começa agora e que provavelmente vai mudar de forma conforme eu descobrir o que funciona. Se algum dos assuntos acima despertou sua curiosidade, vale acompanhar os próximos textos: este primeiro serviu apenas para dizer de onde parto e para onde pretendo ir. O trabalho de verdade começa no próximo.
+
+---
+
+**Tópicos:** #Economia #Direito #Python #CienciaDeDados #DadosAbertos
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Economia, direito e código: por que este blog existe",
+  "description": "Economia, direito, programação e dados em um só lugar: quem sou, o que pretendo publicar aqui e por que as melhores perguntas nascem justamente entre as áreas.",
+  "inLanguage": "pt-BR",
+  "datePublished": "2026-09-09T18:22:48-03:00",
+  "dateModified": "2026-09-09T18:22:48-03:00",
+  "author": { "@type": "Person", "name": "Pedro Nakashima" },
+  "mainEntityOfPage": "https://pedronakashima.com/posts/economia-direito-codigo/",
+  "keywords": "economia, direito, programação, ciência de dados, Python, dados abertos, perícia bancária"
+}
+</script>
