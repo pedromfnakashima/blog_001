@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR" xml:lang="pt-BR"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -15,10 +15,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -77,10 +80,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-0ed462561a0fff13a3aed3c1af43d342.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -111,6 +114,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Por que aprender Python em 2026, mesmo na era dos LLMs – Pedro Nakashima - Blog">
+<meta property="og:description" content="Aprender Python em 2026 vale a pena mesmo com a IA escrevendo código: o que a linguagem faz, por que ela potencializa quem usa LLMs e por onde começar hoje.">
+<meta property="og:image" content="https://pedronakashima.com/posts/aprender-python-2026/cover.jpg">
+<meta property="og:site_name" content="Pedro Nakashima - Blog">
+<meta property="og:image:alt" content="Tela de computador com um trecho curto de código Python ao lado de uma pilha de pastas de documentos e uma planilha impressa">
+<meta name="twitter:title" content="Por que aprender Python em 2026, mesmo na era dos LLMs – Pedro Nakashima - Blog">
+<meta name="twitter:description" content="Aprender Python em 2026 vale a pena mesmo com a IA escrevendo código: o que a linguagem faz, por que ela potencializa quem usa LLMs e por onde começar hoje.">
+<meta name="twitter:image" content="https://pedronakashima.com/posts/aprender-python-2026/cover.jpg">
+<meta name="twitter:creator" content="@PedroOnData">
+<meta name="twitter:site" content="@PedroOnData">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image:alt" content="Tela de computador com um trecho curto de código Python ao lado de uma pilha de pastas de documentos e uma planilha impressa">
 </head>
 
 <body class="nav-fixed fullcontent quarto-light">
@@ -226,6 +241,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p><em>Publicado em 9 de setembro de 2026, às 19:04, por Pedro Nakashima</em></p>
+<p><img src="cover.jpg" class="img-fluid"></p>
 <p>Se você é economista, advogado, contador, administrador, médico ou qualquer outra coisa que não seja programador, a pergunta que interessa não é se vale a pena <strong>aprender Python</strong> por diversão. É se ainda faz sentido investir algumas dezenas de horas nisso em 2026, num momento em que qualquer modelo de linguagem escreve código melhor do que a maioria dos iniciantes. Minha resposta é que faz, e por um motivo que quase ninguém explica direito: saber programar não compete com a inteligência artificial, ela <strong>multiplica</strong> o que você consegue fazer com ela. Este texto é sobre isso, e sobre o que a linguagem realmente permite construir.</p>
 <section id="o-que-é-python-em-duas-frases" class="level2">
 <h2 class="anchored" data-anchor-id="o-que-é-python-em-duas-frases">O que é Python, em duas frases</h2>

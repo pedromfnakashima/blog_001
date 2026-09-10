@@ -9,8 +9,577 @@
 <link>https://pedronakashima.com/</link>
 <atom:link href="https://pedronakashima.com/index.xml" rel="self" type="application/rss+xml"/>
 <description>Análises e guias de Pedro Nakashima sobre ciência de dados, machine learning, IA e tecnologia — e também economia, direito, política, cinema e futebol.</description>
-<generator>quarto-1.9.38</generator>
-<lastBuildDate>Wed, 09 Sep 2026 23:19:36 GMT</lastBuildDate>
+<generator>quarto-1.10.18</generator>
+<lastBuildDate>Thu, 10 Sep 2026 11:30:28 GMT</lastBuildDate>
+<item>
+  <title>Introdução à sintaxe Python: guia completo para iniciantes</title>
+  <dc:creator>Pedro Nakashima</dc:creator>
+  <link>https://pedronakashima.com/posts/introducao-sintaxe-python/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p><em>Publicado em 10 de setembro de 2026, às 07:30, por Pedro Nakashima</em></p>
+<p><img src="https://pedronakashima.com/posts/introducao-sintaxe-python/cover.jpg" class="img-fluid"></p>
+<p>Este é o guia prático que faltava no <a href="../../posts/aprender-python-2026/index.html">texto anterior sobre por que vale a pena aprender Python em 2026</a>: ali ficou a motivação, aqui fica a sintaxe Python que você de fato escreve todos os dias. Nas próximas seções você vai ver onde rodar seu primeiro código, como a indentação organiza um programa Python, os principais tipos de dados, os operadores matemáticos e de comparação, como escrever condicionais e laços de repetição, o que a função <code>range()</code> faz e como definir e chamar uma função. Nenhum desses elementos foi tratado no texto anterior — aqui é onde a sintaxe entra, peça por peça, com exemplos que rodam de verdade.</p>
+<section id="onde-escrever-e-rodar-seu-código-python" class="level2">
+<h2 class="anchored" data-anchor-id="onde-escrever-e-rodar-seu-código-python">Onde escrever e rodar seu código Python</h2>
+<p>Antes de decorar comando nenhum, você precisa de um lugar para digitá-lo e ver o resultado aparecer. As quatro opções mais comuns cobrem praticamente todo mundo, e a escolha certa depende menos de gosto e mais do que você vai fazer.</p>
+<section id="jupyter-notebook-via-anaconda" class="level3">
+<h3 class="anchored" data-anchor-id="jupyter-notebook-via-anaconda">Jupyter Notebook, via Anaconda</h3>
+<p>O Jupyter Notebook organiza o código em <strong>células</strong>: você escreve um pedaço, roda só aquele pedaço com <code>Shift+Enter</code> e vê o resultado logo abaixo, sem reexecutar o script inteiro. É o formato dominante para explorar dados, porque mistura código, texto explicativo, tabelas e gráficos no mesmo documento. A forma mais simples de ter isso instalado é a distribuição <strong>Anaconda</strong>, que já traz o Jupyter e as bibliotecas de dados mais usadas (pandas, numpy, matplotlib) prontas, sem instalação separada de cada uma.</p>
+</section>
+<section id="google-colab" class="level3">
+<h3 class="anchored" data-anchor-id="google-colab">Google Colab</h3>
+<p>O <strong>Google Colab</strong> é um Jupyter Notebook que roda inteiro no navegador, hospedado pelo Google — sem instalar nada na sua máquina, com acesso gratuito a GPU para quem for treinar modelos mais pesados. É o ponto de partida mais rápido possível: basta abrir o <a href="https://colab.research.google.com/">Google Colab</a> numa conta Google e já há um notebook em branco pronto para receber código. A desvantagem é a dependência de internet e o fato de o ambiente resetar entre sessões, o que o torna ótimo para aprender e testar, mas não para um projeto que precisa de arquivos locais permanentes.</p>
+</section>
+<section id="vs-code" class="level3">
+<h3 class="anchored" data-anchor-id="vs-code">VS Code</h3>
+<p>O <strong>VS Code</strong> é um editor de código de uso geral, não um notebook: você abre uma pasta de projeto, escreve arquivos <code>.py</code>, roda scripts inteiros pelo terminal integrado e versiona tudo com Git, sem sair do editor. Com a extensão oficial de Python instalada, ele também abre notebooks Jupyter dentro da própria janela — então não é uma escolha excludente com o item anterior, é o degrau seguinte, para quando o código deixa de ser um experimento e vira um programa organizado em vários arquivos.</p>
+</section>
+<section id="outros-ides" class="level3">
+<h3 class="anchored" data-anchor-id="outros-ides">Outros IDEs</h3>
+<p>Duas alternativas valem menção. O <strong>PyCharm</strong> é um IDE dedicado a Python, com refatoração de código e depuração mais robustas, usado sobretudo em projetos de software maiores. O <strong>Spyder</strong> já vem junto da distribuição Anaconda e imita a divisão de painéis do RStudio (editor, console, variáveis), o que agrada quem vem da estatística. Nenhum dos dois é necessário para começar — mas é bom saber que existem quando o projeto crescer.</p>
+<p>Resumindo a escolha:</p>
+<ul>
+<li><strong>Quer testar um trecho de código agora, sem instalar nada</strong>: Google Colab.</li>
+<li><strong>Vai explorar uma base de dados, com gráficos e texto juntos</strong>: Jupyter Notebook (Anaconda).</li>
+<li><strong>Vai escrever um script ou projeto com vários arquivos</strong>: VS Code.</li>
+<li><strong>Projeto científico grande, com preferência por painéis fixos</strong>: Spyder ou PyCharm.</li>
+</ul>
+</section>
+</section>
+<section id="o-papel-da-indentação" class="level2">
+<h2 class="anchored" data-anchor-id="o-papel-da-indentação">O papel da indentação</h2>
+<p>Aqui está a diferença mais visível entre Python e a maioria das outras linguagens: <strong>não existem chaves <code>{ }</code> para marcar onde um bloco de código começa e termina</strong> — quem marca é a indentação, isto é, os espaços no início da linha. Um bloco pertence ao comando anterior enquanto continuar recuado; a primeira linha que voltar para a margem esquerda encerra o bloco.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1">idade <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">20</span></span>
+<span id="cb1-2"></span>
+<span id="cb1-3"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> idade <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">18</span>:</span>
+<span id="cb1-4">    <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"maior de idade"</span>)</span>
+<span id="cb1-5">    <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"pode dirigir"</span>)</span>
+<span id="cb1-6"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">else</span>:</span>
+<span id="cb1-7">    <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"menor de idade"</span>)</span></code></pre></div></div>
+<p>As duas linhas depois do <code>if</code> estão recuadas quatro espaços e por isso pertencem a ele; a linha do <code>else</code> volta para a margem e abre um novo bloco. A convenção oficial, registrada na <a href="https://peps.python.org/pep-0008/">PEP 8, o guia de estilo da linguagem</a>, é <strong>quatro espaços por nível</strong>, nunca tabulação — misturar os dois no mesmo bloco gera <code>TabError</code> e o programa nem chega a rodar. Todo editor citado na seção anterior já vem configurado para inserir quatro espaços sozinho quando você aperta Tab, então na prática isso raramente exige atenção manual; o que importa é entender que a indentação <strong>não é estética</strong>, é a própria sintaxe que decide o que está dentro e o que está fora de cada bloco.</p>
+</section>
+<section id="tipos-de-dados-básicos" class="level2">
+<h2 class="anchored" data-anchor-id="tipos-de-dados-básicos">Tipos de dados básicos</h2>
+<p>Toda informação em Python tem um tipo, e a linguagem descobre esse tipo sozinha a partir do valor — você nunca declara <code>int x</code> como em outras linguagens. Os tipos que aparecem o tempo todo são:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Tipo</th>
+<th>O que guarda</th>
+<th>Exemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>int</code></td>
+<td>número inteiro</td>
+<td><code>idade = 32</code></td>
+</tr>
+<tr class="even">
+<td><code>float</code></td>
+<td>número com casas decimais</td>
+<td><code>preco = 19.90</code></td>
+</tr>
+<tr class="odd">
+<td><code>str</code></td>
+<td>texto, entre aspas</td>
+<td><code>nome = "Ana"</code></td>
+</tr>
+<tr class="even">
+<td><code>bool</code></td>
+<td>verdadeiro ou falso</td>
+<td><code>ativo = True</code></td>
+</tr>
+<tr class="odd">
+<td><code>list</code></td>
+<td>uma sequência editável de itens</td>
+<td><code>notas = [7.5, 8.0, 6.5]</code></td>
+</tr>
+<tr class="even">
+<td><code>dict</code></td>
+<td>pares de chave e valor</td>
+<td><code>pessoa = {"nome": "Ana", "idade": 32}</code></td>
+</tr>
+</tbody>
+</table>
+<p>A função embutida <code>type()</code> revela o tipo de qualquer valor, o que ajuda bastante quando um erro aparece e não está claro por quê:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">type</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">32</span>))        <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># &lt;class 'int'&gt;</span></span>
+<span id="cb2-2"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">type</span>(<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">19.90</span>))     <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># &lt;class 'float'&gt;</span></span>
+<span id="cb2-3"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">type</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Ana"</span>))     <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># &lt;class 'str'&gt;</span></span></code></pre></div></div>
+<p>Vale registrar duas variações que aparecem com frequência assim que você sai do básico: a <code>tuple</code> (uma lista que não pode mais ser alterada depois de criada, escrita entre parênteses) e o <code>set</code> (uma coleção sem ordem e sem repetição, escrita entre chaves). Nenhuma das duas é essencial no primeiro contato — mas reconhecer o nome ajuda a não estranhar quando aparecer num exemplo.</p>
+</section>
+<section id="operadores-matemáticos" class="level2">
+<h2 class="anchored" data-anchor-id="operadores-matemáticos">Operadores matemáticos</h2>
+<p>Além dos quatro óbvios, Python tem dois operadores que confundem quem vem de outra linguagem: a <strong>divisão inteira</strong> (<code>//</code>) e a <strong>exponenciação</strong> (<code>**</code>).</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Operador</th>
+<th>Operação</th>
+<th>Exemplo</th>
+<th>Resultado</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>+</code></td>
+<td>soma</td>
+<td><code>7 + 3</code></td>
+<td><code>10</code></td>
+</tr>
+<tr class="even">
+<td><code>-</code></td>
+<td>subtração</td>
+<td><code>7 - 3</code></td>
+<td><code>4</code></td>
+</tr>
+<tr class="odd">
+<td><code>*</code></td>
+<td>multiplicação</td>
+<td><code>7 * 3</code></td>
+<td><code>21</code></td>
+</tr>
+<tr class="even">
+<td><code>/</code></td>
+<td>divisão</td>
+<td><code>7 / 3</code></td>
+<td><code>2.3333...</code></td>
+</tr>
+<tr class="odd">
+<td><code>//</code></td>
+<td>divisão inteira</td>
+<td><code>7 // 3</code></td>
+<td><code>2</code></td>
+</tr>
+<tr class="even">
+<td><code>%</code></td>
+<td>resto da divisão (módulo)</td>
+<td><code>7 % 3</code></td>
+<td><code>1</code></td>
+</tr>
+<tr class="odd">
+<td><code>**</code></td>
+<td>potenciação</td>
+<td><code>7 ** 2</code></td>
+<td><code>49</code></td>
+</tr>
+</tbody>
+</table>
+<p>O módulo (<code>%</code>) é mais útil do que parece: é ele que responde “esse número é par?” (<code>n % 2 == 0</code>) sem precisar de nenhuma outra função, e é a base de qualquer código que precisa repetir um padrão a cada N itens.</p>
+</section>
+<section id="operadores-de-comparação" class="level2">
+<h2 class="anchored" data-anchor-id="operadores-de-comparação">Operadores de comparação</h2>
+<p>Comparar dois valores sempre devolve um <code>bool</code> — <code>True</code> ou <code>False</code> — e é esse resultado que alimenta os condicionais da próxima seção.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Operador</th>
+<th>Significado</th>
+<th>Exemplo</th>
+<th>Resultado</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>==</code></td>
+<td>igual a</td>
+<td><code>5 == 5</code></td>
+<td><code>True</code></td>
+</tr>
+<tr class="even">
+<td><code>!=</code></td>
+<td>diferente de</td>
+<td><code>5 != 3</code></td>
+<td><code>True</code></td>
+</tr>
+<tr class="odd">
+<td><code>&gt;</code></td>
+<td>maior que</td>
+<td><code>5 &gt; 3</code></td>
+<td><code>True</code></td>
+</tr>
+<tr class="even">
+<td><code>&lt;</code></td>
+<td>menor que</td>
+<td><code>5 &lt; 3</code></td>
+<td><code>False</code></td>
+</tr>
+<tr class="odd">
+<td><code>&gt;=</code></td>
+<td>maior ou igual a</td>
+<td><code>5 &gt;= 5</code></td>
+<td><code>True</code></td>
+</tr>
+<tr class="even">
+<td><code>&lt;=</code></td>
+<td>menor ou igual a</td>
+<td><code>5 &lt;= 3</code></td>
+<td><code>False</code></td>
+</tr>
+</tbody>
+</table>
+<p>Um detalhe que Python tem e a maioria das linguagens não tem: dá para <strong>encadear comparações</strong> numa única expressão, do jeito que se escreve na matemática. <code>0 &lt;= nota &lt;= 10</code> testa se <code>nota</code> está entre 0 e 10 de uma vez, sem precisar escrever <code>nota &gt;= 0 and nota &lt;= 10</code>.</p>
+</section>
+<section id="condicionais-if-elif-e-else" class="level2">
+<h2 class="anchored" data-anchor-id="condicionais-if-elif-e-else">Condicionais: if, elif e else</h2>
+<p>O condicional decide qual bloco de código roda, de acordo com o resultado de uma comparação. <code>if</code> testa a primeira condição; <code>elif</code> (contração de “else if”) testa outra, só se a anterior for falsa; <code>else</code> roda quando nenhuma das anteriores foi verdadeira.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1">nota <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">7.5</span></span>
+<span id="cb3-2"></span>
+<span id="cb3-3"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> nota <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">9</span>:</span>
+<span id="cb3-4">    conceito <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"A"</span></span>
+<span id="cb3-5"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">elif</span> nota <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">7</span>:</span>
+<span id="cb3-6">    conceito <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"B"</span></span>
+<span id="cb3-7"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">elif</span> nota <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>:</span>
+<span id="cb3-8">    conceito <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"C"</span></span>
+<span id="cb3-9"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">else</span>:</span>
+<span id="cb3-10">    conceito <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"D"</span></span>
+<span id="cb3-11"></span>
+<span id="cb3-12"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(conceito)  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># B</span></span></code></pre></div></div>
+<p>Cada <code>elif</code> só é avaliado se todos os testes acima dele falharam, e o Python para no primeiro bloco verdadeiro — por isso a ordem das condições importa: se a primeira linha fosse <code>nota &gt;= 5</code>, o exemplo acima nunca chegaria a checar <code>nota &gt;= 7</code> ou <code>nota &gt;= 9</code>.</p>
+</section>
+<section id="laços-de-repetição-for-e-while" class="level2">
+<h2 class="anchored" data-anchor-id="laços-de-repetição-for-e-while">Laços de repetição: for e while</h2>
+<p>Python tem dois laços, e a diferença entre eles não é de sintaxe, é de propósito. O <code>for</code> percorre uma sequência já conhecida — uma lista, um texto, um intervalo de números — item por item, e termina sozinho quando a sequência acaba.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1">notas <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> [<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">7.5</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">8.0</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">6.5</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">9.0</span>]</span>
+<span id="cb4-2"></span>
+<span id="cb4-3"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> nota <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> notas:</span>
+<span id="cb4-4">    <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(nota)</span></code></pre></div></div>
+<p>O <code>while</code> repete enquanto uma condição continuar verdadeira, sem saber de antemão quantas vezes isso vai acontecer — por isso é o laço certo para “repita até o usuário digitar sair” ou “repita até o erro ficar pequeno o bastante”.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1">tentativas <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span></span>
+<span id="cb5-2"></span>
+<span id="cb5-3"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">while</span> tentativas <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>:</span>
+<span id="cb5-4">    <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"tentativa"</span>, tentativas)</span>
+<span id="cb5-5">    tentativas <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> tentativas <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span></span></code></pre></div></div>
+<p>Dentro de qualquer um dos dois, <code>break</code> interrompe o laço na hora, e <code>continue</code> pula direto para a próxima repetição sem executar o resto do bloco daquela vez. A <a href="https://docs.python.org/3/tutorial/controlflow.html">documentação oficial do Python sobre laços e condicionais</a> detalha as variações mais avançadas, para quando o básico não bastar mais.</p>
+</section>
+<section id="a-função-range" class="level2">
+<h2 class="anchored" data-anchor-id="a-função-range">A função range()</h2>
+<p><code>range()</code> gera uma sequência de números inteiros, e é o parceiro mais comum do <code>for</code> quando você quer repetir algo um número certo de vezes, em vez de percorrer uma lista já pronta.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> n <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">range</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>):</span>
+<span id="cb6-2">    <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(n)</span>
+<span id="cb6-3"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># 0, 1, 2, 3, 4</span></span></code></pre></div></div>
+<p>Com um segundo argumento, <code>range(inicio, fim)</code> começa em <code>inicio</code> e vai até <code>fim - 1</code> — o limite final nunca é incluído, o que costuma pegar quem está começando de surpresa:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> n <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">range</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">11</span>):</span>
+<span id="cb7-2">    <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(n)</span>
+<span id="cb7-3"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># 1, 2, 3, 4, 5, 6, 7, 8, 9, 10</span></span></code></pre></div></div>
+<p>Um terceiro argumento define o passo: <code>range(0, 10, 2)</code> produz <code>0, 2, 4, 6, 8</code>, pulando de dois em dois. Vale um esclarecimento técnico: <code>range()</code> não cria uma lista na memória — ele devolve um objeto que gera cada número sob demanda, o que faz <code>range(1_000_000)</code> custar praticamente nada, mesmo cobrindo um milhão de números. Quando você precisa mesmo de uma lista de verdade, converte com <code>list(range(5))</code>.</p>
+</section>
+<section id="introdução-a-funções-definição-e-chamada" class="level2">
+<h2 class="anchored" data-anchor-id="introdução-a-funções-definição-e-chamada">Introdução a funções: definição e chamada</h2>
+<p>Uma função empacota um pedaço de código com nome, para não reescrevê-lo toda vez que precisar dele de novo. Você <strong>define</strong> a função uma vez, com <code>def</code>, e <strong>chama</strong> ela quantas vezes quiser depois.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">def</span> saudacao(nome):</span>
+<span id="cb8-2">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> <span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">f"Olá, </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>nome<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">!"</span></span>
+<span id="cb8-3"></span>
+<span id="cb8-4"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(saudacao(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Maria"</span>))</span>
+<span id="cb8-5"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(saudacao(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Carlos"</span>))</span></code></pre></div></div>
+<p><code>def saudacao(nome):</code> é a definição: o nome da função, entre parênteses o <strong>parâmetro</strong> que ela espera receber, e o bloco indentado abaixo é o que ela faz. <code>return</code> devolve um valor para quem chamou a função — sem ele, a função roda mas não entrega nada de volta. <code>saudacao("Maria")</code> é a <strong>chamada</strong>: o parêntese com um valor de verdade dentro (o <strong>argumento</strong>) dispara a execução do bloco definido antes.</p>
+<p>Parâmetros podem ter um valor padrão, usado quando quem chama não informa nada naquela posição:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">def</span> saudacao(nome, cumprimento<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Olá"</span>):</span>
+<span id="cb9-2">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> <span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">f"</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>cumprimento<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">, </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>nome<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">!"</span></span>
+<span id="cb9-3"></span>
+<span id="cb9-4"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(saudacao(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Maria"</span>))              <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Olá, Maria!</span></span>
+<span id="cb9-5"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(saudacao(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Carlos"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Bom dia"</span>))  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Bom dia, Carlos!</span></span></code></pre></div></div>
+<p>Esse é o mesmo mecanismo por trás de toda função pronta que você já usa sem perceber — <code>print()</code>, <code>range()</code>, <code>type()</code> — e é exatamente o que faz uma biblioteca como o pandas funcionar: <code>pd.read_excel("vendas.xlsx")</code> é uma chamada de função, só que definida por outra pessoa.</p>
+</section>
+<section id="perguntas-frequentes" class="level2">
+<h2 class="anchored" data-anchor-id="perguntas-frequentes">Perguntas frequentes</h2>
+<section id="preciso-escolher-entre-jupyter-colab-e-vs-code-ou-posso-usar-mais-de-um" class="level3">
+<h3 class="anchored" data-anchor-id="preciso-escolher-entre-jupyter-colab-e-vs-code-ou-posso-usar-mais-de-um">Preciso escolher entre Jupyter, Colab e VS Code, ou posso usar mais de um?</h3>
+<p>Pode, e a maioria de quem programa usa mais de um mesmo: Colab ou Jupyter para explorar uma base de dados e testar ideias rápido, VS Code quando o código vira um script ou projeto com vários arquivos que precisa de Git e de organização.</p>
+</section>
+<section id="por-que-python-usa-indentação-em-vez-de-chaves-como-outras-linguagens" class="level3">
+<h3 class="anchored" data-anchor-id="por-que-python-usa-indentação-em-vez-de-chaves-como-outras-linguagens">Por que Python usa indentação em vez de chaves, como outras linguagens?</h3>
+<p>Foi uma decisão de design da linguagem, não uma limitação técnica: ao obrigar que a estrutura visual do código coincida com a estrutura lógica dele, Python torna impossível escrever um bloco que “parece” pertencer a um <code>if</code> mas na verdade pertence a outro — um erro comum em linguagens que usam chaves e permitem indentação livre.</p>
+</section>
+<section id="qual-a-diferença-prática-entre-for-e-while" class="level3">
+<h3 class="anchored" data-anchor-id="qual-a-diferença-prática-entre-for-e-while">Qual a diferença prática entre for e while?</h3>
+<p>Use <code>for</code> quando você já sabe sobre o que está iterando — uma lista, um intervalo de <code>range()</code>, os caracteres de um texto. Use <code>while</code> quando o número de repetições depende de uma condição que só se resolve durante a execução, como esperar o usuário digitar um valor válido.</p>
+</section>
+<section id="range-devolve-mesmo-uma-lista-de-números" class="level3">
+<h3 class="anchored" data-anchor-id="range-devolve-mesmo-uma-lista-de-números">range() devolve mesmo uma lista de números?</h3>
+<p>Não — devolve um objeto do tipo <code>range</code>, que gera os números sob demanda em vez de guardá-los todos na memória de uma vez. Para a maioria dos usos dentro de um <code>for</code> isso é transparente; só importa converter para <code>list()</code> quando você precisar manipular os números como uma lista de verdade.</p>
+</section>
+<section id="preciso-declarar-o-tipo-de-retorno-de-uma-função" class="level3">
+<h3 class="anchored" data-anchor-id="preciso-declarar-o-tipo-de-retorno-de-uma-função">Preciso declarar o tipo de retorno de uma função?</h3>
+<p>Não. Python descobre o tipo de qualquer valor sozinho, inclusive o que uma função devolve — é o que se chama de tipagem dinâmica. Dá para anotar o tipo esperado (<code>def saudacao(nome: str) -&gt; str:</code>) como documentação para quem lê o código, mas isso não é obrigatório e o interpretador não impede um tipo diferente do anotado.</p>
+</section>
+</section>
+<section id="conclusão" class="level2">
+<h2 class="anchored" data-anchor-id="conclusão">Conclusão</h2>
+<ul>
+<li><strong>Escolha o ambiente pelo que você vai fazer</strong>: Google Colab para começar sem instalar nada, Jupyter Notebook (via Anaconda) para explorar dados, VS Code para scripts e projetos com vários arquivos.</li>
+<li><strong>A indentação não é estilo, é sintaxe</strong>: quatro espaços por nível, nunca tabulação, é o que delimita cada bloco de código em Python.</li>
+<li>Os <strong>tipos de dados básicos</strong> — <code>int</code>, <code>float</code>, <code>str</code>, <code>bool</code>, <code>list</code> e <code>dict</code> — cobrem a grande maioria do que você vai manipular no início.</li>
+<li>Os <strong>operadores matemáticos</strong> (<code>+ - * / // % **</code>) e os <strong>de comparação</strong> (<code>== != &gt; &lt; &gt;= &lt;=</code>) são a base de qualquer condicional ou laço.</li>
+<li><strong><code>if</code>/<code>elif</code>/<code>else</code></strong> decidem qual bloco roda; <strong><code>for</code></strong> percorre uma sequência conhecida, <strong><code>while</code></strong> repete enquanto uma condição for verdadeira; <strong><code>range()</code></strong> gera a sequência de números mais usada dentro de um <code>for</code>.</li>
+<li><strong>Funções</strong> (<code>def</code> para definir, chamada com parênteses para executar) são o jeito de empacotar código para reutilizar — e é o mesmo mecanismo por trás de toda função pronta de biblioteca que você já usa.</li>
+</ul>
+<hr>
+<p><strong>Tópicos:</strong> #Python #Programacao #Tutorial #SintaxePython</p>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Introdução à sintaxe Python: guia completo para iniciantes",
+  "description": "Guia prático de sintaxe Python: ambientes de execução, indentação, operadores, condicionais, laços de repetição, tipos de dados e funções, com exemplos.",
+  "inLanguage": "pt-BR",
+  "datePublished": "2026-09-10T07:30:28-03:00",
+  "dateModified": "2026-09-10T07:30:28-03:00",
+  "author": { "@type": "Person", "name": "Pedro Nakashima" },
+  "mainEntityOfPage": "https://pedronakashima.com/posts/introducao-sintaxe-python/",
+  "keywords": "python, programação, sintaxe, tutorial, sintaxe Python, operadores Python, condicionais, laços de repetição, range(), tipos de dados, funções Python, Jupyter Notebook"
+}
+</script>
+
+
+</section>
+
+ ]]></description>
+  <category>python</category>
+  <category>programação</category>
+  <category>sintaxe</category>
+  <category>tutorial</category>
+  <guid>https://pedronakashima.com/posts/introducao-sintaxe-python/</guid>
+  <pubDate>Thu, 10 Sep 2026 11:30:28 GMT</pubDate>
+  <media:content url="https://pedronakashima.com/posts/introducao-sintaxe-python/cover.jpg" medium="image" type="image/jpeg"/>
+</item>
 <item>
   <title>Why Learn Python in 2026, Even Though AI Writes Code</title>
   <dc:creator>Pedro Nakashima</dc:creator>
@@ -22,6 +591,7 @@
 
 
 <p><em>Published on September 9, 2026 at 7:19 PM by Pedro Nakashima</em></p>
+<p><img src="https://pedronakashima.com/posts/learn-python-2026/cover.jpg" class="img-fluid"></p>
 <p>If you are an economist, a lawyer, an accountant, a physician, or anything else that is not a software developer, the question worth asking is not whether it would be fun to <strong>learn Python</strong>. It is whether it still makes sense to put a few dozen hours into it in 2026, at a moment when any language model writes better code than most beginners. My answer is that it does, for a reason almost nobody explains properly: knowing how to program does not compete with artificial intelligence. It <strong>multiplies</strong> what you can do with it. This post is about that, and about what the language actually lets you build.</p>
 <section id="what-python-is-in-two-sentences" class="level2">
 <h2 class="anchored" data-anchor-id="what-python-is-in-two-sentences">What Python is, in two sentences</h2>
@@ -233,7 +803,7 @@ font-style: inherit;">file</span>.with_name(new_name))</span></code></pre></div>
   <category>data science</category>
   <guid>https://pedronakashima.com/posts/learn-python-2026/</guid>
   <pubDate>Wed, 09 Sep 2026 23:19:36 GMT</pubDate>
-  <media:content url="https://pedronakashima.com/posts/learn-python-2026/image.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://pedronakashima.com/posts/learn-python-2026/cover.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Por que aprender Python em 2026, mesmo na era dos LLMs</title>
@@ -246,6 +816,7 @@ font-style: inherit;">file</span>.with_name(new_name))</span></code></pre></div>
 
 
 <p><em>Publicado em 9 de setembro de 2026, às 19:04, por Pedro Nakashima</em></p>
+<p><img src="https://pedronakashima.com/posts/aprender-python-2026/cover.jpg" class="img-fluid"></p>
 <p>Se você é economista, advogado, contador, administrador, médico ou qualquer outra coisa que não seja programador, a pergunta que interessa não é se vale a pena <strong>aprender Python</strong> por diversão. É se ainda faz sentido investir algumas dezenas de horas nisso em 2026, num momento em que qualquer modelo de linguagem escreve código melhor do que a maioria dos iniciantes. Minha resposta é que faz, e por um motivo que quase ninguém explica direito: saber programar não compete com a inteligência artificial, ela <strong>multiplica</strong> o que você consegue fazer com ela. Este texto é sobre isso, e sobre o que a linguagem realmente permite construir.</p>
 <section id="o-que-é-python-em-duas-frases" class="level2">
 <h2 class="anchored" data-anchor-id="o-que-é-python-em-duas-frases">O que é Python, em duas frases</h2>
@@ -449,7 +1020,7 @@ font-style: inherit;">"-"</span>).lower()</span>
   <category>ciência de dados</category>
   <guid>https://pedronakashima.com/posts/aprender-python-2026/</guid>
   <pubDate>Wed, 09 Sep 2026 23:04:10 GMT</pubDate>
-  <media:content url="https://pedronakashima.com/posts/aprender-python-2026/image.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://pedronakashima.com/posts/aprender-python-2026/cover.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Economics, Law, and Code: An Introduction to This Blog</title>
@@ -462,6 +1033,7 @@ font-style: inherit;">"-"</span>).lower()</span>
 
 
 <p><em>Published on September 9, 2026 at 6:42 PM by Pedro Nakashima</em></p>
+<p><img src="https://pedronakashima.com/posts/economics-law-code/cover.jpg" class="img-fluid"></p>
 <p>Welcome. This is the first post of a blog that will move between economics, law, and programming, and the first thing I owe anyone landing here is an honest account of what I plan to do with this space. My name is Pedro Nakashima. I live in Campo Grande, a city in Brazil’s Midwest region, roughly the size of a mid-sized American city, best known outside Brazil, if it is known at all, for sitting close to the Pantanal wetlands. The idea behind everything that follows is fairly simple: the most interesting questions I have run into over the past few years were almost never at the center of a single field. They lived at the border between two or three.</p>
 <p>Before I get to the topics, I would rather talk about the method, because it is the method that defines the kind of reading you will find here. I am not attached to fixed ideas, and I feel no embarrassment about changing my mind, especially when I realize I was wrong. I would rather have a well-built argument than an old conviction, and a verifiable data point than an elegant one. That implies a practical commitment I will try to honor in every post: keeping a clear line between what is fact, what is evidence, what is my own analysis, and what is simply opinion. These are four different things, and a good share of public confusion about economics and law comes precisely from treating them as one.</p>
 <p>I am an economist by training and hold a law degree, and that combination explains most of what interests me. I learned to program during my master’s degree in Economics at PUC-Rio, a university in Rio de Janeiro, when programming became a natural tool for working with data, models, and economic problems. Economics gave me the habit of asking how much, at what magnitude, and under which assumptions; programming gave me the ability to turn those questions into concrete analysis: pulling datasets, cleaning them, cross-referencing, calculating, modeling, testing; and law added the habit of asking on what legal basis, through which procedure, and with what consequences. Together, these fields taught me that a question does not have to end in a printout. It can end in evidence, in a number, in a clearly identified rule, or, just as valuably, in the realization that the available information does not yet allow for an answer.</p>
@@ -508,7 +1080,7 @@ font-style: inherit;">"-"</span>).lower()</span>
   <category>data science</category>
   <guid>https://pedronakashima.com/posts/economics-law-code/</guid>
   <pubDate>Wed, 09 Sep 2026 22:42:21 GMT</pubDate>
-  <media:content url="https://pedronakashima.com/posts/economics-law-code/image.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://pedronakashima.com/posts/economics-law-code/cover.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Economia, direito e código: por que este blog existe</title>
@@ -521,6 +1093,7 @@ font-style: inherit;">"-"</span>).lower()</span>
 
 
 <p><em>Publicado em 9 de setembro de 2026, às 18:22, por Pedro Nakashima</em></p>
+<p><img src="https://pedronakashima.com/posts/economia-direito-codigo/cover.jpg" class="img-fluid"></p>
 <p>Seja bem-vindo. Este é o primeiro texto de um blog que vai transitar entre economia, direito e programação, e a primeira coisa que devo a quem chegou até aqui é uma explicação honesta sobre o que pretendo fazer com este espaço. Meu nome é Pedro Nakashima, moro em Campo Grande, no Mato Grosso do Sul, e a ideia que sustenta tudo o que vier depois é razoavelmente simples: as perguntas mais interessantes que encontrei nos últimos anos quase nunca estavam no centro de uma dessas áreas, e sim na fronteira entre elas.</p>
 <p>Antes de falar dos assuntos, prefiro falar do método, porque é ele que define o tipo de leitura que você vai encontrar por aqui. Não sou apaixonado por ideias fixas e não tenho nenhuma vergonha de mudar de opinião — principalmente quando percebo que estava errado. Prefiro um argumento bem construído a uma convicção antiga, e prefiro um dado verificável a um argumento elegante. Isso implica um compromisso prático que vou tentar honrar em cada texto: separar com clareza o que é fato, o que é evidência, o que é análise minha e o que é apenas opinião. São quatro coisas diferentes, e boa parte da confusão pública sobre economia e sobre direito nasce exatamente de tratá-las como se fossem a mesma.</p>
 <p>Sou economista e formado em Direito, e essa combinação explica boa parte do que me interessa. Aprendi a programar durante o mestrado em Economia na PUC-Rio, quando a programação se tornou uma ferramenta natural para trabalhar com dados, modelos e problemas econômicos. A economia me deu o hábito de perguntar quanto, em que magnitude e sob quais hipóteses; a programação, a capacidade de transformar essas perguntas em análises concretas — baixar bases, limpar, cruzar, calcular, modelar e testar; e o direito acrescentou o hábito de perguntar com base em qual norma, segundo qual procedimento e com quais consequências. Juntas, essas áreas me ensinaram que uma pergunta não precisa terminar em impressão: ela pode terminar em evidência, em um número, em uma regra claramente identificada ou, o que é igualmente valioso, na constatação de que as informações disponíveis ainda não permitem uma resposta.</p>
@@ -567,7 +1140,7 @@ font-style: inherit;">"-"</span>).lower()</span>
   <category>ciência de dados</category>
   <guid>https://pedronakashima.com/posts/economia-direito-codigo/</guid>
   <pubDate>Wed, 09 Sep 2026 22:22:48 GMT</pubDate>
-  <media:content url="https://pedronakashima.com/posts/economia-direito-codigo/image.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://pedronakashima.com/posts/economia-direito-codigo/cover.jpg" medium="image" type="image/jpeg"/>
 </item>
 </channel>
 </rss>

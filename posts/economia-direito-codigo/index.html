@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR" xml:lang="pt-BR"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -15,10 +15,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -42,10 +45,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-0ed462561a0fff13a3aed3c1af43d342.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -76,6 +79,18 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Economia, direito e código: por que este blog existe – Pedro Nakashima - Blog">
+<meta property="og:description" content="Economia, direito, programação e dados em um só lugar: quem sou, o que pretendo publicar aqui e por que as melhores perguntas nascem justamente entre as áreas.">
+<meta property="og:image" content="https://pedronakashima.com/posts/economia-direito-codigo/cover.jpg">
+<meta property="og:site_name" content="Pedro Nakashima - Blog">
+<meta property="og:image:alt" content="Mesa de trabalho com um caderno de anotações aberto ao lado de um notebook que exibe linhas de código e um gráfico de série temporal">
+<meta name="twitter:title" content="Economia, direito e código: por que este blog existe – Pedro Nakashima - Blog">
+<meta name="twitter:description" content="Economia, direito, programação e dados em um só lugar: quem sou, o que pretendo publicar aqui e por que as melhores perguntas nascem justamente entre as áreas.">
+<meta name="twitter:image" content="https://pedronakashima.com/posts/economia-direito-codigo/cover.jpg">
+<meta name="twitter:creator" content="@PedroOnData">
+<meta name="twitter:site" content="@PedroOnData">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image:alt" content="Mesa de trabalho com um caderno de anotações aberto ao lado de um notebook que exibe linhas de código e um gráfico de série temporal">
 </head>
 
 <body class="nav-fixed fullcontent quarto-light">
@@ -191,6 +206,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p><em>Publicado em 9 de setembro de 2026, às 18:22, por Pedro Nakashima</em></p>
+<p><img src="cover.jpg" class="img-fluid"></p>
 <p>Seja bem-vindo. Este é o primeiro texto de um blog que vai transitar entre economia, direito e programação, e a primeira coisa que devo a quem chegou até aqui é uma explicação honesta sobre o que pretendo fazer com este espaço. Meu nome é Pedro Nakashima, moro em Campo Grande, no Mato Grosso do Sul, e a ideia que sustenta tudo o que vier depois é razoavelmente simples: as perguntas mais interessantes que encontrei nos últimos anos quase nunca estavam no centro de uma dessas áreas, e sim na fronteira entre elas.</p>
 <p>Antes de falar dos assuntos, prefiro falar do método, porque é ele que define o tipo de leitura que você vai encontrar por aqui. Não sou apaixonado por ideias fixas e não tenho nenhuma vergonha de mudar de opinião — principalmente quando percebo que estava errado. Prefiro um argumento bem construído a uma convicção antiga, e prefiro um dado verificável a um argumento elegante. Isso implica um compromisso prático que vou tentar honrar em cada texto: separar com clareza o que é fato, o que é evidência, o que é análise minha e o que é apenas opinião. São quatro coisas diferentes, e boa parte da confusão pública sobre economia e sobre direito nasce exatamente de tratá-las como se fossem a mesma.</p>
 <p>Sou economista e formado em Direito, e essa combinação explica boa parte do que me interessa. Aprendi a programar durante o mestrado em Economia na PUC-Rio, quando a programação se tornou uma ferramenta natural para trabalhar com dados, modelos e problemas econômicos. A economia me deu o hábito de perguntar quanto, em que magnitude e sob quais hipóteses; a programação, a capacidade de transformar essas perguntas em análises concretas — baixar bases, limpar, cruzar, calcular, modelar e testar; e o direito acrescentou o hábito de perguntar com base em qual norma, segundo qual procedimento e com quais consequências. Juntas, essas áreas me ensinaram que uma pergunta não precisa terminar em impressão: ela pode terminar em evidência, em um número, em uma regra claramente identificada ou, o que é igualmente valioso, na constatação de que as informações disponíveis ainda não permitem uma resposta.</p>

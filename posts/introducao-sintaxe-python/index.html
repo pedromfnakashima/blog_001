@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR" xml:lang="pt-BR"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Pedro Nakashima">
+<meta name="keywords" content="sintaxe Python, operadores Python, condicionais, laços de repetição, range(), tipos de dados, funções Python, Jupyter Notebook">
+<meta name="description" content="Guia prático de sintaxe Python: ambientes de execução, indentação, operadores, condicionais, laços de repetição, tipos de dados e funções, com exemplos.">
+
+<title>Introdução à sintaxe Python: guia completo para iniciantes – Pedro Nakashima - Blog</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Nenhum resultado",
+    "search-matching-documents-text": "documentos correspondentes",
+    "search-copy-link-title": "Copiar link para a busca",
+    "search-hide-matches-text": "Esconder correspondências adicionais",
+    "search-more-match-text": "mais correspondência neste documento",
+    "search-more-matches-text": "mais correspondências neste documento",
+    "search-clear-button-title": "Limpar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Procurar"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Introdução à sintaxe Python: guia completo para iniciantes – Pedro Nakashima - Blog">
+<meta property="og:description" content="Guia prático de sintaxe Python: ambientes de execução, indentação, operadores, condicionais, laços de repetição, tipos de dados e funções, com exemplos.">
+<meta property="og:image" content="https://pedronakashima.com/posts/introducao-sintaxe-python/cover.jpg">
+<meta property="og:site_name" content="Pedro Nakashima - Blog">
+<meta property="og:image:alt" content="Editor de código com um trecho de Python colorido por sintaxe ao lado de um notebook Jupyter aberto em uma tela de computador">
+<meta name="twitter:title" content="Introdução à sintaxe Python: guia completo para iniciantes – Pedro Nakashima - Blog">
+<meta name="twitter:description" content="Guia prático de sintaxe Python: ambientes de execução, indentação, operadores, condicionais, laços de repetição, tipos de dados e funções, com exemplos.">
+<meta name="twitter:image" content="https://pedronakashima.com/posts/introducao-sintaxe-python/cover.jpg">
+<meta name="twitter:creator" content="@PedroOnData">
+<meta name="twitter:site" content="@PedroOnData">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image:alt" content="Editor de código com um trecho de Python colorido por sintaxe ao lado de um notebook Jupyter aberto em uma tela de computador">
+</head>
+
+<body class="nav-fixed fullcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Pedro Nakashima - Blog</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Procurar"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Alternar de navegação" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">Sobre / About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://pedroondata.com"> <i class="bi bi-globe" role="img" aria-label="Site pessoal / Personal website">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/pedronakashima/"> <i class="bi bi-linkedin" role="img" aria-label="LinkedIn">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://x.com/PedroOnData"> <i class="bi bi-twitter-x" role="img" aria-label="X">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.youtube.com/@PedroOnData"> <i class="bi bi-youtube" role="img" aria-label="YouTube">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.instagram.com/pedroondata/"> <i class="bi bi-instagram" role="img" aria-label="Instagram">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Introdução à sintaxe Python: guia completo para iniciantes</h1>
+                  <div>
+        <div class="description">
+          Guia prático de sintaxe Python: ambientes de execução, indentação, operadores, condicionais, laços de repetição, tipos de dados e funções, com exemplos.
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">python</div>
+                <div class="quarto-category">programação</div>
+                <div class="quarto-category">sintaxe</div>
+                <div class="quarto-category">tutorial</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Autor</div>
+      <div class="quarto-title-meta-contents">
+               <p>Pedro Nakashima </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Data de Publicação</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">10 de setembro de 2026</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+
+  <div>
+    <div class="keywords">
+      <div class="block-title">Palavras-chave</div>
+      <p>sintaxe Python, operadores Python, condicionais, laços de repetição, range(), tipos de dados, funções Python, Jupyter Notebook</p>
+    </div>
+  </div>
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<p><em>Publicado em 10 de setembro de 2026, às 07:30, por Pedro Nakashima</em></p>
+<p><img src="cover.jpg" class="img-fluid"></p>
+<p>Este é o guia prático que faltava no <a href="../../posts/aprender-python-2026/index.html">texto anterior sobre por que vale a pena aprender Python em 2026</a>: ali ficou a motivação, aqui fica a sintaxe Python que você de fato escreve todos os dias. Nas próximas seções você vai ver onde rodar seu primeiro código, como a indentação organiza um programa Python, os principais tipos de dados, os operadores matemáticos e de comparação, como escrever condicionais e laços de repetição, o que a função <code>range()</code> faz e como definir e chamar uma função. Nenhum desses elementos foi tratado no texto anterior — aqui é onde a sintaxe entra, peça por peça, com exemplos que rodam de verdade.</p>
+<section id="onde-escrever-e-rodar-seu-código-python" class="level2">
+<h2 class="anchored" data-anchor-id="onde-escrever-e-rodar-seu-código-python">Onde escrever e rodar seu código Python</h2>
+<p>Antes de decorar comando nenhum, você precisa de um lugar para digitá-lo e ver o resultado aparecer. As quatro opções mais comuns cobrem praticamente todo mundo, e a escolha certa depende menos de gosto e mais do que você vai fazer.</p>
+<section id="jupyter-notebook-via-anaconda" class="level3">
+<h3 class="anchored" data-anchor-id="jupyter-notebook-via-anaconda">Jupyter Notebook, via Anaconda</h3>
+<p>O Jupyter Notebook organiza o código em <strong>células</strong>: você escreve um pedaço, roda só aquele pedaço com <code>Shift+Enter</code> e vê o resultado logo abaixo, sem reexecutar o script inteiro. É o formato dominante para explorar dados, porque mistura código, texto explicativo, tabelas e gráficos no mesmo documento. A forma mais simples de ter isso instalado é a distribuição <strong>Anaconda</strong>, que já traz o Jupyter e as bibliotecas de dados mais usadas (pandas, numpy, matplotlib) prontas, sem instalação separada de cada uma.</p>
+</section>
+<section id="google-colab" class="level3">
+<h3 class="anchored" data-anchor-id="google-colab">Google Colab</h3>
+<p>O <strong>Google Colab</strong> é um Jupyter Notebook que roda inteiro no navegador, hospedado pelo Google — sem instalar nada na sua máquina, com acesso gratuito a GPU para quem for treinar modelos mais pesados. É o ponto de partida mais rápido possível: basta abrir o <a href="https://colab.research.google.com/">Google Colab</a> numa conta Google e já há um notebook em branco pronto para receber código. A desvantagem é a dependência de internet e o fato de o ambiente resetar entre sessões, o que o torna ótimo para aprender e testar, mas não para um projeto que precisa de arquivos locais permanentes.</p>
+</section>
+<section id="vs-code" class="level3">
+<h3 class="anchored" data-anchor-id="vs-code">VS Code</h3>
+<p>O <strong>VS Code</strong> é um editor de código de uso geral, não um notebook: você abre uma pasta de projeto, escreve arquivos <code>.py</code>, roda scripts inteiros pelo terminal integrado e versiona tudo com Git, sem sair do editor. Com a extensão oficial de Python instalada, ele também abre notebooks Jupyter dentro da própria janela — então não é uma escolha excludente com o item anterior, é o degrau seguinte, para quando o código deixa de ser um experimento e vira um programa organizado em vários arquivos.</p>
+</section>
+<section id="outros-ides" class="level3">
+<h3 class="anchored" data-anchor-id="outros-ides">Outros IDEs</h3>
+<p>Duas alternativas valem menção. O <strong>PyCharm</strong> é um IDE dedicado a Python, com refatoração de código e depuração mais robustas, usado sobretudo em projetos de software maiores. O <strong>Spyder</strong> já vem junto da distribuição Anaconda e imita a divisão de painéis do RStudio (editor, console, variáveis), o que agrada quem vem da estatística. Nenhum dos dois é necessário para começar — mas é bom saber que existem quando o projeto crescer.</p>
+<p>Resumindo a escolha:</p>
+<ul>
+<li><strong>Quer testar um trecho de código agora, sem instalar nada</strong>: Google Colab.</li>
+<li><strong>Vai explorar uma base de dados, com gráficos e texto juntos</strong>: Jupyter Notebook (Anaconda).</li>
+<li><strong>Vai escrever um script ou projeto com vários arquivos</strong>: VS Code.</li>
+<li><strong>Projeto científico grande, com preferência por painéis fixos</strong>: Spyder ou PyCharm.</li>
+</ul>
+</section>
+</section>
+<section id="o-papel-da-indentação" class="level2">
+<h2 class="anchored" data-anchor-id="o-papel-da-indentação">O papel da indentação</h2>
+<p>Aqui está a diferença mais visível entre Python e a maioria das outras linguagens: <strong>não existem chaves <code>{ }</code> para marcar onde um bloco de código começa e termina</strong> — quem marca é a indentação, isto é, os espaços no início da linha. Um bloco pertence ao comando anterior enquanto continuar recuado; a primeira linha que voltar para a margem esquerda encerra o bloco.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>idade <span class="op">=</span> <span class="dv">20</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> idade <span class="op">&gt;=</span> <span class="dv">18</span>:</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"maior de idade"</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"pode dirigir"</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"menor de idade"</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<p>As duas linhas depois do <code>if</code> estão recuadas quatro espaços e por isso pertencem a ele; a linha do <code>else</code> volta para a margem e abre um novo bloco. A convenção oficial, registrada na <a href="https://peps.python.org/pep-0008/">PEP 8, o guia de estilo da linguagem</a>, é <strong>quatro espaços por nível</strong>, nunca tabulação — misturar os dois no mesmo bloco gera <code>TabError</code> e o programa nem chega a rodar. Todo editor citado na seção anterior já vem configurado para inserir quatro espaços sozinho quando você aperta Tab, então na prática isso raramente exige atenção manual; o que importa é entender que a indentação <strong>não é estética</strong>, é a própria sintaxe que decide o que está dentro e o que está fora de cada bloco.</p>
+</section>
+<section id="tipos-de-dados-básicos" class="level2">
+<h2 class="anchored" data-anchor-id="tipos-de-dados-básicos">Tipos de dados básicos</h2>
+<p>Toda informação em Python tem um tipo, e a linguagem descobre esse tipo sozinha a partir do valor — você nunca declara <code>int x</code> como em outras linguagens. Os tipos que aparecem o tempo todo são:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Tipo</th>
+<th>O que guarda</th>
+<th>Exemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>int</code></td>
+<td>número inteiro</td>
+<td><code>idade = 32</code></td>
+</tr>
+<tr class="even">
+<td><code>float</code></td>
+<td>número com casas decimais</td>
+<td><code>preco = 19.90</code></td>
+</tr>
+<tr class="odd">
+<td><code>str</code></td>
+<td>texto, entre aspas</td>
+<td><code>nome = "Ana"</code></td>
+</tr>
+<tr class="even">
+<td><code>bool</code></td>
+<td>verdadeiro ou falso</td>
+<td><code>ativo = True</code></td>
+</tr>
+<tr class="odd">
+<td><code>list</code></td>
+<td>uma sequência editável de itens</td>
+<td><code>notas = [7.5, 8.0, 6.5]</code></td>
+</tr>
+<tr class="even">
+<td><code>dict</code></td>
+<td>pares de chave e valor</td>
+<td><code>pessoa = {"nome": "Ana", "idade": 32}</code></td>
+</tr>
+</tbody>
+</table>
+<p>A função embutida <code>type()</code> revela o tipo de qualquer valor, o que ajuda bastante quando um erro aparece e não está claro por quê:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(<span class="dv">32</span>))        <span class="co"># &lt;class 'int'&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(<span class="fl">19.90</span>))     <span class="co"># &lt;class 'float'&gt;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(<span class="st">"Ana"</span>))     <span class="co"># &lt;class 'str'&gt;</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Vale registrar duas variações que aparecem com frequência assim que você sai do básico: a <code>tuple</code> (uma lista que não pode mais ser alterada depois de criada, escrita entre parênteses) e o <code>set</code> (uma coleção sem ordem e sem repetição, escrita entre chaves). Nenhuma das duas é essencial no primeiro contato — mas reconhecer o nome ajuda a não estranhar quando aparecer num exemplo.</p>
+</section>
+<section id="operadores-matemáticos" class="level2">
+<h2 class="anchored" data-anchor-id="operadores-matemáticos">Operadores matemáticos</h2>
+<p>Além dos quatro óbvios, Python tem dois operadores que confundem quem vem de outra linguagem: a <strong>divisão inteira</strong> (<code>//</code>) e a <strong>exponenciação</strong> (<code>**</code>).</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Operador</th>
+<th>Operação</th>
+<th>Exemplo</th>
+<th>Resultado</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>+</code></td>
+<td>soma</td>
+<td><code>7 + 3</code></td>
+<td><code>10</code></td>
+</tr>
+<tr class="even">
+<td><code>-</code></td>
+<td>subtração</td>
+<td><code>7 - 3</code></td>
+<td><code>4</code></td>
+</tr>
+<tr class="odd">
+<td><code>*</code></td>
+<td>multiplicação</td>
+<td><code>7 * 3</code></td>
+<td><code>21</code></td>
+</tr>
+<tr class="even">
+<td><code>/</code></td>
+<td>divisão</td>
+<td><code>7 / 3</code></td>
+<td><code>2.3333...</code></td>
+</tr>
+<tr class="odd">
+<td><code>//</code></td>
+<td>divisão inteira</td>
+<td><code>7 // 3</code></td>
+<td><code>2</code></td>
+</tr>
+<tr class="even">
+<td><code>%</code></td>
+<td>resto da divisão (módulo)</td>
+<td><code>7 % 3</code></td>
+<td><code>1</code></td>
+</tr>
+<tr class="odd">
+<td><code>**</code></td>
+<td>potenciação</td>
+<td><code>7 ** 2</code></td>
+<td><code>49</code></td>
+</tr>
+</tbody>
+</table>
+<p>O módulo (<code>%</code>) é mais útil do que parece: é ele que responde “esse número é par?” (<code>n % 2 == 0</code>) sem precisar de nenhuma outra função, e é a base de qualquer código que precisa repetir um padrão a cada N itens.</p>
+</section>
+<section id="operadores-de-comparação" class="level2">
+<h2 class="anchored" data-anchor-id="operadores-de-comparação">Operadores de comparação</h2>
+<p>Comparar dois valores sempre devolve um <code>bool</code> — <code>True</code> ou <code>False</code> — e é esse resultado que alimenta os condicionais da próxima seção.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Operador</th>
+<th>Significado</th>
+<th>Exemplo</th>
+<th>Resultado</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>==</code></td>
+<td>igual a</td>
+<td><code>5 == 5</code></td>
+<td><code>True</code></td>
+</tr>
+<tr class="even">
+<td><code>!=</code></td>
+<td>diferente de</td>
+<td><code>5 != 3</code></td>
+<td><code>True</code></td>
+</tr>
+<tr class="odd">
+<td><code>&gt;</code></td>
+<td>maior que</td>
+<td><code>5 &gt; 3</code></td>
+<td><code>True</code></td>
+</tr>
+<tr class="even">
+<td><code>&lt;</code></td>
+<td>menor que</td>
+<td><code>5 &lt; 3</code></td>
+<td><code>False</code></td>
+</tr>
+<tr class="odd">
+<td><code>&gt;=</code></td>
+<td>maior ou igual a</td>
+<td><code>5 &gt;= 5</code></td>
+<td><code>True</code></td>
+</tr>
+<tr class="even">
+<td><code>&lt;=</code></td>
+<td>menor ou igual a</td>
+<td><code>5 &lt;= 3</code></td>
+<td><code>False</code></td>
+</tr>
+</tbody>
+</table>
+<p>Um detalhe que Python tem e a maioria das linguagens não tem: dá para <strong>encadear comparações</strong> numa única expressão, do jeito que se escreve na matemática. <code>0 &lt;= nota &lt;= 10</code> testa se <code>nota</code> está entre 0 e 10 de uma vez, sem precisar escrever <code>nota &gt;= 0 and nota &lt;= 10</code>.</p>
+</section>
+<section id="condicionais-if-elif-e-else" class="level2">
+<h2 class="anchored" data-anchor-id="condicionais-if-elif-e-else">Condicionais: if, elif e else</h2>
+<p>O condicional decide qual bloco de código roda, de acordo com o resultado de uma comparação. <code>if</code> testa a primeira condição; <code>elif</code> (contração de “else if”) testa outra, só se a anterior for falsa; <code>else</code> roda quando nenhuma das anteriores foi verdadeira.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>nota <span class="op">=</span> <span class="fl">7.5</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> nota <span class="op">&gt;=</span> <span class="dv">9</span>:</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    conceito <span class="op">=</span> <span class="st">"A"</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> nota <span class="op">&gt;=</span> <span class="dv">7</span>:</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    conceito <span class="op">=</span> <span class="st">"B"</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> nota <span class="op">&gt;=</span> <span class="dv">5</span>:</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    conceito <span class="op">=</span> <span class="st">"C"</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    conceito <span class="op">=</span> <span class="st">"D"</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(conceito)  <span class="co"># B</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Cada <code>elif</code> só é avaliado se todos os testes acima dele falharam, e o Python para no primeiro bloco verdadeiro — por isso a ordem das condições importa: se a primeira linha fosse <code>nota &gt;= 5</code>, o exemplo acima nunca chegaria a checar <code>nota &gt;= 7</code> ou <code>nota &gt;= 9</code>.</p>
+</section>
+<section id="laços-de-repetição-for-e-while" class="level2">
+<h2 class="anchored" data-anchor-id="laços-de-repetição-for-e-while">Laços de repetição: for e while</h2>
+<p>Python tem dois laços, e a diferença entre eles não é de sintaxe, é de propósito. O <code>for</code> percorre uma sequência já conhecida — uma lista, um texto, um intervalo de números — item por item, e termina sozinho quando a sequência acaba.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>notas <span class="op">=</span> [<span class="fl">7.5</span>, <span class="fl">8.0</span>, <span class="fl">6.5</span>, <span class="fl">9.0</span>]</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> nota <span class="kw">in</span> notas:</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(nota)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<p>O <code>while</code> repete enquanto uma condição continuar verdadeira, sem saber de antemão quantas vezes isso vai acontecer — por isso é o laço certo para “repita até o usuário digitar sair” ou “repita até o erro ficar pequeno o bastante”.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>tentativas <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> tentativas <span class="op">&lt;</span> <span class="dv">3</span>:</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"tentativa"</span>, tentativas)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    tentativas <span class="op">=</span> tentativas <span class="op">+</span> <span class="dv">1</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Dentro de qualquer um dos dois, <code>break</code> interrompe o laço na hora, e <code>continue</code> pula direto para a próxima repetição sem executar o resto do bloco daquela vez. A <a href="https://docs.python.org/3/tutorial/controlflow.html">documentação oficial do Python sobre laços e condicionais</a> detalha as variações mais avançadas, para quando o básico não bastar mais.</p>
+</section>
+<section id="a-função-range" class="level2">
+<h2 class="anchored" data-anchor-id="a-função-range">A função range()</h2>
+<p><code>range()</code> gera uma sequência de números inteiros, e é o parceiro mais comum do <code>for</code> quando você quer repetir algo um número certo de vezes, em vez de percorrer uma lista já pronta.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>):</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(n)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 0, 1, 2, 3, 4</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Com um segundo argumento, <code>range(inicio, fim)</code> começa em <code>inicio</code> e vai até <code>fim - 1</code> — o limite final nunca é incluído, o que costuma pegar quem está começando de surpresa:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">11</span>):</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(n)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1, 2, 3, 4, 5, 6, 7, 8, 9, 10</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Um terceiro argumento define o passo: <code>range(0, 10, 2)</code> produz <code>0, 2, 4, 6, 8</code>, pulando de dois em dois. Vale um esclarecimento técnico: <code>range()</code> não cria uma lista na memória — ele devolve um objeto que gera cada número sob demanda, o que faz <code>range(1_000_000)</code> custar praticamente nada, mesmo cobrindo um milhão de números. Quando você precisa mesmo de uma lista de verdade, converte com <code>list(range(5))</code>.</p>
+</section>
+<section id="introdução-a-funções-definição-e-chamada" class="level2">
+<h2 class="anchored" data-anchor-id="introdução-a-funções-definição-e-chamada">Introdução a funções: definição e chamada</h2>
+<p>Uma função empacota um pedaço de código com nome, para não reescrevê-lo toda vez que precisar dele de novo. Você <strong>define</strong> a função uma vez, com <code>def</code>, e <strong>chama</strong> ela quantas vezes quiser depois.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> saudacao(nome):</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="ss">f"Olá, </span><span class="sc">{</span>nome<span class="sc">}</span><span class="ss">!"</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(saudacao(<span class="st">"Maria"</span>))</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(saudacao(<span class="st">"Carlos"</span>))</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>def saudacao(nome):</code> é a definição: o nome da função, entre parênteses o <strong>parâmetro</strong> que ela espera receber, e o bloco indentado abaixo é o que ela faz. <code>return</code> devolve um valor para quem chamou a função — sem ele, a função roda mas não entrega nada de volta. <code>saudacao("Maria")</code> é a <strong>chamada</strong>: o parêntese com um valor de verdade dentro (o <strong>argumento</strong>) dispara a execução do bloco definido antes.</p>
+<p>Parâmetros podem ter um valor padrão, usado quando quem chama não informa nada naquela posição:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> saudacao(nome, cumprimento<span class="op">=</span><span class="st">"Olá"</span>):</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="ss">f"</span><span class="sc">{</span>cumprimento<span class="sc">}</span><span class="ss">, </span><span class="sc">{</span>nome<span class="sc">}</span><span class="ss">!"</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(saudacao(<span class="st">"Maria"</span>))              <span class="co"># Olá, Maria!</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(saudacao(<span class="st">"Carlos"</span>, <span class="st">"Bom dia"</span>))  <span class="co"># Bom dia, Carlos!</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Esse é o mesmo mecanismo por trás de toda função pronta que você já usa sem perceber — <code>print()</code>, <code>range()</code>, <code>type()</code> — e é exatamente o que faz uma biblioteca como o pandas funcionar: <code>pd.read_excel("vendas.xlsx")</code> é uma chamada de função, só que definida por outra pessoa.</p>
+</section>
+<section id="perguntas-frequentes" class="level2">
+<h2 class="anchored" data-anchor-id="perguntas-frequentes">Perguntas frequentes</h2>
+<section id="preciso-escolher-entre-jupyter-colab-e-vs-code-ou-posso-usar-mais-de-um" class="level3">
+<h3 class="anchored" data-anchor-id="preciso-escolher-entre-jupyter-colab-e-vs-code-ou-posso-usar-mais-de-um">Preciso escolher entre Jupyter, Colab e VS Code, ou posso usar mais de um?</h3>
+<p>Pode, e a maioria de quem programa usa mais de um mesmo: Colab ou Jupyter para explorar uma base de dados e testar ideias rápido, VS Code quando o código vira um script ou projeto com vários arquivos que precisa de Git e de organização.</p>
+</section>
+<section id="por-que-python-usa-indentação-em-vez-de-chaves-como-outras-linguagens" class="level3">
+<h3 class="anchored" data-anchor-id="por-que-python-usa-indentação-em-vez-de-chaves-como-outras-linguagens">Por que Python usa indentação em vez de chaves, como outras linguagens?</h3>
+<p>Foi uma decisão de design da linguagem, não uma limitação técnica: ao obrigar que a estrutura visual do código coincida com a estrutura lógica dele, Python torna impossível escrever um bloco que “parece” pertencer a um <code>if</code> mas na verdade pertence a outro — um erro comum em linguagens que usam chaves e permitem indentação livre.</p>
+</section>
+<section id="qual-a-diferença-prática-entre-for-e-while" class="level3">
+<h3 class="anchored" data-anchor-id="qual-a-diferença-prática-entre-for-e-while">Qual a diferença prática entre for e while?</h3>
+<p>Use <code>for</code> quando você já sabe sobre o que está iterando — uma lista, um intervalo de <code>range()</code>, os caracteres de um texto. Use <code>while</code> quando o número de repetições depende de uma condição que só se resolve durante a execução, como esperar o usuário digitar um valor válido.</p>
+</section>
+<section id="range-devolve-mesmo-uma-lista-de-números" class="level3">
+<h3 class="anchored" data-anchor-id="range-devolve-mesmo-uma-lista-de-números">range() devolve mesmo uma lista de números?</h3>
+<p>Não — devolve um objeto do tipo <code>range</code>, que gera os números sob demanda em vez de guardá-los todos na memória de uma vez. Para a maioria dos usos dentro de um <code>for</code> isso é transparente; só importa converter para <code>list()</code> quando você precisar manipular os números como uma lista de verdade.</p>
+</section>
+<section id="preciso-declarar-o-tipo-de-retorno-de-uma-função" class="level3">
+<h3 class="anchored" data-anchor-id="preciso-declarar-o-tipo-de-retorno-de-uma-função">Preciso declarar o tipo de retorno de uma função?</h3>
+<p>Não. Python descobre o tipo de qualquer valor sozinho, inclusive o que uma função devolve — é o que se chama de tipagem dinâmica. Dá para anotar o tipo esperado (<code>def saudacao(nome: str) -&gt; str:</code>) como documentação para quem lê o código, mas isso não é obrigatório e o interpretador não impede um tipo diferente do anotado.</p>
+</section>
+</section>
+<section id="conclusão" class="level2">
+<h2 class="anchored" data-anchor-id="conclusão">Conclusão</h2>
+<ul>
+<li><strong>Escolha o ambiente pelo que você vai fazer</strong>: Google Colab para começar sem instalar nada, Jupyter Notebook (via Anaconda) para explorar dados, VS Code para scripts e projetos com vários arquivos.</li>
+<li><strong>A indentação não é estilo, é sintaxe</strong>: quatro espaços por nível, nunca tabulação, é o que delimita cada bloco de código em Python.</li>
+<li>Os <strong>tipos de dados básicos</strong> — <code>int</code>, <code>float</code>, <code>str</code>, <code>bool</code>, <code>list</code> e <code>dict</code> — cobrem a grande maioria do que você vai manipular no início.</li>
+<li>Os <strong>operadores matemáticos</strong> (<code>+ - * / // % **</code>) e os <strong>de comparação</strong> (<code>== != &gt; &lt; &gt;= &lt;=</code>) são a base de qualquer condicional ou laço.</li>
+<li><strong><code>if</code>/<code>elif</code>/<code>else</code></strong> decidem qual bloco roda; <strong><code>for</code></strong> percorre uma sequência conhecida, <strong><code>while</code></strong> repete enquanto uma condição for verdadeira; <strong><code>range()</code></strong> gera a sequência de números mais usada dentro de um <code>for</code>.</li>
+<li><strong>Funções</strong> (<code>def</code> para definir, chamada com parênteses para executar) são o jeito de empacotar código para reutilizar — e é o mesmo mecanismo por trás de toda função pronta de biblioteca que você já usa.</li>
+</ul>
+<hr>
+<p><strong>Tópicos:</strong> #Python #Programacao #Tutorial #SintaxePython</p>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Introdução à sintaxe Python: guia completo para iniciantes",
+  "description": "Guia prático de sintaxe Python: ambientes de execução, indentação, operadores, condicionais, laços de repetição, tipos de dados e funções, com exemplos.",
+  "inLanguage": "pt-BR",
+  "datePublished": "2026-09-10T07:30:28-03:00",
+  "dateModified": "2026-09-10T07:30:28-03:00",
+  "author": { "@type": "Person", "name": "Pedro Nakashima" },
+  "mainEntityOfPage": "https://pedronakashima.com/posts/introducao-sintaxe-python/",
+  "keywords": "python, programação, sintaxe, tutorial, sintaxe Python, operadores Python, condicionais, laços de repetição, range(), tipos de dados, funções Python, Jupyter Notebook"
+}
+</script>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiada");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiada");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/pedronakashima\.com");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
