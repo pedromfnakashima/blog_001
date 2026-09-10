@@ -1,0 +1,193 @@
+---
+title: "Introdução ao pandas: guia prático para análise de dados"
+description: "Introdução ao pandas com exemplos que rodam: DataFrame, filtros, groupby e o que mudou no pandas 3.0, incluindo o erro que faz tutoriais antigos falharem."
+author: "Pedro Nakashima"
+date: "2026-09-10 16:59:45"
+date-modified: "2026-09-10 16:59:45"
+lang: "pt-BR"
+categories: [python, pandas, ciência de dados, programação, tutorial]
+image: "cover.jpg"
+image-alt: "Planilha impressa sobre uma mesa ao lado de um notebook exibindo uma tabela de dados e algumas linhas de código Python"
+keywords: [introdução ao pandas, pandas Python, DataFrame, groupby, Copy-on-Write, pandas 3.0, análise de dados]
+---
+
+*Publicado em 10 de setembro de 2026, às 16:59, por Pedro Nakashima*
+
+![](cover.jpg)
+
+Esta **introdução ao pandas** começa com um aviso que quase nenhum tutorial dá: boa parte do material sobre pandas que está na internet hoje ensina algo que deixou de funcionar. O pandas 3.0 foi lançado em [21 de janeiro de 2026](https://pandas.pydata.org/docs/whatsnew/v3.0.0.html) e mudou dois comportamentos que aparecem em praticamente todo curso gravado antes disso. Um deles é sutil o bastante para você escrever o código, não ver erro nenhum, e mesmo assim os seus dados não mudarem. Nas próximas seções você vai ver o que é o pandas, os dois objetos que sustentam a biblioteca inteira, como carregar e inspecionar uma tabela, como filtrar, agrupar e lidar com valores ausentes — e, no fim, exatamente o que mudou e por que isso importa para quem está começando agora.
+
+Se você ainda não escreveu Python nenhum, o caminho natural é passar antes pelo [guia de sintaxe Python](/posts/introducao-sintaxe-python/index.qmd), porque aqui eu vou assumir que você já sabe o que é uma variável, uma função e um laço. Se a dúvida é anterior a isso — se ainda vale a pena aprender a linguagem —, escrevi sobre isso em [por que aprender Python em 2026](/posts/aprender-python-2026/index.qmd).
+
+## O que é o pandas
+
+O pandas é a biblioteca que dá ao Python a capacidade de trabalhar com **tabelas**: linhas, colunas, cabeçalho, tipos por coluna. Ele faz com dados o que uma planilha faz, com duas diferenças que decidem tudo: o trabalho fica escrito em código, então é reproduzível e auditável por outra pessoa; e o limite de tamanho deixa de ser a tela e passa a ser a memória da máquina.
+
+Na prática, o pandas é a camada onde quase toda análise de dados em Python começa. Você lê um CSV, um Excel, uma consulta SQL ou um JSON, transforma isso numa tabela, limpa o que estiver sujo, agrupa, resume — e só então passa o resultado adiante, para um gráfico, um modelo estatístico ou um relatório.
+
+## Series e DataFrame: os dois objetos que importam
+
+Toda a biblioteca se organiza em torno de dois tipos, e entender a relação entre eles poupa muita confusão depois.
+
+Uma **Series** é uma coluna: uma sequência de valores do mesmo tipo, com um índice que rotula cada posição. Um **DataFrame** é a tabela inteira: um conjunto de Series que compartilham o mesmo índice. Quando você seleciona uma coluna de um DataFrame, recebe uma Series; quando seleciona várias, recebe outro DataFrame.
+
+```python
+import pandas as pd
+
+df = pd.DataFrame({
+    "produto": ["café", "açúcar", "café", "leite"],
+    "uf": ["MS", "MS", "SP", "SP"],
+    "valor": [12.50, 8.90, 14.00, 6.75],
+})
+
+type(df)           # DataFrame
+type(df["valor"])  # Series
+```
+
+O índice não é decoração. Ele é o que alinha os dados quando você combina duas estruturas: ao somar duas Series, o pandas casa os valores pelo rótulo do índice, não pela posição. É uma das maiores diferenças em relação a uma planilha, e é a causa de metade dos resultados inesperados de quem está começando.
+
+## Carregar dados e olhar para eles antes de qualquer coisa
+
+Na vida real a tabela vem de um arquivo, e a função mais usada da biblioteca é `read_csv`.
+
+```python
+df = pd.read_csv("vendas.csv")
+```
+
+Antes de calcular qualquer coisa, olhe para o que entrou. São três comandos, e pular esta etapa é a origem mais comum de análise errada:
+
+```python
+df.head()      # as primeiras linhas
+df.info()      # colunas, tipos e quantos valores não nulos
+df.describe()  # contagem, média, desvio, mínimo, quartis, máximo
+```
+
+O `info()` é o mais importante dos três, porque responde a duas perguntas de uma vez: cada coluna entrou com o tipo que deveria, e onde há valores faltando. Uma coluna de valores monetários que chega como texto — porque o arquivo usava vírgula decimal, ou tinha um `R$` no meio — vai somar concatenando strings em vez de somar números, e o `info()` denuncia isso na hora.
+
+## Selecionar e filtrar
+
+Selecionar coluna é direto, com colchetes. Filtrar linhas usa uma máscara booleana: você escreve uma condição, o pandas devolve uma coluna de verdadeiro e falso, e só as linhas verdadeiras sobrevivem.
+
+```python
+df["valor"]              # uma coluna (Series)
+df[["produto", "valor"]] # duas colunas (DataFrame)
+df[df["valor"] > 10]     # só as linhas com valor acima de 10
+```
+
+Para combinar condições, use `&` para "e", `|` para "ou", e **sempre com parênteses em cada condição** — a precedência dos operadores em Python faria a expressão sem parênteses ser avaliada na ordem errada.
+
+```python
+df[(df["uf"] == "MS") & (df["valor"] > 10)]
+```
+
+Quando você quer filtrar linhas **e** escolher colunas ao mesmo tempo, o caminho é o `.loc`, que recebe as duas coisas de uma vez:
+
+```python
+df.loc[df["uf"] == "MS", "valor"]
+```
+
+## O erro que não dá erro
+
+Aqui está a armadilha que motivou o aviso da abertura. Suponha que você queira zerar o valor das linhas de MS. É natural escrever assim:
+
+```python
+df[df["uf"] == "MS"]["valor"] = 0
+```
+
+Isso se chama **atribuição encadeada**: dois passos de indexação em sequência, um `[...]` seguido de outro. No pandas 3.0, esse código não altera coisa nenhuma. O `df[df["uf"] == "MS"]` produz um objeto novo, a atribuição acontece nesse objeto novo, e ele é descartado na linha seguinte — o `df` original continua exatamente como estava. A biblioteca emite um aviso `ChainedAssignmentError`, mas **é um aviso, não uma exceção**: o programa segue rodando, e se você não estiver lendo a saída, vai analisar dados que acreditava ter corrigido.
+
+A forma correta é fazer tudo em um passo só, com `.loc`:
+
+```python
+df.loc[df["uf"] == "MS", "valor"] = 0
+```
+
+Vale registrar por que isso é uma melhora, e não um capricho. Antes do pandas 3.0, a atribuição encadeada era pior: às vezes funcionava, às vezes não, dependendo de detalhes internos de como a tabela estava armazenada na memória. O que existia era o famoso `SettingWithCopyWarning`, um aviso que aparecia até em código correto e que a comunidade aprendeu a silenciar com `.copy()` defensivos. Com o [Copy-on-Write](https://pandas.pydata.org/docs/user_guide/copy_on_write.html) ligado por padrão, o comportamento passou a ser um só, em todos os casos: nunca funciona. Um comportamento consistentemente errado é muito melhor do que um comportamento imprevisível, porque pode ser aprendido de uma vez.
+
+## Agrupar e resumir
+
+`groupby` é o que transforma uma tabela de lançamentos em uma resposta. A lógica tem três tempos: separar as linhas por uma chave, aplicar um cálculo em cada grupo, juntar os resultados.
+
+```python
+df.groupby("produto")["valor"].sum()
+```
+
+Para mais de uma medida no mesmo passo, use `agg`:
+
+```python
+df.groupby("uf")["valor"].agg(["sum", "mean", "count"])
+```
+
+O resultado vem com a chave do agrupamento no índice, não como coluna comum — o que faz diferença na hora de salvar em arquivo ou juntar com outra tabela. Se você preferir a chave como coluna, `reset_index()` resolve.
+
+## Valores ausentes
+
+Dados reais têm buracos, e o pandas os representa como `NaN`. A regra geral é que as funções de agregação **ignoram** os ausentes em vez de propagá-los: a soma de `[1.0, NaN, 3.0]` é `4.0`, a média é `2.0` e o `count()` é `2`, não `3`.
+
+Isso é conveniente e perigoso na mesma medida. Conveniente porque a conta não vira `NaN` inteira por causa de uma célula vazia; perigoso porque uma média calculada sobre metade das observações não avisa que foi calculada sobre metade das observações. Por isso o hábito que vale a pena adquirir é contar os ausentes antes de agregar:
+
+```python
+df.isna().sum()   # quantos ausentes por coluna
+```
+
+Só depois de saber quantos são, e por que estão ausentes, é que se decide entre remover (`dropna`) e preencher (`fillna`). Preencher um valor faltante com a média da coluna é uma decisão analítica com consequências, não um passo técnico de limpeza — e num laudo, num relatório ou num artigo, é uma decisão que precisa estar escrita.
+
+## O que mudou no pandas 3.0
+
+Duas mudanças da versão 3.0 afetam diretamente quem está aprendendo agora, porque contradizem o que os materiais mais antigos mostram na tela.
+
+A primeira é o Copy-on-Write, já tratado acima: a atribuição encadeada deixou de funcionar em definitivo, o `SettingWithCopyWarning` foi removido e os `.copy()` defensivos que existiam só para silenciá-lo não são mais necessários.
+
+A segunda é o tipo das colunas de texto. Até a versão 2, uma coluna de strings aparecia no `info()` como `object`, um tipo genérico que servia para qualquer coisa que não fosse número. A partir da 3.0 existe um tipo dedicado, e a mesma coluna aparece como `str`. Se um tutorial mostra `object` onde a sua tela mostra `str`, não há nada errado com o seu código — o tutorial é anterior a janeiro de 2026.
+
+A lição prática vale além do pandas: ao seguir qualquer material técnico, verifique de que versão ele fala e qual você está rodando. `pd.__version__` responde à segunda pergunta em uma linha.
+
+## Perguntas frequentes
+
+### Preciso saber Python antes de aprender pandas?
+
+Sim, o básico. Variáveis, tipos, funções, laços e indexação de listas são suficientes para começar. Não é preciso dominar orientação a objetos nem estruturas avançadas.
+
+### Qual a diferença entre pandas e Excel?
+
+O Excel é ótimo para inspecionar e para tarefas pontuais. O pandas ganha em três pontos: o trabalho fica registrado em código e pode ser repetido e conferido por outra pessoa; o volume de dados deixa de ser limitado pela planilha; e a mesma análise pode ser aplicada a um arquivo novo sem refazer nada à mão.
+
+### Devo usar `[]` ou `.loc` para filtrar?
+
+Para apenas ler linhas, os dois funcionam. Para **modificar** valores, use sempre `.loc`, em um único passo. É a regra que evita a atribuição encadeada.
+
+### O pandas serve para dados grandes?
+
+Até o limite da memória da máquina, sim, e isso cobre a enorme maioria dos casos. Acima disso existem alternativas com API parecida, como Polars e Dask, mas aprender pandas continua sendo o ponto de partida certo — os conceitos de tabela, índice, filtro e agrupamento são os mesmos.
+
+### Por que meu código não altera o DataFrame?
+
+Quase sempre é atribuição encadeada. Procure por duas indexações em sequência (`df[...][...] = ...`) e reescreva com `.loc` em um passo só.
+
+## Conclusão
+
+- O pandas organiza dados em **Series** (coluna) e **DataFrame** (tabela), e o índice é o que alinha valores entre estruturas.
+- Antes de calcular, inspecione: `head()`, `info()` e `describe()` revelam tipo errado e valor ausente antes que eles virem resultado errado.
+- Filtre com máscara booleana, com parênteses em cada condição, e use `.loc` quando precisar de linhas e colunas ao mesmo tempo.
+- Para **modificar** valores, `.loc` em um passo só: no pandas 3.0 a atribuição encadeada nunca funciona, e falha em silêncio, com aviso mas sem exceção.
+- Agregações ignoram `NaN` por padrão — conte os ausentes com `isna().sum()` antes de confiar numa média.
+- Confira a versão da biblioteca antes de seguir qualquer tutorial: desde janeiro de 2026, colunas de texto são `str`, e não mais `object`.
+
+---
+
+**Tópicos:** #Pandas #Python #CiênciaDeDados #AnáliseDeDados #DataFrame
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Introdução ao pandas: guia prático para análise de dados",
+  "description": "Introdução ao pandas com exemplos que rodam: DataFrame, filtros, groupby e o que mudou no pandas 3.0, incluindo o erro que faz tutoriais antigos falharem.",
+  "inLanguage": "pt-BR",
+  "datePublished": "2026-09-10T16:59:45-03:00",
+  "dateModified": "2026-09-10T16:59:45-03:00",
+  "author": { "@type": "Person", "name": "Pedro Nakashima" },
+  "mainEntityOfPage": "https://pedronakashima.com/posts/introducao-pandas/",
+  "keywords": "pandas, Python, ciência de dados, DataFrame, groupby, Copy-on-Write, análise de dados"
+}
+</script>
