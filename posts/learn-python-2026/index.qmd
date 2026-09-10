@@ -3,6 +3,7 @@ title: "Why Learn Python in 2026, Even Though AI Writes Code"
 description: "Learning Python in 2026 still pays off even with AI writing code: what the language actually does, why it makes LLM users stronger, and where to start today."
 author: "Pedro Nakashima"
 date: "2026-09-09 19:19:36"
+date-modified: "2026-09-09 19:19:36"
 lang: "en-US"
 categories: [python, programming, artificial intelligence, automation, data science]
 image: "cover.jpg"

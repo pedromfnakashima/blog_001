@@ -3,6 +3,7 @@ title: "Introdução à sintaxe Python: guia completo para iniciantes"
 description: "Guia prático de sintaxe Python: ambientes de execução, indentação, operadores, condicionais, laços de repetição, tipos de dados e funções, com exemplos."
 author: "Pedro Nakashima"
 date: "2026-09-10 07:30:28"
+date-modified: "2026-09-10 07:30:28"
 lang: "pt-BR"
 categories: [python, programação, sintaxe, tutorial]
 image: "cover.jpg"

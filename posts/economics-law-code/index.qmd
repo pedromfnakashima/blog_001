@@ -3,6 +3,7 @@ title: "Economics, Law, and Code: An Introduction to This Blog"
 description: "Economics, law, programming, and data in one place. Who I am, what this blog will cover, and why the best questions live between fields, not inside one."
 author: "Pedro Nakashima"
 date: "2026-09-09 18:42:21"
+date-modified: "2026-09-09 18:42:21"
 lang: "en-US"
 categories: [introduction, economics, law, programming, data science]
 image: "cover.jpg"

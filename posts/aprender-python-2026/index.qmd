@@ -3,6 +3,7 @@ title: "Por que aprender Python em 2026, mesmo na era dos LLMs"
 description: "Aprender Python em 2026 vale a pena mesmo com a IA escrevendo código: o que a linguagem faz, por que ela potencializa quem usa LLMs e por onde começar hoje."
 author: "Pedro Nakashima"
 date: "2026-09-09 19:04:10"
+date-modified: "2026-09-09 19:04:10"
 lang: "pt-BR"
 categories: [python, programação, inteligência artificial, automação, ciência de dados]
 image: "cover.jpg"

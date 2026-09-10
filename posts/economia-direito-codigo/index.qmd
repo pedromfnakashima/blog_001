@@ -3,6 +3,7 @@ title: "Economia, direito e código: por que este blog existe"
 description: "Economia, direito, programação e dados em um só lugar: quem sou, o que pretendo publicar aqui e por que as melhores perguntas nascem justamente entre as áreas."
 author: "Pedro Nakashima"
 date: "2026-09-09 18:22:48"
+date-modified: "2026-09-09 18:22:48"
 lang: "pt-BR"
 categories: [apresentação, economia, direito, programação, ciência de dados]
 image: "cover.jpg"
