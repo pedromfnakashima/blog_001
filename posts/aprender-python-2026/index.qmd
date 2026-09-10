@@ -5,12 +5,14 @@ author: "Pedro Nakashima"
 date: "2026-09-09 19:04:10"
 lang: "pt-BR"
 categories: [python, programação, inteligência artificial, automação, ciência de dados]
-image: "image.jpg"
+image: "cover.jpg"
 image-alt: "Tela de computador com um trecho curto de código Python ao lado de uma pilha de pastas de documentos e uma planilha impressa"
 keywords: [aprender Python, Python 2026, automação com Python, Python para advogados, Python e LLM, ciência de dados]
 ---
 
 *Publicado em 9 de setembro de 2026, às 19:04, por Pedro Nakashima*
+
+![](cover.jpg)
 
 Se você é economista, advogado, contador, administrador, médico ou qualquer outra coisa que não seja programador, a pergunta que interessa não é se vale a pena **aprender Python** por diversão. É se ainda faz sentido investir algumas dezenas de horas nisso em 2026, num momento em que qualquer modelo de linguagem escreve código melhor do que a maioria dos iniciantes. Minha resposta é que faz, e por um motivo que quase ninguém explica direito: saber programar não compete com a inteligência artificial, ela **multiplica** o que você consegue fazer com ela. Este texto é sobre isso, e sobre o que a linguagem realmente permite construir.
 

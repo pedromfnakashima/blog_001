@@ -8,6 +8,11 @@ website:
   description: "Análises e guias de Pedro Nakashima sobre ciência de dados, machine learning, IA e tecnologia — e também economia, direito, política, cinema e futebol."
   site-url: https://pedronakashima.com # you must change this appropriately for RSS feeds to work properly
   title: "Pedro Nakashima - Blog"
+  open-graph: true
+  twitter-card:
+    card-style: summary_large_image
+    creator: "@PedroOnData"
+    site: "@PedroOnData"
   navbar:
     right:
       - about.qmd

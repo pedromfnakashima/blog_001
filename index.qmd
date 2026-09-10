@@ -10,7 +10,7 @@ listing:
   sort-ui: false
   filter-ui: true
   fields: [image, date, reading-time, title, description, categories]
-  image-placeholder: "/assets/imagem_padrao.jpg"
+  image-placeholder: "/assets/standard_cover.jpg"
   feed:
     items: 20
     type: full

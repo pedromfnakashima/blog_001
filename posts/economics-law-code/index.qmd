@@ -5,12 +5,14 @@ author: "Pedro Nakashima"
 date: "2026-09-09 18:42:21"
 lang: "en-US"
 categories: [introduction, economics, law, programming, data science]
-image: "image.jpg"
+image: "cover.jpg"
 image-alt: "A desk with an open notebook next to a laptop showing lines of code and a time-series chart"
 keywords: [Pedro Nakashima, economics, law, programming, Python, data science, open data]
 ---
 
 *Published on September 9, 2026 at 6:42 PM by Pedro Nakashima*
+
+![](cover.jpg)
 
 Welcome. This is the first post of a blog that will move between economics, law, and programming, and the first thing I owe anyone landing here is an honest account of what I plan to do with this space. My name is Pedro Nakashima. I live in Campo Grande, a city in Brazil's Midwest region, roughly the size of a mid-sized American city, best known outside Brazil, if it is known at all, for sitting close to the Pantanal wetlands. The idea behind everything that follows is fairly simple: the most interesting questions I have run into over the past few years were almost never at the center of a single field. They lived at the border between two or three.
 

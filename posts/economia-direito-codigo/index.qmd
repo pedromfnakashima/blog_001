@@ -5,12 +5,14 @@ author: "Pedro Nakashima"
 date: "2026-09-09 18:22:48"
 lang: "pt-BR"
 categories: [apresentação, economia, direito, programação, ciência de dados]
-image: "image.jpg"
+image: "cover.jpg"
 image-alt: "Mesa de trabalho com um caderno de anotações aberto ao lado de um notebook que exibe linhas de código e um gráfico de série temporal"
 keywords: [Pedro Nakashima, economia, direito, programação, Python, ciência de dados, dados abertos]
 ---
 
 *Publicado em 9 de setembro de 2026, às 18:22, por Pedro Nakashima*
+
+![](cover.jpg)
 
 Seja bem-vindo. Este é o primeiro texto de um blog que vai transitar entre economia, direito e programação, e a primeira coisa que devo a quem chegou até aqui é uma explicação honesta sobre o que pretendo fazer com este espaço. Meu nome é Pedro Nakashima, moro em Campo Grande, no Mato Grosso do Sul, e a ideia que sustenta tudo o que vier depois é razoavelmente simples: as perguntas mais interessantes que encontrei nos últimos anos quase nunca estavam no centro de uma dessas áreas, e sim na fronteira entre elas.
 

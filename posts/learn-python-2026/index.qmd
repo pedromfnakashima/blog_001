@@ -5,12 +5,14 @@ author: "Pedro Nakashima"
 date: "2026-09-09 19:19:36"
 lang: "en-US"
 categories: [python, programming, artificial intelligence, automation, data science]
-image: "image.jpg"
+image: "cover.jpg"
 image-alt: "A computer screen showing a short Python script beside a stack of document folders and a printed spreadsheet"
 keywords: [learn Python, Python 2026, Python automation, Python for lawyers, Python and LLMs, data science]
 ---
 
 *Published on September 9, 2026 at 7:19 PM by Pedro Nakashima*
+
+![](cover.jpg)
 
 If you are an economist, a lawyer, an accountant, a physician, or anything else that is not a software developer, the question worth asking is not whether it would be fun to **learn Python**. It is whether it still makes sense to put a few dozen hours into it in 2026, at a moment when any language model writes better code than most beginners. My answer is that it does, for a reason almost nobody explains properly: knowing how to program does not compete with artificial intelligence. It **multiplies** what you can do with it. This post is about that, and about what the language actually lets you build.
 
