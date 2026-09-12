@@ -1,0 +1,201 @@
+---
+title: "Introdução ao Open Knowledge Format, o padrão do Google"
+description: "Open Knowledge Format: o padrão aberto do Google Cloud que empacota o conhecimento de uma organização em markdown para agentes de IA lerem. Guia prático."
+author: "Pedro Nakashima"
+date: "2026-09-12 18:50:40"
+date-modified: "2026-09-12 18:50:40"
+lang: "pt-BR"
+categories: ["open knowledge format", markdown, documentação, inteligência artificial, programação]
+image: "cover.jpg"
+image-alt: "Pasta de arquivos de texto aberta em um editor, com blocos de metadados no topo de cada documento e linhas ligando um arquivo ao outro"
+keywords: [open knowledge format, OKF, Google Cloud, markdown, YAML, agentes de IA, contexto para LLMs, knowledge catalog, especificação aberta]
+---
+
+*Publicado em 12 de setembro de 2026, às 18:50, por Pedro Nakashima*
+
+![](cover.jpg)
+
+O Open Knowledge Format (OKF) é uma especificação aberta do Google Cloud, publicada em junho de 2026, para registrar o que uma organização sabe — suas tabelas, métricas, APIs, procedimentos operacionais — num formato que humanos e agentes de IA leem igualmente bem. A resposta curta para o que ele é, por baixo: uma pasta de arquivos markdown, cada um com um bloco de metadados em YAML no topo. Não há banco de dados novo, não há formato binário, não há SDK obrigatório e não há autoridade central. Se isso soa simples demais para ser chamado de especificação, você entendeu a tese: no OKF, a simplicidade é o recurso, não a limitação. Este artigo apresenta o formato para quem nunca ouviu falar dele, mostra um pacote completo funcionando e é honesto sobre o que ele ainda não resolve.
+
+Se a sintaxe dos arquivos for novidade para você, vale ler antes o [guia de sintaxe markdown](/posts/introducao-sintaxe-markdown/index.qmd) — aqui eu parto do princípio de que você já sabe o que é um `##`, um bloco de código e um link. O que interessa neste texto não é como escrever markdown, e sim o que acontece quando alguém decide que uma pasta de arquivos `.md` é a forma certa de entregar conhecimento a uma máquina.
+
+## O que é o Open Knowledge Format
+
+O Open Knowledge Format é uma especificação que define como empacotar conhecimento em um diretório de arquivos markdown com metadados em YAML, cruzados por links, de modo que um agente de IA possa percorrê-los. Cada arquivo representa **um conceito**: uma tabela, uma métrica, um dataset, um procedimento, um endpoint. O conjunto desses arquivos em uma pasta é o que a especificação chama de **pacote** (*bundle*).
+
+O formato foi anunciado em 12 de junho de 2026 pela equipe de Data Cloud do Google Cloud, assinado por Sam McVeety e Amir Hormati, e a [especificação, as implementações de referência e os pacotes de exemplo estão no GitHub](https://github.com/GoogleCloudPlatform/knowledge-catalog) sob licença Apache 2.0. Nasceu na versão 0.1 e já está na **v0.2**, que acrescentou os campos de procedência e confiança que veremos adiante.
+
+## O problema que ele resolve
+
+A justificativa do OKF é menos técnica do que parece. O conhecimento de uma empresa não está em um lugar: está espalhado por catálogos de metadados com APIs proprietárias, wikis, planilhas em drives compartilhados, comentários de código, docstrings e, em boa parte, na cabeça dos engenheiros mais antigos. Quando se monta um agente de IA para responder sobre os dados dessa empresa, tudo isso precisa ser remontado do zero.
+
+O [anúncio do Google Cloud](https://cloud.google.com/blog/products/data-analytics/how-the-open-knowledge-format-can-improve-data-sharing) descreve o sintoma com precisão: "todo construtor de agentes está resolvendo o mesmo problema de montagem de contexto do zero, todo fornecedor de catálogo está reinventando os mesmos modelos de dados, e o conhecimento em si fica preso atrás de qualquer que seja a superfície que o criou". O modelo de linguagem não é o gargalo — o contexto é.
+
+A aposta do OKF é que esse problema não precisa de uma tecnologia nova. Precisa de um acordo sobre o formato. E o formato escolhido foi o mais chato possível, de propósito: **são só arquivos**, empacotáveis num tarball, hospedáveis em qualquer repositório git, montáveis em qualquer sistema de arquivos; e **é só markdown**, legível em qualquer editor, renderizável no GitHub, indexável por qualquer ferramenta de busca.
+
+## A especificação inteira, em três regras
+
+É aqui que o OKF surpreende quem espera um documento de cem páginas. Um pacote está em conformidade com a v0.2 se:
+
+1. Todo arquivo `.md` que não seja reservado contém um bloco de metadados YAML válido;
+2. Esse bloco tem um campo `type` não vazio;
+3. Os arquivos reservados — `index.md` e `log.md` — seguem o papel definido para eles e não são usados como conceitos.
+
+Só isso. Tudo o mais é recomendação.
+
+### O único campo obrigatório: `type`
+
+O `type` é uma string curta que diz **que espécie de coisa** aquele arquivo descreve: `BigQuery Table`, `Metric`, `Playbook`. Não existe registro de tipos, não existe lista fechada, não existe validador central. Isso significa que `Métrica` e `Metric` são igualmente válidos — e que a consistência dentro do seu pacote é responsabilidade de quem escreve, não da especificação. É uma escolha deliberada: o formato prefere ser adotado a ser policiado.
+
+### Os campos recomendados
+
+Quatro campos não são obrigatórios, mas são o que torna o pacote de fato útil:
+
+- **`title`** — o nome legível do conceito;
+- **`description`** — um resumo de uma frase;
+- **`resource`** — o URI que identifica o ativo real por trás do documento (a tabela no console, o endpoint, o painel);
+- **`tags`** — uma lista YAML de strings para categorizar.
+
+O `resource` é o mais subestimado dos quatro. É ele que liga a descrição ao objeto descrito, e é o que permite a um agente sair do texto e ir até a coisa.
+
+### A estrutura da pasta
+
+O pacote é um diretório, com subdiretórios livres. Dois nomes são reservados: `index.md`, que lista o conteúdo do diretório, e `log.md`, que guarda o histórico cronológico.
+
+```
+conhecimento/
+  index.md
+  log.md
+  metricas/
+    index.md
+    receita-liquida.md
+  tabelas/
+    pedidos.md
+    clientes.md
+  playbooks/
+    fechamento-mensal.md
+```
+
+## Um conceito completo, do começo ao fim
+
+Vale mais ver um arquivo inteiro do que ler mais três parágrafos de descrição. Este é um conceito do tipo métrica, com os campos recomendados preenchidos:
+
+```markdown
+---
+type: Métrica
+title: Receita líquida mensal
+description: Receita bruta menos devoluções e impostos, por mês de competência.
+resource: https://exemplo.com.br/metricas/receita-liquida
+tags: [financeiro, receita, fechamento]
+generated: { by: "human:pedro", at: "2026-09-12T18:50:40-03:00" }
+status: stable
+---
+
+# Definição
+
+Soma de `valor_bruto` menos `devolucoes` e `impostos` na tabela
+[pedidos](/tabelas/pedidos.md), agrupada por mês de competência.
+
+# Armadilhas
+
+Pedidos cancelados após o fechamento permanecem na base com
+`status = cancelado` e precisam ser excluídos do cálculo. É o erro
+mais comum de quem levanta essa métrica pela primeira vez.
+```
+
+Repare no que esse arquivo faz que um catálogo de metadados tradicional não faz. Um catálogo diria que existe uma coluna `valor_bruto` do tipo `NUMERIC`. Ele não diria que pedidos cancelados depois do fechamento contaminam o resultado. **Catálogos descrevem formatos; o OKF descreve significado.** Essa frase da seção de armadilhas é exatamente o tipo de conhecimento que costuma morar na cabeça de uma pessoa só — e é exatamente o que um agente precisa para não errar.
+
+## Os links são o grafo
+
+O segundo elemento do formato é a ligação entre conceitos, e ela usa markdown puro. A forma recomendada é o caminho absoluto dentro do pacote, começando com `/`: `[pedidos](/tabelas/pedidos.md)`. Caminhos relativos também valem.
+
+Não há tipagem formal de relacionamento — nada de `hasParent` ou `derivedFrom`. O sentido da ligação vem da prosa em volta dela. "Junta-se com [clientes](/tabelas/clientes.md) por `customer_id`" é, ao mesmo tempo, uma frase que um humano lê e uma aresta que um agente percorre.
+
+É essa diferença que separa o OKF do padrão de RAG a que a maioria está acostumada. O RAG pica documentos em fragmentos e os recupera por similaridade; o agente precisa inferir as conexões a partir do que voltou. Num pacote OKF as conexões já estão escritas, e a navegação é deliberada em vez de probabilística.
+
+## O que a v0.2 acrescentou: procedência e confiança
+
+A primeira versão resolvia representação. A v0.2 atacou um problema diferente: como saber se dá para acreditar no arquivo. Três famílias de campos opcionais entraram:
+
+- **`sources`** — de onde o conceito deriva, com sinais de credibilidade opcionais como `author`, `usage_count` e `last_modified`. Cada fonte exige um campo `resource`;
+- **`generated`** e **`verified`** — quem criou e quem conferiu, no formato `{ by: <ator>, at: <timestamp> }`;
+- **`status`** (`draft`, `stable` ou `deprecated`) e **`stale_after`**, um carimbo ISO 8601 a partir do qual o conteúdo deve ser tratado como vencido.
+
+A convenção de identificação de atores é simples e diz muito: `<produtor>/<versão>` para agentes e ferramentas, `human:<id>` para pessoas, `process:<id>` para processos automáticos. Dela sai uma escala de confiança de três degraus: sem `verified`, o conceito é **não verificado**; verificado apenas por atores não humanos, é **confirmado por máquina**; verificado por um ator `human:<id>`, é **revisado por humano**.
+
+Esse é o ponto mais subestimado da especificação. Num mundo em que boa parte da documentação passa a ser escrita por modelos, registrar *quem* escreveu e *quem* conferiu deixa de ser burocracia e vira a diferença entre um pacote confiável e um amontoado plausível.
+
+## O que o OKF não é
+
+Aqui é onde a honestidade importa mais do que o entusiasmo, e onde a maior parte do material publicado sobre o formato erra.
+
+**Não substitui RAG, MCP, OpenAPI, banco vetorial, controle de permissões nem governança.** O OKF representa e empacota conhecimento estável; ele não define como você autentica um agente, não indexa um corpus de milhões de documentos e não expõe ferramentas. A leitura mais útil é a de camadas que se somam: o `llms.txt` é um ponteiro, o MCP é o protocolo de acesso, e o OKF é o conhecimento em si, portátil, que trafega entre os dois.
+
+**Não é um sinal de SEO.** Publicar um pacote OKF não é, hoje, um fator confirmado de ranqueamento, de rastreamento ou de citação por modelos de linguagem. Para dizer a buscadores o que sua página é, o instrumento continua sendo o schema.org. Quem estiver vendendo OKF como técnica de posicionamento está adiantando uma conclusão que ninguém demonstrou.
+
+**Não é um padrão consolidado.** O próprio Google classificou a v0.1 como "um ponto de partida, não um padrão terminado", e o repositório de referência traz o aviso de que não é um produto oficial do Google. Até agosto de 2026, nenhum agente de IA de grande porte lê pacotes OKF nativamente como comportamento padrão — a adoção ainda é de pioneiros. A especificação exige, inclusive, que os consumidores tolerem campos ausentes, tipos desconhecidos, links quebrados e chaves que não conhecem, o que é a admissão explícita de um ecossistema em formação.
+
+Nada disso é motivo para ignorar o formato. É motivo para adotá-lo pelo que ele custa — que é quase nada — e não pelo que prometem que ele renderá.
+
+## Como começar hoje
+
+A melhor notícia prática do OKF é que a barreira de entrada é um editor de texto. Um caminho razoável:
+
+1. **Escolha um domínio pequeno e doloroso.** As cinco métricas que ninguém calcula igual, ou as três tabelas que todo mundo interpreta errado. Não comece pelo catálogo inteiro.
+2. **Um conceito por arquivo.** Se o arquivo descreve duas coisas, são dois arquivos. É a regra que mais melhora o resultado.
+3. **Preencha `type`, `title`, `description` e `resource`** em todos. Os quatro levam um minuto e mudam tudo na hora do consumo.
+4. **Escreva o que não está no esquema.** As armadilhas, as exceções, o motivo de a coluna se chamar daquele jeito. Essa é a parte que justifica o pacote existir.
+5. **Ligue os arquivos entre si** com links absolutos e explique a relação na frase.
+6. **Versione em git e valide.** A verificação mínima de conformidade cabe numa linha de shell: confirmar que todo `.md` não reservado tem uma linha começando com `type:`.
+
+Se a sua documentação já é markdown, já está versionada e já é bem ligada, boa parte do trabalho está feita — o que falta é o bloco de metadados.
+
+## Perguntas frequentes
+
+### Preciso de alguma ferramenta ou conta do Google para usar o OKF?
+
+Não. A especificação é aberta e explicitamente não amarrada a nenhuma nuvem, banco de dados, provedor de modelo ou framework de agente, e nunca exigirá conta proprietária ou SDK para ser lida, escrita ou servida. Um editor de texto e o git bastam.
+
+### O OKF substitui o RAG?
+
+Não, e os dois resolvem coisas diferentes. O OKF é bom para fatos estáveis e curados, que você quer que o agente percorra de forma deliberada. O RAG continua sendo a ferramenta para consultas difusas sobre corpora grandes. Numa arquitetura madura, os dois convivem.
+
+### Qual a diferença entre OKF, `llms.txt` e MCP?
+
+O `llms.txt` aponta para o conteúdo que importa no seu site; o MCP define como um agente acessa recursos e ferramentas; o OKF é o conteúdo em si, empacotado de forma portátil. São camadas complementares, não concorrentes.
+
+### Isso melhora meu ranqueamento no Google?
+
+Não há evidência disso, e o formato não foi desenhado para busca. Para sinalizar significado a buscadores, use schema.org. O OKF serve a agentes, não a rastreadores de índice.
+
+### Vale esperar a v1.0 para começar?
+
+A v0.2 é retrocompatível com a v0.1, e a promessa da especificação é que versões menores tragam apenas acréscimos compatíveis. Como o custo de escrever um arquivo com quatro campos de metadados é próximo de zero, esperar rende pouco — e o material escrito agora continua válido depois.
+
+## Conclusão
+
+- O **Open Knowledge Format** é uma especificação aberta do Google Cloud, de junho de 2026, para empacotar conhecimento organizacional em markdown legível por humanos e por agentes de IA.
+- Um pacote é **uma pasta de arquivos `.md`**, cada um representando um conceito, com metadados em YAML e links markdown fazendo o papel de grafo.
+- A conformidade exige **um único campo**: `type`. `title`, `description`, `resource` e `tags` são recomendados e é o que torna o pacote útil de verdade.
+- A **v0.2** acrescentou procedência e confiança — `sources`, `generated`, `verified`, `status` e `stale_after` —, com uma escala de três degraus que distingue o não verificado do confirmado por máquina e do revisado por humano.
+- O valor não está no esquema, e sim no que **não cabe** num esquema: as armadilhas, as exceções e as definições que hoje moram na cabeça de uma pessoa só.
+- O formato **não substitui** RAG, MCP, catálogos ou governança, **não é** sinal de SEO e **ainda não** tem adoção nativa ampla. Adote pelo custo baixo, não pela promessa.
+
+---
+
+**Tópicos:** #OKF #Markdown #InteligenciaArtificial #Documentacao #GoogleCloud
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Introdução ao Open Knowledge Format, o padrão do Google",
+  "description": "Open Knowledge Format: o padrão aberto do Google Cloud que empacota o conhecimento de uma organização em markdown para agentes de IA lerem. Guia prático.",
+  "inLanguage": "pt-BR",
+  "datePublished": "2026-09-12T18:50:40-03:00",
+  "dateModified": "2026-09-12T18:50:40-03:00",
+  "author": { "@type": "Person", "name": "Pedro Nakashima" },
+  "mainEntityOfPage": "https://pedronakashima.com/posts/introducao-open-knowledge-format/",
+  "keywords": "open knowledge format, markdown, documentação, inteligência artificial, programação, OKF, Google Cloud, YAML, agentes de IA, contexto para LLMs"
+}
+</script>
