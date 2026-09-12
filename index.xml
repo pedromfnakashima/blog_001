@@ -10,7 +10,490 @@
 <atom:link href="https://pedronakashima.com/index.xml" rel="self" type="application/rss+xml"/>
 <description>Análises e guias de Pedro Nakashima sobre ciência de dados, machine learning, IA e tecnologia — e também economia, direito, política, cinema e futebol.</description>
 <generator>quarto-1.9.38</generator>
-<lastBuildDate>Sat, 12 Sep 2026 12:46:16 GMT</lastBuildDate>
+<lastBuildDate>Sat, 12 Sep 2026 23:19:17 GMT</lastBuildDate>
+<item>
+  <title>Open Knowledge Format: an introduction to Google’s spec</title>
+  <dc:creator>Pedro Nakashima</dc:creator>
+  <link>https://pedronakashima.com/posts/open-knowledge-format-introduction/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p><em>Published on September 12, 2026 at 7:19 PM by Pedro Nakashima</em></p>
+<p><img src="https://pedronakashima.com/posts/open-knowledge-format-introduction/cover.jpg" class="img-fluid"></p>
+<p>The Open Knowledge Format (OKF) is an open specification from Google Cloud, published in June 2026, for writing down what an organization knows — its tables, metrics, APIs and operational runbooks — in a form that humans and AI agents read equally well. The short answer to what it is underneath: a folder of markdown files, each one carrying a YAML metadata block at the top. There is no new database, no binary format, no mandatory SDK and no central authority. If that sounds too plain to be called a specification, you have understood the thesis: in OKF, plainness is the feature, not the shortcoming. This article introduces the format to readers who have never come across it, walks through a complete concept file, and is candid about what OKF does not yet solve.</p>
+<p>A note before we start: I have written a full guide to markdown syntax on this blog, but it exists <strong>in Portuguese only</strong> — if you read it, <a href="../../posts/introducao-sintaxe-markdown/index.html">introdução à sintaxe markdown</a> covers the ground this article assumes. Everything here takes for granted that you already know what a <code>##</code>, a fenced code block and a link are. What matters below is not how to write markdown. It is what happens when someone decides that a folder of <code>.md</code> files is the right way to hand knowledge to a machine.</p>
+<section id="what-the-open-knowledge-format-is" class="level2">
+<h2 class="anchored" data-anchor-id="what-the-open-knowledge-format-is">What the Open Knowledge Format is</h2>
+<p>The Open Knowledge Format is a specification that defines how to package knowledge as a directory of markdown files with YAML frontmatter, cross-linked so that an AI agent can traverse them. Each file represents <strong>one concept</strong>: a table, a metric, a dataset, a runbook, an endpoint. A directory of those files is what the spec calls a <strong>bundle</strong>.</p>
+<p>The format was announced on June 12, 2026 by the Data Cloud team at Google Cloud, authored by Sam McVeety and Amir Hormati, and the <a href="https://github.com/GoogleCloudPlatform/knowledge-catalog">specification, reference implementations and sample bundles live on GitHub</a> under the Apache 2.0 license. It shipped as v0.1 and is already at <strong>v0.2</strong>, which added the provenance and trust fields covered further down.</p>
+</section>
+<section id="the-problem-it-addresses" class="level2">
+<h2 class="anchored" data-anchor-id="the-problem-it-addresses">The problem it addresses</h2>
+<p>The case for OKF is less technical than it first appears. A company’s knowledge does not live in one place. It is scattered across metadata catalogs with proprietary APIs, wikis, spreadsheets on shared drives, code comments, docstrings and — for a large share of it — the heads of the longest-tenured engineers. Every time someone builds an AI agent that has to answer questions about that company’s data, all of it gets reassembled from scratch.</p>
+<p>The <a href="https://cloud.google.com/blog/products/data-analytics/how-the-open-knowledge-format-can-improve-data-sharing">Google Cloud announcement</a> names the symptom precisely: “every agent builder is solving the same context-assembly problem from scratch, every catalog vendor is reinventing the same data models, and the knowledge itself is locked behind whichever surface created it.” The model is not the bottleneck. Context is.</p>
+<p>OKF bets that this problem does not need new technology. It needs an agreement on a format — and the format chosen is deliberately the dullest one available. It is <strong>just files</strong>: shippable as a tarball, hostable in any git repo, mountable on any filesystem. And it is <strong>just markdown</strong>: readable in any editor, renderable on GitHub, indexable by any search tool.</p>
+</section>
+<section id="the-entire-specification-in-three-rules" class="level2">
+<h2 class="anchored" data-anchor-id="the-entire-specification-in-three-rules">The entire specification, in three rules</h2>
+<p>This is where OKF surprises anyone expecting a hundred-page document. A bundle conforms to v0.2 if:</p>
+<ol type="1">
+<li>Every non-reserved <code>.md</code> file contains parseable YAML frontmatter;</li>
+<li>That frontmatter carries a non-empty <code>type</code> field;</li>
+<li>The reserved filenames — <code>index.md</code> and <code>log.md</code> — are used for their defined purpose and never as concept documents.</li>
+</ol>
+<p>That is the whole conformance bar. Everything else is a recommendation.</p>
+<section id="the-one-required-field-type" class="level3">
+<h3 class="anchored" data-anchor-id="the-one-required-field-type">The one required field: <code>type</code></h3>
+<p><code>type</code> is a short string saying <strong>what kind of thing</strong> the file describes: <code>BigQuery Table</code>, <code>Metric</code>, <code>Playbook</code>. There is no type registry, no closed vocabulary and no central validator. Which means <code>Metric</code> and <code>metric</code> both pass — and that consistency inside your bundle is the author’s job, not the specification’s. That is a deliberate trade: the format would rather be adopted than policed.</p>
+</section>
+<section id="the-recommended-fields" class="level3">
+<h3 class="anchored" data-anchor-id="the-recommended-fields">The recommended fields</h3>
+<p>Four fields are optional but do most of the work of making a bundle genuinely useful:</p>
+<ul>
+<li><strong><code>title</code></strong> — the human-readable display name;</li>
+<li><strong><code>description</code></strong> — a single-sentence summary;</li>
+<li><strong><code>resource</code></strong> — a URI identifying the underlying asset the document describes (the table in the console, the endpoint, the dashboard);</li>
+<li><strong><code>tags</code></strong> — a YAML list of categorization strings.</li>
+</ul>
+<p><code>resource</code> is the most underrated of the four. It is what ties the description to the thing being described, and what lets an agent step out of the prose and reach the asset itself.</p>
+</section>
+<section id="the-bundle-layout" class="level3">
+<h3 class="anchored" data-anchor-id="the-bundle-layout">The bundle layout</h3>
+<p>A bundle is a directory, and subdirectories are free-form. Two filenames are reserved: <code>index.md</code>, which lists the contents of a directory, and <code>log.md</code>, which holds chronological history.</p>
+<pre><code>knowledge/
+  index.md
+  log.md
+  metrics/
+    index.md
+    net-revenue.md
+  tables/
+    orders.md
+    customers.md
+  playbooks/
+    month-end-close.md</code></pre>
+</section>
+</section>
+<section id="one-complete-concept-start-to-finish" class="level2">
+<h2 class="anchored" data-anchor-id="one-complete-concept-start-to-finish">One complete concept, start to finish</h2>
+<p>A whole file teaches more than three more paragraphs of description. Here is a metric concept with the recommended fields filled in:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">---</span></span>
+<span id="cb2-2"><span class="an" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">type:</span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"> Metric</span></span>
+<span id="cb2-3"><span class="an" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">title:</span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"> Monthly net revenue</span></span>
+<span id="cb2-4"><span class="an" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">description:</span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"> Gross revenue less returns and taxes, by accounting month.</span></span>
+<span id="cb2-5"><span class="an" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">resource:</span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"> https://example.com/metrics/net-revenue</span></span>
+<span id="cb2-6"><span class="an" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">tags:</span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"> [finance, revenue, month-end]</span></span>
+<span id="cb2-7"><span class="an" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">generated:</span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"> { by: "human:pedro", at: "2026-09-12T19:19:17-03:00" }</span></span>
+<span id="cb2-8"><span class="an" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">status:</span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"> stable</span></span>
+<span id="cb2-9"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">---</span></span>
+<span id="cb2-10"></span>
+<span id="cb2-11"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"># Definition</span></span>
+<span id="cb2-12"></span>
+<span id="cb2-13">Sum of <span class="in" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">`gross_amount`</span> less <span class="in" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">`returns`</span> and <span class="in" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">`taxes`</span> in the</span>
+<span id="cb2-14"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span><span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">orders</span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">](/tables/orders.md)</span> table, grouped by accounting month.</span>
+<span id="cb2-15"></span>
+<span id="cb2-16"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"># Gotchas</span></span>
+<span id="cb2-17"></span>
+<span id="cb2-18">Orders canceled after the books close stay in the table with</span>
+<span id="cb2-19"><span class="in" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">`status = canceled`</span> and must be excluded. This is the single most</span>
+<span id="cb2-20">common mistake made by anyone computing this metric for the</span>
+<span id="cb2-21">first time.</span></code></pre></div></div>
+<p>Notice what that file does that a conventional metadata catalog does not. A catalog will tell you there is a <code>gross_amount</code> column of type <code>NUMERIC</code>. It will not tell you that orders canceled after the books close contaminate the result. <strong>Catalogs describe shapes; OKF describes meaning.</strong> That sentence under “Gotchas” is exactly the kind of knowledge that normally lives in one person’s head — and exactly what an agent needs in order not to get the number wrong.</p>
+</section>
+<section id="the-links-are-the-graph" class="level2">
+<h2 class="anchored" data-anchor-id="the-links-are-the-graph">The links are the graph</h2>
+<p>The second element of the format is the connection between concepts, and it is plain markdown. The recommended form is a bundle-absolute path beginning with <code>/</code>: <code>[orders](/tables/orders.md)</code>. Relative paths work too.</p>
+<p>There is no formal relationship typing — no <code>hasParent</code>, no <code>derivedFrom</code>. The meaning of a link comes from the prose around it. “Joined with <a href="../..\tables/customers.md">customers</a> on <code>customer_id</code>” is simultaneously a sentence a person reads and an edge an agent walks.</p>
+<p>That difference is what separates OKF from the RAG pattern most teams are used to. RAG chops documents into fragments and retrieves them by similarity, leaving the agent to infer connections from whatever came back. In an OKF bundle the connections are already written down, and navigation is deliberate instead of probabilistic.</p>
+</section>
+<section id="what-v0.2-added-provenance-and-trust" class="level2">
+<h2 class="anchored" data-anchor-id="what-v0.2-added-provenance-and-trust">What v0.2 added: provenance and trust</h2>
+<p>The first release solved representation. v0.2 went after a different question: how do you know whether to believe the file. Three families of optional fields arrived:</p>
+<ul>
+<li><strong><code>sources</code></strong> — what the concept derives from, with optional credibility signals such as <code>author</code>, <code>usage_count</code> and <code>last_modified</code>. Every source entry requires a <code>resource</code>;</li>
+<li><strong><code>generated</code></strong> and <strong><code>verified</code></strong> — who produced it and who checked it, shaped as <code>{ by: &lt;actor&gt;, at: &lt;timestamp&gt; }</code>;</li>
+<li><strong><code>status</code></strong> (<code>draft</code>, <code>stable</code> or <code>deprecated</code>) and <strong><code>stale_after</code></strong>, an ISO 8601 timestamp past which the content should be treated as stale.</li>
+</ul>
+<p>The actor convention is simple and says a great deal: <code>&lt;producer&gt;/&lt;version&gt;</code> for agents and tools, <code>human:&lt;id&gt;</code> for people, <code>process:&lt;id&gt;</code> for automated processes. Out of it falls a three-step trust ladder — with no <code>verified</code> field, a concept is <strong>unverified</strong>; verified only by non-human actors, it is <strong>machine-confirmed</strong>; verified by a <code>human:&lt;id&gt;</code> actor, it is <strong>human-reviewed</strong>.</p>
+<p>This is the most underrated part of the spec. In a world where a growing share of documentation is written by models, recording <em>who</em> wrote something and <em>who</em> checked it stops being bureaucracy and becomes the line between a bundle you can rely on and a pile of plausible text.</p>
+</section>
+<section id="what-okf-is-not" class="level2">
+<h2 class="anchored" data-anchor-id="what-okf-is-not">What OKF is not</h2>
+<p>Here honesty matters more than enthusiasm, and it is where most of the published commentary on the format goes wrong.</p>
+<p><strong>It does not replace RAG, MCP, OpenAPI, a vector database, permissions or governance.</strong> OKF represents and packages stable knowledge. It does not define how you authenticate an agent, it does not index a corpus of millions of documents, and it does not expose tools. The useful reading is a stack of complementary layers: <code>llms.txt</code> is a pointer, MCP is the access protocol, and OKF is the portable knowledge itself moving between them.</p>
+<p><strong>It is not an SEO signal.</strong> Publishing an OKF bundle is not, today, a confirmed ranking, crawling or LLM-citation factor. To tell search engines what a page means, the instrument is still schema.org. Anyone selling OKF as a positioning tactic is announcing a conclusion nobody has demonstrated.</p>
+<p><strong>It is not a settled standard.</strong> Google itself called v0.1 “a starting point, not a finished standard,” and the reference repository carries the notice that it is not an official Google product. As of August 2026, no major AI agent reads OKF bundles natively as default behavior — adoption is still early-practitioner territory. The spec even requires consumers to tolerate missing optional fields, unknown type values, broken links and unknown frontmatter keys, which is an explicit admission of an ecosystem still forming.</p>
+<p>None of that is a reason to ignore the format. It is a reason to adopt it for what it costs, which is close to nothing, rather than for what people promise it will return.</p>
+</section>
+<section id="how-to-start-today" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-start-today">How to start today</h2>
+<p>The best practical news about OKF is that the barrier to entry is a text editor. A sensible path:</p>
+<ol type="1">
+<li><strong>Pick one small, painful domain.</strong> The five metrics nobody computes the same way, or the three tables everyone misreads. Do not start with the whole catalog.</li>
+<li><strong>One concept per file.</strong> If a file describes two things, it is two files. This single rule improves the result more than any other.</li>
+<li><strong>Fill in <code>type</code>, <code>title</code>, <code>description</code> and <code>resource</code></strong> everywhere. The four take a minute each and change everything at consumption time.</li>
+<li><strong>Write down what is not in the schema.</strong> The gotchas, the exceptions, the reason a column is named the way it is. That is the part that justifies the bundle existing at all.</li>
+<li><strong>Link the files to each other</strong> with absolute paths, and explain the relationship in the sentence.</li>
+<li><strong>Version it in git and validate.</strong> The minimum conformance check fits on one shell line: confirm that every non-reserved <code>.md</code> file has a line starting with <code>type:</code>.</li>
+</ol>
+<p>If your documentation is already markdown, already versioned and already well cross-linked, most of the work is done. What is missing is the metadata block.</p>
+</section>
+<section id="faq" class="level2">
+<h2 class="anchored" data-anchor-id="faq">FAQ</h2>
+<section id="do-i-need-a-google-account-or-tooling-to-use-okf" class="level3">
+<h3 class="anchored" data-anchor-id="do-i-need-a-google-account-or-tooling-to-use-okf">Do I need a Google account or tooling to use OKF?</h3>
+<p>No.&nbsp;The specification is open and explicitly not tied to any cloud, database, model provider or agent framework, and it will never require a proprietary account or SDK to read, write or serve. A text editor and git are enough.</p>
+</section>
+<section id="does-okf-replace-rag" class="level3">
+<h3 class="anchored" data-anchor-id="does-okf-replace-rag">Does OKF replace RAG?</h3>
+<p>No, and the two solve different problems. OKF suits stable, curated facts you want an agent to traverse deliberately. RAG remains the tool for fuzzy queries across large corpora. In a mature architecture they coexist.</p>
+</section>
+<section id="how-does-okf-differ-from-llms.txt-and-mcp" class="level3">
+<h3 class="anchored" data-anchor-id="how-does-okf-differ-from-llms.txt-and-mcp">How does OKF differ from <code>llms.txt</code> and MCP?</h3>
+<p><code>llms.txt</code> points at the content that matters on your site. MCP defines how an agent reaches resources and tools. OKF is the content itself, packaged portably. They are complementary layers, not competitors.</p>
+</section>
+<section id="will-this-improve-my-google-rankings" class="level3">
+<h3 class="anchored" data-anchor-id="will-this-improve-my-google-rankings">Will this improve my Google rankings?</h3>
+<p>There is no evidence of that, and the format was not designed for search. To signal meaning to search engines, use schema.org. OKF serves agents, not index crawlers.</p>
+</section>
+<section id="is-it-worth-waiting-for-v1.0" class="level3">
+<h3 class="anchored" data-anchor-id="is-it-worth-waiting-for-v1.0">Is it worth waiting for v1.0?</h3>
+<p>v0.2 is backward-compatible with v0.1, and the spec’s promise is that minor versions bring only compatible additions. Since writing a file with four metadata fields costs close to nothing, waiting buys little — and what you write now stays valid later.</p>
+</section>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<ul>
+<li>The <strong>Open Knowledge Format</strong> is an open Google Cloud specification, released in June 2026, for packaging organizational knowledge as markdown readable by both humans and AI agents.</li>
+<li>A bundle is <strong>a folder of <code>.md</code> files</strong>, each representing one concept, with YAML frontmatter for metadata and plain markdown links acting as the graph.</li>
+<li>Conformance requires <strong>exactly one field</strong>: <code>type</code>. <code>title</code>, <code>description</code>, <code>resource</code> and <code>tags</code> are recommended, and they are what makes a bundle genuinely usable.</li>
+<li><strong>v0.2</strong> added provenance and trust — <code>sources</code>, <code>generated</code>, <code>verified</code>, <code>status</code> and <code>stale_after</code> — with a three-step ladder separating unverified from machine-confirmed and human-reviewed.</li>
+<li>The value is not in the schema. It is in what <strong>does not fit</strong> a schema: the gotchas, the exceptions and the definitions that currently live in one person’s head.</li>
+<li>OKF <strong>does not replace</strong> RAG, MCP, catalogs or governance, <strong>is not</strong> an SEO signal, and <strong>does not yet</strong> enjoy broad native adoption. Adopt it for the low cost, not for the promise.</li>
+</ul>
+<hr>
+<p><strong>Topics:</strong> #OKF #Markdown #AI #Documentation #GoogleCloud</p>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Open Knowledge Format: an introduction to Google's spec",
+  "description": "Open Knowledge Format is Google Cloud's open spec for packaging what an organization knows as markdown that AI agents can read. A practical introduction.",
+  "inLanguage": "en-US",
+  "datePublished": "2026-09-12T19:19:17-03:00",
+  "dateModified": "2026-09-12T19:19:17-03:00",
+  "author": { "@type": "Person", "name": "Pedro Nakashima" },
+  "mainEntityOfPage": "https://pedronakashima.com/posts/open-knowledge-format-introduction/",
+  "keywords": "open knowledge format, markdown, documentation, artificial intelligence, programming, OKF, Google Cloud, YAML frontmatter, AI agents, LLM context"
+}
+</script>
+
+
+</section>
+
+ ]]></description>
+  <category>open knowledge format</category>
+  <category>markdown</category>
+  <category>documentation</category>
+  <category>artificial intelligence</category>
+  <category>programming</category>
+  <guid>https://pedronakashima.com/posts/open-knowledge-format-introduction/</guid>
+  <pubDate>Sat, 12 Sep 2026 23:19:17 GMT</pubDate>
+  <media:content url="https://pedronakashima.com/posts/open-knowledge-format-introduction/cover.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>Introdução ao Open Knowledge Format, o padrão do Google</title>
+  <dc:creator>Pedro Nakashima</dc:creator>
+  <link>https://pedronakashima.com/posts/introducao-open-knowledge-format/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p><em>Publicado em 12 de setembro de 2026, às 18:50, por Pedro Nakashima</em></p>
+<p><img src="https://pedronakashima.com/posts/introducao-open-knowledge-format/cover.jpg" class="img-fluid"></p>
+<p>O Open Knowledge Format (OKF) é uma especificação aberta do Google Cloud, publicada em junho de 2026, para registrar o que uma organização sabe — suas tabelas, métricas, APIs, procedimentos operacionais — num formato que humanos e agentes de IA leem igualmente bem. A resposta curta para o que ele é, por baixo: uma pasta de arquivos markdown, cada um com um bloco de metadados em YAML no topo. Não há banco de dados novo, não há formato binário, não há SDK obrigatório e não há autoridade central. Se isso soa simples demais para ser chamado de especificação, você entendeu a tese: no OKF, a simplicidade é o recurso, não a limitação. Este artigo apresenta o formato para quem nunca ouviu falar dele, mostra um pacote completo funcionando e é honesto sobre o que ele ainda não resolve.</p>
+<p>Se a sintaxe dos arquivos for novidade para você, vale ler antes o <a href="../../posts/introducao-sintaxe-markdown/index.html">guia de sintaxe markdown</a> — aqui eu parto do princípio de que você já sabe o que é um <code>##</code>, um bloco de código e um link. O que interessa neste texto não é como escrever markdown, e sim o que acontece quando alguém decide que uma pasta de arquivos <code>.md</code> é a forma certa de entregar conhecimento a uma máquina.</p>
+<section id="o-que-é-o-open-knowledge-format" class="level2">
+<h2 class="anchored" data-anchor-id="o-que-é-o-open-knowledge-format">O que é o Open Knowledge Format</h2>
+<p>O Open Knowledge Format é uma especificação que define como empacotar conhecimento em um diretório de arquivos markdown com metadados em YAML, cruzados por links, de modo que um agente de IA possa percorrê-los. Cada arquivo representa <strong>um conceito</strong>: uma tabela, uma métrica, um dataset, um procedimento, um endpoint. O conjunto desses arquivos em uma pasta é o que a especificação chama de <strong>pacote</strong> (<em>bundle</em>).</p>
+<p>O formato foi anunciado em 12 de junho de 2026 pela equipe de Data Cloud do Google Cloud, assinado por Sam McVeety e Amir Hormati, e a <a href="https://github.com/GoogleCloudPlatform/knowledge-catalog">especificação, as implementações de referência e os pacotes de exemplo estão no GitHub</a> sob licença Apache 2.0. Nasceu na versão 0.1 e já está na <strong>v0.2</strong>, que acrescentou os campos de procedência e confiança que veremos adiante.</p>
+</section>
+<section id="o-problema-que-ele-resolve" class="level2">
+<h2 class="anchored" data-anchor-id="o-problema-que-ele-resolve">O problema que ele resolve</h2>
+<p>A justificativa do OKF é menos técnica do que parece. O conhecimento de uma empresa não está em um lugar: está espalhado por catálogos de metadados com APIs proprietárias, wikis, planilhas em drives compartilhados, comentários de código, docstrings e, em boa parte, na cabeça dos engenheiros mais antigos. Quando se monta um agente de IA para responder sobre os dados dessa empresa, tudo isso precisa ser remontado do zero.</p>
+<p>O <a href="https://cloud.google.com/blog/products/data-analytics/how-the-open-knowledge-format-can-improve-data-sharing">anúncio do Google Cloud</a> descreve o sintoma com precisão: “todo construtor de agentes está resolvendo o mesmo problema de montagem de contexto do zero, todo fornecedor de catálogo está reinventando os mesmos modelos de dados, e o conhecimento em si fica preso atrás de qualquer que seja a superfície que o criou”. O modelo de linguagem não é o gargalo — o contexto é.</p>
+<p>A aposta do OKF é que esse problema não precisa de uma tecnologia nova. Precisa de um acordo sobre o formato. E o formato escolhido foi o mais chato possível, de propósito: <strong>são só arquivos</strong>, empacotáveis num tarball, hospedáveis em qualquer repositório git, montáveis em qualquer sistema de arquivos; e <strong>é só markdown</strong>, legível em qualquer editor, renderizável no GitHub, indexável por qualquer ferramenta de busca.</p>
+</section>
+<section id="a-especificação-inteira-em-três-regras" class="level2">
+<h2 class="anchored" data-anchor-id="a-especificação-inteira-em-três-regras">A especificação inteira, em três regras</h2>
+<p>É aqui que o OKF surpreende quem espera um documento de cem páginas. Um pacote está em conformidade com a v0.2 se:</p>
+<ol type="1">
+<li>Todo arquivo <code>.md</code> que não seja reservado contém um bloco de metadados YAML válido;</li>
+<li>Esse bloco tem um campo <code>type</code> não vazio;</li>
+<li>Os arquivos reservados — <code>index.md</code> e <code>log.md</code> — seguem o papel definido para eles e não são usados como conceitos.</li>
+</ol>
+<p>Só isso. Tudo o mais é recomendação.</p>
+<section id="o-único-campo-obrigatório-type" class="level3">
+<h3 class="anchored" data-anchor-id="o-único-campo-obrigatório-type">O único campo obrigatório: <code>type</code></h3>
+<p>O <code>type</code> é uma string curta que diz <strong>que espécie de coisa</strong> aquele arquivo descreve: <code>BigQuery Table</code>, <code>Metric</code>, <code>Playbook</code>. Não existe registro de tipos, não existe lista fechada, não existe validador central. Isso significa que <code>Métrica</code> e <code>Metric</code> são igualmente válidos — e que a consistência dentro do seu pacote é responsabilidade de quem escreve, não da especificação. É uma escolha deliberada: o formato prefere ser adotado a ser policiado.</p>
+</section>
+<section id="os-campos-recomendados" class="level3">
+<h3 class="anchored" data-anchor-id="os-campos-recomendados">Os campos recomendados</h3>
+<p>Quatro campos não são obrigatórios, mas são o que torna o pacote de fato útil:</p>
+<ul>
+<li><strong><code>title</code></strong> — o nome legível do conceito;</li>
+<li><strong><code>description</code></strong> — um resumo de uma frase;</li>
+<li><strong><code>resource</code></strong> — o URI que identifica o ativo real por trás do documento (a tabela no console, o endpoint, o painel);</li>
+<li><strong><code>tags</code></strong> — uma lista YAML de strings para categorizar.</li>
+</ul>
+<p>O <code>resource</code> é o mais subestimado dos quatro. É ele que liga a descrição ao objeto descrito, e é o que permite a um agente sair do texto e ir até a coisa.</p>
+</section>
+<section id="a-estrutura-da-pasta" class="level3">
+<h3 class="anchored" data-anchor-id="a-estrutura-da-pasta">A estrutura da pasta</h3>
+<p>O pacote é um diretório, com subdiretórios livres. Dois nomes são reservados: <code>index.md</code>, que lista o conteúdo do diretório, e <code>log.md</code>, que guarda o histórico cronológico.</p>
+<pre><code>conhecimento/
+  index.md
+  log.md
+  metricas/
+    index.md
+    receita-liquida.md
+  tabelas/
+    pedidos.md
+    clientes.md
+  playbooks/
+    fechamento-mensal.md</code></pre>
+</section>
+</section>
+<section id="um-conceito-completo-do-começo-ao-fim" class="level2">
+<h2 class="anchored" data-anchor-id="um-conceito-completo-do-começo-ao-fim">Um conceito completo, do começo ao fim</h2>
+<p>Vale mais ver um arquivo inteiro do que ler mais três parágrafos de descrição. Este é um conceito do tipo métrica, com os campos recomendados preenchidos:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">---</span></span>
+<span id="cb2-2"><span class="an" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">type:</span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"> Métrica</span></span>
+<span id="cb2-3"><span class="an" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">title:</span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"> Receita líquida mensal</span></span>
+<span id="cb2-4"><span class="an" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">description:</span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"> Receita bruta menos devoluções e impostos, por mês de competência.</span></span>
+<span id="cb2-5"><span class="an" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">resource:</span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"> https://exemplo.com.br/metricas/receita-liquida</span></span>
+<span id="cb2-6"><span class="an" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">tags:</span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"> [financeiro, receita, fechamento]</span></span>
+<span id="cb2-7"><span class="an" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">generated:</span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"> { by: "human:pedro", at: "2026-09-12T18:50:40-03:00" }</span></span>
+<span id="cb2-8"><span class="an" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">status:</span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"> stable</span></span>
+<span id="cb2-9"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">---</span></span>
+<span id="cb2-10"></span>
+<span id="cb2-11"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"># Definição</span></span>
+<span id="cb2-12"></span>
+<span id="cb2-13">Soma de <span class="in" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">`valor_bruto`</span> menos <span class="in" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">`devolucoes`</span> e <span class="in" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">`impostos`</span> na tabela</span>
+<span id="cb2-14"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span><span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">pedidos</span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">](/tabelas/pedidos.md)</span>, agrupada por mês de competência.</span>
+<span id="cb2-15"></span>
+<span id="cb2-16"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"># Armadilhas</span></span>
+<span id="cb2-17"></span>
+<span id="cb2-18">Pedidos cancelados após o fechamento permanecem na base com</span>
+<span id="cb2-19"><span class="in" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">`status = cancelado`</span> e precisam ser excluídos do cálculo. É o erro</span>
+<span id="cb2-20">mais comum de quem levanta essa métrica pela primeira vez.</span></code></pre></div></div>
+<p>Repare no que esse arquivo faz que um catálogo de metadados tradicional não faz. Um catálogo diria que existe uma coluna <code>valor_bruto</code> do tipo <code>NUMERIC</code>. Ele não diria que pedidos cancelados depois do fechamento contaminam o resultado. <strong>Catálogos descrevem formatos; o OKF descreve significado.</strong> Essa frase da seção de armadilhas é exatamente o tipo de conhecimento que costuma morar na cabeça de uma pessoa só — e é exatamente o que um agente precisa para não errar.</p>
+</section>
+<section id="os-links-são-o-grafo" class="level2">
+<h2 class="anchored" data-anchor-id="os-links-são-o-grafo">Os links são o grafo</h2>
+<p>O segundo elemento do formato é a ligação entre conceitos, e ela usa markdown puro. A forma recomendada é o caminho absoluto dentro do pacote, começando com <code>/</code>: <code>[pedidos](/tabelas/pedidos.md)</code>. Caminhos relativos também valem.</p>
+<p>Não há tipagem formal de relacionamento — nada de <code>hasParent</code> ou <code>derivedFrom</code>. O sentido da ligação vem da prosa em volta dela. “Junta-se com <a href="../..\tabelas/clientes.md">clientes</a> por <code>customer_id</code>” é, ao mesmo tempo, uma frase que um humano lê e uma aresta que um agente percorre.</p>
+<p>É essa diferença que separa o OKF do padrão de RAG a que a maioria está acostumada. O RAG pica documentos em fragmentos e os recupera por similaridade; o agente precisa inferir as conexões a partir do que voltou. Num pacote OKF as conexões já estão escritas, e a navegação é deliberada em vez de probabilística.</p>
+</section>
+<section id="o-que-a-v0.2-acrescentou-procedência-e-confiança" class="level2">
+<h2 class="anchored" data-anchor-id="o-que-a-v0.2-acrescentou-procedência-e-confiança">O que a v0.2 acrescentou: procedência e confiança</h2>
+<p>A primeira versão resolvia representação. A v0.2 atacou um problema diferente: como saber se dá para acreditar no arquivo. Três famílias de campos opcionais entraram:</p>
+<ul>
+<li><strong><code>sources</code></strong> — de onde o conceito deriva, com sinais de credibilidade opcionais como <code>author</code>, <code>usage_count</code> e <code>last_modified</code>. Cada fonte exige um campo <code>resource</code>;</li>
+<li><strong><code>generated</code></strong> e <strong><code>verified</code></strong> — quem criou e quem conferiu, no formato <code>{ by: &lt;ator&gt;, at: &lt;timestamp&gt; }</code>;</li>
+<li><strong><code>status</code></strong> (<code>draft</code>, <code>stable</code> ou <code>deprecated</code>) e <strong><code>stale_after</code></strong>, um carimbo ISO 8601 a partir do qual o conteúdo deve ser tratado como vencido.</li>
+</ul>
+<p>A convenção de identificação de atores é simples e diz muito: <code>&lt;produtor&gt;/&lt;versão&gt;</code> para agentes e ferramentas, <code>human:&lt;id&gt;</code> para pessoas, <code>process:&lt;id&gt;</code> para processos automáticos. Dela sai uma escala de confiança de três degraus: sem <code>verified</code>, o conceito é <strong>não verificado</strong>; verificado apenas por atores não humanos, é <strong>confirmado por máquina</strong>; verificado por um ator <code>human:&lt;id&gt;</code>, é <strong>revisado por humano</strong>.</p>
+<p>Esse é o ponto mais subestimado da especificação. Num mundo em que boa parte da documentação passa a ser escrita por modelos, registrar <em>quem</em> escreveu e <em>quem</em> conferiu deixa de ser burocracia e vira a diferença entre um pacote confiável e um amontoado plausível.</p>
+</section>
+<section id="o-que-o-okf-não-é" class="level2">
+<h2 class="anchored" data-anchor-id="o-que-o-okf-não-é">O que o OKF não é</h2>
+<p>Aqui é onde a honestidade importa mais do que o entusiasmo, e onde a maior parte do material publicado sobre o formato erra.</p>
+<p><strong>Não substitui RAG, MCP, OpenAPI, banco vetorial, controle de permissões nem governança.</strong> O OKF representa e empacota conhecimento estável; ele não define como você autentica um agente, não indexa um corpus de milhões de documentos e não expõe ferramentas. A leitura mais útil é a de camadas que se somam: o <code>llms.txt</code> é um ponteiro, o MCP é o protocolo de acesso, e o OKF é o conhecimento em si, portátil, que trafega entre os dois.</p>
+<p><strong>Não é um sinal de SEO.</strong> Publicar um pacote OKF não é, hoje, um fator confirmado de ranqueamento, de rastreamento ou de citação por modelos de linguagem. Para dizer a buscadores o que sua página é, o instrumento continua sendo o schema.org. Quem estiver vendendo OKF como técnica de posicionamento está adiantando uma conclusão que ninguém demonstrou.</p>
+<p><strong>Não é um padrão consolidado.</strong> O próprio Google classificou a v0.1 como “um ponto de partida, não um padrão terminado”, e o repositório de referência traz o aviso de que não é um produto oficial do Google. Até agosto de 2026, nenhum agente de IA de grande porte lê pacotes OKF nativamente como comportamento padrão — a adoção ainda é de pioneiros. A especificação exige, inclusive, que os consumidores tolerem campos ausentes, tipos desconhecidos, links quebrados e chaves que não conhecem, o que é a admissão explícita de um ecossistema em formação.</p>
+<p>Nada disso é motivo para ignorar o formato. É motivo para adotá-lo pelo que ele custa — que é quase nada — e não pelo que prometem que ele renderá.</p>
+</section>
+<section id="como-começar-hoje" class="level2">
+<h2 class="anchored" data-anchor-id="como-começar-hoje">Como começar hoje</h2>
+<p>A melhor notícia prática do OKF é que a barreira de entrada é um editor de texto. Um caminho razoável:</p>
+<ol type="1">
+<li><strong>Escolha um domínio pequeno e doloroso.</strong> As cinco métricas que ninguém calcula igual, ou as três tabelas que todo mundo interpreta errado. Não comece pelo catálogo inteiro.</li>
+<li><strong>Um conceito por arquivo.</strong> Se o arquivo descreve duas coisas, são dois arquivos. É a regra que mais melhora o resultado.</li>
+<li><strong>Preencha <code>type</code>, <code>title</code>, <code>description</code> e <code>resource</code></strong> em todos. Os quatro levam um minuto e mudam tudo na hora do consumo.</li>
+<li><strong>Escreva o que não está no esquema.</strong> As armadilhas, as exceções, o motivo de a coluna se chamar daquele jeito. Essa é a parte que justifica o pacote existir.</li>
+<li><strong>Ligue os arquivos entre si</strong> com links absolutos e explique a relação na frase.</li>
+<li><strong>Versione em git e valide.</strong> A verificação mínima de conformidade cabe numa linha de shell: confirmar que todo <code>.md</code> não reservado tem uma linha começando com <code>type:</code>.</li>
+</ol>
+<p>Se a sua documentação já é markdown, já está versionada e já é bem ligada, boa parte do trabalho está feita — o que falta é o bloco de metadados.</p>
+</section>
+<section id="perguntas-frequentes" class="level2">
+<h2 class="anchored" data-anchor-id="perguntas-frequentes">Perguntas frequentes</h2>
+<section id="preciso-de-alguma-ferramenta-ou-conta-do-google-para-usar-o-okf" class="level3">
+<h3 class="anchored" data-anchor-id="preciso-de-alguma-ferramenta-ou-conta-do-google-para-usar-o-okf">Preciso de alguma ferramenta ou conta do Google para usar o OKF?</h3>
+<p>Não. A especificação é aberta e explicitamente não amarrada a nenhuma nuvem, banco de dados, provedor de modelo ou framework de agente, e nunca exigirá conta proprietária ou SDK para ser lida, escrita ou servida. Um editor de texto e o git bastam.</p>
+</section>
+<section id="o-okf-substitui-o-rag" class="level3">
+<h3 class="anchored" data-anchor-id="o-okf-substitui-o-rag">O OKF substitui o RAG?</h3>
+<p>Não, e os dois resolvem coisas diferentes. O OKF é bom para fatos estáveis e curados, que você quer que o agente percorra de forma deliberada. O RAG continua sendo a ferramenta para consultas difusas sobre corpora grandes. Numa arquitetura madura, os dois convivem.</p>
+</section>
+<section id="qual-a-diferença-entre-okf-llms.txt-e-mcp" class="level3">
+<h3 class="anchored" data-anchor-id="qual-a-diferença-entre-okf-llms.txt-e-mcp">Qual a diferença entre OKF, <code>llms.txt</code> e MCP?</h3>
+<p>O <code>llms.txt</code> aponta para o conteúdo que importa no seu site; o MCP define como um agente acessa recursos e ferramentas; o OKF é o conteúdo em si, empacotado de forma portátil. São camadas complementares, não concorrentes.</p>
+</section>
+<section id="isso-melhora-meu-ranqueamento-no-google" class="level3">
+<h3 class="anchored" data-anchor-id="isso-melhora-meu-ranqueamento-no-google">Isso melhora meu ranqueamento no Google?</h3>
+<p>Não há evidência disso, e o formato não foi desenhado para busca. Para sinalizar significado a buscadores, use schema.org. O OKF serve a agentes, não a rastreadores de índice.</p>
+</section>
+<section id="vale-esperar-a-v1.0-para-começar" class="level3">
+<h3 class="anchored" data-anchor-id="vale-esperar-a-v1.0-para-começar">Vale esperar a v1.0 para começar?</h3>
+<p>A v0.2 é retrocompatível com a v0.1, e a promessa da especificação é que versões menores tragam apenas acréscimos compatíveis. Como o custo de escrever um arquivo com quatro campos de metadados é próximo de zero, esperar rende pouco — e o material escrito agora continua válido depois.</p>
+</section>
+</section>
+<section id="conclusão" class="level2">
+<h2 class="anchored" data-anchor-id="conclusão">Conclusão</h2>
+<ul>
+<li>O <strong>Open Knowledge Format</strong> é uma especificação aberta do Google Cloud, de junho de 2026, para empacotar conhecimento organizacional em markdown legível por humanos e por agentes de IA.</li>
+<li>Um pacote é <strong>uma pasta de arquivos <code>.md</code></strong>, cada um representando um conceito, com metadados em YAML e links markdown fazendo o papel de grafo.</li>
+<li>A conformidade exige <strong>um único campo</strong>: <code>type</code>. <code>title</code>, <code>description</code>, <code>resource</code> e <code>tags</code> são recomendados e é o que torna o pacote útil de verdade.</li>
+<li>A <strong>v0.2</strong> acrescentou procedência e confiança — <code>sources</code>, <code>generated</code>, <code>verified</code>, <code>status</code> e <code>stale_after</code> —, com uma escala de três degraus que distingue o não verificado do confirmado por máquina e do revisado por humano.</li>
+<li>O valor não está no esquema, e sim no que <strong>não cabe</strong> num esquema: as armadilhas, as exceções e as definições que hoje moram na cabeça de uma pessoa só.</li>
+<li>O formato <strong>não substitui</strong> RAG, MCP, catálogos ou governança, <strong>não é</strong> sinal de SEO e <strong>ainda não</strong> tem adoção nativa ampla. Adote pelo custo baixo, não pela promessa.</li>
+</ul>
+<hr>
+<p><strong>Tópicos:</strong> #OKF #Markdown #InteligenciaArtificial #Documentacao #GoogleCloud</p>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Introdução ao Open Knowledge Format, o padrão do Google",
+  "description": "Open Knowledge Format: o padrão aberto do Google Cloud que empacota o conhecimento de uma organização em markdown para agentes de IA lerem. Guia prático.",
+  "inLanguage": "pt-BR",
+  "datePublished": "2026-09-12T18:50:40-03:00",
+  "dateModified": "2026-09-12T18:50:40-03:00",
+  "author": { "@type": "Person", "name": "Pedro Nakashima" },
+  "mainEntityOfPage": "https://pedronakashima.com/posts/introducao-open-knowledge-format/",
+  "keywords": "open knowledge format, markdown, documentação, inteligência artificial, programação, OKF, Google Cloud, YAML, agentes de IA, contexto para LLMs"
+}
+</script>
+
+
+</section>
+
+ ]]></description>
+  <category>open knowledge format</category>
+  <category>markdown</category>
+  <category>documentação</category>
+  <category>inteligência artificial</category>
+  <category>programação</category>
+  <guid>https://pedronakashima.com/posts/introducao-open-knowledge-format/</guid>
+  <pubDate>Sat, 12 Sep 2026 22:50:40 GMT</pubDate>
+  <media:content url="https://pedronakashima.com/posts/introducao-open-knowledge-format/cover.jpg" medium="image" type="image/jpeg"/>
+</item>
 <item>
   <title>Introdução à sintaxe markdown: guia prático e completo</title>
   <dc:creator>Pedro Nakashima</dc:creator>

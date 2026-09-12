@@ -2,6 +2,8 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/open-knowledge-format-introduction/index.html",
+      "/posts/introducao-open-knowledge-format/index.html",
       "/posts/introducao-sintaxe-markdown/index.html",
       "/posts/introducao-sintaxe-python/index.html",
       "/posts/learn-python-2026/index.html",
