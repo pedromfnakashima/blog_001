@@ -9,8 +9,533 @@
 <link>https://pedronakashima.com/</link>
 <atom:link href="https://pedronakashima.com/index.xml" rel="self" type="application/rss+xml"/>
 <description>Análises e guias de Pedro Nakashima sobre ciência de dados, machine learning, IA e tecnologia — e também economia, direito, política, cinema e futebol.</description>
-<generator>quarto-1.10.18</generator>
-<lastBuildDate>Thu, 10 Sep 2026 11:30:28 GMT</lastBuildDate>
+<generator>quarto-1.9.38</generator>
+<lastBuildDate>Sat, 12 Sep 2026 12:46:16 GMT</lastBuildDate>
+<item>
+  <title>Introdução à sintaxe markdown: guia prático e completo</title>
+  <dc:creator>Pedro Nakashima</dc:creator>
+  <link>https://pedronakashima.com/posts/introducao-sintaxe-markdown/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p><em>Publicado em 12 de setembro de 2026, às 08:46, por Pedro Nakashima</em></p>
+<p><em>Atualizado em 12 de setembro de 2026, às 09:50, por Pedro Nakashima</em></p>
+<p><img src="https://pedronakashima.com/posts/introducao-sintaxe-markdown/cover.jpg" class="img-fluid"></p>
+<p>A sintaxe markdown é o conjunto mínimo de sinais de pontuação que transforma texto puro em documento formatado: dois asteriscos viram negrito, uma cerquilha vira título, três crases abrem um bloco de código. Este guia cobre, na ordem em que você vai precisar, a extensão do arquivo e como visualizá-lo renderizado, as três formas de ênfase, código em bloco e inline com identificação de linguagem, listas numeradas e não numeradas, links para fora e para dentro do próprio documento, tabelas e os detalhes que separam quem escreve markdown de quem apenas o usa. No fim, o argumento que mais importa hoje: markdown deixou de ser uma conveniência de programador e virou o formato em que humanos e modelos de linguagem conversam. Se você chegou aqui depois do <a href="../..\posts/introducao-sintaxe-python/">guia de sintaxe Python</a>, a lógica é a mesma: uma sintaxe pequena, aprendida de uma vez só, que rende todos os dias.</p>
+<section id="o-que-é-markdown" class="level2">
+<h2 class="anchored" data-anchor-id="o-que-é-markdown">O que é markdown</h2>
+<p>Markdown é uma linguagem de marcação leve criada por John Gruber em 2004, com duas metas declaradas: o texto deve ser legível <strong>antes</strong> de ser renderizado, e o resultado renderizado deve ser HTML. É essa dupla natureza que explica seu sucesso — o arquivo <code>.md</code> é útil aberto no Bloco de Notas e útil publicado numa página web, sem conversão manual no meio.</p>
+<p>A especificação original de Gruber ainda está no ar, na <a href="https://daringfireball.net/projects/markdown/">página do projeto Markdown no Daring Fireball</a>, e vale a leitura pelo tom: é uma proposta editorial, não um padrão técnico. A formalização veio depois. Em 2016, o <a href="https://www.rfc-editor.org/rfc/rfc7763.html">RFC 7763</a> registrou o tipo de mídia <code>text/markdown</code> na IETF, reconhecendo explicitamente que markdown é uma <em>família</em> de sintaxes, e não uma só. E o esforço de dar a essa família um núcleo testável produziu o <a href="https://spec.commonmark.org/">CommonMark</a>, hoje na versão 0.31.2, de janeiro de 2024, com centenas de casos de teste que qualquer implementação pode rodar.</p>
+<p>Guarde essa distinção desde já, porque ela explica quase todo problema prático que você vai encontrar: <strong>markdown não é um padrão único</strong>. Há um núcleo comum (CommonMark) e há extensões que alguns renderizadores implementam e outros não — tabela e texto tachado, por exemplo, estão fora do núcleo.</p>
+</section>
+<section id="o-arquivo-extensão-como-editar-e-como-ver-renderizado" class="level2">
+<h2 class="anchored" data-anchor-id="o-arquivo-extensão-como-editar-e-como-ver-renderizado">O arquivo: extensão, como editar e como ver renderizado</h2>
+<section id="a-extensão" class="level3">
+<h3 class="anchored" data-anchor-id="a-extensão">A extensão</h3>
+<p>A extensão consagrada é <strong><code>.md</code></strong>. Você também vai encontrar <code>.markdown</code>, <code>.mdown</code> e <code>.mkd</code>, todas válidas e todas raras: use <code>.md</code>, que é o que o GitHub, o VS Code, o Obsidian e praticamente todo o ecossistema reconhecem sem configuração.</p>
+<p>E vale saber o que a extensão <strong>não</strong> faz: ela não muda um único byte do conteúdo. Renomear um <code>.txt</code> para <code>.md</code> deixa o arquivo exatamente igual — o que muda é só como as ferramentas passam a tratá-lo, qual realçador o editor aplica e se o renderizador vai interpretar os asteriscos ou mostrá-los crus. Existem ainda dialetos que acrescentam ao markdown blocos de código de fato executáveis, muito usados em computação científica, e alguns adotam extensão própria; neles, a sintaxe de texto é a mesma que você vai aprender aqui.</p>
+<p>Por baixo, um arquivo markdown é <strong>texto puro</strong>, e é isso que importa. Não há formato binário, não há cabeçalho proprietário, não há versão de programa. Grave sempre em <strong>UTF-8 sem BOM</strong>: o BOM é um caractere invisível que alguns editores do Windows inserem no começo do arquivo e que quebra o bloco de metadados de geradores de site como Hugo, Jekyll e MkDocs, porque o <code>---</code> deixa de ser a primeira coisa do arquivo.</p>
+</section>
+<section id="como-editar" class="level3">
+<h3 class="anchored" data-anchor-id="como-editar">Como editar</h3>
+<p>Qualquer editor de texto serve — e essa é a primeira vantagem concreta do formato. Na prática, três caminhos cobrem quase todo mundo:</p>
+<ul>
+<li><strong>VS Code</strong>, que é o padrão de fato: realce de sintaxe embutido e pré-visualização lado a lado com <code>Ctrl+Shift+V</code> (ou <code>Cmd+Shift+V</code> no macOS). É a combinação mais produtiva para quem também escreve código.</li>
+<li><strong>Obsidian</strong> ou <strong>Typora</strong>, para quem escreve notas e textos longos: editam markdown em modo quase-WYSIWYG, mostrando a formatação aplicada enquanto você digita, e gravam arquivos <code>.md</code> comuns na sua própria pasta.</li>
+<li><strong>O próprio navegador</strong>, no editor web do GitHub ou do GitLab, que tem aba de <em>preview</em> ao lado da aba de edição. Não precisa instalar nada.</li>
+</ul>
+<p>O que <strong>não</strong> serve é editor de texto rico — Word, Google Docs, WordPad. Eles gravam formatação binária, não os caracteres <code>**</code> que markdown exige.</p>
+</section>
+<section id="como-visualizar-renderizado" class="level3">
+<h3 class="anchored" data-anchor-id="como-visualizar-renderizado">Como visualizar renderizado</h3>
+<p>Renderizar é converter o markdown em HTML (ou PDF, ou DOCX). Você tem quatro níveis de esforço:</p>
+<ol type="1">
+<li><strong>Automático, sem fazer nada</strong>: GitHub, GitLab, Bitbucket, Notion, Obsidian, Discord, Slack e Reddit renderizam markdown na hora, ao exibir o conteúdo. Um <code>README.md</code> num repositório aparece formatado porque a plataforma converte a cada visita.</li>
+<li><strong>Pré-visualização no editor</strong>: o <code>Ctrl+Shift+V</code> do VS Code abre um painel que atualiza a cada tecla. É o laço de retorno mais curto e o que você vai usar em 90% do tempo.</li>
+<li><strong>Conversão por linha de comando</strong>, com o <a href="https://pandoc.org/">Pandoc</a>, que é o conversor universal de documentos: <code>pandoc artigo.md -o artigo.html</code> gera HTML, e trocar a extensão de saída para <code>.pdf</code> ou <code>.docx</code> gera PDF ou Word a partir do <strong>mesmo</strong> arquivo de origem.</li>
+<li><strong>Publicação como site</strong>, com Hugo, Jekyll, MkDocs ou Eleventy, que pegam uma pasta de arquivos markdown e produzem um site inteiro com navegação, busca e feed RSS.</li>
+</ol>
+<p>O ponto a internalizar: <strong>markdown não formata nada por si</strong>. Ele descreve a estrutura; o renderizador decide a aparência. É por isso que o mesmo <code>**negrito**</code> sai em fontes diferentes no GitHub e no seu blog — e é também por isso que um recurso pode funcionar num lugar e falhar no outro.</p>
+</section>
+</section>
+<section id="ênfase-negrito-itálico-e-tachado" class="level2">
+<h2 class="anchored" data-anchor-id="ênfase-negrito-itálico-e-tachado">Ênfase: negrito, itálico e tachado</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>O que você quer</th>
+<th>Como escreve</th>
+<th>Como sai</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Itálico</td>
+<td><code>*texto*</code> ou <code>_texto_</code></td>
+<td><em>texto</em></td>
+</tr>
+<tr class="even">
+<td>Negrito</td>
+<td><code>**texto**</code> ou <code>__texto__</code></td>
+<td><strong>texto</strong></td>
+</tr>
+<tr class="odd">
+<td>Negrito e itálico</td>
+<td><code>***texto***</code></td>
+<td><strong><em>texto</em></strong></td>
+</tr>
+<tr class="even">
+<td>Tachado</td>
+<td><code>~~texto~~</code></td>
+<td><del>texto</del></td>
+</tr>
+</tbody>
+</table>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1">Escrever bem exige *clareza*, **precisão** e ***as duas coisas juntas***.</span>
+<span id="cb1-2">O prazo era ~~sexta-feira~~ segunda-feira.</span></code></pre></div></div>
+<p>Três detalhes que evitam frustração, e nenhum deles é óbvio:</p>
+<p><strong>Prefira o asterisco ao sublinhado.</strong> Os dois funcionam, mas eles não se comportam igual <strong>dentro</strong> de uma palavra. Pela regra do CommonMark, <code>**</code> aplica ênfase no meio de uma palavra e <code>__</code> não aplica — de modo que <code>pandas**3**.0</code> funciona e <code>pandas__3__.0</code> sai literal. Como nomes de variáveis e funções em código costumam ter sublinhado (<code>meu_nome_de_variavel</code>), usar <code>*</code> e <code>**</code> para ênfase evita colisão acidental.</p>
+<p><strong>O tachado é extensão, não núcleo.</strong> O <code>~~texto~~</code> vem do <a href="https://github.github.com/gfm/">GitHub Flavored Markdown</a>, o GFM, especificado na versão 0.29-gfm de abril de 2019 como um superconjunto estrito do CommonMark. Isso significa que ele funciona no GitHub, no GitLab, no Pandoc e na maioria dos renderizadores modernos, mas pode sair literal num renderizador que implemente só o CommonMark puro. A especificação do GFM aceita também um til só (<code>~texto~</code>); use dois, que é a forma portável.</p>
+<p><strong>Não existe sublinhado de texto em markdown.</strong> Sublinhar é convenção de link na web, e o formato deliberadamente não oferece sintaxe para isso. Se você precisar mesmo, a saída é HTML inline: <code>&lt;u&gt;texto&lt;/u&gt;</code>, que a maioria dos renderizadores aceita.</p>
+</section>
+<section id="código-em-bloco-e-inline-com-identificação-de-linguagem" class="level2">
+<h2 class="anchored" data-anchor-id="código-em-bloco-e-inline-com-identificação-de-linguagem">Código: em bloco e inline, com identificação de linguagem</h2>
+<p>Esta é a parte em que markdown se descola de qualquer editor de texto comum, e a razão pela qual o formato nasceu num ambiente de programadores.</p>
+<section id="código-inline" class="level3">
+<h3 class="anchored" data-anchor-id="código-inline">Código inline</h3>
+<p>Envolva o trecho em <strong>crases simples</strong>. Serve para nomes de arquivo, comandos, variáveis, funções e qualquer coisa que deva sair em fonte monoespaçada, sem interpretar a marcação de dentro:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1">Rode <span class="in" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">`pip install pandas`</span> e depois chame <span class="in" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">`df.head()`</span> para ver as cinco primeiras linhas.</span></code></pre></div></div>
+<p>Se o próprio código contém uma crase, use <strong>duas crases</strong> na volta e um espaço de folga: <code></code>uma <code>crase</code> por dentro<code></code>. É o mesmo princípio de escapar delimitadores em qualquer linguagem.</p>
+</section>
+<section id="bloco-de-código-com-linguagem" class="level3">
+<h3 class="anchored" data-anchor-id="bloco-de-código-com-linguagem">Bloco de código com linguagem</h3>
+<p>Abra e feche com <strong>três crases</strong>. A palavra imediatamente após as três crases de abertura é o que o CommonMark chama de <em>info string</em>, e é ali que você declara a linguagem:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><span class="in" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">```python</span></span>
+<span id="cb3-2"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> pandas <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> pd</span>
+<span id="cb3-3"></span>
+<span id="cb3-4">df <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> pd.read_csv(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"extratos.csv"</span>)</span>
+<span id="cb3-5"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(df.groupby(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"banco"</span>)[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"valor"</span>].<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">sum</span>())</span>
+<span id="cb3-6"><span class="in" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">```</span></span></code></pre></div></div>
+<p>O resultado:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> pandas <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> pd</span>
+<span id="cb4-2"></span>
+<span id="cb4-3">df <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> pd.read_csv(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"extratos.csv"</span>)</span>
+<span id="cb4-4"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(df.groupby(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"banco"</span>)[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"valor"</span>].<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">sum</span>())</span></code></pre></div></div>
+<p>Os identificadores mais usados são <code>python</code>, <code>r</code>, <code>sql</code>, <code>bash</code>, <code>json</code>, <code>yaml</code>, <code>html</code>, <code>css</code>, <code>javascript</code>, <code>markdown</code> e <code>diff</code>. Aliases funcionam (<code>py</code>, <code>js</code>, <code>sh</code>), mas escreva o nome completo: é o que todo realçador reconhece.</p>
+<p>E aqui vai a nuance que quase todo tutorial omite: <strong>markdown não colore nada</strong>. A <em>info string</em> é apenas um rótulo que o markdown repassa ao HTML como uma classe (<code>class="language-python"</code>). Quem pinta as palavras-chave é uma biblioteca de realce do lado do renderizador — Highlight.js e Prism no navegador, Pygments no Pandoc e no Sphinx, Chroma no Hugo. Consequência prática: se o seu bloco sai sem cor, o problema não está no markdown, está no tema ou no realçador do site. E se você escreve <code>pythonn</code> por engano, nada quebra — o bloco só sai sem realce.</p>
+<p>Vale conhecer a forma antiga, porque você vai encontrá-la em documentos de dez anos atrás: um bloco também se cria <strong>indentando quatro espaços</strong>. Ela ainda funciona no CommonMark, mas não permite declarar linguagem e é fácil de acionar por acidente ao colar texto indentado. Use sempre as crases.</p>
+<p>Para mostrar um bloco de código <strong>dentro</strong> de outro bloco — como fiz acima para exibir a sintaxe crua — use <strong>quatro crases</strong> na cerca externa. A regra do CommonMark é simples: a cerca de fechamento precisa ter pelo menos tantas crases quanto a de abertura, então uma cerca de quatro engole uma de três inteira.</p>
+</section>
+</section>
+<section id="listas-numeradas-e-não-numeradas" class="level2">
+<h2 class="anchored" data-anchor-id="listas-numeradas-e-não-numeradas">Listas numeradas e não numeradas</h2>
+<p>Para lista <strong>não numerada</strong>, comece a linha com <code>-</code>, <code>*</code> ou <code>+</code>, seguido de um espaço. Escolha um marcador e mantenha-o no documento inteiro: trocar de marcador no meio faz alguns renderizadores iniciarem uma <strong>lista nova</strong> em vez de continuar a mesma.</p>
+<p>Para lista <strong>numerada</strong>, use número, ponto e espaço:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">- </span>Primeiro item</span>
+<span id="cb5-2"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">- </span>Segundo item</span>
+<span id="cb5-3"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">  - </span>Subitem, indentado com dois espaços</span>
+<span id="cb5-4"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">  - </span>Outro subitem</span>
+<span id="cb5-5"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">- </span>Terceiro item</span>
+<span id="cb5-6"></span>
+<span id="cb5-7"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">1. </span>Instale o Pandoc</span>
+<span id="cb5-8"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">2. </span>Escreva o arquivo .md</span>
+<span id="cb5-9"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">3. </span>Converta para HTML</span></code></pre></div></div>
+<p>Duas coisas que economizam tempo real:</p>
+<p><strong>Os números não precisam estar certos.</strong> O CommonMark usa o número do <strong>primeiro</strong> item para saber onde a lista começa e renumera o resto sozinho, em sequência. Escrever <code>1.</code> em todas as linhas produz uma lista <code>1, 2, 3</code> perfeita — e é o que você deve fazer em listas longas, porque assim inserir um item no meio não obriga a renumerar nada. Já começar com <code>5.</code> produz uma lista que começa em 5, o que é útil ao continuar uma sequência interrompida.</p>
+<p><strong>A indentação do aninhamento segue o conteúdo do item pai, não uma contagem fixa.</strong> Em lista não numerada, o marcador <code>-</code> mais o espaço ocupam duas colunas, então dois espaços bastam. Em lista numerada, <code>1.</code> mais o espaço ocupam três, e a regra pede três espaços. Quatro espaços funcionam nos dois casos e é o que eu recomendo por simplicidade: indente sublistas com quatro espaços e pare de pensar nisso. E sempre deixe uma <strong>linha em branco antes</strong> da lista — sem ela, muitos renderizadores tratam o primeiro item como continuação do parágrafo anterior. É o erro mais comum de todos.</p>
+<p>O GFM acrescenta a <strong>lista de tarefas</strong>, que o GitHub converte em caixas clicáveis dentro de <em>issues</em> e <em>pull requests</em>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">- </span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">[x]</span> Escrever o rascunho</span>
+<span id="cb6-2"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">- </span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">[ ]</span> Revisar as fontes</span>
+<span id="cb6-3"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">- </span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">[ ]</span> Publicar</span></code></pre></div></div>
+</section>
+<section id="links-para-fora-e-para-dentro-do-documento" class="level2">
+<h2 class="anchored" data-anchor-id="links-para-fora-e-para-dentro-do-documento">Links: para fora e para dentro do documento</h2>
+<section id="links-para-fora" class="level3">
+<h3 class="anchored" data-anchor-id="links-para-fora">Links para fora</h3>
+<p>A forma inline é <code>[texto visível](url)</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1">A especificação está no <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span><span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">site do CommonMark</span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">](https://spec.commonmark.org/)</span>.</span>
+<span id="cb7-2">A especificação está no <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span><span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">site do CommonMark</span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">](https://spec.commonmark.org/ "CommonMark Spec")</span>.</span>
+<span id="cb7-3">Cole a URL crua entre sinais de menor e maior: <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;https://spec.commonmark.org/&gt;</span></span></code></pre></div></div>
+<p>A segunda linha acrescenta um <strong>título</strong> entre aspas, que vira a tooltip do navegador. A terceira é o <em>autolink</em>, útil quando você quer que a URL apareça por extenso. O GFM vai além e transforma URLs soltas em links automaticamente, sem os sinais de menor e maior — mas isso é extensão, não núcleo, então não confie nela em documento que vá rodar em outro renderizador.</p>
+<p>Para texto que cita a mesma fonte várias vezes, existe o <strong>link por referência</strong>, que tira a URL do meio da frase:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1">Tanto o <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span><span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">CommonMark</span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">][cm]</span> quanto o <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span><span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">GFM</span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">][gfm]</span> são superconjuntos da proposta de 2004.</span>
+<span id="cb8-2">O <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span><span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">CommonMark</span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">][cm]</span> tem uma suíte de testes.</span>
+<span id="cb8-3"></span>
+<span id="cb8-4"><span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">[cm]: https://spec.commonmark.org/</span></span>
+<span id="cb8-5"><span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">[gfm]: https://github.github.com/gfm/</span></span></code></pre></div></div>
+<p>As definições podem ficar em qualquer lugar do arquivo — costume é agrupá-las no fim — e não aparecem no documento renderizado. Em texto denso de citações, é o que mantém o parágrafo legível na forma crua.</p>
+<p>Uma regra de escrita, não de sintaxe, e a que mais importa: <strong>a âncora descreve o destino</strong>. Escreva “os dados do IBGE” ou “o acórdão do STF”, nunca “clique aqui”. Isso vale para o leitor com leitor de tela, que navega pulando de link em link e ouve só a âncora, e vale para o buscador, que usa a âncora como sinal do que há do outro lado.</p>
+</section>
+<section id="links-para-dentro-do-documento" class="level3">
+<h3 class="anchored" data-anchor-id="links-para-dentro-do-documento">Links para dentro do documento</h3>
+<p>Todo título do documento ganha um identificador, e você chega nele com <code>#</code> mais esse identificador:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb9-1">Veja a seção sobre <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span><span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">tabelas</span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">](#tabelas)</span> e a de <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span><span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">código em bloco</span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">](#codigo-em-bloco-e-inline-com-identificacao-de-linguagem)</span>.</span></code></pre></div></div>
+<p>O identificador é gerado a partir do texto do título, e a regra é do <strong>renderizador</strong>, não do markdown — o CommonMark não define geração de âncoras. O comportamento mais comum, que é o do GitHub e o do Pandoc, converte para minúsculas, troca espaços por hífens, remove pontuação e remove acentos. “Tabelas” vira <code>#tabelas</code>; “Listas numeradas e não numeradas” vira <code>#listas-numeradas-e-nao-numeradas</code>.</p>
+<p>Como essa conversão varia entre ferramentas, a prática segura é <strong>declarar o identificador à mão</strong>. No Pandoc e em vários geradores de site, basta colocá-lo entre chaves ao lado do título:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">## Listas numeradas e não numeradas {#listas}</span></span></code></pre></div></div>
+<p>Daí em diante, <code>[listas](#listas)</code> funciona para sempre, mesmo se você reescrever o título depois. Em documentação longa é o que evita a classe inteira de link interno quebrado.</p>
+<p>Links <strong>entre arquivos</strong> do mesmo projeto usam caminho relativo: <code>[a página de instalação](../instalacao/index.md)</code> aponta para um arquivo vizinho sem depender do domínio em que o texto vai ser publicado. Muitos geradores de site resolvem esse caminho para a URL final na hora de renderizar e avisam quando o arquivo de destino não existe — bem melhor do que descobrir o link quebrado depois de publicado.</p>
+</section>
+</section>
+<section id="tabelas" class="level2">
+<h2 class="anchored" data-anchor-id="tabelas">Tabelas</h2>
+<p>Tabela é uma <strong>extensão do GFM</strong>, não parte do CommonMark. Funciona no GitHub, no GitLab, no Pandoc e nos geradores de site modernos, e é o recurso que mais falha em renderizadores minimalistas — quando sua tabela aparece como uma sopa de barras verticais, é isso que está acontecendo.</p>
+<p>A sintaxe são barras verticais separando células e uma linha de hífens separando o cabeçalho do corpo:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">|</span> Sintaxe <span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">|</span> Núcleo CommonMark <span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">|</span> Extensão GFM <span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">|</span></span>
+<span id="cb11-2"><span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">|---|---|---|</span></span>
+<span id="cb11-3"><span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">|</span> Negrito e itálico <span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">|</span> sim <span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">|</span> — <span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">|</span></span>
+<span id="cb11-4"><span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">|</span> Bloco de código com linguagem <span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">|</span> sim <span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">|</span> — <span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">|</span></span>
+<span id="cb11-5"><span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">|</span> Tachado <span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">|</span> não <span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">|</span> sim <span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">|</span></span>
+<span id="cb11-6"><span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">|</span> Tabela <span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">|</span> não <span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">|</span> sim <span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">|</span></span>
+<span id="cb11-7"><span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">|</span> Lista de tarefas <span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">|</span> não <span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">|</span> sim <span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">|</span></span></code></pre></div></div>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Sintaxe</th>
+<th>Núcleo CommonMark</th>
+<th>Extensão GFM</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Negrito e itálico</td>
+<td>sim</td>
+<td>—</td>
+</tr>
+<tr class="even">
+<td>Bloco de código com linguagem</td>
+<td>sim</td>
+<td>—</td>
+</tr>
+<tr class="odd">
+<td>Tachado</td>
+<td>não</td>
+<td>sim</td>
+</tr>
+<tr class="even">
+<td>Tabela</td>
+<td>não</td>
+<td>sim</td>
+</tr>
+<tr class="odd">
+<td>Lista de tarefas</td>
+<td>não</td>
+<td>sim</td>
+</tr>
+</tbody>
+</table>
+<p>O <strong>alinhamento</strong> de cada coluna é definido por dois-pontos na linha separadora: <code>:---</code> alinha à esquerda, <code>---:</code> à direita e <code>:---:</code> centraliza. Alinhar números à direita é o único uso desse recurso que muda de fato a legibilidade:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">|</span> Item        <span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">|</span> Quantidade <span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">|</span></span>
+<span id="cb12-2"><span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">|:------------|-----------:|</span></span>
+<span id="cb12-3"><span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">|</span> Parcelas    <span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">|</span>         60 <span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">|</span></span>
+<span id="cb12-4"><span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">|</span> Amortizadas <span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">|</span>          7 <span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">|</span></span></code></pre></div></div>
+<p>Quatro limites que você vai encontrar, e para os quais é melhor estar preparado:</p>
+<ul>
+<li><strong>As barras não precisam estar alinhadas</strong> no arquivo cru. <code>| a | b |</code> e <code>|a|b|</code> produzem a mesma tabela. Alinhe se ajudar a leitura, mas não perca tempo com isso — e as barras das pontas são opcionais.</li>
+<li><strong>A linha de cabeçalho é obrigatória.</strong> Não existe tabela sem cabeçalho em GFM; se você não quiser um, deixe as células do cabeçalho vazias.</li>
+<li><strong>Uma célula não tem várias linhas.</strong> Não há como colocar parágrafo, lista ou bloco de código dentro de uma célula. Para conteúdo complexo, o caminho é HTML puro ou uma tabela gerada por código.</li>
+<li><strong>Barra vertical dentro de uma célula precisa ser escapada</strong> com <code>\|</code>, senão ela quebra a coluna. Vale para o operador <em>ou</em> de expressões regulares e para o <em>pipe</em> do shell.</li>
+</ul>
+<p>A regra prática que uso: se a tabela não cabe confortavelmente na largura da tela em markdown cru, ela provavelmente não deveria ser uma tabela markdown. Dados de verdade vivem melhor num <code>.csv</code> ao lado, carregado por código.</p>
+</section>
+<section id="outros-elementos-que-valem-saber" class="level2">
+<h2 class="anchored" data-anchor-id="outros-elementos-que-valem-saber">Outros elementos que valem saber</h2>
+<p><strong>Títulos</strong> vão de <code>#</code> (nível 1) a <code>######</code> (nível 6), com um espaço após a cerquilha. A convenção é um único <code>#</code> por documento — e em Hugo, Jekyll e MkDocs você nem escreve esse: o título vem do bloco de metadados, e o corpo começa em <code>##</code>. Nunca pule níveis: um <code>###</code> sob um <code>#</code> confunde leitor de tela e buscador.</p>
+<p><strong>Citação</strong> se faz com <code>&gt;</code> no começo da linha, e ela acumula: <code>&gt;&gt;</code> aninha uma citação dentro da outra. Dentro de uma citação valem todos os outros elementos, inclusive listas e código.</p>
+<p><strong>Linha horizontal</strong> são três ou mais hífens (<code>---</code>), asteriscos (<code>***</code>) ou sublinhados (<code>___</code>) numa linha isolada. Atenção a uma pegadinha clássica: <code>---</code> <strong>imediatamente</strong> abaixo de uma linha de texto, sem linha em branco no meio, não é linha horizontal — é a sintaxe antiga de título nível 2, e seu parágrafo vira um cabeçalho gigante. Sempre deixe uma linha em branco antes.</p>
+<p><strong>Imagens</strong> são links com uma exclamação na frente: <code>![texto alternativo](caminho/imagem.png)</code>. O texto alternativo não é opcional na prática — é o que o leitor de tela lê e o que aparece se a imagem falhar. A única exceção legítima é a imagem puramente decorativa, que vai com alt vazio justamente para o leitor de tela pulá-la.</p>
+<p><strong>Quebra de linha dentro do mesmo parágrafo</strong> é a fonte de confusão número um. Apertar Enter uma vez <strong>não</strong> quebra a linha no resultado renderizado: markdown junta linhas consecutivas num único parágrafo. Para forçar a quebra, termine a linha com <strong>dois espaços</strong> ou com uma <strong>barra invertida</strong>. Para separar parágrafos, deixe uma linha em branco. Corolário importante: <strong>não quebre parágrafos por coluna</strong> no arquivo — deixe cada parágrafo numa linha física longa e deixe o editor e o navegador cuidarem da exibição. Isso também deixa o histórico do Git legível, porque uma frase alterada aparece como uma linha alterada, não como um bloco inteiro reescrito.</p>
+<p><strong>Escape</strong> com barra invertida, quando você quer o caractere literal: <code>\*asterisco\*</code> sai com os asteriscos visíveis.</p>
+<p><strong>Bloco de metadados</strong> no topo do arquivo, entre duas linhas de <code>---</code>, em YAML. Não é markdown — é convenção, e uma tão universal que virou infraestrutura: Hugo, Jekyll, MkDocs, Docusaurus, Obsidian e Pelican todos leem título, data, autor e categorias dali. É de lá que um gerador de site tira o que mostrar na listagem, no cabeçalho da página e no feed RSS.</p>
+<p><strong>HTML inline</strong> funciona na maioria dos renderizadores: se markdown não tem a sintaxe de que você precisa, escreva a tag. Duas ressalvas — o GFM filtra deliberadamente algumas tags perigosas (como <code>&lt;script&gt;</code>) em conteúdo de usuário, e HTML no meio do texto se perde quando você converte para PDF ou DOCX. Use com parcimônia.</p>
+<p><strong>Notas de rodapé</strong> (<code>[^1]</code>), <strong>fórmulas matemáticas</strong> em LaTeX entre cifrões (<code>$e^{i\pi} = -1$</code>) e <strong>listas de definição</strong> são extensões, disponíveis no Pandoc e em processadores mais completos, ausentes no GFM. São ótimas para texto técnico longo — só não conte com elas fora dessas ferramentas.</p>
+</section>
+<section id="por-que-markdown-é-útil" class="level2">
+<h2 class="anchored" data-anchor-id="por-que-markdown-é-útil">Por que markdown é útil</h2>
+<p>O argumento mais forte não é a velocidade de digitação. É o <strong>texto puro</strong>.</p>
+<p>Um arquivo <code>.md</code> é uma sequência de caracteres, e isso tem três consequências que nenhum formato binário consegue oferecer. Ele é <strong>versionável de verdade</strong>: o Git mostra exatamente qual frase mudou entre duas versões, o que é impossível num <code>.docx</code>, onde o diff é um borrão binário. Ele é <strong>legível por qualquer programa</strong> — <code>grep</code>, script Python, editor de 1995, terminal via SSH. E ele <strong>não expira</strong>: um markdown escrito em 2004 abre hoje sem nenhuma camada de compatibilidade, enquanto arquivos de processadores de texto da mesma época já exigem conversor.</p>
+<p>A segunda razão é a <strong>separação entre conteúdo e apresentação</strong>. Você escreve a estrutura — isto é um título, isto é uma lista, isto é código — e a aparência é decidida na hora de renderizar. Uma fonte, várias saídas: o mesmo <code>.md</code> vira página web, PDF, apresentação de slides, e-book e documento Word via Pandoc, sem retrabalho de formatação. Para quem publica em mais de um lugar, é a diferença entre escrever uma vez e escrever três.</p>
+<p>A terceira é o <strong>custo cognitivo perto de zero</strong>. A sintaxe inteira que importa cabe em meia página, e ela foi desenhada para parecer o que significa: asteriscos ao redor de uma palavra já indicavam ênfase em e-mail muito antes de existir markdown. Você aprende em vinte minutos e não volta a consultar.</p>
+<p>A quarta é <strong>ubiquidade</strong>, e ela se tornou o argumento decisivo. Markdown é a língua do GitHub, que hospeda mais de 180 milhões de desenvolvedores, e também do GitLab, do Slack, do Discord, do Reddit, do Notion, do Obsidian, do Jupyter, do Stack Overflow e da documentação técnica de quase todo projeto sério de software. Aprender a sintaxe uma vez rende em uma dezena de lugares por dia.</p>
+<p>A objeção honesta existe, e é a fragmentação: como não há um markdown único, um documento que usa extensões pode sair diferente — ou sair errado — em outro renderizador. É um problema real, e é por isso que este artigo marca o tempo todo o que é núcleo e o que é extensão. Mas ele encolheu muito. Na prática, escrever para o núcleo do <a href="https://spec.commonmark.org/">CommonMark</a> mais as cinco extensões do <a href="https://github.github.com/gfm/">GFM</a> — tabela, tachado, lista de tarefas, autolink estendido e filtro de HTML — cobre praticamente todo destino em que seu texto vai cair. E quando precisar de mais (nota de rodapé, fórmula, referência bibliográfica), a escolha consciente é subir para o Pandoc ou para um processador equivalente, sabendo que ali o alvo é outro.</p>
+</section>
+<section id="aplicações-documentação-publicação-e-llms" class="level2">
+<h2 class="anchored" data-anchor-id="aplicações-documentação-publicação-e-llms">Aplicações: documentação, publicação e LLMs</h2>
+<p>As aplicações tradicionais já justificam o aprendizado. <strong>Documentação de software</strong> vive em markdown: o <code>README.md</code> é a primeira página de qualquer repositório, e ferramentas como MkDocs e Docusaurus constroem sites de documentação inteiros a partir de pastas de <code>.md</code>. <strong>Publicação</strong> é o terreno dos geradores de site estático, que transformam uma pasta de arquivos markdown versionada num repositório em um site com navegação, listagem e feed RSS, sem banco de dados e sem painel de administração. <strong>Notas pessoais e gestão de conhecimento</strong> ganharam vida nova com Obsidian e Logseq, que tornam links entre arquivos a estrutura primária — e, porque a base é markdown puro, suas anotações nunca ficam presas ao aplicativo. <strong>Computação científica</strong> usa markdown ao lado do código, em notebooks Jupyter, com o texto explicativo e o resultado do cálculo no mesmo arquivo — é o que o <a href="../..\posts/introducao-pandas/">guia de introdução ao pandas</a> mostra em funcionamento.</p>
+<p>A aplicação nova, e a que mais mudou nos últimos dois anos, é <strong>markdown como formato de interface com modelos de linguagem</strong>.</p>
+<p>Três razões explicam por que markdown ocupou esse lugar. A primeira é de treinamento: os modelos foram treinados sobre volumes enormes de GitHub, documentação técnica e fóruns — todos em markdown. É o formato que eles viram mais, e é por isso que a resposta padrão de praticamente todo assistente já sai com <code>##</code>, listas e blocos de código, mesmo quando ninguém pediu. A segunda é <strong>economia de tokens</strong>: markdown carrega muito menos sobrecarga sintática que HTML, XML ou JSON para expressar a mesma estrutura. Onde HTML gasta <code>&lt;strong&gt;texto&lt;/strong&gt;</code> (dezessete caracteres só de andaime), markdown gasta <code>**texto**</code> (quatro). Em um contexto de centenas de milhares de tokens, esse andaime é espaço que deixa de ser conteúdo — e, em uma API paga por token, é dinheiro gasto em pontuação. A terceira é que a estrutura <strong>sobrevive à conversão em texto plano</strong>: um título markdown continua visivelmente um título depois de tokenizado, ao contrário de formatação binária, que simplesmente desaparece.</p>
+<p>Isso rende quatro hábitos práticos que valem a pena adotar:</p>
+<ol type="1">
+<li><strong>Escreva seus prompts em markdown.</strong> Use <code>##</code> para separar contexto, tarefa e restrições, e listas para enumerar requisitos. Um prompt estruturado é mais fácil de o modelo seguir e muito mais fácil de você revisar e reaproveitar depois.</li>
+<li><strong>Peça a saída em markdown quando ela for alimentar outro sistema.</strong> “Responda em markdown, com uma tabela de três colunas” produz algo que você cola direto no repositório ou no site.</li>
+<li><strong>Converta antes de indexar.</strong> Em sistemas de recuperação (RAG), converter PDF e HTML para markdown antes de fatiar os documentos preserva a hierarquia de títulos, e é essa hierarquia que permite cortar o texto em pedaços que fazem sentido sozinhos.</li>
+<li><strong>Publique uma versão legível por máquina.</strong> A convenção <code>llms.txt</code> — um arquivo markdown na raiz do site, com índice e descrições — nasceu exatamente para dar a agentes um ponto de entrada estruturado no seu conteúdo.</li>
+</ol>
+<p>E vale a ressalva, porque a euforia em torno disso ultrapassa a evidência: markdown não é mágico. Ele é bom para <strong>texto estruturado</strong>; é ruim para dado tabular largo, onde CSV ou JSON são mais confiáveis, e a pesquisa sobre como a serialização afeta o desempenho de modelos em dados estruturados está longe de fechada. Use markdown para prosa, hierarquia e código; use formato de dados para dados.</p>
+</section>
+<section id="o-que-vem-por-aí-o-google-okf" class="level2">
+<h2 class="anchored" data-anchor-id="o-que-vem-por-aí-o-google-okf">O que vem por aí: o Google OKF</h2>
+<p>Há um desdobramento recente que merece artigo próprio, e vou escrever um em breve aqui no blog.</p>
+<p>Em junho de 2026, o Google Cloud lançou o <strong>Open Knowledge Format (OKF)</strong>, uma especificação aberta e neutra de fornecedor para empacotar conhecimento e entregá-lo a agentes de IA. O detalhe que interessa a este artigo é o que o OKF <strong>é</strong>, por baixo: um diretório de arquivos markdown com bloco de metadados em YAML. Nada de banco de dados novo, nada de formato proprietário, nada de ferramenta obrigatória — a especificação já está na versão 0.2, <a href="https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md">publicada no GitHub</a>, e exige essencialmente um único campo obrigatório no cabeçalho de cada arquivo.</p>
+<p>Pense no que isso significa. A mesma sintaxe que você acabou de aprender para escrever um <code>README</code> foi escolhida, vinte e dois anos depois de inventada, como camada de transporte do conhecimento organizacional para agentes de IA. Como isso funciona na prática, o que a especificação exige de fato, e por que eu já uso um formato derivado dela na minha própria produção de conteúdo — é isso que vou destrinchar no próximo artigo. Vale acompanhar o blog.</p>
+</section>
+<section id="perguntas-frequentes" class="level2">
+<h2 class="anchored" data-anchor-id="perguntas-frequentes">Perguntas frequentes</h2>
+<section id="markdown-e-html-são-a-mesma-coisa" class="level3">
+<h3 class="anchored" data-anchor-id="markdown-e-html-são-a-mesma-coisa">Markdown e HTML são a mesma coisa?</h3>
+<p>Não. Markdown é uma sintaxe de atalho que <strong>gera</strong> HTML: <code>**texto**</code> se converte em <code>&lt;strong&gt;texto&lt;/strong&gt;</code> na hora de renderizar. Markdown é mais rápido de escrever e legível sem renderizar, mas cobre um conjunto pequeno de elementos; HTML cobre tudo e é muito mais verboso. A maioria dos renderizadores aceita HTML inline dentro do markdown, o que dá uma saída de emergência quando a sintaxe curta não basta.</p>
+</section>
+<section id="qual-extensão-devo-usar-.md-ou-.markdown" class="level3">
+<h3 class="anchored" data-anchor-id="qual-extensão-devo-usar-.md-ou-.markdown">Qual extensão devo usar, <code>.md</code> ou <code>.markdown</code>?</h3>
+<p><code>.md</code>, sem hesitar. As duas são válidas, mas <code>.md</code> é o que toda ferramenta reconhece por padrão. A única razão para usar outra extensão é quando a ferramenta que vai processar o arquivo exige a dela — e, nesse caso, a documentação dela diz qual é.</p>
+</section>
+<section id="por-que-minha-tabela-ou-meu-texto-tachado-não-aparece" class="level3">
+<h3 class="anchored" data-anchor-id="por-que-minha-tabela-ou-meu-texto-tachado-não-aparece">Por que minha tabela (ou meu texto tachado) não aparece?</h3>
+<p>Porque os dois são extensões do GFM, não parte do núcleo do CommonMark, e o renderizador que você está usando provavelmente implementa só o núcleo. A verificação é rápida: cole o mesmo trecho num arquivo do GitHub e veja se renderiza. Se renderizar lá e não no seu destino, o problema é a configuração do renderizador — no Pandoc, por exemplo, é preciso pedir o dialeto certo (<code>-f gfm</code>) ou habilitar a extensão de tabelas.</p>
+</section>
+<section id="markdown-dá-conta-de-um-documento-acadêmico-com-citações-e-fórmulas" class="level3">
+<h3 class="anchored" data-anchor-id="markdown-dá-conta-de-um-documento-acadêmico-com-citações-e-fórmulas">Markdown dá conta de um documento acadêmico, com citações e fórmulas?</h3>
+<p>Dá, mas não em markdown puro — você precisa de um processador mais completo, como o Pandoc. Ele acrescenta notas de rodapé, fórmulas LaTeX, legendas, referências cruzadas numeradas e bibliografia a partir de um arquivo <code>.bib</code>, gerando PDF via LaTeX. É um fluxo consolidado em estatística e economia, e a vantagem sobre escrever LaTeX direto é que o texto continua legível e o mesmo fonte também gera HTML.</p>
+</section>
+<section id="preciso-instalar-algo-para-começar" class="level3">
+<h3 class="anchored" data-anchor-id="preciso-instalar-algo-para-começar">Preciso instalar algo para começar?</h3>
+<p>Nada. Abra o Bloco de Notas, escreva <code># Meu título</code> e uma linha de texto, salve como <code>teste.md</code> e arraste o arquivo para uma janela do VS Code — ou crie um repositório no GitHub e cole ali. O fato de a barreira de entrada ser essencialmente zero é parte do motivo pelo qual o formato venceu.</p>
+</section>
+</section>
+<section id="conclusão" class="level2">
+<h2 class="anchored" data-anchor-id="conclusão">Conclusão</h2>
+<ul>
+<li><strong>A extensão é <code>.md</code></strong>, o conteúdo é texto puro em UTF-8 sem BOM, qualquer editor serve para escrever e o <code>Ctrl+Shift+V</code> do VS Code é a forma mais rápida de ver o resultado renderizado.</li>
+<li><strong>Ênfase</strong>: <code>*itálico*</code>, <code>**negrito**</code>, <code>~~tachado~~</code>. Prefira asterisco a sublinhado, porque <code>**</code> funciona no meio de palavras e <code>__</code> não.</li>
+<li><strong>Código</strong>: crase simples para inline, três crases para bloco, com a linguagem declarada logo após as crases de abertura. O realce de cores é trabalho do renderizador, não do markdown.</li>
+<li><strong>Listas</strong>: <code>-</code> para não numeradas, <code>1.</code> para numeradas — e escrever <code>1.</code> em todos os itens funciona, porque o renderizador renumera. Deixe sempre uma linha em branco antes da lista.</li>
+<li><strong>Links</strong>: <code>[texto](url)</code> para fora, <code>[texto](#identificador)</code> para dentro, e <code>{#identificador}</code> ao lado do título quando você quer uma âncora estável. A âncora sempre descreve o destino, nunca “clique aqui”.</li>
+<li><strong>Tabelas</strong> usam barras verticais e dois-pontos para alinhamento, mas são <strong>extensão do GFM</strong> — como o texto tachado e a lista de tarefas. É aí que mora quase todo problema de compatibilidade.</li>
+<li><strong>O núcleo é o <a href="https://spec.commonmark.org/">CommonMark</a> 0.31.2</strong>; o dialeto de fato é o CommonMark mais as cinco extensões do GFM. Escrever para esse alvo cobre praticamente todo destino.</li>
+<li><strong>A aplicação que mais cresce é a interface com LLMs</strong>: é o formato que os modelos emitem por padrão, o mais econômico em tokens para expressar estrutura, e o que preserva hierarquia ao ser convertido em texto. Estruture seus prompts com <code>##</code> e listas.</li>
+<li><strong>Markdown para texto, formato de dados para dados.</strong> Tabela markdown larga é sinal de que o dado deveria estar num <code>.csv</code>.</li>
+</ul>
+<hr>
+<p><strong>Tópicos:</strong> #Markdown #Documentacao #Programacao #CommonMark #LLMs</p>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Introdução à sintaxe markdown: guia prático e completo",
+  "description": "Sintaxe markdown na prática: negrito, itálico, tachado, código com realce de linguagem, listas, links, tabelas e por que ela é a língua nativa dos LLMs.",
+  "inLanguage": "pt-BR",
+  "datePublished": "2026-09-12T08:46:16-03:00",
+  "dateModified": "2026-09-12T09:50:53-03:00",
+  "author": { "@type": "Person", "name": "Pedro Nakashima" },
+  "mainEntityOfPage": "https://pedronakashima.com/posts/introducao-sintaxe-markdown/",
+  "keywords": "markdown, sintaxe, documentação, programação, tutorial, sintaxe markdown, CommonMark, GitHub Flavored Markdown, tabelas markdown, blocos de código, arquivo .md, markdown para LLMs"
+}
+</script>
+
+
+</section>
+
+ ]]></description>
+  <category>markdown</category>
+  <category>sintaxe</category>
+  <category>documentação</category>
+  <category>programação</category>
+  <category>tutorial</category>
+  <guid>https://pedronakashima.com/posts/introducao-sintaxe-markdown/</guid>
+  <pubDate>Sat, 12 Sep 2026 12:46:16 GMT</pubDate>
+  <media:content url="https://pedronakashima.com/posts/introducao-sintaxe-markdown/cover.jpg" medium="image" type="image/jpeg"/>
+</item>
 <item>
   <title>Introdução à sintaxe Python: guia completo para iniciantes</title>
   <dc:creator>Pedro Nakashima</dc:creator>
