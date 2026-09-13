@@ -1,0 +1,191 @@
+---
+title: "Git e GitHub: o que são, para que servem e como usar"
+description: "Git e GitHub explicados do zero: o que cada um faz, como se diferenciam, os comandos que você usa no dia a dia e as aplicações que vão além de programar."
+author: "Pedro Nakashima"
+date: "2026-09-13 13:27:01"
+date-modified: "2026-09-13 13:27:01"
+lang: "pt-BR"
+categories: [git, github, versionamento, programação, tutorial]
+image: "cover.jpg"
+image-alt: "Diagrama de ramificações coloridas partindo de uma linha central e voltando a se juntar, como o histórico de versões de um projeto"
+keywords: [git, github, controle de versão, versionamento de código, repositório, commit, pull request]
+---
+
+*Publicado em 13 de setembro de 2026, às 13:27, por Pedro Nakashima*
+
+![](cover.jpg)
+
+Git e GitHub são duas coisas diferentes que quase sempre aparecem juntas, e trocar uma pela outra é o primeiro tropeço de quase todo mundo que começa. Git é um programa que roda no seu computador e guarda o histórico completo das versões de um projeto. GitHub é um site que hospeda projetos versionados com Git e acrescenta a eles uma camada de colaboração. O Git funciona perfeitamente sem o GitHub; o GitHub não existiria sem o Git. Este guia parte do zero, sem pressupor que você já tenha ouvido falar de nenhum dos dois, e vai até os comandos que se usa no dia a dia.
+
+## O que é Git
+
+Git é um sistema de controle de versão distribuído: um programa que registra cada alteração feita nos arquivos de um projeto e permite voltar a qualquer estado anterior, comparar duas versões e entender quem mudou o quê, quando e por quê. "Distribuído" significa que cada pessoa tem uma cópia integral do histórico na própria máquina, e não apenas o arquivo mais recente.
+
+Ele foi criado em 2005 por Linus Torvalds, o mesmo autor do Linux, depois que o kernel perdeu acesso à ferramenta proprietária que usava até então. O projeto precisava de algo rápido o bastante para lidar com milhares de colaboradores e resistente a corrupção de dados. Essas duas exigências explicam boa parte do desenho do Git até hoje, e estão descritas na [documentação oficial do projeto](https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F).
+
+### O problema que o Git resolve
+
+Todo mundo que já trabalhou num arquivo por algumas semanas conhece esta pasta:
+
+```
+relatorio.docx
+relatorio_v2.docx
+relatorio_v2_revisado.docx
+relatorio_v2_revisado_FINAL.docx
+relatorio_v2_revisado_FINAL_agora_vai.docx
+```
+
+O método tem três defeitos graves. Ninguém sabe o que mudou entre uma versão e outra sem abrir as duas e comparar à mão. Ninguém sabe por que a mudança foi feita. E se duas pessoas editarem a mesma versão ao mesmo tempo, uma das duas perde o trabalho.
+
+O Git resolve os três de uma vez. Em vez de cópias, ele guarda uma linha do tempo de **commits**, e cada commit registra exatamente quais linhas de quais arquivos mudaram, quem fez a mudança, quando, e uma mensagem explicando o motivo. A pasta volta a ter um arquivo só, e o histórico inteiro fica guardado ao lado dele.
+
+## O que é GitHub
+
+GitHub é uma plataforma na internet que hospeda repositórios Git e constrói, em cima deles, as ferramentas de que um time precisa para trabalhar junto: revisão de código, discussão de problemas, controle de permissões, automação de testes e publicação. Foi lançada em 2008 e comprada pela Microsoft em 2018.
+
+A distinção prática é esta: o Git cuida do **histórico**; o GitHub cuida da **colaboração em torno desse histórico**. Quando você envia seu projeto para o GitHub, o que sobe é o repositório Git inteiro, com todos os commits. O que o GitHub acrescenta são as coisas que o Git sozinho não faz.
+
+| | Git | GitHub |
+|---|---|---|
+| O que é | programa instalado no seu computador | serviço hospedado na internet |
+| Precisa de internet | não | sim |
+| Guarda o histórico | sim | sim, uma cópia dele |
+| Revisão de código, discussões, permissões | não | sim |
+| Alternativas | Mercurial, SVN (mais antigos) | GitLab, Bitbucket, Codeberg |
+
+Vale registrar que GitHub não é sinônimo de hospedagem de Git. GitLab, Bitbucket e Codeberg fazem a mesma coisa, e uma empresa pode rodar o próprio servidor. O GitHub é apenas, de longe, o maior deles.
+
+## Os cinco conceitos que sustentam tudo
+
+Quase todo o vocabulário do Git se organiza em torno de cinco ideias. Entendidas estas, o resto é detalhe.
+
+**Repositório** é a pasta do projeto com o histórico junto. Ao rodar um comando de inicialização, o Git cria ali uma subpasta oculta onde guarda todas as versões. Apagar essa subpasta apaga o histórico e deixa apenas os arquivos atuais.
+
+**Commit** é uma fotografia do projeto num instante, acompanhada de uma mensagem. É a unidade do histórico: você não salva arquivos no Git, você faz commits. Uma boa mensagem de commit explica o *porquê* da mudança, não o *o quê* — o "o quê" já está registrado nas linhas alteradas.
+
+**Branch**, ou ramo, é uma linha do tempo paralela. Você cria um ramo para experimentar uma ideia sem tocar na versão que está funcionando. Se a ideia der certo, ela se junta à linha principal; se der errado, você apaga o ramo e nada se perde. É o recurso que torna seguro tentar coisas.
+
+**Merge** é a junção de dois ramos. Quando as duas linhas mexeram em partes diferentes, o Git resolve sozinho. Quando mexeram na mesma linha do mesmo arquivo, ele para e pede que uma pessoa decida — é o famoso conflito, que assusta no começo e é apenas o Git se recusando a escolher por você.
+
+**Remote** é uma cópia do repositório em outro lugar, normalmente no GitHub. Você envia commits para lá com um comando e traz os commits dos outros com outro. É o que transforma um histórico pessoal em trabalho de equipe.
+
+## Um exemplo completo, do zero ao GitHub
+
+O trecho abaixo cria um projeto, registra a primeira versão e a envia para o GitHub. Os comandos são os mesmos em Linux, macOS e Windows.
+
+Antes de tudo, uma configuração feita uma única vez por computador, para que seus commits saiam assinados:
+
+```bash
+git config --global user.name "Seu Nome"
+git config --global user.email "seu@email.com"
+```
+
+Agora o projeto em si:
+
+```bash
+mkdir meu-projeto
+cd meu-projeto
+git init
+```
+
+Crie um arquivo qualquer e registre a primeira versão. O comando de adição diz ao Git o que entra no próximo commit; o de commit fecha a fotografia com uma mensagem:
+
+```bash
+echo "# Meu projeto" > README.md
+git add README.md
+git commit -m "Cria o README com a descrição do projeto"
+```
+
+Para ver o que aconteceu, dois comandos que você vai usar o tempo todo — o primeiro mostra o estado atual, o segundo mostra o histórico:
+
+```bash
+git status
+git log --oneline
+```
+
+Depois de criar um repositório vazio na sua conta do GitHub, conecte os dois e envie:
+
+```bash
+git remote add origin https://github.com/usuario/meu-projeto.git
+git branch -M main
+git push -u origin main
+```
+
+A partir daí, o ciclo do dia a dia se resume a quatro comandos: `git add` para escolher o que entra, `git commit` para registrar, `git push` para enviar e `git pull` para trazer o que os outros fizeram.
+
+O arquivo `README.md` do exemplo não é um detalhe: é o texto que o GitHub exibe na página inicial do repositório, e ele é escrito em markdown. Se essa sintaxe for nova para você, vale ler antes o [guia de sintaxe markdown](/posts/introducao-sintaxe-markdown/index.qmd), porque é nela que se escreve praticamente toda a documentação que circula na plataforma.
+
+## Para que serve, além de programar
+
+A associação entre Git e código é histórica, não técnica. O Git versiona **arquivos de texto**, e enxerga diferenças linha a linha em qualquer um deles. Isso abre um conjunto de usos que raramente aparece nos tutoriais:
+
+- **Documentação e escrita.** Livros, manuais, teses e artigos ganham histórico, ramos para reescrever um capítulo sem medo e revisão por comentário. Vários livros técnicos conhecidos são escritos assim, em repositórios públicos.
+- **Análise de dados e pesquisa.** Versionar os scripts que limpam e analisam uma base é o que torna um resultado reproduzível: qualquer pessoa consegue voltar ao estado exato do código que gerou aquele número. Quem está começando em análise de dados costuma chegar ao Git pelo mesmo caminho que leva à [sintaxe de Python](/posts/introducao-sintaxe-python/index.qmd).
+- **Textos jurídicos e contratos.** Um contrato negociado é um texto que muda muitas vezes, com várias partes propondo alterações. É exatamente o problema que ramos, diferenças e histórico resolvem — e a diferença linha a linha responde, sem discussão, à pergunta sobre quem inseriu determinada cláusula e quando.
+- **Configuração de sistemas.** Arquivos de configuração de servidores e ambientes ficam versionados, o que permite auditar mudanças e reverter uma alteração que derrubou o serviço.
+- **Publicação de sites.** O GitHub Pages transforma um repositório em um site estático hospedado gratuitamente, o que faz de um repositório de textos um site publicado.
+
+O critério é simples: se o conteúdo é texto e importa saber como ele chegou ao estado atual, o Git serve.
+
+## O que mudou recentemente
+
+Três movimentos recentes valem menção, porque mudam o que significa "usar GitHub" em 2026.
+
+**A escala virou outra.** O relatório anual da plataforma, o [Octoverse 2025](https://github.blog/news-insights/octoverse/octoverse-a-new-developer-joins-github-every-second-as-ai-leads-typescript-to-1/), fechou o período de setembro de 2024 a agosto de 2025 com mais de 180 milhões de contas de pessoas desenvolvedoras e 630 milhões de repositórios — cerca de um novo cadastro por segundo. Foram quase 1 bilhão de commits no período, 25% mais que no ano anterior. O mesmo relatório registrou uma inversão inédita: o TypeScript passou o Python e o JavaScript e virou a linguagem com mais pessoas contribuindo.
+
+**O Git continua evoluindo.** A versão 2.55, [lançada em 29 de junho de 2026](https://github.blog/open-source/git/highlights-from-git-2-55/), trouxe um comando experimental de correção de histórico que resolve um incômodo antigo: quando você percebe que uma alteração pertencia a um commit anterior, dá para encaixá-la lá diretamente, sem o procedimento manual que isso exigia antes. A mesma versão passou a executar verificações automáticas em paralelo e estendeu ao Linux um mecanismo de detecção rápida de arquivos alterados que já existia no macOS e no Windows.
+
+**Agentes de IA entraram no fluxo.** O GitHub anunciou o [Agent HQ](https://github.blog/news-insights/company-news/welcome-home-agents/), uma camada que permite acionar agentes de diferentes fornecedores dentro da própria plataforma, acompanhar o que cada um está fazendo e receber o resultado como uma proposta de alteração para revisão humana. O ponto que interessa a quem está começando é este: o formato da entrega não mudou. O agente produz commits e propostas de alteração, e alguém precisa ler, entender e aprovar. Saber Git deixou de ser o que o torna produtivo e passou a ser o que o torna capaz de revisar — o que é uma razão melhor para aprender, não pior.
+
+## Erros comuns de quem está começando
+
+- **Confundir salvar com commitar.** Salvar o arquivo no editor não cria versão nenhuma. Enquanto não houver commit, o Git não registrou nada.
+- **Mensagens de commit vazias de sentido.** "ajustes", "correções" e "teste" descrevem todos os commits do mundo e nenhum em particular. Escreva o motivo.
+- **Commitar arquivos que não deveriam subir.** Senhas, chaves de acesso e bases de dados inteiras não entram no repositório. Um arquivo de exclusões na raiz do projeto resolve isso, e vale configurá-lo antes do primeiro commit — depois de publicada, uma senha precisa ser trocada, não apagada.
+- **Fugir dos conflitos.** Conflito não é erro do Git: é o Git avisando que duas pessoas mexeram na mesma linha e se recusando a escolher. Abrir o arquivo e decidir leva menos tempo do que parece.
+- **Tratar o histórico como intocável.** Ramos existem para serem descartados. Criar um ramo para testar uma ideia é a operação mais barata do Git.
+
+## Perguntas frequentes
+
+### Preciso saber programar para usar Git?
+
+Não. O Git versiona qualquer arquivo de texto, e quem escreve documentação, textos jurídicos ou material didático tira proveito dele sem escrever uma linha de código. Os comandos do dia a dia são meia dúzia.
+
+### Git e GitHub são gratuitos?
+
+O Git é software livre, gratuito para qualquer uso. O GitHub tem um plano gratuito que inclui repositórios públicos e privados sem limite de quantidade; os planos pagos acrescentam recursos de organização, segurança e automação.
+
+### Preciso usar a linha de comando?
+
+Não obrigatoriamente. Existem interfaces gráficas, e editores de código trazem o Git embutido. Mas aprender os cinco ou seis comandos básicos compensa: é o vocabulário comum a todas as ferramentas, e é o que aparece em toda documentação e em toda resposta que você vai encontrar quando algo der errado.
+
+### Qual a diferença entre repositório público e privado?
+
+Um repositório público pode ser lido por qualquer pessoa; o privado, apenas por quem você autorizar. Público não significa que qualquer um pode alterar — alterações de terceiros entram como propostas que você aprova ou recusa.
+
+## Conclusão
+
+- **Git é o programa que guarda o histórico**; GitHub é o serviço que hospeda esse histórico e organiza a colaboração em torno dele. São coisas distintas e o primeiro funciona sem o segundo.
+- **Cinco conceitos dão conta do essencial**: repositório, commit, branch, merge e remote.
+- **O dia a dia cabe em quatro comandos**: adicionar, commitar, enviar e trazer.
+- **O uso não se restringe a código**: qualquer texto cuja história importe se beneficia de versionamento, de contratos a artigos científicos.
+- **A chegada dos agentes de IA aumentou o valor de entender Git**, porque o que eles entregam continua sendo commits e propostas de alteração que alguém precisa revisar.
+
+---
+
+**Tópicos:** #Git #GitHub #Versionamento #ControleDeVersao #Programacao
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Git e GitHub: o que são, para que servem e como usar",
+  "description": "Git e GitHub explicados do zero: o que cada um faz, como se diferenciam, os comandos que você usa no dia a dia e as aplicações que vão além de programar.",
+  "inLanguage": "pt-BR",
+  "datePublished": "2026-09-13T13:27:01-04:00",
+  "dateModified": "2026-09-13T13:27:01-04:00",
+  "author": { "@type": "Person", "name": "Pedro Nakashima" },
+  "mainEntityOfPage": "https://pedronakashima.com/posts/git-github-guia-iniciantes/",
+  "keywords": "git, github, versionamento, controle de versão, programação, tutorial"
+}
+</script>
