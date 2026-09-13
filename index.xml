@@ -10,7 +10,251 @@
 <atom:link href="https://pedronakashima.com/index.xml" rel="self" type="application/rss+xml"/>
 <description>Análises e guias de Pedro Nakashima sobre ciência de dados, machine learning, IA e tecnologia — e também economia, direito, política, cinema e futebol.</description>
 <generator>quarto-1.9.38</generator>
-<lastBuildDate>Sat, 12 Sep 2026 23:19:17 GMT</lastBuildDate>
+<lastBuildDate>Sun, 13 Sep 2026 17:27:01 GMT</lastBuildDate>
+<item>
+  <title>Git e GitHub: o que são, para que servem e como usar</title>
+  <dc:creator>Pedro Nakashima</dc:creator>
+  <link>https://pedronakashima.com/posts/git-github-guia-iniciantes/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p><em>Publicado em 13 de setembro de 2026, às 13:27, por Pedro Nakashima</em></p>
+<p><img src="https://pedronakashima.com/posts/git-github-guia-iniciantes/cover.jpg" class="img-fluid"></p>
+<p>Git e GitHub são duas coisas diferentes que quase sempre aparecem juntas, e trocar uma pela outra é o primeiro tropeço de quase todo mundo que começa. Git é um programa que roda no seu computador e guarda o histórico completo das versões de um projeto. GitHub é um site que hospeda projetos versionados com Git e acrescenta a eles uma camada de colaboração. O Git funciona perfeitamente sem o GitHub; o GitHub não existiria sem o Git. Este guia parte do zero, sem pressupor que você já tenha ouvido falar de nenhum dos dois, e vai até os comandos que se usa no dia a dia.</p>
+<section id="o-que-é-git" class="level2">
+<h2 class="anchored" data-anchor-id="o-que-é-git">O que é Git</h2>
+<p>Git é um sistema de controle de versão distribuído: um programa que registra cada alteração feita nos arquivos de um projeto e permite voltar a qualquer estado anterior, comparar duas versões e entender quem mudou o quê, quando e por quê. “Distribuído” significa que cada pessoa tem uma cópia integral do histórico na própria máquina, e não apenas o arquivo mais recente.</p>
+<p>Ele foi criado em 2005 por Linus Torvalds, o mesmo autor do Linux, depois que o kernel perdeu acesso à ferramenta proprietária que usava até então. O projeto precisava de algo rápido o bastante para lidar com milhares de colaboradores e resistente a corrupção de dados. Essas duas exigências explicam boa parte do desenho do Git até hoje, e estão descritas na <a href="https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F">documentação oficial do projeto</a>.</p>
+<section id="o-problema-que-o-git-resolve" class="level3">
+<h3 class="anchored" data-anchor-id="o-problema-que-o-git-resolve">O problema que o Git resolve</h3>
+<p>Todo mundo que já trabalhou num arquivo por algumas semanas conhece esta pasta:</p>
+<pre><code>relatorio.docx
+relatorio_v2.docx
+relatorio_v2_revisado.docx
+relatorio_v2_revisado_FINAL.docx
+relatorio_v2_revisado_FINAL_agora_vai.docx</code></pre>
+<p>O método tem três defeitos graves. Ninguém sabe o que mudou entre uma versão e outra sem abrir as duas e comparar à mão. Ninguém sabe por que a mudança foi feita. E se duas pessoas editarem a mesma versão ao mesmo tempo, uma das duas perde o trabalho.</p>
+<p>O Git resolve os três de uma vez. Em vez de cópias, ele guarda uma linha do tempo de <strong>commits</strong>, e cada commit registra exatamente quais linhas de quais arquivos mudaram, quem fez a mudança, quando, e uma mensagem explicando o motivo. A pasta volta a ter um arquivo só, e o histórico inteiro fica guardado ao lado dele.</p>
+</section>
+</section>
+<section id="o-que-é-github" class="level2">
+<h2 class="anchored" data-anchor-id="o-que-é-github">O que é GitHub</h2>
+<p>GitHub é uma plataforma na internet que hospeda repositórios Git e constrói, em cima deles, as ferramentas de que um time precisa para trabalhar junto: revisão de código, discussão de problemas, controle de permissões, automação de testes e publicação. Foi lançada em 2008 e comprada pela Microsoft em 2018.</p>
+<p>A distinção prática é esta: o Git cuida do <strong>histórico</strong>; o GitHub cuida da <strong>colaboração em torno desse histórico</strong>. Quando você envia seu projeto para o GitHub, o que sobe é o repositório Git inteiro, com todos os commits. O que o GitHub acrescenta são as coisas que o Git sozinho não faz.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Git</th>
+<th>GitHub</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>O que é</td>
+<td>programa instalado no seu computador</td>
+<td>serviço hospedado na internet</td>
+</tr>
+<tr class="even">
+<td>Precisa de internet</td>
+<td>não</td>
+<td>sim</td>
+</tr>
+<tr class="odd">
+<td>Guarda o histórico</td>
+<td>sim</td>
+<td>sim, uma cópia dele</td>
+</tr>
+<tr class="even">
+<td>Revisão de código, discussões, permissões</td>
+<td>não</td>
+<td>sim</td>
+</tr>
+<tr class="odd">
+<td>Alternativas</td>
+<td>Mercurial, SVN (mais antigos)</td>
+<td>GitLab, Bitbucket, Codeberg</td>
+</tr>
+</tbody>
+</table>
+<p>Vale registrar que GitHub não é sinônimo de hospedagem de Git. GitLab, Bitbucket e Codeberg fazem a mesma coisa, e uma empresa pode rodar o próprio servidor. O GitHub é apenas, de longe, o maior deles.</p>
+</section>
+<section id="os-cinco-conceitos-que-sustentam-tudo" class="level2">
+<h2 class="anchored" data-anchor-id="os-cinco-conceitos-que-sustentam-tudo">Os cinco conceitos que sustentam tudo</h2>
+<p>Quase todo o vocabulário do Git se organiza em torno de cinco ideias. Entendidas estas, o resto é detalhe.</p>
+<p><strong>Repositório</strong> é a pasta do projeto com o histórico junto. Ao rodar um comando de inicialização, o Git cria ali uma subpasta oculta onde guarda todas as versões. Apagar essa subpasta apaga o histórico e deixa apenas os arquivos atuais.</p>
+<p><strong>Commit</strong> é uma fotografia do projeto num instante, acompanhada de uma mensagem. É a unidade do histórico: você não salva arquivos no Git, você faz commits. Uma boa mensagem de commit explica o <em>porquê</em> da mudança, não o <em>o quê</em> — o “o quê” já está registrado nas linhas alteradas.</p>
+<p><strong>Branch</strong>, ou ramo, é uma linha do tempo paralela. Você cria um ramo para experimentar uma ideia sem tocar na versão que está funcionando. Se a ideia der certo, ela se junta à linha principal; se der errado, você apaga o ramo e nada se perde. É o recurso que torna seguro tentar coisas.</p>
+<p><strong>Merge</strong> é a junção de dois ramos. Quando as duas linhas mexeram em partes diferentes, o Git resolve sozinho. Quando mexeram na mesma linha do mesmo arquivo, ele para e pede que uma pessoa decida — é o famoso conflito, que assusta no começo e é apenas o Git se recusando a escolher por você.</p>
+<p><strong>Remote</strong> é uma cópia do repositório em outro lugar, normalmente no GitHub. Você envia commits para lá com um comando e traz os commits dos outros com outro. É o que transforma um histórico pessoal em trabalho de equipe.</p>
+</section>
+<section id="um-exemplo-completo-do-zero-ao-github" class="level2">
+<h2 class="anchored" data-anchor-id="um-exemplo-completo-do-zero-ao-github">Um exemplo completo, do zero ao GitHub</h2>
+<p>O trecho abaixo cria um projeto, registra a primeira versão e a envia para o GitHub. Os comandos são os mesmos em Linux, macOS e Windows.</p>
+<p>Antes de tudo, uma configuração feita uma única vez por computador, para que seus commits saiam assinados:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">git</span> config <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--global</span> user.name <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Seu Nome"</span></span>
+<span id="cb2-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">git</span> config <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--global</span> user.email <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"seu@email.com"</span></span></code></pre></div></div>
+<p>Agora o projeto em si:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mkdir</span> meu-projeto</span>
+<span id="cb3-2"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">cd</span> meu-projeto</span>
+<span id="cb3-3"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">git</span> init</span></code></pre></div></div>
+<p>Crie um arquivo qualquer e registre a primeira versão. O comando de adição diz ao Git o que entra no próximo commit; o de commit fecha a fotografia com uma mensagem:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"# Meu projeto"</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> README.md</span>
+<span id="cb4-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">git</span> add README.md</span>
+<span id="cb4-3"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">git</span> commit <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-m</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Cria o README com a descrição do projeto"</span></span></code></pre></div></div>
+<p>Para ver o que aconteceu, dois comandos que você vai usar o tempo todo — o primeiro mostra o estado atual, o segundo mostra o histórico:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">git</span> status</span>
+<span id="cb5-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">git</span> log <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--oneline</span></span></code></pre></div></div>
+<p>Depois de criar um repositório vazio na sua conta do GitHub, conecte os dois e envie:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">git</span> remote add origin https://github.com/usuario/meu-projeto.git</span>
+<span id="cb6-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">git</span> branch <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-M</span> main</span>
+<span id="cb6-3"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">git</span> push <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-u</span> origin main</span></code></pre></div></div>
+<p>A partir daí, o ciclo do dia a dia se resume a quatro comandos: <code>git add</code> para escolher o que entra, <code>git commit</code> para registrar, <code>git push</code> para enviar e <code>git pull</code> para trazer o que os outros fizeram.</p>
+<p>O arquivo <code>README.md</code> do exemplo não é um detalhe: é o texto que o GitHub exibe na página inicial do repositório, e ele é escrito em markdown. Se essa sintaxe for nova para você, vale ler antes o <a href="../../posts/introducao-sintaxe-markdown/index.html">guia de sintaxe markdown</a>, porque é nela que se escreve praticamente toda a documentação que circula na plataforma.</p>
+</section>
+<section id="para-que-serve-além-de-programar" class="level2">
+<h2 class="anchored" data-anchor-id="para-que-serve-além-de-programar">Para que serve, além de programar</h2>
+<p>A associação entre Git e código é histórica, não técnica. O Git versiona <strong>arquivos de texto</strong>, e enxerga diferenças linha a linha em qualquer um deles. Isso abre um conjunto de usos que raramente aparece nos tutoriais:</p>
+<ul>
+<li><strong>Documentação e escrita.</strong> Livros, manuais, teses e artigos ganham histórico, ramos para reescrever um capítulo sem medo e revisão por comentário. Vários livros técnicos conhecidos são escritos assim, em repositórios públicos.</li>
+<li><strong>Análise de dados e pesquisa.</strong> Versionar os scripts que limpam e analisam uma base é o que torna um resultado reproduzível: qualquer pessoa consegue voltar ao estado exato do código que gerou aquele número. Quem está começando em análise de dados costuma chegar ao Git pelo mesmo caminho que leva à <a href="../../posts/introducao-sintaxe-python/index.html">sintaxe de Python</a>.</li>
+<li><strong>Textos jurídicos e contratos.</strong> Um contrato negociado é um texto que muda muitas vezes, com várias partes propondo alterações. É exatamente o problema que ramos, diferenças e histórico resolvem — e a diferença linha a linha responde, sem discussão, à pergunta sobre quem inseriu determinada cláusula e quando.</li>
+<li><strong>Configuração de sistemas.</strong> Arquivos de configuração de servidores e ambientes ficam versionados, o que permite auditar mudanças e reverter uma alteração que derrubou o serviço.</li>
+<li><strong>Publicação de sites.</strong> O GitHub Pages transforma um repositório em um site estático hospedado gratuitamente, o que faz de um repositório de textos um site publicado.</li>
+</ul>
+<p>O critério é simples: se o conteúdo é texto e importa saber como ele chegou ao estado atual, o Git serve.</p>
+</section>
+<section id="o-que-mudou-recentemente" class="level2">
+<h2 class="anchored" data-anchor-id="o-que-mudou-recentemente">O que mudou recentemente</h2>
+<p>Três movimentos recentes valem menção, porque mudam o que significa “usar GitHub” em 2026.</p>
+<p><strong>A escala virou outra.</strong> O relatório anual da plataforma, o <a href="https://github.blog/news-insights/octoverse/octoverse-a-new-developer-joins-github-every-second-as-ai-leads-typescript-to-1/">Octoverse 2025</a>, fechou o período de setembro de 2024 a agosto de 2025 com mais de 180 milhões de contas de pessoas desenvolvedoras e 630 milhões de repositórios — cerca de um novo cadastro por segundo. Foram quase 1 bilhão de commits no período, 25% mais que no ano anterior. O mesmo relatório registrou uma inversão inédita: o TypeScript passou o Python e o JavaScript e virou a linguagem com mais pessoas contribuindo.</p>
+<p><strong>O Git continua evoluindo.</strong> A versão 2.55, <a href="https://github.blog/open-source/git/highlights-from-git-2-55/">lançada em 29 de junho de 2026</a>, trouxe um comando experimental de correção de histórico que resolve um incômodo antigo: quando você percebe que uma alteração pertencia a um commit anterior, dá para encaixá-la lá diretamente, sem o procedimento manual que isso exigia antes. A mesma versão passou a executar verificações automáticas em paralelo e estendeu ao Linux um mecanismo de detecção rápida de arquivos alterados que já existia no macOS e no Windows.</p>
+<p><strong>Agentes de IA entraram no fluxo.</strong> O GitHub anunciou o <a href="https://github.blog/news-insights/company-news/welcome-home-agents/">Agent HQ</a>, uma camada que permite acionar agentes de diferentes fornecedores dentro da própria plataforma, acompanhar o que cada um está fazendo e receber o resultado como uma proposta de alteração para revisão humana. O ponto que interessa a quem está começando é este: o formato da entrega não mudou. O agente produz commits e propostas de alteração, e alguém precisa ler, entender e aprovar. Saber Git deixou de ser o que o torna produtivo e passou a ser o que o torna capaz de revisar — o que é uma razão melhor para aprender, não pior.</p>
+</section>
+<section id="erros-comuns-de-quem-está-começando" class="level2">
+<h2 class="anchored" data-anchor-id="erros-comuns-de-quem-está-começando">Erros comuns de quem está começando</h2>
+<ul>
+<li><strong>Confundir salvar com commitar.</strong> Salvar o arquivo no editor não cria versão nenhuma. Enquanto não houver commit, o Git não registrou nada.</li>
+<li><strong>Mensagens de commit vazias de sentido.</strong> “ajustes”, “correções” e “teste” descrevem todos os commits do mundo e nenhum em particular. Escreva o motivo.</li>
+<li><strong>Commitar arquivos que não deveriam subir.</strong> Senhas, chaves de acesso e bases de dados inteiras não entram no repositório. Um arquivo de exclusões na raiz do projeto resolve isso, e vale configurá-lo antes do primeiro commit — depois de publicada, uma senha precisa ser trocada, não apagada.</li>
+<li><strong>Fugir dos conflitos.</strong> Conflito não é erro do Git: é o Git avisando que duas pessoas mexeram na mesma linha e se recusando a escolher. Abrir o arquivo e decidir leva menos tempo do que parece.</li>
+<li><strong>Tratar o histórico como intocável.</strong> Ramos existem para serem descartados. Criar um ramo para testar uma ideia é a operação mais barata do Git.</li>
+</ul>
+</section>
+<section id="perguntas-frequentes" class="level2">
+<h2 class="anchored" data-anchor-id="perguntas-frequentes">Perguntas frequentes</h2>
+<section id="preciso-saber-programar-para-usar-git" class="level3">
+<h3 class="anchored" data-anchor-id="preciso-saber-programar-para-usar-git">Preciso saber programar para usar Git?</h3>
+<p>Não. O Git versiona qualquer arquivo de texto, e quem escreve documentação, textos jurídicos ou material didático tira proveito dele sem escrever uma linha de código. Os comandos do dia a dia são meia dúzia.</p>
+</section>
+<section id="git-e-github-são-gratuitos" class="level3">
+<h3 class="anchored" data-anchor-id="git-e-github-são-gratuitos">Git e GitHub são gratuitos?</h3>
+<p>O Git é software livre, gratuito para qualquer uso. O GitHub tem um plano gratuito que inclui repositórios públicos e privados sem limite de quantidade; os planos pagos acrescentam recursos de organização, segurança e automação.</p>
+</section>
+<section id="preciso-usar-a-linha-de-comando" class="level3">
+<h3 class="anchored" data-anchor-id="preciso-usar-a-linha-de-comando">Preciso usar a linha de comando?</h3>
+<p>Não obrigatoriamente. Existem interfaces gráficas, e editores de código trazem o Git embutido. Mas aprender os cinco ou seis comandos básicos compensa: é o vocabulário comum a todas as ferramentas, e é o que aparece em toda documentação e em toda resposta que você vai encontrar quando algo der errado.</p>
+</section>
+<section id="qual-a-diferença-entre-repositório-público-e-privado" class="level3">
+<h3 class="anchored" data-anchor-id="qual-a-diferença-entre-repositório-público-e-privado">Qual a diferença entre repositório público e privado?</h3>
+<p>Um repositório público pode ser lido por qualquer pessoa; o privado, apenas por quem você autorizar. Público não significa que qualquer um pode alterar — alterações de terceiros entram como propostas que você aprova ou recusa.</p>
+</section>
+</section>
+<section id="conclusão" class="level2">
+<h2 class="anchored" data-anchor-id="conclusão">Conclusão</h2>
+<ul>
+<li><strong>Git é o programa que guarda o histórico</strong>; GitHub é o serviço que hospeda esse histórico e organiza a colaboração em torno dele. São coisas distintas e o primeiro funciona sem o segundo.</li>
+<li><strong>Cinco conceitos dão conta do essencial</strong>: repositório, commit, branch, merge e remote.</li>
+<li><strong>O dia a dia cabe em quatro comandos</strong>: adicionar, commitar, enviar e trazer.</li>
+<li><strong>O uso não se restringe a código</strong>: qualquer texto cuja história importe se beneficia de versionamento, de contratos a artigos científicos.</li>
+<li><strong>A chegada dos agentes de IA aumentou o valor de entender Git</strong>, porque o que eles entregam continua sendo commits e propostas de alteração que alguém precisa revisar.</li>
+</ul>
+<hr>
+<p><strong>Tópicos:</strong> #Git #GitHub #Versionamento #ControleDeVersao #Programacao</p>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Git e GitHub: o que são, para que servem e como usar",
+  "description": "Git e GitHub explicados do zero: o que cada um faz, como se diferenciam, os comandos que você usa no dia a dia e as aplicações que vão além de programar.",
+  "inLanguage": "pt-BR",
+  "datePublished": "2026-09-13T13:27:01-04:00",
+  "dateModified": "2026-09-13T13:27:01-04:00",
+  "author": { "@type": "Person", "name": "Pedro Nakashima" },
+  "mainEntityOfPage": "https://pedronakashima.com/posts/git-github-guia-iniciantes/",
+  "keywords": "git, github, versionamento, controle de versão, programação, tutorial"
+}
+</script>
+
+
+</section>
+
+ ]]></description>
+  <category>git</category>
+  <category>github</category>
+  <category>versionamento</category>
+  <category>programação</category>
+  <category>tutorial</category>
+  <guid>https://pedronakashima.com/posts/git-github-guia-iniciantes/</guid>
+  <pubDate>Sun, 13 Sep 2026 17:27:01 GMT</pubDate>
+  <media:content url="https://pedronakashima.com/posts/git-github-guia-iniciantes/cover.jpg" medium="image" type="image/jpeg"/>
+</item>
 <item>
   <title>Open Knowledge Format: an introduction to Google’s spec</title>
   <dc:creator>Pedro Nakashima</dc:creator>
@@ -155,7 +399,7 @@ font-style: inherit;">`status = canceled`</span> and must be excluded. This is t
 <section id="the-links-are-the-graph" class="level2">
 <h2 class="anchored" data-anchor-id="the-links-are-the-graph">The links are the graph</h2>
 <p>The second element of the format is the connection between concepts, and it is plain markdown. The recommended form is a bundle-absolute path beginning with <code>/</code>: <code>[orders](/tables/orders.md)</code>. Relative paths work too.</p>
-<p>There is no formal relationship typing — no <code>hasParent</code>, no <code>derivedFrom</code>. The meaning of a link comes from the prose around it. “Joined with <a href="../..\tables/customers.md">customers</a> on <code>customer_id</code>” is simultaneously a sentence a person reads and an edge an agent walks.</p>
+<p>There is no formal relationship typing — no <code>hasParent</code>, no <code>derivedFrom</code>. The meaning of a link comes from the prose around it. “Joined with <a href="../../tables/customers.md">customers</a> on <code>customer_id</code>” is simultaneously a sentence a person reads and an edge an agent walks.</p>
 <p>That difference is what separates OKF from the RAG pattern most teams are used to. RAG chops documents into fragments and retrieves them by similarity, leaving the agent to infer connections from whatever came back. In an OKF bundle the connections are already written down, and navigation is deliberate instead of probabilistic.</p>
 </section>
 <section id="what-v0.2-added-provenance-and-trust" class="level2">
@@ -396,7 +640,7 @@ font-style: inherit;">`status = cancelado`</span> e precisam ser excluídos do c
 <section id="os-links-são-o-grafo" class="level2">
 <h2 class="anchored" data-anchor-id="os-links-são-o-grafo">Os links são o grafo</h2>
 <p>O segundo elemento do formato é a ligação entre conceitos, e ela usa markdown puro. A forma recomendada é o caminho absoluto dentro do pacote, começando com <code>/</code>: <code>[pedidos](/tabelas/pedidos.md)</code>. Caminhos relativos também valem.</p>
-<p>Não há tipagem formal de relacionamento — nada de <code>hasParent</code> ou <code>derivedFrom</code>. O sentido da ligação vem da prosa em volta dela. “Junta-se com <a href="../..\tabelas/clientes.md">clientes</a> por <code>customer_id</code>” é, ao mesmo tempo, uma frase que um humano lê e uma aresta que um agente percorre.</p>
+<p>Não há tipagem formal de relacionamento — nada de <code>hasParent</code> ou <code>derivedFrom</code>. O sentido da ligação vem da prosa em volta dela. “Junta-se com <a href="../../tabelas/clientes.md">clientes</a> por <code>customer_id</code>” é, ao mesmo tempo, uma frase que um humano lê e uma aresta que um agente percorre.</p>
 <p>É essa diferença que separa o OKF do padrão de RAG a que a maioria está acostumada. O RAG pica documentos em fragmentos e os recupera por similaridade; o agente precisa inferir as conexões a partir do que voltou. Num pacote OKF as conexões já estão escritas, e a navegação é deliberada em vez de probabilística.</p>
 </section>
 <section id="o-que-a-v0.2-acrescentou-procedência-e-confiança" class="level2">
@@ -507,7 +751,7 @@ font-style: inherit;">`status = cancelado`</span> e precisam ser excluídos do c
 <p><em>Publicado em 12 de setembro de 2026, às 08:46, por Pedro Nakashima</em></p>
 <p><em>Atualizado em 12 de setembro de 2026, às 09:50, por Pedro Nakashima</em></p>
 <p><img src="https://pedronakashima.com/posts/introducao-sintaxe-markdown/cover.jpg" class="img-fluid"></p>
-<p>A sintaxe markdown é o conjunto mínimo de sinais de pontuação que transforma texto puro em documento formatado: dois asteriscos viram negrito, uma cerquilha vira título, três crases abrem um bloco de código. Este guia cobre, na ordem em que você vai precisar, a extensão do arquivo e como visualizá-lo renderizado, as três formas de ênfase, código em bloco e inline com identificação de linguagem, listas numeradas e não numeradas, links para fora e para dentro do próprio documento, tabelas e os detalhes que separam quem escreve markdown de quem apenas o usa. No fim, o argumento que mais importa hoje: markdown deixou de ser uma conveniência de programador e virou o formato em que humanos e modelos de linguagem conversam. Se você chegou aqui depois do <a href="../..\posts/introducao-sintaxe-python/">guia de sintaxe Python</a>, a lógica é a mesma: uma sintaxe pequena, aprendida de uma vez só, que rende todos os dias.</p>
+<p>A sintaxe markdown é o conjunto mínimo de sinais de pontuação que transforma texto puro em documento formatado: dois asteriscos viram negrito, uma cerquilha vira título, três crases abrem um bloco de código. Este guia cobre, na ordem em que você vai precisar, a extensão do arquivo e como visualizá-lo renderizado, as três formas de ênfase, código em bloco e inline com identificação de linguagem, listas numeradas e não numeradas, links para fora e para dentro do próprio documento, tabelas e os detalhes que separam quem escreve markdown de quem apenas o usa. No fim, o argumento que mais importa hoje: markdown deixou de ser uma conveniência de programador e virou o formato em que humanos e modelos de linguagem conversam. Se você chegou aqui depois do <a href="../../posts/introducao-sintaxe-python/">guia de sintaxe Python</a>, a lógica é a mesma: uma sintaxe pequena, aprendida de uma vez só, que rende todos os dias.</p>
 <section id="o-que-é-markdown" class="level2">
 <h2 class="anchored" data-anchor-id="o-que-é-markdown">O que é markdown</h2>
 <p>Markdown é uma linguagem de marcação leve criada por John Gruber em 2004, com duas metas declaradas: o texto deve ser legível <strong>antes</strong> de ser renderizado, e o resultado renderizado deve ser HTML. É essa dupla natureza que explica seu sucesso — o arquivo <code>.md</code> é útil aberto no Bloco de Notas e útil publicado numa página web, sem conversão manual no meio.</p>
@@ -935,7 +1179,7 @@ font-style: inherit;">|</span></span></code></pre></div></div>
 </section>
 <section id="aplicações-documentação-publicação-e-llms" class="level2">
 <h2 class="anchored" data-anchor-id="aplicações-documentação-publicação-e-llms">Aplicações: documentação, publicação e LLMs</h2>
-<p>As aplicações tradicionais já justificam o aprendizado. <strong>Documentação de software</strong> vive em markdown: o <code>README.md</code> é a primeira página de qualquer repositório, e ferramentas como MkDocs e Docusaurus constroem sites de documentação inteiros a partir de pastas de <code>.md</code>. <strong>Publicação</strong> é o terreno dos geradores de site estático, que transformam uma pasta de arquivos markdown versionada num repositório em um site com navegação, listagem e feed RSS, sem banco de dados e sem painel de administração. <strong>Notas pessoais e gestão de conhecimento</strong> ganharam vida nova com Obsidian e Logseq, que tornam links entre arquivos a estrutura primária — e, porque a base é markdown puro, suas anotações nunca ficam presas ao aplicativo. <strong>Computação científica</strong> usa markdown ao lado do código, em notebooks Jupyter, com o texto explicativo e o resultado do cálculo no mesmo arquivo — é o que o <a href="../..\posts/introducao-pandas/">guia de introdução ao pandas</a> mostra em funcionamento.</p>
+<p>As aplicações tradicionais já justificam o aprendizado. <strong>Documentação de software</strong> vive em markdown: o <code>README.md</code> é a primeira página de qualquer repositório, e ferramentas como MkDocs e Docusaurus constroem sites de documentação inteiros a partir de pastas de <code>.md</code>. <strong>Publicação</strong> é o terreno dos geradores de site estático, que transformam uma pasta de arquivos markdown versionada num repositório em um site com navegação, listagem e feed RSS, sem banco de dados e sem painel de administração. <strong>Notas pessoais e gestão de conhecimento</strong> ganharam vida nova com Obsidian e Logseq, que tornam links entre arquivos a estrutura primária — e, porque a base é markdown puro, suas anotações nunca ficam presas ao aplicativo. <strong>Computação científica</strong> usa markdown ao lado do código, em notebooks Jupyter, com o texto explicativo e o resultado do cálculo no mesmo arquivo — é o que o <a href="../../posts/introducao-pandas/">guia de introdução ao pandas</a> mostra em funcionamento.</p>
 <p>A aplicação nova, e a que mais mudou nos últimos dois anos, é <strong>markdown como formato de interface com modelos de linguagem</strong>.</p>
 <p>Três razões explicam por que markdown ocupou esse lugar. A primeira é de treinamento: os modelos foram treinados sobre volumes enormes de GitHub, documentação técnica e fóruns — todos em markdown. É o formato que eles viram mais, e é por isso que a resposta padrão de praticamente todo assistente já sai com <code>##</code>, listas e blocos de código, mesmo quando ninguém pediu. A segunda é <strong>economia de tokens</strong>: markdown carrega muito menos sobrecarga sintática que HTML, XML ou JSON para expressar a mesma estrutura. Onde HTML gasta <code>&lt;strong&gt;texto&lt;/strong&gt;</code> (dezessete caracteres só de andaime), markdown gasta <code>**texto**</code> (quatro). Em um contexto de centenas de milhares de tokens, esse andaime é espaço que deixa de ser conteúdo — e, em uma API paga por token, é dinheiro gasto em pontuação. A terceira é que a estrutura <strong>sobrevive à conversão em texto plano</strong>: um título markdown continua visivelmente um título depois de tokenizado, ao contrário de formatação binária, que simplesmente desaparece.</p>
 <p>Isso rende quatro hábitos práticos que valem a pena adotar:</p>

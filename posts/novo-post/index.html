@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.9.38">
@@ -7,11 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Pedro Nakashima">
-<meta name="dcterms.date" content="2026-09-09">
-<meta name="keywords" content="Pedro Nakashima, economics, law, programming, Python, data science, open data">
-<meta name="description" content="Economics, law, programming, and data in one place. Who I am, what this blog will cover, and why the best questions live between fields, not inside one.">
+<meta name="dcterms.date" content="2026-09-03">
 
-<title>Economics, Law, and Code: An Introduction to This Blog – Pedro Nakashima - Blog</title>
+<title>Novo post – Pedro Nakashima - Blog</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -75,20 +73,37 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Economics, Law, and Code: An Introduction to This Blog – Pedro Nakashima - Blog">
-<meta property="og:description" content="Economics, law, programming, and data in one place. Who I am, what this blog will cover, and why the best questions live between fields, not inside one.">
-<meta property="og:image" content="https://pedronakashima.com/posts/economics-law-code/cover.jpg">
-<meta property="og:site_name" content="Pedro Nakashima - Blog">
-<meta property="og:image:alt" content="A desk with an open notebook next to a laptop showing lines of code and a time-series chart">
-<meta name="twitter:title" content="Economics, Law, and Code: An Introduction to This Blog – Pedro Nakashima - Blog">
-<meta name="twitter:description" content="Economics, law, programming, and data in one place. Who I am, what this blog will cover, and why the best questions live between fields, not inside one.">
-<meta name="twitter:image" content="https://pedronakashima.com/posts/economics-law-code/cover.jpg">
-<meta name="twitter:creator" content="@PedroOnData">
-<meta name="twitter:site" content="@PedroOnData">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image:alt" content="A desk with an open notebook next to a laptop showing lines of code and a time-series chart">
 </head>
 
 <body class="nav-fixed fullcontent quarto-light">
@@ -113,11 +128,6 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Sobre / About</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://pedroondata.com"> <i class="bi bi-globe" role="img" aria-label="Site pessoal / Personal website">
-</i> 
-<span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
     <a class="nav-link" href="https://www.linkedin.com/in/pedronakashima/"> <i class="bi bi-linkedin" role="img" aria-label="LinkedIn">
 </i> 
 <span class="menu-text"></span></a>
@@ -132,11 +142,6 @@ ul.task-list li input[type="checkbox"] {
 </i> 
 <span class="menu-text"></span></a>
   </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://www.instagram.com/pedroondata/"> <i class="bi bi-instagram" role="img" aria-label="Instagram">
-</i> 
-<span class="menu-text"></span></a>
-  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -148,18 +153,11 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Economics, Law, and Code: An Introduction to This Blog</h1>
-                  <div>
-        <div class="description">
-          Economics, law, programming, and data in one place. Who I am, what this blog will cover, and why the best questions live between fields, not inside one.
-        </div>
-      </div>
-                          <div class="quarto-categories">
-                <div class="quarto-category">introduction</div>
-                <div class="quarto-category">economics</div>
-                <div class="quarto-category">law</div>
-                <div class="quarto-category">programming</div>
-                <div class="quarto-category">data science</div>
+      <h1 class="title">Novo post</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">novidade</div>
+                <div class="quarto-category">python</div>
+                <div class="quarto-category">analysis</div>
               </div>
                   </div>
   </div>
@@ -177,26 +175,13 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">September 9, 2026</p>
+        <p class="date">September 3, 2026</p>
       </div>
     </div>
     
-      <div>
-      <div class="quarto-title-meta-heading">Modified</div>
-      <div class="quarto-title-meta-contents">
-        <p class="date-modified">September 9, 2026</p>
-      </div>
-    </div>
       
     </div>
     
-
-  <div>
-    <div class="keywords">
-      <div class="block-title">Keywords</div>
-      <p>Pedro Nakashima, economics, law, programming, Python, data science, open data</p>
-    </div>
-  </div>
   
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
@@ -209,42 +194,15 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p><em>Published on September 9, 2026 at 6:42 PM by Pedro Nakashima</em></p>
-<p><img src="cover.jpg" class="img-fluid"></p>
-<p>Welcome. This is the first post of a blog that will move between economics, law, and programming, and the first thing I owe anyone landing here is an honest account of what I plan to do with this space. My name is Pedro Nakashima. I live in Campo Grande, a city in Brazil’s Midwest region, roughly the size of a mid-sized American city, best known outside Brazil, if it is known at all, for sitting close to the Pantanal wetlands. The idea behind everything that follows is fairly simple: the most interesting questions I have run into over the past few years were almost never at the center of a single field. They lived at the border between two or three.</p>
-<p>Before I get to the topics, I would rather talk about the method, because it is the method that defines the kind of reading you will find here. I am not attached to fixed ideas, and I feel no embarrassment about changing my mind, especially when I realize I was wrong. I would rather have a well-built argument than an old conviction, and a verifiable data point than an elegant one. That implies a practical commitment I will try to honor in every post: keeping a clear line between what is fact, what is evidence, what is my own analysis, and what is simply opinion. These are four different things, and a good share of public confusion about economics and law comes precisely from treating them as one.</p>
-<p>I am an economist by training and hold a law degree, and that combination explains most of what interests me. I learned to program during my master’s degree in Economics at PUC-Rio, a university in Rio de Janeiro, when programming became a natural tool for working with data, models, and economic problems. Economics gave me the habit of asking how much, at what magnitude, and under which assumptions; programming gave me the ability to turn those questions into concrete analysis: pulling datasets, cleaning them, cross-referencing, calculating, modeling, testing; and law added the habit of asking on what legal basis, through which procedure, and with what consequences. Together, these fields taught me that a question does not have to end in a printout. It can end in evidence, in a number, in a clearly identified rule, or, just as valuably, in the realization that the available information does not yet allow for an answer.</p>
-<section id="questions-that-live-at-the-border" class="level2">
-<h2 class="anchored" data-anchor-id="questions-that-live-at-the-border">Questions that live at the border</h2>
-<p>That is why I do not intend to fit this blog into a single niche. Here, economics will meet programming, law will meet data science, and public datasets will be used to investigate questions that started out as legal or economic. Language models and other artificial intelligence tools will show up in the role they actually play well, which is processing a volume of documents and text that no person could read in reasonable time. And programming will appear in the role I most enjoy giving it: turning theoretical analysis into an actual tool, one that runs, that breaks, that can be fixed, and that anyone else can run again.</p>
-<p>My favorite programming language is Python, and it should show up often, in conceptual posts, in short examples, in experiments, in automation, in models, and in larger projects. Not because it is the best language for everything, which it is not, but because it is where I can get from a question to a result by the shortest path, and because the data-analysis ecosystem built around it is hard to beat. When code is part of the argument, it comes along with the text, not hidden behind a finished chart.</p>
-<p>A meaningful part of what I plan to publish has to do with datasets, and that is an area usually treated as a technical detail when it is actually half the work. Finding out that a source exists, learning how to obtain it, organizing it, processing it, checking its consistency, and only then analyzing it: each of these steps decides the quality of the final answer. Brazil, in that respect, is more generous than people assume. The time series and open data from the Central Bank of Brazil, <a href="https://sidra.ibge.gov.br/">IBGE’s SIDRA platform</a> (the national statistics agency’s data portal), <a href="https://dadosabertos.camara.leg.br/">the Chamber of Deputies’ open data</a> (Brazil’s lower house of Congress), and <a href="https://www.lexml.gov.br/">LexML’s legislative archive</a> support, on their own, an enormous number of concrete questions that almost nobody bothers to ask. I plan to show the whole path, including the tedious parts, because that is where the result is won or lost.</p>
-<p>On the legal side, my interest centers on banking law, tax law, constitutional law, financial law, and the legislative process. I have a particular interest in forensic banking analysis, which is perhaps the clearest example of everything I described above happening at once: a legal dispute that can only be settled with financial mathematics, over documents that need to be read at scale, with an outcome that depends entirely on correctly reconstructing a sequence of calculations. It is not a topic that ends in opinion, and that is exactly why I like it.</p>
-</section>
-<section id="what-this-space-does-not-intend-to-be" class="level2">
-<h2 class="anchored" data-anchor-id="what-this-space-does-not-intend-to-be">What this space does not intend to be</h2>
-<p>Politics will show up here, and I would rather make that clear in the very first post, along with an equally clear caveat: I have never had, do not have, and do not intend to have any political or electoral ambitions. I enjoy the topic, and it interests me as an object of analysis, especially where it touches economics, institutions, public policy, and data. What I write should be predominantly technical and analytical, and my ambition, whenever I write about it, is for the piece to be useful even to someone who disagrees with my conclusion.</p>
-<p>I also see no contradiction between being a Christian and valuing science deeply. I have never had to choose between the two, and I do not think valuing faith requires rejecting scientific knowledge or distrusting the method that produces it. I mention this not to turn the blog into a space for religious debate, but because it is part of who is writing, and I would rather readers know where I am coming from.</p>
-<p>This blog is not, and will not present itself as, the work of someone who has mastered every subject it touches. There are topics where I have years of hands-on work and topics where I am simply a fairly stubborn student, and I will try to signal the difference whenever it matters. This space is meant both for publishing what I already know and for studying in public: testing a hypothesis, building an experiment, getting the first approach wrong, redoing it, and describing what I learned along the way. A piece that only shows the finished version is usually more comfortable to write and considerably less useful to read.</p>
-<p>My goal is not to go viral or chase audience numbers. The purpose is to share work, projects, studies, analysis, and points of view, and if that finds the right readers, it will already have done what I hoped for. I also know that publishing on the internet means exposure, and that exposure eventually brings harsh criticism, disagreement, and some outright hostility. I consider that an inherent cost of putting ideas up for discussion, and it is a cost I accept. Criticism backed by argument, for that matter, is the good part of the deal: it is the cheapest mechanism there is for finding out you were wrong.</p>
-<p>Not everything here will be technical. I enjoy music, film, and good television, and those subjects should show up now and then, without asking permission. And posts may come out in either Portuguese or English, because I want the content to reach people interested in these topics regardless of whether they are in Brazil or somewhere else.</p>
-<p>That is it. Welcome to this space, which starts now and will probably change shape as I figure out what works. If any of the topics above sparked your curiosity, it is worth following the next posts: this first one only served to say where I am starting from and where I intend to go. The real work begins with the next one.</p>
-<hr>
-<p><strong>Topics:</strong> #Economics #Law #Python #DataScience #OpenData</p>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "Economics, Law, and Code: An Introduction to This Blog",
-  "description": "Economics, law, programming, and data in one place. Who I am, what this blog will cover, and why the best questions live between fields, not inside one.",
-  "inLanguage": "en-US",
-  "datePublished": "2026-09-09T18:42:21-03:00",
-  "dateModified": "2026-09-09T18:42:21-03:00",
-  "author": { "@type": "Person", "name": "Pedro Nakashima" },
-  "mainEntityOfPage": "https://pedronakashima.com/posts/economics-law-code/",
-  "keywords": "economics, law, programming, data science, Python, open data, forensic banking analysis"
-}
-</script>
+<section id="um-bom-cabeçalho" class="level2">
+<h2 class="anchored" data-anchor-id="um-bom-cabeçalho">Um bom cabeçalho</h2>
+<p>Here is some lovely text and an equation.</p>
+<p><span class="math display">\[ a^2 + b^2 = c^2 \]</span></p>
+<p>Here’s a list.</p>
+<ul>
+<li>a link to an <a href="https://quarto.org">external website</a>.</li>
+<li>a link to <a href="../../posts/welcome/index.html">another post in this blog</a>.</li>
+</ul>
 
 
 </section>

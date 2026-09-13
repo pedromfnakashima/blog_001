@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/git-github-guia-iniciantes/index.html",
       "/posts/open-knowledge-format-introduction/index.html",
       "/posts/introducao-open-knowledge-format/index.html",
       "/posts/introducao-sintaxe-markdown/index.html",

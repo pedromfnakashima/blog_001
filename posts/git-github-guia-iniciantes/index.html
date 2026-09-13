@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Pedro Nakashima">
-<meta name="keywords" content="open knowledge format, OKF, Google Cloud, markdown, YAML, agentes de IA, contexto para LLMs, knowledge catalog, especificação aberta">
-<meta name="description" content="Open Knowledge Format: o padrão aberto do Google Cloud que empacota o conhecimento de uma organização em markdown para agentes de IA lerem. Guia prático.">
+<meta name="keywords" content="git, github, controle de versão, versionamento de código, repositório, commit, pull request">
+<meta name="description" content="Git e GitHub explicados do zero: o que cada um faz, como se diferenciam, os comandos que você usa no dia a dia e as aplicações que vão além de programar.">
 
-<title>Introdução ao Open Knowledge Format, o padrão do Google – Pedro Nakashima - Blog</title>
+<title>Git e GitHub: o que são, para que servem e como usar – Pedro Nakashima - Blog</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -111,18 +111,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Introdução ao Open Knowledge Format, o padrão do Google – Pedro Nakashima - Blog">
-<meta property="og:description" content="Open Knowledge Format: o padrão aberto do Google Cloud que empacota o conhecimento de uma organização em markdown para agentes de IA lerem. Guia prático.">
-<meta property="og:image" content="https://pedronakashima.com/posts/introducao-open-knowledge-format/cover.jpg">
+<meta property="og:title" content="Git e GitHub: o que são, para que servem e como usar – Pedro Nakashima - Blog">
+<meta property="og:description" content="Git e GitHub explicados do zero: o que cada um faz, como se diferenciam, os comandos que você usa no dia a dia e as aplicações que vão além de programar.">
+<meta property="og:image" content="https://pedronakashima.com/posts/git-github-guia-iniciantes/cover.jpg">
 <meta property="og:site_name" content="Pedro Nakashima - Blog">
-<meta property="og:image:alt" content="Pasta de arquivos de texto aberta em um editor, com blocos de metadados no topo de cada documento e linhas ligando um arquivo ao outro">
-<meta name="twitter:title" content="Introdução ao Open Knowledge Format, o padrão do Google – Pedro Nakashima - Blog">
-<meta name="twitter:description" content="Open Knowledge Format: o padrão aberto do Google Cloud que empacota o conhecimento de uma organização em markdown para agentes de IA lerem. Guia prático.">
-<meta name="twitter:image" content="https://pedronakashima.com/posts/introducao-open-knowledge-format/cover.jpg">
+<meta property="og:image:alt" content="Diagrama de ramificações coloridas partindo de uma linha central e voltando a se juntar, como o histórico de versões de um projeto">
+<meta name="twitter:title" content="Git e GitHub: o que são, para que servem e como usar – Pedro Nakashima - Blog">
+<meta name="twitter:description" content="Git e GitHub explicados do zero: o que cada um faz, como se diferenciam, os comandos que você usa no dia a dia e as aplicações que vão além de programar.">
+<meta name="twitter:image" content="https://pedronakashima.com/posts/git-github-guia-iniciantes/cover.jpg">
 <meta name="twitter:creator" content="@PedroOnData">
 <meta name="twitter:site" content="@PedroOnData">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image:alt" content="Pasta de arquivos de texto aberta em um editor, com blocos de metadados no topo de cada documento e linhas ligando um arquivo ao outro">
+<meta name="twitter:image:alt" content="Diagrama de ramificações coloridas partindo de uma linha central e voltando a se juntar, como o histórico de versões de um projeto">
 </head>
 
 <body class="nav-fixed fullcontent quarto-light">
@@ -182,18 +182,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Introdução ao Open Knowledge Format, o padrão do Google</h1>
+      <h1 class="title">Git e GitHub: o que são, para que servem e como usar</h1>
                   <div>
         <div class="description">
-          Open Knowledge Format: o padrão aberto do Google Cloud que empacota o conhecimento de uma organização em markdown para agentes de IA lerem. Guia prático.
+          Git e GitHub explicados do zero: o que cada um faz, como se diferenciam, os comandos que você usa no dia a dia e as aplicações que vão além de programar.
         </div>
       </div>
                           <div class="quarto-categories">
-                <div class="quarto-category">open knowledge format</div>
-                <div class="quarto-category">markdown</div>
-                <div class="quarto-category">documentação</div>
-                <div class="quarto-category">inteligência artificial</div>
+                <div class="quarto-category">git</div>
+                <div class="quarto-category">github</div>
+                <div class="quarto-category">versionamento</div>
                 <div class="quarto-category">programação</div>
+                <div class="quarto-category">tutorial</div>
               </div>
                   </div>
   </div>
@@ -211,14 +211,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div>
       <div class="quarto-title-meta-heading">Data de Publicação</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">12 de setembro de 2026</p>
+        <p class="date">13 de setembro de 2026</p>
       </div>
     </div>
     
       <div>
       <div class="quarto-title-meta-heading">Data de Modificação</div>
       <div class="quarto-title-meta-contents">
-        <p class="date-modified">12 de setembro de 2026</p>
+        <p class="date-modified">13 de setembro de 2026</p>
       </div>
     </div>
       
@@ -228,7 +228,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div>
     <div class="keywords">
       <div class="block-title">Palavras-chave</div>
-      <p>open knowledge format, OKF, Google Cloud, markdown, YAML, agentes de IA, contexto para LLMs, knowledge catalog, especificação aberta</p>
+      <p>git, github, controle de versão, versionamento de código, repositório, commit, pull request</p>
     </div>
   </div>
   
@@ -243,171 +243,176 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<p><em>Publicado em 12 de setembro de 2026, às 18:50, por Pedro Nakashima</em></p>
+<p><em>Publicado em 13 de setembro de 2026, às 13:27, por Pedro Nakashima</em></p>
 <p><img src="cover.jpg" class="img-fluid"></p>
-<p>O Open Knowledge Format (OKF) é uma especificação aberta do Google Cloud, publicada em junho de 2026, para registrar o que uma organização sabe — suas tabelas, métricas, APIs, procedimentos operacionais — num formato que humanos e agentes de IA leem igualmente bem. A resposta curta para o que ele é, por baixo: uma pasta de arquivos markdown, cada um com um bloco de metadados em YAML no topo. Não há banco de dados novo, não há formato binário, não há SDK obrigatório e não há autoridade central. Se isso soa simples demais para ser chamado de especificação, você entendeu a tese: no OKF, a simplicidade é o recurso, não a limitação. Este artigo apresenta o formato para quem nunca ouviu falar dele, mostra um pacote completo funcionando e é honesto sobre o que ele ainda não resolve.</p>
-<p>Se a sintaxe dos arquivos for novidade para você, vale ler antes o <a href="../../posts/introducao-sintaxe-markdown/index.html">guia de sintaxe markdown</a> — aqui eu parto do princípio de que você já sabe o que é um <code>##</code>, um bloco de código e um link. O que interessa neste texto não é como escrever markdown, e sim o que acontece quando alguém decide que uma pasta de arquivos <code>.md</code> é a forma certa de entregar conhecimento a uma máquina.</p>
-<section id="o-que-é-o-open-knowledge-format" class="level2">
-<h2 class="anchored" data-anchor-id="o-que-é-o-open-knowledge-format">O que é o Open Knowledge Format</h2>
-<p>O Open Knowledge Format é uma especificação que define como empacotar conhecimento em um diretório de arquivos markdown com metadados em YAML, cruzados por links, de modo que um agente de IA possa percorrê-los. Cada arquivo representa <strong>um conceito</strong>: uma tabela, uma métrica, um dataset, um procedimento, um endpoint. O conjunto desses arquivos em uma pasta é o que a especificação chama de <strong>pacote</strong> (<em>bundle</em>).</p>
-<p>O formato foi anunciado em 12 de junho de 2026 pela equipe de Data Cloud do Google Cloud, assinado por Sam McVeety e Amir Hormati, e a <a href="https://github.com/GoogleCloudPlatform/knowledge-catalog">especificação, as implementações de referência e os pacotes de exemplo estão no GitHub</a> sob licença Apache 2.0. Nasceu na versão 0.1 e já está na <strong>v0.2</strong>, que acrescentou os campos de procedência e confiança que veremos adiante.</p>
+<p>Git e GitHub são duas coisas diferentes que quase sempre aparecem juntas, e trocar uma pela outra é o primeiro tropeço de quase todo mundo que começa. Git é um programa que roda no seu computador e guarda o histórico completo das versões de um projeto. GitHub é um site que hospeda projetos versionados com Git e acrescenta a eles uma camada de colaboração. O Git funciona perfeitamente sem o GitHub; o GitHub não existiria sem o Git. Este guia parte do zero, sem pressupor que você já tenha ouvido falar de nenhum dos dois, e vai até os comandos que se usa no dia a dia.</p>
+<section id="o-que-é-git" class="level2">
+<h2 class="anchored" data-anchor-id="o-que-é-git">O que é Git</h2>
+<p>Git é um sistema de controle de versão distribuído: um programa que registra cada alteração feita nos arquivos de um projeto e permite voltar a qualquer estado anterior, comparar duas versões e entender quem mudou o quê, quando e por quê. “Distribuído” significa que cada pessoa tem uma cópia integral do histórico na própria máquina, e não apenas o arquivo mais recente.</p>
+<p>Ele foi criado em 2005 por Linus Torvalds, o mesmo autor do Linux, depois que o kernel perdeu acesso à ferramenta proprietária que usava até então. O projeto precisava de algo rápido o bastante para lidar com milhares de colaboradores e resistente a corrupção de dados. Essas duas exigências explicam boa parte do desenho do Git até hoje, e estão descritas na <a href="https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F">documentação oficial do projeto</a>.</p>
+<section id="o-problema-que-o-git-resolve" class="level3">
+<h3 class="anchored" data-anchor-id="o-problema-que-o-git-resolve">O problema que o Git resolve</h3>
+<p>Todo mundo que já trabalhou num arquivo por algumas semanas conhece esta pasta:</p>
+<pre><code>relatorio.docx
+relatorio_v2.docx
+relatorio_v2_revisado.docx
+relatorio_v2_revisado_FINAL.docx
+relatorio_v2_revisado_FINAL_agora_vai.docx</code></pre>
+<p>O método tem três defeitos graves. Ninguém sabe o que mudou entre uma versão e outra sem abrir as duas e comparar à mão. Ninguém sabe por que a mudança foi feita. E se duas pessoas editarem a mesma versão ao mesmo tempo, uma das duas perde o trabalho.</p>
+<p>O Git resolve os três de uma vez. Em vez de cópias, ele guarda uma linha do tempo de <strong>commits</strong>, e cada commit registra exatamente quais linhas de quais arquivos mudaram, quem fez a mudança, quando, e uma mensagem explicando o motivo. A pasta volta a ter um arquivo só, e o histórico inteiro fica guardado ao lado dele.</p>
 </section>
-<section id="o-problema-que-ele-resolve" class="level2">
-<h2 class="anchored" data-anchor-id="o-problema-que-ele-resolve">O problema que ele resolve</h2>
-<p>A justificativa do OKF é menos técnica do que parece. O conhecimento de uma empresa não está em um lugar: está espalhado por catálogos de metadados com APIs proprietárias, wikis, planilhas em drives compartilhados, comentários de código, docstrings e, em boa parte, na cabeça dos engenheiros mais antigos. Quando se monta um agente de IA para responder sobre os dados dessa empresa, tudo isso precisa ser remontado do zero.</p>
-<p>O <a href="https://cloud.google.com/blog/products/data-analytics/how-the-open-knowledge-format-can-improve-data-sharing">anúncio do Google Cloud</a> descreve o sintoma com precisão: “todo construtor de agentes está resolvendo o mesmo problema de montagem de contexto do zero, todo fornecedor de catálogo está reinventando os mesmos modelos de dados, e o conhecimento em si fica preso atrás de qualquer que seja a superfície que o criou”. O modelo de linguagem não é o gargalo — o contexto é.</p>
-<p>A aposta do OKF é que esse problema não precisa de uma tecnologia nova. Precisa de um acordo sobre o formato. E o formato escolhido foi o mais chato possível, de propósito: <strong>são só arquivos</strong>, empacotáveis num tarball, hospedáveis em qualquer repositório git, montáveis em qualquer sistema de arquivos; e <strong>é só markdown</strong>, legível em qualquer editor, renderizável no GitHub, indexável por qualquer ferramenta de busca.</p>
 </section>
-<section id="a-especificação-inteira-em-três-regras" class="level2">
-<h2 class="anchored" data-anchor-id="a-especificação-inteira-em-três-regras">A especificação inteira, em três regras</h2>
-<p>É aqui que o OKF surpreende quem espera um documento de cem páginas. Um pacote está em conformidade com a v0.2 se:</p>
-<ol type="1">
-<li>Todo arquivo <code>.md</code> que não seja reservado contém um bloco de metadados YAML válido;</li>
-<li>Esse bloco tem um campo <code>type</code> não vazio;</li>
-<li>Os arquivos reservados — <code>index.md</code> e <code>log.md</code> — seguem o papel definido para eles e não são usados como conceitos.</li>
-</ol>
-<p>Só isso. Tudo o mais é recomendação.</p>
-<section id="o-único-campo-obrigatório-type" class="level3">
-<h3 class="anchored" data-anchor-id="o-único-campo-obrigatório-type">O único campo obrigatório: <code>type</code></h3>
-<p>O <code>type</code> é uma string curta que diz <strong>que espécie de coisa</strong> aquele arquivo descreve: <code>BigQuery Table</code>, <code>Metric</code>, <code>Playbook</code>. Não existe registro de tipos, não existe lista fechada, não existe validador central. Isso significa que <code>Métrica</code> e <code>Metric</code> são igualmente válidos — e que a consistência dentro do seu pacote é responsabilidade de quem escreve, não da especificação. É uma escolha deliberada: o formato prefere ser adotado a ser policiado.</p>
+<section id="o-que-é-github" class="level2">
+<h2 class="anchored" data-anchor-id="o-que-é-github">O que é GitHub</h2>
+<p>GitHub é uma plataforma na internet que hospeda repositórios Git e constrói, em cima deles, as ferramentas de que um time precisa para trabalhar junto: revisão de código, discussão de problemas, controle de permissões, automação de testes e publicação. Foi lançada em 2008 e comprada pela Microsoft em 2018.</p>
+<p>A distinção prática é esta: o Git cuida do <strong>histórico</strong>; o GitHub cuida da <strong>colaboração em torno desse histórico</strong>. Quando você envia seu projeto para o GitHub, o que sobe é o repositório Git inteiro, com todos os commits. O que o GitHub acrescenta são as coisas que o Git sozinho não faz.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Git</th>
+<th>GitHub</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>O que é</td>
+<td>programa instalado no seu computador</td>
+<td>serviço hospedado na internet</td>
+</tr>
+<tr class="even">
+<td>Precisa de internet</td>
+<td>não</td>
+<td>sim</td>
+</tr>
+<tr class="odd">
+<td>Guarda o histórico</td>
+<td>sim</td>
+<td>sim, uma cópia dele</td>
+</tr>
+<tr class="even">
+<td>Revisão de código, discussões, permissões</td>
+<td>não</td>
+<td>sim</td>
+</tr>
+<tr class="odd">
+<td>Alternativas</td>
+<td>Mercurial, SVN (mais antigos)</td>
+<td>GitLab, Bitbucket, Codeberg</td>
+</tr>
+</tbody>
+</table>
+<p>Vale registrar que GitHub não é sinônimo de hospedagem de Git. GitLab, Bitbucket e Codeberg fazem a mesma coisa, e uma empresa pode rodar o próprio servidor. O GitHub é apenas, de longe, o maior deles.</p>
 </section>
-<section id="os-campos-recomendados" class="level3">
-<h3 class="anchored" data-anchor-id="os-campos-recomendados">Os campos recomendados</h3>
-<p>Quatro campos não são obrigatórios, mas são o que torna o pacote de fato útil:</p>
+<section id="os-cinco-conceitos-que-sustentam-tudo" class="level2">
+<h2 class="anchored" data-anchor-id="os-cinco-conceitos-que-sustentam-tudo">Os cinco conceitos que sustentam tudo</h2>
+<p>Quase todo o vocabulário do Git se organiza em torno de cinco ideias. Entendidas estas, o resto é detalhe.</p>
+<p><strong>Repositório</strong> é a pasta do projeto com o histórico junto. Ao rodar um comando de inicialização, o Git cria ali uma subpasta oculta onde guarda todas as versões. Apagar essa subpasta apaga o histórico e deixa apenas os arquivos atuais.</p>
+<p><strong>Commit</strong> é uma fotografia do projeto num instante, acompanhada de uma mensagem. É a unidade do histórico: você não salva arquivos no Git, você faz commits. Uma boa mensagem de commit explica o <em>porquê</em> da mudança, não o <em>o quê</em> — o “o quê” já está registrado nas linhas alteradas.</p>
+<p><strong>Branch</strong>, ou ramo, é uma linha do tempo paralela. Você cria um ramo para experimentar uma ideia sem tocar na versão que está funcionando. Se a ideia der certo, ela se junta à linha principal; se der errado, você apaga o ramo e nada se perde. É o recurso que torna seguro tentar coisas.</p>
+<p><strong>Merge</strong> é a junção de dois ramos. Quando as duas linhas mexeram em partes diferentes, o Git resolve sozinho. Quando mexeram na mesma linha do mesmo arquivo, ele para e pede que uma pessoa decida — é o famoso conflito, que assusta no começo e é apenas o Git se recusando a escolher por você.</p>
+<p><strong>Remote</strong> é uma cópia do repositório em outro lugar, normalmente no GitHub. Você envia commits para lá com um comando e traz os commits dos outros com outro. É o que transforma um histórico pessoal em trabalho de equipe.</p>
+</section>
+<section id="um-exemplo-completo-do-zero-ao-github" class="level2">
+<h2 class="anchored" data-anchor-id="um-exemplo-completo-do-zero-ao-github">Um exemplo completo, do zero ao GitHub</h2>
+<p>O trecho abaixo cria um projeto, registra a primeira versão e a envia para o GitHub. Os comandos são os mesmos em Linux, macOS e Windows.</p>
+<p>Antes de tudo, uma configuração feita uma única vez por computador, para que seus commits saiam assinados:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">"Seu Nome"</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.email <span class="st">"seu@email.com"</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Agora o projeto em si:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> meu-projeto</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> meu-projeto</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> init</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Crie um arquivo qualquer e registre a primeira versão. O comando de adição diz ao Git o que entra no próximo commit; o de commit fecha a fotografia com uma mensagem:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"# Meu projeto"</span> <span class="op">&gt;</span> README.md</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add README.md</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Cria o README com a descrição do projeto"</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Para ver o que aconteceu, dois comandos que você vai usar o tempo todo — o primeiro mostra o estado atual, o segundo mostra o histórico:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--oneline</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Depois de criar um repositório vazio na sua conta do GitHub, conecte os dois e envie:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote add origin https://github.com/usuario/meu-projeto.git</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch <span class="at">-M</span> main</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push <span class="at">-u</span> origin main</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<p>A partir daí, o ciclo do dia a dia se resume a quatro comandos: <code>git add</code> para escolher o que entra, <code>git commit</code> para registrar, <code>git push</code> para enviar e <code>git pull</code> para trazer o que os outros fizeram.</p>
+<p>O arquivo <code>README.md</code> do exemplo não é um detalhe: é o texto que o GitHub exibe na página inicial do repositório, e ele é escrito em markdown. Se essa sintaxe for nova para você, vale ler antes o <a href="../../posts/introducao-sintaxe-markdown/index.html">guia de sintaxe markdown</a>, porque é nela que se escreve praticamente toda a documentação que circula na plataforma.</p>
+</section>
+<section id="para-que-serve-além-de-programar" class="level2">
+<h2 class="anchored" data-anchor-id="para-que-serve-além-de-programar">Para que serve, além de programar</h2>
+<p>A associação entre Git e código é histórica, não técnica. O Git versiona <strong>arquivos de texto</strong>, e enxerga diferenças linha a linha em qualquer um deles. Isso abre um conjunto de usos que raramente aparece nos tutoriais:</p>
 <ul>
-<li><strong><code>title</code></strong> — o nome legível do conceito;</li>
-<li><strong><code>description</code></strong> — um resumo de uma frase;</li>
-<li><strong><code>resource</code></strong> — o URI que identifica o ativo real por trás do documento (a tabela no console, o endpoint, o painel);</li>
-<li><strong><code>tags</code></strong> — uma lista YAML de strings para categorizar.</li>
+<li><strong>Documentação e escrita.</strong> Livros, manuais, teses e artigos ganham histórico, ramos para reescrever um capítulo sem medo e revisão por comentário. Vários livros técnicos conhecidos são escritos assim, em repositórios públicos.</li>
+<li><strong>Análise de dados e pesquisa.</strong> Versionar os scripts que limpam e analisam uma base é o que torna um resultado reproduzível: qualquer pessoa consegue voltar ao estado exato do código que gerou aquele número. Quem está começando em análise de dados costuma chegar ao Git pelo mesmo caminho que leva à <a href="../../posts/introducao-sintaxe-python/index.html">sintaxe de Python</a>.</li>
+<li><strong>Textos jurídicos e contratos.</strong> Um contrato negociado é um texto que muda muitas vezes, com várias partes propondo alterações. É exatamente o problema que ramos, diferenças e histórico resolvem — e a diferença linha a linha responde, sem discussão, à pergunta sobre quem inseriu determinada cláusula e quando.</li>
+<li><strong>Configuração de sistemas.</strong> Arquivos de configuração de servidores e ambientes ficam versionados, o que permite auditar mudanças e reverter uma alteração que derrubou o serviço.</li>
+<li><strong>Publicação de sites.</strong> O GitHub Pages transforma um repositório em um site estático hospedado gratuitamente, o que faz de um repositório de textos um site publicado.</li>
 </ul>
-<p>O <code>resource</code> é o mais subestimado dos quatro. É ele que liga a descrição ao objeto descrito, e é o que permite a um agente sair do texto e ir até a coisa.</p>
+<p>O critério é simples: se o conteúdo é texto e importa saber como ele chegou ao estado atual, o Git serve.</p>
 </section>
-<section id="a-estrutura-da-pasta" class="level3">
-<h3 class="anchored" data-anchor-id="a-estrutura-da-pasta">A estrutura da pasta</h3>
-<p>O pacote é um diretório, com subdiretórios livres. Dois nomes são reservados: <code>index.md</code>, que lista o conteúdo do diretório, e <code>log.md</code>, que guarda o histórico cronológico.</p>
-<pre><code>conhecimento/
-  index.md
-  log.md
-  metricas/
-    index.md
-    receita-liquida.md
-  tabelas/
-    pedidos.md
-    clientes.md
-  playbooks/
-    fechamento-mensal.md</code></pre>
+<section id="o-que-mudou-recentemente" class="level2">
+<h2 class="anchored" data-anchor-id="o-que-mudou-recentemente">O que mudou recentemente</h2>
+<p>Três movimentos recentes valem menção, porque mudam o que significa “usar GitHub” em 2026.</p>
+<p><strong>A escala virou outra.</strong> O relatório anual da plataforma, o <a href="https://github.blog/news-insights/octoverse/octoverse-a-new-developer-joins-github-every-second-as-ai-leads-typescript-to-1/">Octoverse 2025</a>, fechou o período de setembro de 2024 a agosto de 2025 com mais de 180 milhões de contas de pessoas desenvolvedoras e 630 milhões de repositórios — cerca de um novo cadastro por segundo. Foram quase 1 bilhão de commits no período, 25% mais que no ano anterior. O mesmo relatório registrou uma inversão inédita: o TypeScript passou o Python e o JavaScript e virou a linguagem com mais pessoas contribuindo.</p>
+<p><strong>O Git continua evoluindo.</strong> A versão 2.55, <a href="https://github.blog/open-source/git/highlights-from-git-2-55/">lançada em 29 de junho de 2026</a>, trouxe um comando experimental de correção de histórico que resolve um incômodo antigo: quando você percebe que uma alteração pertencia a um commit anterior, dá para encaixá-la lá diretamente, sem o procedimento manual que isso exigia antes. A mesma versão passou a executar verificações automáticas em paralelo e estendeu ao Linux um mecanismo de detecção rápida de arquivos alterados que já existia no macOS e no Windows.</p>
+<p><strong>Agentes de IA entraram no fluxo.</strong> O GitHub anunciou o <a href="https://github.blog/news-insights/company-news/welcome-home-agents/">Agent HQ</a>, uma camada que permite acionar agentes de diferentes fornecedores dentro da própria plataforma, acompanhar o que cada um está fazendo e receber o resultado como uma proposta de alteração para revisão humana. O ponto que interessa a quem está começando é este: o formato da entrega não mudou. O agente produz commits e propostas de alteração, e alguém precisa ler, entender e aprovar. Saber Git deixou de ser o que o torna produtivo e passou a ser o que o torna capaz de revisar — o que é uma razão melhor para aprender, não pior.</p>
 </section>
-</section>
-<section id="um-conceito-completo-do-começo-ao-fim" class="level2">
-<h2 class="anchored" data-anchor-id="um-conceito-completo-do-começo-ao-fim">Um conceito completo, do começo ao fim</h2>
-<p>Vale mais ver um arquivo inteiro do que ler mais três parágrafos de descrição. Este é um conceito do tipo métrica, com os campos recomendados preenchidos:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="an">type:</span><span class="co"> Métrica</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> Receita líquida mensal</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="an">description:</span><span class="co"> Receita bruta menos devoluções e impostos, por mês de competência.</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="an">resource:</span><span class="co"> https://exemplo.com.br/metricas/receita-liquida</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="an">tags:</span><span class="co"> [financeiro, receita, fechamento]</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="an">generated:</span><span class="co"> { by: "human:pedro", at: "2026-09-12T18:50:40-03:00" }</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="an">status:</span><span class="co"> stable</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="fu"># Definição</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>Soma de <span class="in">`valor_bruto`</span> menos <span class="in">`devolucoes`</span> e <span class="in">`impostos`</span> na tabela</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">pedidos</span><span class="co">](/tabelas/pedidos.md)</span>, agrupada por mês de competência.</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="fu"># Armadilhas</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>Pedidos cancelados após o fechamento permanecem na base com</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="in">`status = cancelado`</span> e precisam ser excluídos do cálculo. É o erro</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>mais comum de quem levanta essa métrica pela primeira vez.</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Repare no que esse arquivo faz que um catálogo de metadados tradicional não faz. Um catálogo diria que existe uma coluna <code>valor_bruto</code> do tipo <code>NUMERIC</code>. Ele não diria que pedidos cancelados depois do fechamento contaminam o resultado. <strong>Catálogos descrevem formatos; o OKF descreve significado.</strong> Essa frase da seção de armadilhas é exatamente o tipo de conhecimento que costuma morar na cabeça de uma pessoa só — e é exatamente o que um agente precisa para não errar.</p>
-</section>
-<section id="os-links-são-o-grafo" class="level2">
-<h2 class="anchored" data-anchor-id="os-links-são-o-grafo">Os links são o grafo</h2>
-<p>O segundo elemento do formato é a ligação entre conceitos, e ela usa markdown puro. A forma recomendada é o caminho absoluto dentro do pacote, começando com <code>/</code>: <code>[pedidos](/tabelas/pedidos.md)</code>. Caminhos relativos também valem.</p>
-<p>Não há tipagem formal de relacionamento — nada de <code>hasParent</code> ou <code>derivedFrom</code>. O sentido da ligação vem da prosa em volta dela. “Junta-se com <a href="../../tabelas/clientes.md">clientes</a> por <code>customer_id</code>” é, ao mesmo tempo, uma frase que um humano lê e uma aresta que um agente percorre.</p>
-<p>É essa diferença que separa o OKF do padrão de RAG a que a maioria está acostumada. O RAG pica documentos em fragmentos e os recupera por similaridade; o agente precisa inferir as conexões a partir do que voltou. Num pacote OKF as conexões já estão escritas, e a navegação é deliberada em vez de probabilística.</p>
-</section>
-<section id="o-que-a-v0.2-acrescentou-procedência-e-confiança" class="level2">
-<h2 class="anchored" data-anchor-id="o-que-a-v0.2-acrescentou-procedência-e-confiança">O que a v0.2 acrescentou: procedência e confiança</h2>
-<p>A primeira versão resolvia representação. A v0.2 atacou um problema diferente: como saber se dá para acreditar no arquivo. Três famílias de campos opcionais entraram:</p>
+<section id="erros-comuns-de-quem-está-começando" class="level2">
+<h2 class="anchored" data-anchor-id="erros-comuns-de-quem-está-começando">Erros comuns de quem está começando</h2>
 <ul>
-<li><strong><code>sources</code></strong> — de onde o conceito deriva, com sinais de credibilidade opcionais como <code>author</code>, <code>usage_count</code> e <code>last_modified</code>. Cada fonte exige um campo <code>resource</code>;</li>
-<li><strong><code>generated</code></strong> e <strong><code>verified</code></strong> — quem criou e quem conferiu, no formato <code>{ by: &lt;ator&gt;, at: &lt;timestamp&gt; }</code>;</li>
-<li><strong><code>status</code></strong> (<code>draft</code>, <code>stable</code> ou <code>deprecated</code>) e <strong><code>stale_after</code></strong>, um carimbo ISO 8601 a partir do qual o conteúdo deve ser tratado como vencido.</li>
+<li><strong>Confundir salvar com commitar.</strong> Salvar o arquivo no editor não cria versão nenhuma. Enquanto não houver commit, o Git não registrou nada.</li>
+<li><strong>Mensagens de commit vazias de sentido.</strong> “ajustes”, “correções” e “teste” descrevem todos os commits do mundo e nenhum em particular. Escreva o motivo.</li>
+<li><strong>Commitar arquivos que não deveriam subir.</strong> Senhas, chaves de acesso e bases de dados inteiras não entram no repositório. Um arquivo de exclusões na raiz do projeto resolve isso, e vale configurá-lo antes do primeiro commit — depois de publicada, uma senha precisa ser trocada, não apagada.</li>
+<li><strong>Fugir dos conflitos.</strong> Conflito não é erro do Git: é o Git avisando que duas pessoas mexeram na mesma linha e se recusando a escolher. Abrir o arquivo e decidir leva menos tempo do que parece.</li>
+<li><strong>Tratar o histórico como intocável.</strong> Ramos existem para serem descartados. Criar um ramo para testar uma ideia é a operação mais barata do Git.</li>
 </ul>
-<p>A convenção de identificação de atores é simples e diz muito: <code>&lt;produtor&gt;/&lt;versão&gt;</code> para agentes e ferramentas, <code>human:&lt;id&gt;</code> para pessoas, <code>process:&lt;id&gt;</code> para processos automáticos. Dela sai uma escala de confiança de três degraus: sem <code>verified</code>, o conceito é <strong>não verificado</strong>; verificado apenas por atores não humanos, é <strong>confirmado por máquina</strong>; verificado por um ator <code>human:&lt;id&gt;</code>, é <strong>revisado por humano</strong>.</p>
-<p>Esse é o ponto mais subestimado da especificação. Num mundo em que boa parte da documentação passa a ser escrita por modelos, registrar <em>quem</em> escreveu e <em>quem</em> conferiu deixa de ser burocracia e vira a diferença entre um pacote confiável e um amontoado plausível.</p>
-</section>
-<section id="o-que-o-okf-não-é" class="level2">
-<h2 class="anchored" data-anchor-id="o-que-o-okf-não-é">O que o OKF não é</h2>
-<p>Aqui é onde a honestidade importa mais do que o entusiasmo, e onde a maior parte do material publicado sobre o formato erra.</p>
-<p><strong>Não substitui RAG, MCP, OpenAPI, banco vetorial, controle de permissões nem governança.</strong> O OKF representa e empacota conhecimento estável; ele não define como você autentica um agente, não indexa um corpus de milhões de documentos e não expõe ferramentas. A leitura mais útil é a de camadas que se somam: o <code>llms.txt</code> é um ponteiro, o MCP é o protocolo de acesso, e o OKF é o conhecimento em si, portátil, que trafega entre os dois.</p>
-<p><strong>Não é um sinal de SEO.</strong> Publicar um pacote OKF não é, hoje, um fator confirmado de ranqueamento, de rastreamento ou de citação por modelos de linguagem. Para dizer a buscadores o que sua página é, o instrumento continua sendo o schema.org. Quem estiver vendendo OKF como técnica de posicionamento está adiantando uma conclusão que ninguém demonstrou.</p>
-<p><strong>Não é um padrão consolidado.</strong> O próprio Google classificou a v0.1 como “um ponto de partida, não um padrão terminado”, e o repositório de referência traz o aviso de que não é um produto oficial do Google. Até agosto de 2026, nenhum agente de IA de grande porte lê pacotes OKF nativamente como comportamento padrão — a adoção ainda é de pioneiros. A especificação exige, inclusive, que os consumidores tolerem campos ausentes, tipos desconhecidos, links quebrados e chaves que não conhecem, o que é a admissão explícita de um ecossistema em formação.</p>
-<p>Nada disso é motivo para ignorar o formato. É motivo para adotá-lo pelo que ele custa — que é quase nada — e não pelo que prometem que ele renderá.</p>
-</section>
-<section id="como-começar-hoje" class="level2">
-<h2 class="anchored" data-anchor-id="como-começar-hoje">Como começar hoje</h2>
-<p>A melhor notícia prática do OKF é que a barreira de entrada é um editor de texto. Um caminho razoável:</p>
-<ol type="1">
-<li><strong>Escolha um domínio pequeno e doloroso.</strong> As cinco métricas que ninguém calcula igual, ou as três tabelas que todo mundo interpreta errado. Não comece pelo catálogo inteiro.</li>
-<li><strong>Um conceito por arquivo.</strong> Se o arquivo descreve duas coisas, são dois arquivos. É a regra que mais melhora o resultado.</li>
-<li><strong>Preencha <code>type</code>, <code>title</code>, <code>description</code> e <code>resource</code></strong> em todos. Os quatro levam um minuto e mudam tudo na hora do consumo.</li>
-<li><strong>Escreva o que não está no esquema.</strong> As armadilhas, as exceções, o motivo de a coluna se chamar daquele jeito. Essa é a parte que justifica o pacote existir.</li>
-<li><strong>Ligue os arquivos entre si</strong> com links absolutos e explique a relação na frase.</li>
-<li><strong>Versione em git e valide.</strong> A verificação mínima de conformidade cabe numa linha de shell: confirmar que todo <code>.md</code> não reservado tem uma linha começando com <code>type:</code>.</li>
-</ol>
-<p>Se a sua documentação já é markdown, já está versionada e já é bem ligada, boa parte do trabalho está feita — o que falta é o bloco de metadados.</p>
 </section>
 <section id="perguntas-frequentes" class="level2">
 <h2 class="anchored" data-anchor-id="perguntas-frequentes">Perguntas frequentes</h2>
-<section id="preciso-de-alguma-ferramenta-ou-conta-do-google-para-usar-o-okf" class="level3">
-<h3 class="anchored" data-anchor-id="preciso-de-alguma-ferramenta-ou-conta-do-google-para-usar-o-okf">Preciso de alguma ferramenta ou conta do Google para usar o OKF?</h3>
-<p>Não. A especificação é aberta e explicitamente não amarrada a nenhuma nuvem, banco de dados, provedor de modelo ou framework de agente, e nunca exigirá conta proprietária ou SDK para ser lida, escrita ou servida. Um editor de texto e o git bastam.</p>
+<section id="preciso-saber-programar-para-usar-git" class="level3">
+<h3 class="anchored" data-anchor-id="preciso-saber-programar-para-usar-git">Preciso saber programar para usar Git?</h3>
+<p>Não. O Git versiona qualquer arquivo de texto, e quem escreve documentação, textos jurídicos ou material didático tira proveito dele sem escrever uma linha de código. Os comandos do dia a dia são meia dúzia.</p>
 </section>
-<section id="o-okf-substitui-o-rag" class="level3">
-<h3 class="anchored" data-anchor-id="o-okf-substitui-o-rag">O OKF substitui o RAG?</h3>
-<p>Não, e os dois resolvem coisas diferentes. O OKF é bom para fatos estáveis e curados, que você quer que o agente percorra de forma deliberada. O RAG continua sendo a ferramenta para consultas difusas sobre corpora grandes. Numa arquitetura madura, os dois convivem.</p>
+<section id="git-e-github-são-gratuitos" class="level3">
+<h3 class="anchored" data-anchor-id="git-e-github-são-gratuitos">Git e GitHub são gratuitos?</h3>
+<p>O Git é software livre, gratuito para qualquer uso. O GitHub tem um plano gratuito que inclui repositórios públicos e privados sem limite de quantidade; os planos pagos acrescentam recursos de organização, segurança e automação.</p>
 </section>
-<section id="qual-a-diferença-entre-okf-llms.txt-e-mcp" class="level3">
-<h3 class="anchored" data-anchor-id="qual-a-diferença-entre-okf-llms.txt-e-mcp">Qual a diferença entre OKF, <code>llms.txt</code> e MCP?</h3>
-<p>O <code>llms.txt</code> aponta para o conteúdo que importa no seu site; o MCP define como um agente acessa recursos e ferramentas; o OKF é o conteúdo em si, empacotado de forma portátil. São camadas complementares, não concorrentes.</p>
+<section id="preciso-usar-a-linha-de-comando" class="level3">
+<h3 class="anchored" data-anchor-id="preciso-usar-a-linha-de-comando">Preciso usar a linha de comando?</h3>
+<p>Não obrigatoriamente. Existem interfaces gráficas, e editores de código trazem o Git embutido. Mas aprender os cinco ou seis comandos básicos compensa: é o vocabulário comum a todas as ferramentas, e é o que aparece em toda documentação e em toda resposta que você vai encontrar quando algo der errado.</p>
 </section>
-<section id="isso-melhora-meu-ranqueamento-no-google" class="level3">
-<h3 class="anchored" data-anchor-id="isso-melhora-meu-ranqueamento-no-google">Isso melhora meu ranqueamento no Google?</h3>
-<p>Não há evidência disso, e o formato não foi desenhado para busca. Para sinalizar significado a buscadores, use schema.org. O OKF serve a agentes, não a rastreadores de índice.</p>
-</section>
-<section id="vale-esperar-a-v1.0-para-começar" class="level3">
-<h3 class="anchored" data-anchor-id="vale-esperar-a-v1.0-para-começar">Vale esperar a v1.0 para começar?</h3>
-<p>A v0.2 é retrocompatível com a v0.1, e a promessa da especificação é que versões menores tragam apenas acréscimos compatíveis. Como o custo de escrever um arquivo com quatro campos de metadados é próximo de zero, esperar rende pouco — e o material escrito agora continua válido depois.</p>
+<section id="qual-a-diferença-entre-repositório-público-e-privado" class="level3">
+<h3 class="anchored" data-anchor-id="qual-a-diferença-entre-repositório-público-e-privado">Qual a diferença entre repositório público e privado?</h3>
+<p>Um repositório público pode ser lido por qualquer pessoa; o privado, apenas por quem você autorizar. Público não significa que qualquer um pode alterar — alterações de terceiros entram como propostas que você aprova ou recusa.</p>
 </section>
 </section>
 <section id="conclusão" class="level2">
 <h2 class="anchored" data-anchor-id="conclusão">Conclusão</h2>
 <ul>
-<li>O <strong>Open Knowledge Format</strong> é uma especificação aberta do Google Cloud, de junho de 2026, para empacotar conhecimento organizacional em markdown legível por humanos e por agentes de IA.</li>
-<li>Um pacote é <strong>uma pasta de arquivos <code>.md</code></strong>, cada um representando um conceito, com metadados em YAML e links markdown fazendo o papel de grafo.</li>
-<li>A conformidade exige <strong>um único campo</strong>: <code>type</code>. <code>title</code>, <code>description</code>, <code>resource</code> e <code>tags</code> são recomendados e é o que torna o pacote útil de verdade.</li>
-<li>A <strong>v0.2</strong> acrescentou procedência e confiança — <code>sources</code>, <code>generated</code>, <code>verified</code>, <code>status</code> e <code>stale_after</code> —, com uma escala de três degraus que distingue o não verificado do confirmado por máquina e do revisado por humano.</li>
-<li>O valor não está no esquema, e sim no que <strong>não cabe</strong> num esquema: as armadilhas, as exceções e as definições que hoje moram na cabeça de uma pessoa só.</li>
-<li>O formato <strong>não substitui</strong> RAG, MCP, catálogos ou governança, <strong>não é</strong> sinal de SEO e <strong>ainda não</strong> tem adoção nativa ampla. Adote pelo custo baixo, não pela promessa.</li>
+<li><strong>Git é o programa que guarda o histórico</strong>; GitHub é o serviço que hospeda esse histórico e organiza a colaboração em torno dele. São coisas distintas e o primeiro funciona sem o segundo.</li>
+<li><strong>Cinco conceitos dão conta do essencial</strong>: repositório, commit, branch, merge e remote.</li>
+<li><strong>O dia a dia cabe em quatro comandos</strong>: adicionar, commitar, enviar e trazer.</li>
+<li><strong>O uso não se restringe a código</strong>: qualquer texto cuja história importe se beneficia de versionamento, de contratos a artigos científicos.</li>
+<li><strong>A chegada dos agentes de IA aumentou o valor de entender Git</strong>, porque o que eles entregam continua sendo commits e propostas de alteração que alguém precisa revisar.</li>
 </ul>
 <hr>
-<p><strong>Tópicos:</strong> #OKF #Markdown #InteligenciaArtificial #Documentacao #GoogleCloud</p>
+<p><strong>Tópicos:</strong> #Git #GitHub #Versionamento #ControleDeVersao #Programacao</p>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "Introdução ao Open Knowledge Format, o padrão do Google",
-  "description": "Open Knowledge Format: o padrão aberto do Google Cloud que empacota o conhecimento de uma organização em markdown para agentes de IA lerem. Guia prático.",
+  "headline": "Git e GitHub: o que são, para que servem e como usar",
+  "description": "Git e GitHub explicados do zero: o que cada um faz, como se diferenciam, os comandos que você usa no dia a dia e as aplicações que vão além de programar.",
   "inLanguage": "pt-BR",
-  "datePublished": "2026-09-12T18:50:40-03:00",
-  "dateModified": "2026-09-12T18:50:40-03:00",
+  "datePublished": "2026-09-13T13:27:01-04:00",
+  "dateModified": "2026-09-13T13:27:01-04:00",
   "author": { "@type": "Person", "name": "Pedro Nakashima" },
-  "mainEntityOfPage": "https://pedronakashima.com/posts/introducao-open-knowledge-format/",
-  "keywords": "open knowledge format, markdown, documentação, inteligência artificial, programação, OKF, Google Cloud, YAML, agentes de IA, contexto para LLMs"
+  "mainEntityOfPage": "https://pedronakashima.com/posts/git-github-guia-iniciantes/",
+  "keywords": "git, github, versionamento, controle de versão, programação, tutorial"
 }
 </script>
 

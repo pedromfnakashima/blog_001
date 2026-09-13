@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Pedro Nakashima">
-<meta name="keywords" content="introdução ao pandas, pandas Python, DataFrame, groupby, Copy-on-Write, pandas 3.0, análise de dados">
-<meta name="description" content="Introdução ao pandas com exemplos que rodam: DataFrame, filtros, groupby e o que mudou no pandas 3.0, incluindo o erro que faz tutoriais antigos falharem.">
+<meta name="keywords" content="pandas python, dataframe, series, groupby, ler csv com pandas, análise de dados">
+<meta name="description" content="Introdução ao pandas em Python: entenda Series e DataFrame, leia CSV e Excel, filtre linhas, crie colunas e agrupe dados com groupby neste guia prático.">
 
-<title>Introdução ao pandas: guia prático para análise de dados – Pedro Nakashima - Blog</title>
+<title>Introdução ao Pandas: guia prático de análise de dados – Pedro Nakashima - Blog</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -80,7 +80,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-0ce0039b4226caa8d851e79f97ebc751.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-0ed462561a0fff13a3aed3c1af43d342.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -111,18 +111,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Introdução ao pandas: guia prático para análise de dados – Pedro Nakashima - Blog">
-<meta property="og:description" content="Introdução ao pandas com exemplos que rodam: DataFrame, filtros, groupby e o que mudou no pandas 3.0, incluindo o erro que faz tutoriais antigos falharem.">
-<meta property="og:image" content="https://pedronakashima.com/posts/introducao-pandas/cover.jpg">
-<meta property="og:site_name" content="Pedro Nakashima - Blog">
-<meta property="og:image:alt" content="Planilha impressa sobre uma mesa ao lado de um notebook exibindo uma tabela de dados e algumas linhas de código Python">
-<meta name="twitter:title" content="Introdução ao pandas: guia prático para análise de dados – Pedro Nakashima - Blog">
-<meta name="twitter:description" content="Introdução ao pandas com exemplos que rodam: DataFrame, filtros, groupby e o que mudou no pandas 3.0, incluindo o erro que faz tutoriais antigos falharem.">
-<meta name="twitter:image" content="https://pedronakashima.com/posts/introducao-pandas/cover.jpg">
-<meta name="twitter:creator" content="@PedroOnData">
-<meta name="twitter:site" content="@PedroOnData">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image:alt" content="Planilha impressa sobre uma mesa ao lado de um notebook exibindo uma tabela de dados e algumas linhas de código Python">
 </head>
 
 <body class="nav-fixed fullcontent quarto-light">
@@ -147,11 +135,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Sobre / About</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://pedroondata.com"> <i class="bi bi-globe" role="img" aria-label="Site pessoal / Personal website">
-</i> 
-<span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
     <a class="nav-link" href="https://www.linkedin.com/in/pedronakashima/"> <i class="bi bi-linkedin" role="img" aria-label="LinkedIn">
 </i> 
 <span class="menu-text"></span></a>
@@ -166,11 +149,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </i> 
 <span class="menu-text"></span></a>
   </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://www.instagram.com/pedroondata/"> <i class="bi bi-instagram" role="img" aria-label="Instagram">
-</i> 
-<span class="menu-text"></span></a>
-  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -182,18 +160,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Introdução ao pandas: guia prático para análise de dados</h1>
+      <h1 class="title">Introdução ao Pandas: guia prático de análise de dados</h1>
                   <div>
         <div class="description">
-          Introdução ao pandas com exemplos que rodam: DataFrame, filtros, groupby e o que mudou no pandas 3.0, incluindo o erro que faz tutoriais antigos falharem.
+          Introdução ao pandas em Python: entenda Series e DataFrame, leia CSV e Excel, filtre linhas, crie colunas e agrupe dados com groupby neste guia prático.
         </div>
       </div>
                           <div class="quarto-categories">
                 <div class="quarto-category">python</div>
                 <div class="quarto-category">pandas</div>
-                <div class="quarto-category">ciência de dados</div>
-                <div class="quarto-category">programação</div>
-                <div class="quarto-category">tutorial</div>
+                <div class="quarto-category">análise de dados</div>
               </div>
                   </div>
   </div>
@@ -211,16 +187,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div>
       <div class="quarto-title-meta-heading">Data de Publicação</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">10 de setembro de 2026</p>
+        <p class="date">6 de setembro de 2026</p>
       </div>
     </div>
     
-      <div>
-      <div class="quarto-title-meta-heading">Data de Modificação</div>
-      <div class="quarto-title-meta-contents">
-        <p class="date-modified">10 de setembro de 2026</p>
-      </div>
-    </div>
       
     </div>
     
@@ -228,7 +198,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div>
     <div class="keywords">
       <div class="block-title">Palavras-chave</div>
-      <p>introdução ao pandas, pandas Python, DataFrame, groupby, Copy-on-Write, pandas 3.0, análise de dados</p>
+      <p>pandas python, dataframe, series, groupby, ler csv com pandas, análise de dados</p>
     </div>
   </div>
   
@@ -243,130 +213,148 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<p><em>Publicado em 10 de setembro de 2026, às 16:59, por Pedro Nakashima</em></p>
-<p><img src="cover.jpg" class="img-fluid"></p>
-<p>Esta <strong>introdução ao pandas</strong> começa com um aviso que quase nenhum tutorial dá: boa parte do material sobre pandas que está na internet hoje ensina algo que deixou de funcionar. O pandas 3.0 foi lançado em <a href="https://pandas.pydata.org/docs/whatsnew/v3.0.0.html">21 de janeiro de 2026</a> e mudou dois comportamentos que aparecem em praticamente todo curso gravado antes disso. Um deles é sutil o bastante para você escrever o código, não ver erro nenhum, e mesmo assim os seus dados não mudarem. Nas próximas seções você vai ver o que é o pandas, os dois objetos que sustentam a biblioteca inteira, como carregar e inspecionar uma tabela, como filtrar, agrupar e lidar com valores ausentes — e, no fim, exatamente o que mudou e por que isso importa para quem está começando agora.</p>
-<p>Se você ainda não escreveu Python nenhum, o caminho natural é passar antes pelo <a href="../../posts/introducao-sintaxe-python/index.html">guia de sintaxe Python</a>, porque aqui eu vou assumir que você já sabe o que é uma variável, uma função e um laço. Se a dúvida é anterior a isso — se ainda vale a pena aprender a linguagem —, escrevi sobre isso em <a href="../../posts/aprender-python-2026/index.html">por que aprender Python em 2026</a>.</p>
+<p><em>Publicado em 6 de setembro de 2026, às 12:07, por Pedro Nakashima</em></p>
+<p>O <strong>pandas</strong> é a biblioteca padrão de Python para trabalhar com dados em formato de tabela. Esta introdução ao pandas cobre o essencial do dia a dia: as estruturas <code>Series</code> e <code>DataFrame</code>, como carregar dados de arquivos CSV e Excel, como filtrar e transformar linhas e colunas e como resumir informação com <code>groupby</code>. Os exemplos são curtos e você pode reproduzir cada um no seu próprio ambiente.</p>
 <section id="o-que-é-o-pandas" class="level2">
-<h2 class="anchored" data-anchor-id="o-que-é-o-pandas">O que é o pandas</h2>
-<p>O pandas é a biblioteca que dá ao Python a capacidade de trabalhar com <strong>tabelas</strong>: linhas, colunas, cabeçalho, tipos por coluna. Ele faz com dados o que uma planilha faz, com duas diferenças que decidem tudo: o trabalho fica escrito em código, então é reproduzível e auditável por outra pessoa; e o limite de tamanho deixa de ser a tela e passa a ser a memória da máquina.</p>
-<p>Na prática, o pandas é a camada onde quase toda análise de dados em Python começa. Você lê um CSV, um Excel, uma consulta SQL ou um JSON, transforma isso numa tabela, limpa o que estiver sujo, agrupa, resume — e só então passa o resultado adiante, para um gráfico, um modelo estatístico ou um relatório.</p>
+<h2 class="anchored" data-anchor-id="o-que-é-o-pandas">O que é o pandas?</h2>
+<p>O pandas é uma biblioteca de código aberto construída sobre o NumPy que adiciona estruturas de dados rotuladas e ferramentas de análise ao Python. Na prática, ele faz o papel de uma planilha programável: você lê dados de várias fontes, limpa, combina, agrega e exporta — tudo em código versionável e reproduzível, e com desempenho adequado a milhões de linhas.</p>
 </section>
-<section id="series-e-dataframe-os-dois-objetos-que-importam" class="level2">
-<h2 class="anchored" data-anchor-id="series-e-dataframe-os-dois-objetos-que-importam">Series e DataFrame: os dois objetos que importam</h2>
-<p>Toda a biblioteca se organiza em torno de dois tipos, e entender a relação entre eles poupa muita confusão depois.</p>
-<p>Uma <strong>Series</strong> é uma coluna: uma sequência de valores do mesmo tipo, com um índice que rotula cada posição. Um <strong>DataFrame</strong> é a tabela inteira: um conjunto de Series que compartilham o mesmo índice. Quando você seleciona uma coluna de um DataFrame, recebe uma Series; quando seleciona várias, recebe outro DataFrame.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"produto"</span>: [<span class="st">"café"</span>, <span class="st">"açúcar"</span>, <span class="st">"café"</span>, <span class="st">"leite"</span>],</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"uf"</span>: [<span class="st">"MS"</span>, <span class="st">"MS"</span>, <span class="st">"SP"</span>, <span class="st">"SP"</span>],</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"valor"</span>: [<span class="fl">12.50</span>, <span class="fl">8.90</span>, <span class="fl">14.00</span>, <span class="fl">6.75</span>],</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(df)           <span class="co"># DataFrame</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(df[<span class="st">"valor"</span>])  <span class="co"># Series</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
-<p>O índice não é decoração. Ele é o que alinha os dados quando você combina duas estruturas: ao somar duas Series, o pandas casa os valores pelo rótulo do índice, não pela posição. É uma das maiores diferenças em relação a uma planilha, e é a causa de metade dos resultados inesperados de quem está começando.</p>
+<section id="instalação-e-import" class="level2">
+<h2 class="anchored" data-anchor-id="instalação-e-import">Instalação e import</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install pandas</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Por convenção, o import usa o apelido <code>pd</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="carregar-dados-e-olhar-para-eles-antes-de-qualquer-coisa" class="level2">
-<h2 class="anchored" data-anchor-id="carregar-dados-e-olhar-para-eles-antes-de-qualquer-coisa">Carregar dados e olhar para eles antes de qualquer coisa</h2>
-<p>Na vida real a tabela vem de um arquivo, e a função mais usada da biblioteca é <code>read_csv</code>.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"vendas.csv"</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Antes de calcular qualquer coisa, olhe para o que entrou. São três comandos, e pular esta etapa é a origem mais comum de análise errada:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df.head()      <span class="co"># as primeiras linhas</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>df.info()      <span class="co"># colunas, tipos e quantos valores não nulos</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>df.describe()  <span class="co"># contagem, média, desvio, mínimo, quartis, máximo</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
-<p>O <code>info()</code> é o mais importante dos três, porque responde a duas perguntas de uma vez: cada coluna entrou com o tipo que deveria, e onde há valores faltando. Uma coluna de valores monetários que chega como texto — porque o arquivo usava vírgula decimal, ou tinha um <code>R$</code> no meio — vai somar concatenando strings em vez de somar números, e o <code>info()</code> denuncia isso na hora.</p>
+<section id="series-uma-coluna-com-índice" class="level2">
+<h2 class="anchored" data-anchor-id="series-uma-coluna-com-índice">Series: uma coluna com índice</h2>
+<p>Uma <code>Series</code> é um vetor unidimensional com um índice (os rótulos das linhas). É a peça básica do pandas.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>temperaturas <span class="op">=</span> pd.Series(</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    [<span class="fl">28.1</span>, <span class="fl">30.4</span>, <span class="fl">27.9</span>, <span class="fl">31.2</span>],</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    index<span class="op">=</span>[<span class="st">"seg"</span>, <span class="st">"ter"</span>, <span class="st">"qua"</span>, <span class="st">"qui"</span>],</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    name<span class="op">=</span><span class="st">"temperatura"</span>,</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>temperaturas[<span class="st">"ter"</span>]                <span class="co"># 30.4</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>temperaturas.mean()                <span class="co"># 29.4</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>temperaturas[temperaturas <span class="op">&gt;</span> <span class="dv">30</span>]    <span class="co"># ter e qui</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="dataframe-a-tabela" class="level2">
+<h2 class="anchored" data-anchor-id="dataframe-a-tabela">DataFrame: a tabela</h2>
+<p>Um <code>DataFrame</code> reúne várias <code>Series</code> que compartilham o mesmo índice. São linhas e colunas, como uma planilha ou uma tabela de banco de dados.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"cidade"</span>: [<span class="st">"São Paulo"</span>, <span class="st">"Rio de Janeiro"</span>, <span class="st">"Curitiba"</span>, <span class="st">"Recife"</span>],</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"populacao_mi"</span>: [<span class="fl">12.3</span>, <span class="fl">6.7</span>, <span class="fl">1.9</span>, <span class="fl">1.7</span>],</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"regiao"</span>: [<span class="st">"Sudeste"</span>, <span class="st">"Sudeste"</span>, <span class="st">"Sul"</span>, <span class="st">"Nordeste"</span>],</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="lendo-dados-de-arquivos" class="level2">
+<h2 class="anchored" data-anchor-id="lendo-dados-de-arquivos">Lendo dados de arquivos</h2>
+<p>Na prática você quase nunca digita os dados à mão. O pandas lê dezenas de formatos com uma linha:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"dados.csv"</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_excel(<span class="st">"planilha.xlsx"</span>, sheet_name<span class="op">=</span><span class="st">"2026"</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_parquet(<span class="st">"dados.parquet"</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Parâmetros úteis no <code>read_csv</code>: <code>sep</code> (separador de campos), <code>decimal</code>, <code>encoding</code>, <code>parse_dates</code> e <code>nrows</code> para carregar apenas uma amostra.</p>
+<p>Para gravar o resultado do seu trabalho, cada leitor tem um escritor correspondente: <code>df.to_csv("saida.csv", index=False)</code>, <code>df.to_excel(...)</code> e <code>df.to_parquet(...)</code>. O formato Parquet preserva os tipos das colunas e ocupa bem menos espaço que CSV.</p>
+</section>
+<section id="primeiro-diagnóstico-dos-dados" class="level2">
+<h2 class="anchored" data-anchor-id="primeiro-diagnóstico-dos-dados">Primeiro diagnóstico dos dados</h2>
+<p>Antes de analisar, olhe a cara da tabela:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df.head()       <span class="co"># primeiras linhas</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>df.shape        <span class="co"># (linhas, colunas)</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>df.info()       <span class="co"># tipo de cada coluna e contagem de nulos</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>df.describe()   <span class="co"># estatísticas das colunas numéricas</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Para variáveis categóricas, <code>df["regiao"].value_counts()</code> mostra a frequência de cada valor, e <code>df["regiao"].unique()</code> lista os valores distintos. Esse par revela erros de digitação e categorias inesperadas logo no começo da análise.</p>
 </section>
 <section id="selecionar-e-filtrar" class="level2">
 <h2 class="anchored" data-anchor-id="selecionar-e-filtrar">Selecionar e filtrar</h2>
-<p>Selecionar coluna é direto, com colchetes. Filtrar linhas usa uma máscara booleana: você escreve uma condição, o pandas devolve uma coluna de verdadeiro e falso, e só as linhas verdadeiras sobrevivem.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"valor"</span>]              <span class="co"># uma coluna (Series)</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>df[[<span class="st">"produto"</span>, <span class="st">"valor"</span>]] <span class="co"># duas colunas (DataFrame)</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>df[df[<span class="st">"valor"</span>] <span class="op">&gt;</span> <span class="dv">10</span>]     <span class="co"># só as linhas com valor acima de 10</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Para combinar condições, use <code>&amp;</code> para “e”, <code>|</code> para “ou”, e <strong>sempre com parênteses em cada condição</strong> — a precedência dos operadores em Python faria a expressão sem parênteses ser avaliada na ordem errada.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df[(df[<span class="st">"uf"</span>] <span class="op">==</span> <span class="st">"MS"</span>) <span class="op">&amp;</span> (df[<span class="st">"valor"</span>] <span class="op">&gt;</span> <span class="dv">10</span>)]</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Quando você quer filtrar linhas <strong>e</strong> escolher colunas ao mesmo tempo, o caminho é o <code>.loc</code>, que recebe as duas coisas de uma vez:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df.loc[df[<span class="st">"uf"</span>] <span class="op">==</span> <span class="st">"MS"</span>, <span class="st">"valor"</span>]</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="colunas" class="level3">
+<h3 class="anchored" data-anchor-id="colunas">Colunas</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"populacao_mi"</span>]           <span class="co"># uma coluna  -&gt; Series</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>df[[<span class="st">"cidade"</span>, <span class="st">"regiao"</span>]]     <span class="co"># várias colunas -&gt; DataFrame</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="o-erro-que-não-dá-erro" class="level2">
-<h2 class="anchored" data-anchor-id="o-erro-que-não-dá-erro">O erro que não dá erro</h2>
-<p>Aqui está a armadilha que motivou o aviso da abertura. Suponha que você queira zerar o valor das linhas de MS. É natural escrever assim:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>df[df[<span class="st">"uf"</span>] <span class="op">==</span> <span class="st">"MS"</span>][<span class="st">"valor"</span>] <span class="op">=</span> <span class="dv">0</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Isso se chama <strong>atribuição encadeada</strong>: dois passos de indexação em sequência, um <code>[...]</code> seguido de outro. No pandas 3.0, esse código não altera coisa nenhuma. O <code>df[df["uf"] == "MS"]</code> produz um objeto novo, a atribuição acontece nesse objeto novo, e ele é descartado na linha seguinte — o <code>df</code> original continua exatamente como estava. A biblioteca emite um aviso <code>ChainedAssignmentError</code>, mas <strong>é um aviso, não uma exceção</strong>: o programa segue rodando, e se você não estiver lendo a saída, vai analisar dados que acreditava ter corrigido.</p>
-<p>A forma correta é fazer tudo em um passo só, com <code>.loc</code>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df.loc[df[<span class="st">"uf"</span>] <span class="op">==</span> <span class="st">"MS"</span>, <span class="st">"valor"</span>] <span class="op">=</span> <span class="dv">0</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Vale registrar por que isso é uma melhora, e não um capricho. Antes do pandas 3.0, a atribuição encadeada era pior: às vezes funcionava, às vezes não, dependendo de detalhes internos de como a tabela estava armazenada na memória. O que existia era o famoso <code>SettingWithCopyWarning</code>, um aviso que aparecia até em código correto e que a comunidade aprendeu a silenciar com <code>.copy()</code> defensivos. Com o <a href="https://pandas.pydata.org/docs/user_guide/copy_on_write.html">Copy-on-Write</a> ligado por padrão, o comportamento passou a ser um só, em todos os casos: nunca funciona. Um comportamento consistentemente errado é muito melhor do que um comportamento imprevisível, porque pode ser aprendido de uma vez.</p>
+<section id="linhas-loc-e-iloc" class="level3">
+<h3 class="anchored" data-anchor-id="linhas-loc-e-iloc">Linhas: <code>loc</code> e <code>iloc</code></h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df.loc[<span class="dv">0</span>]       <span class="co"># linha pelo rótulo do índice</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>df.iloc[<span class="dv">0</span>]      <span class="co"># linha pela posição</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>df.loc[df[<span class="st">"regiao"</span>] <span class="op">==</span> <span class="st">"Sudeste"</span>, [<span class="st">"cidade"</span>, <span class="st">"populacao_mi"</span>]]</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="agrupar-e-resumir" class="level2">
-<h2 class="anchored" data-anchor-id="agrupar-e-resumir">Agrupar e resumir</h2>
-<p><code>groupby</code> é o que transforma uma tabela de lançamentos em uma resposta. A lógica tem três tempos: separar as linhas por uma chave, aplicar um cálculo em cada grupo, juntar os resultados.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df.groupby(<span class="st">"produto"</span>)[<span class="st">"valor"</span>].<span class="bu">sum</span>()</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Para mais de uma medida no mesmo passo, use <code>agg</code>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>df.groupby(<span class="st">"uf"</span>)[<span class="st">"valor"</span>].agg([<span class="st">"sum"</span>, <span class="st">"mean"</span>, <span class="st">"count"</span>])</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
-<p>O resultado vem com a chave do agrupamento no índice, não como coluna comum — o que faz diferença na hora de salvar em arquivo ou juntar com outra tabela. Se você preferir a chave como coluna, <code>reset_index()</code> resolve.</p>
+<section id="filtro-por-condição-boolean-indexing" class="level3">
+<h3 class="anchored" data-anchor-id="filtro-por-condição-boolean-indexing">Filtro por condição (boolean indexing)</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df[df[<span class="st">"populacao_mi"</span>] <span class="op">&gt;</span> <span class="dv">5</span>]</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>df[(df[<span class="st">"regiao"</span>] <span class="op">==</span> <span class="st">"Sudeste"</span>) <span class="op">&amp;</span> (df[<span class="st">"populacao_mi"</span>] <span class="op">&gt;</span> <span class="dv">10</span>)]</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Use <code>&amp;</code>, <code>|</code> e <code>~</code> (não <code>and</code> / <code>or</code>) e envolva cada condição em parênteses.</p>
 </section>
-<section id="valores-ausentes" class="level2">
-<h2 class="anchored" data-anchor-id="valores-ausentes">Valores ausentes</h2>
-<p>Dados reais têm buracos, e o pandas os representa como <code>NaN</code>. A regra geral é que as funções de agregação <strong>ignoram</strong> os ausentes em vez de propagá-los: a soma de <code>[1.0, NaN, 3.0]</code> é <code>4.0</code>, a média é <code>2.0</code> e o <code>count()</code> é <code>2</code>, não <code>3</code>.</p>
-<p>Isso é conveniente e perigoso na mesma medida. Conveniente porque a conta não vira <code>NaN</code> inteira por causa de uma célula vazia; perigoso porque uma média calculada sobre metade das observações não avisa que foi calculada sobre metade das observações. Por isso o hábito que vale a pena adquirir é contar os ausentes antes de agregar:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>df.isna().<span class="bu">sum</span>()   <span class="co"># quantos ausentes por coluna</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Só depois de saber quantos são, e por que estão ausentes, é que se decide entre remover (<code>dropna</code>) e preencher (<code>fillna</code>). Preencher um valor faltante com a média da coluna é uma decisão analítica com consequências, não um passo técnico de limpeza — e num laudo, num relatório ou num artigo, é uma decisão que precisa estar escrita.</p>
 </section>
-<section id="o-que-mudou-no-pandas-3.0" class="level2">
-<h2 class="anchored" data-anchor-id="o-que-mudou-no-pandas-3.0">O que mudou no pandas 3.0</h2>
-<p>Duas mudanças da versão 3.0 afetam diretamente quem está aprendendo agora, porque contradizem o que os materiais mais antigos mostram na tela.</p>
-<p>A primeira é o Copy-on-Write, já tratado acima: a atribuição encadeada deixou de funcionar em definitivo, o <code>SettingWithCopyWarning</code> foi removido e os <code>.copy()</code> defensivos que existiam só para silenciá-lo não são mais necessários.</p>
-<p>A segunda é o tipo das colunas de texto. Até a versão 2, uma coluna de strings aparecia no <code>info()</code> como <code>object</code>, um tipo genérico que servia para qualquer coisa que não fosse número. A partir da 3.0 existe um tipo dedicado, e a mesma coluna aparece como <code>str</code>. Se um tutorial mostra <code>object</code> onde a sua tela mostra <code>str</code>, não há nada errado com o seu código — o tutorial é anterior a janeiro de 2026.</p>
-<p>A lição prática vale além do pandas: ao seguir qualquer material técnico, verifique de que versão ele fala e qual você está rodando. <code>pd.__version__</code> responde à segunda pergunta em uma linha.</p>
+<section id="criar-e-transformar-colunas" class="level2">
+<h2 class="anchored" data-anchor-id="criar-e-transformar-colunas">Criar e transformar colunas</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"populacao_abs"</span>] <span class="op">=</span> df[<span class="st">"populacao_mi"</span>] <span class="op">*</span> <span class="dv">1_000_000</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"porte"</span>] <span class="op">=</span> pd.cut(</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">"populacao_mi"</span>],</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    bins<span class="op">=</span>[<span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">5</span>, <span class="bu">float</span>(<span class="st">"inf"</span>)],</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    labels<span class="op">=</span>[<span class="st">"pequeno"</span>, <span class="st">"médio"</span>, <span class="st">"grande"</span>],</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="agrupar-com-groupby" class="level2">
+<h2 class="anchored" data-anchor-id="agrupar-com-groupby">Agrupar com <code>groupby</code></h2>
+<p>O <code>groupby</code> implementa o padrão <em>split-apply-combine</em>: divide as linhas por uma chave, aplica uma função de agregação e junta o resultado.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>df.groupby(<span class="st">"regiao"</span>)[<span class="st">"populacao_mi"</span>].<span class="bu">sum</span>()</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>df.groupby(<span class="st">"regiao"</span>).agg(</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    n_cidades<span class="op">=</span>(<span class="st">"cidade"</span>, <span class="st">"count"</span>),</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    pop_total<span class="op">=</span>(<span class="st">"populacao_mi"</span>, <span class="st">"sum"</span>),</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    pop_media<span class="op">=</span>(<span class="st">"populacao_mi"</span>, <span class="st">"mean"</span>),</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="tratar-valores-ausentes" class="level2">
+<h2 class="anchored" data-anchor-id="tratar-valores-ausentes">Tratar valores ausentes</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>df.isna().<span class="bu">sum</span>()                      <span class="co"># nulos por coluna</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>df.dropna(subset<span class="op">=</span>[<span class="st">"populacao_mi"</span>])   <span class="co"># remove linhas sem população</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"regiao"</span>] <span class="op">=</span> df[<span class="st">"regiao"</span>].fillna(<span class="st">"desconhecida"</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="perguntas-frequentes" class="level2">
 <h2 class="anchored" data-anchor-id="perguntas-frequentes">Perguntas frequentes</h2>
-<section id="preciso-saber-python-antes-de-aprender-pandas" class="level3">
-<h3 class="anchored" data-anchor-id="preciso-saber-python-antes-de-aprender-pandas">Preciso saber Python antes de aprender pandas?</h3>
-<p>Sim, o básico. Variáveis, tipos, funções, laços e indexação de listas são suficientes para começar. Não é preciso dominar orientação a objetos nem estruturas avançadas.</p>
+<section id="qual-a-diferença-entre-series-e-dataframe" class="level3">
+<h3 class="anchored" data-anchor-id="qual-a-diferença-entre-series-e-dataframe">Qual a diferença entre Series e DataFrame?</h3>
+<p>A <code>Series</code> é unidimensional (uma coluna com índice); o <code>DataFrame</code> é bidimensional (várias colunas com o mesmo índice). Cada coluna de um <code>DataFrame</code> é uma <code>Series</code>.</p>
 </section>
-<section id="qual-a-diferença-entre-pandas-e-excel" class="level3">
-<h3 class="anchored" data-anchor-id="qual-a-diferença-entre-pandas-e-excel">Qual a diferença entre pandas e Excel?</h3>
-<p>O Excel é ótimo para inspecionar e para tarefas pontuais. O pandas ganha em três pontos: o trabalho fica registrado em código e pode ser repetido e conferido por outra pessoa; o volume de dados deixa de ser limitado pela planilha; e a mesma análise pode ser aplicada a um arquivo novo sem refazer nada à mão.</p>
+<section id="quando-usar-loc-em-vez-de-iloc" class="level3">
+<h3 class="anchored" data-anchor-id="quando-usar-loc-em-vez-de-iloc">Quando usar <code>loc</code> em vez de <code>iloc</code>?</h3>
+<p>Use <code>loc</code> para selecionar por rótulo (nome do índice ou da coluna) e <code>iloc</code> para selecionar por posição inteira. Em fatias, <code>loc</code> inclui o limite final; <code>iloc</code> não.</p>
 </section>
-<section id="devo-usar-ou-.loc-para-filtrar" class="level3">
-<h3 class="anchored" data-anchor-id="devo-usar-ou-.loc-para-filtrar">Devo usar <code>[]</code> ou <code>.loc</code> para filtrar?</h3>
-<p>Para apenas ler linhas, os dois funcionam. Para <strong>modificar</strong> valores, use sempre <code>.loc</code>, em um único passo. É a regra que evita a atribuição encadeada.</p>
+<section id="como-ler-só-uma-parte-de-um-arquivo-grande" class="level3">
+<h3 class="anchored" data-anchor-id="como-ler-só-uma-parte-de-um-arquivo-grande">Como ler só uma parte de um arquivo grande?</h3>
+<p>Passe <code>nrows</code> para limitar as linhas ou <code>usecols</code> para escolher colunas no <code>read_csv</code>. Para processar em blocos, use <code>chunksize</code>, que devolve um iterador de <code>DataFrame</code>.</p>
 </section>
-<section id="o-pandas-serve-para-dados-grandes" class="level3">
-<h3 class="anchored" data-anchor-id="o-pandas-serve-para-dados-grandes">O pandas serve para dados grandes?</h3>
-<p>Até o limite da memória da máquina, sim, e isso cobre a enorme maioria dos casos. Acima disso existem alternativas com API parecida, como Polars e Dask, mas aprender pandas continua sendo o ponto de partida certo — os conceitos de tabela, índice, filtro e agrupamento são os mesmos.</p>
-</section>
-<section id="por-que-meu-código-não-altera-o-dataframe" class="level3">
-<h3 class="anchored" data-anchor-id="por-que-meu-código-não-altera-o-dataframe">Por que meu código não altera o DataFrame?</h3>
-<p>Quase sempre é atribuição encadeada. Procure por duas indexações em sequência (<code>df[...][...] = ...</code>) e reescreva com <code>.loc</code> em um passo só.</p>
+<section id="pandas-ou-polars" class="level3">
+<h3 class="anchored" data-anchor-id="pandas-ou-polars">Pandas ou Polars?</h3>
+<p>O pandas tem o maior ecossistema e é o padrão de mercado. O Polars costuma ser mais rápido e econômico em memória para volumes grandes. Para aprender os conceitos de dados tabulares, o pandas continua sendo o melhor ponto de partida.</p>
 </section>
 </section>
 <section id="conclusão" class="level2">
 <h2 class="anchored" data-anchor-id="conclusão">Conclusão</h2>
 <ul>
-<li>O pandas organiza dados em <strong>Series</strong> (coluna) e <strong>DataFrame</strong> (tabela), e o índice é o que alinha valores entre estruturas.</li>
-<li>Antes de calcular, inspecione: <code>head()</code>, <code>info()</code> e <code>describe()</code> revelam tipo errado e valor ausente antes que eles virem resultado errado.</li>
-<li>Filtre com máscara booleana, com parênteses em cada condição, e use <code>.loc</code> quando precisar de linhas e colunas ao mesmo tempo.</li>
-<li>Para <strong>modificar</strong> valores, <code>.loc</code> em um passo só: no pandas 3.0 a atribuição encadeada nunca funciona, e falha em silêncio, com aviso mas sem exceção.</li>
-<li>Agregações ignoram <code>NaN</code> por padrão — conte os ausentes com <code>isna().sum()</code> antes de confiar numa média.</li>
-<li>Confira a versão da biblioteca antes de seguir qualquer tutorial: desde janeiro de 2026, colunas de texto são <code>str</code>, e não mais <code>object</code>.</li>
+<li><code>Series</code> é uma coluna; <code>DataFrame</code> é a tabela.</li>
+<li><code>read_csv</code>, <code>read_excel</code> e <code>read_parquet</code> carregam os dados; <code>head</code>, <code>info</code> e <code>describe</code> dão o primeiro diagnóstico.</li>
+<li><code>loc</code> / <code>iloc</code> e boolean indexing recortam linhas e colunas.</li>
+<li><code>groupby</code> + <code>agg</code> resumem os dados por categoria.</li>
+<li><code>isna</code>, <code>dropna</code> e <code>fillna</code> cuidam dos valores ausentes.</li>
 </ul>
+<p>Para se aprofundar, vale ler o guia <a href="https://pandas.pydata.org/docs/user_guide/10min.html">10 minutes to pandas</a> da <a href="https://pandas.pydata.org/docs/">documentação oficial do pandas</a> e o livro <a href="https://wesmckinney.com/book/">Python for Data Analysis</a>, de Wes McKinney, criador da biblioteca. Aqui no blog, veja também o <a href="../../posts/post-with-code/index.html">exemplo com código executável</a>.</p>
 <hr>
-<p><strong>Tópicos:</strong> #Pandas #Python #CiênciaDeDados #AnáliseDeDados #DataFrame</p>
+<p><strong>Tópicos:</strong> #Pandas #Python #AnáliseDeDados #CiênciaDeDados #DataFrame</p>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "Introdução ao pandas: guia prático para análise de dados",
-  "description": "Introdução ao pandas com exemplos que rodam: DataFrame, filtros, groupby e o que mudou no pandas 3.0, incluindo o erro que faz tutoriais antigos falharem.",
+  "headline": "Introdução ao Pandas: guia prático de análise de dados",
+  "description": "Introdução ao pandas em Python: entenda Series e DataFrame, leia CSV e Excel, filtre linhas, crie colunas e agrupe dados com groupby neste guia prático.",
   "inLanguage": "pt-BR",
-  "datePublished": "2026-09-10T16:59:45-03:00",
-  "dateModified": "2026-09-10T16:59:45-03:00",
+  "datePublished": "2026-09-06T12:07:56-04:00",
+  "dateModified": "2026-09-06T12:07:56-04:00",
   "author": { "@type": "Person", "name": "Pedro Nakashima" },
   "mainEntityOfPage": "https://pedronakashima.com/posts/introducao-pandas/",
-  "keywords": "pandas, Python, ciência de dados, DataFrame, groupby, Copy-on-Write, análise de dados"
+  "keywords": "pandas, python, dataframe, series, groupby, análise de dados"
 }
 </script>
 
