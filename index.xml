@@ -9,8 +9,762 @@
 <link>https://pedronakashima.com/</link>
 <atom:link href="https://pedronakashima.com/index.xml" rel="self" type="application/rss+xml"/>
 <description>Análises e guias de Pedro Nakashima sobre ciência de dados, machine learning, IA e tecnologia — e também economia, direito, política, cinema e futebol.</description>
-<generator>quarto-1.9.38</generator>
-<lastBuildDate>Sun, 13 Sep 2026 17:27:01 GMT</lastBuildDate>
+<generator>quarto-1.10.18</generator>
+<lastBuildDate>Mon, 14 Sep 2026 19:04:08 GMT</lastBuildDate>
+<item>
+  <title>Docker para iniciantes: o que é e como usar na prática</title>
+  <dc:creator>Pedro Nakashima</dc:creator>
+  <link>https://pedronakashima.com/posts/docker-guia-iniciantes/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p><em>Publicado em 14 de setembro de 2026, às 15:04, por Pedro Nakashima</em></p>
+<p><img src="https://pedronakashima.com/posts/docker-guia-iniciantes/cover.jpg" class="img-fluid"></p>
+<p>Docker é um programa que empacota uma aplicação junto com tudo de que ela precisa para funcionar — código, bibliotecas, versão exata da linguagem, arquivos de configuração — em uma unidade isolada chamada container, que roda igual em qualquer computador. É a resposta técnica à frase mais cansada do desenvolvimento de software: “na minha máquina funciona”. Este guia parte do zero, sem pressupor que você já tenha ouvido falar em containers, e vai até o ponto em que você sobe uma aplicação com banco de dados usando um único comando.</p>
+<section id="o-que-é-docker" class="level2">
+<h2 class="anchored" data-anchor-id="o-que-é-docker">O que é Docker</h2>
+<p>Docker é uma plataforma de containerização. Ele pega uma aplicação e a coloca dentro de um <strong>container</strong>: um processo que roda no seu sistema operacional, mas enxerga um sistema de arquivos próprio, uma rede própria e um conjunto próprio de processos, como se estivesse sozinho na máquina.</p>
+<p>A tecnologia por baixo não é nova. O núcleo do Linux já oferecia os mecanismos de isolamento (<em>namespaces</em>, que separam o que cada processo enxerga, e <em>cgroups</em>, que limitam quanta memória e CPU ele pode consumir) anos antes do Docker existir. O que o Docker fez, a partir de 2013, foi transformar esses mecanismos em algo utilizável: um formato de empacotamento, um registro público de onde baixar pacotes prontos e meia dúzia de comandos. Hoje o formato é um padrão aberto, mantido pela <a href="https://opencontainers.org/">Open Container Initiative</a>, o que significa que uma imagem criada com Docker roda em outras ferramentas de container.</p>
+<section id="o-problema-que-o-docker-resolve" class="level3">
+<h3 class="anchored" data-anchor-id="o-problema-que-o-docker-resolve">O problema que o Docker resolve</h3>
+<p>Imagine instalar um projeto alheio na sua máquina. O README pede Python 3.11, mas você tem o 3.13. Pede PostgreSQL 15, e o seu é o 17. Pede uma biblioteca de imagem que só compila com uma versão específica de uma dependência do sistema. Três horas depois, você desistiu ou quebrou outro projeto que funcionava.</p>
+<p>O problema não é a falta de instruções. É que a aplicação depende do <strong>ambiente inteiro</strong> em que roda, e esse ambiente é diferente em cada computador. Duas máquinas com o mesmo código produzem resultados diferentes porque tudo o que está em volta do código é diferente.</p>
+<p>O Docker resolve isso transformando o ambiente em um arquivo. Em vez de descrever em prosa o que instalar, você escreve uma receita que o Docker executa, e o resultado é um pacote imutável que se comporta igual no seu notebook, na máquina de um colega e no servidor de produção. É a mesma mudança de mentalidade que o versionamento trouxe para o código, e que expliquei no guia sobre <a href="../../posts/git-github-guia-iniciantes/index.html">Git e GitHub para iniciantes</a>: parar de depender do estado atual da máquina e passar a depender de algo escrito, versionado e reproduzível.</p>
+</section>
+</section>
+<section id="imagem-e-container-a-distinção-que-organiza-tudo" class="level2">
+<h2 class="anchored" data-anchor-id="imagem-e-container-a-distinção-que-organiza-tudo">Imagem e container: a distinção que organiza tudo</h2>
+<p>Esses dois termos são confundidos o tempo todo, e entender a diferença resolve metade das dúvidas de quem começa.</p>
+<p>Uma <strong>imagem</strong> é o pacote em repouso: um sistema de arquivos empilhado em camadas, contendo a aplicação e suas dependências, mais a instrução de qual comando executar. Ela é somente leitura e não faz nada sozinha.</p>
+<p>Um <strong>container</strong> é a imagem em execução: um processo vivo, com uma camada gravável por cima da imagem. Você pode criar dez containers a partir da mesma imagem, e eles não se enxergam nem interferem uns nos outros.</p>
+<p>A analogia mais útil vem da programação: a imagem é a classe, o container é a instância. Quando o container morre, a camada gravável dele morre junto — e é exatamente por isso que existem volumes, assunto de uma seção adiante.</p>
+<p>Vale registrar o que um container <strong>não</strong> é: uma máquina virtual. Uma máquina virtual carrega um sistema operacional completo, com núcleo próprio, e gasta gigabytes e minutos para subir. Um container compartilha o núcleo do sistema hospedeiro e sobe em milissegundos, ocupando megabytes. É essa diferença de custo que permite subir seis containers no notebook sem pensar duas vezes.</p>
+</section>
+<section id="docker-hub-de-onde-vêm-as-imagens" class="level2">
+<h2 class="anchored" data-anchor-id="docker-hub-de-onde-vêm-as-imagens">Docker Hub: de onde vêm as imagens</h2>
+<p>Você raramente constrói uma imagem do zero. Baixa uma pronta e parte dela. O lugar padrão para isso é o <a href="https://hub.docker.com/">Docker Hub</a>, um registro público com milhões de imagens, e é para lá que o Docker vai quando você não diz o contrário.</p>
+<p>O comando é <code>docker pull</code>, e o nome de uma imagem tem três partes:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">docker</span> pull python:3.12-slim</span>
+<span id="cb1-2"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#          └──┬─┘ └────┬────┘</span></span>
+<span id="cb1-3"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#         repositório  tag (versão/variante)</span></span></code></pre></div></div>
+<p>Três tipos de imagem convivem lá, e distinguir entre eles é uma questão de segurança:</p>
+<ul>
+<li><strong>Imagens oficiais</strong> (<code>python</code>, <code>postgres</code>, <code>nginx</code>, <code>ubuntu</code>): mantidas em colaboração com a Docker, com nome curto e sem barra. São o ponto de partida seguro.</li>
+<li><strong>Publicadores verificados</strong> (<code>bitnami/postgresql</code>, <code>grafana/grafana</code>): empresas identificadas, com selo no registro.</li>
+<li><strong>Imagens da comunidade</strong> (<code>fulano/minha-api</code>): qualquer pessoa publica. Trate-as como código de terceiros — porque é o que são.</li>
+</ul>
+<p><strong>Nunca use a tag <code>latest</code> em algo que importa.</strong> Ela não significa “a mais recente”: significa “a que o publicador apontou como padrão”, e ela muda sem aviso. <code>postgres:latest</code> hoje e daqui a três meses podem ser versões maiores diferentes, e o seu projeto quebra sem que uma linha do seu código tenha mudado. Fixe a versão: <code>postgres:17</code>.</p>
+<p>Há um limite prático a conhecer. O Docker Hub restringe quantas imagens você baixa: segundo a <a href="https://docs.docker.com/docker-hub/usage/pulls/">documentação oficial de limites de uso</a>, são 100 downloads a cada 6 horas para quem não está autenticado (contados por endereço IP, o que inclui a rede inteira de um escritório), 200 a cada 6 horas para contas gratuitas autenticadas, e sem limite nos planos pagos. Rodar <code>docker login</code> com uma conta gratuita já dobra o seu teto e é grátis.</p>
+</section>
+<section id="os-comandos-do-dia-a-dia" class="level2">
+<h2 class="anchored" data-anchor-id="os-comandos-do-dia-a-dia">Os comandos do dia a dia</h2>
+<p>Meia dúzia de comandos cobre quase tudo. Este sobe um servidor web e o publica na porta 8080 da sua máquina:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">docker</span> run <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-d</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--name</span> web <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-p</span> 8080:80 nginx:1.27</span></code></pre></div></div>
+<p>Cada parte importa: <code>-d</code> roda em segundo plano, <code>--name</code> dá um nome para você não precisar decorar identificadores, e <code>-p 8080:80</code> liga a porta 8080 do seu computador à porta 80 de dentro do container. Sem o <code>-p</code>, o servidor sobe e ninguém consegue acessá-lo — é o erro número um de quem está começando.</p>
+<p>Os demais:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">docker</span> ps                  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># containers em execução</span></span>
+<span id="cb3-2"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">docker</span> ps <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-a</span>               <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># inclusive os parados</span></span>
+<span id="cb3-3"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">docker</span> logs <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-f</span> web         <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># acompanha a saída do container</span></span>
+<span id="cb3-4"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">docker</span> exec <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-it</span> web bash   <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># abre um terminal dentro do container</span></span>
+<span id="cb3-5"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">docker</span> stop web            <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># para (envia sinal de término)</span></span>
+<span id="cb3-6"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">docker</span> rm web              <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># remove o container parado</span></span>
+<span id="cb3-7"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">docker</span> images              <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># imagens baixadas</span></span>
+<span id="cb3-8"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">docker</span> system df           <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># quanto espaço tudo isso está ocupando</span></span></code></pre></div></div>
+<p><code>docker exec -it</code> é o que mais ajuda a aprender: você entra no container e descobre que lá dentro há um sistema de arquivos Linux comum, com a sua aplicação em algum diretório. O mistério acaba nesse momento.</p>
+</section>
+<section id="dockerfile-a-receita-da-sua-própria-imagem" class="level2">
+<h2 class="anchored" data-anchor-id="dockerfile-a-receita-da-sua-própria-imagem">Dockerfile: a receita da sua própria imagem</h2>
+<p>O <code>Dockerfile</code> é um arquivo de texto, sem extensão, na raiz do projeto. Cada linha é uma instrução, e cada instrução gera uma camada da imagem.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode dockerfile code-with-copy"><code class="sourceCode dockerfile"><span id="cb4-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">FROM</span> python:3.12-slim</span>
+<span id="cb4-2"></span>
+<span id="cb4-3"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">WORKDIR</span> /app</span>
+<span id="cb4-4"></span>
+<span id="cb4-5"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">COPY</span> requirements.txt .</span>
+<span id="cb4-6"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">RUN</span> <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">pip</span> install <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--no-cache-dir</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-r</span> requirements.txt</span>
+<span id="cb4-7"></span>
+<span id="cb4-8"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">COPY</span> . .</span>
+<span id="cb4-9"></span>
+<span id="cb4-10"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">EXPOSE</span> 8000</span>
+<span id="cb4-11"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">CMD</span> [<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"python"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"-m"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"uvicorn"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"main:app"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"--host"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"0.0.0.0"</span>]</span></code></pre></div></div>
+<p>Lendo de cima para baixo: parte de uma imagem oficial enxuta do Python; define <code>/app</code> como diretório de trabalho; copia a lista de dependências e as instala; copia o resto do código; documenta a porta que a aplicação usa; e declara o comando que roda quando o container sobe.</p>
+<p>A ordem das linhas não é estética — é desempenho. O Docker guarda cada camada em cache e só refaz a partir da primeira que mudou. Copiar <code>requirements.txt</code> <strong>antes</strong> do código faz com que uma alteração em um arquivo <code>.py</code> não reinstale todas as dependências. Inverta as duas linhas e cada mudança de uma vírgula no código custará a instalação inteira de novo.</p>
+<p>Dois detalhes que poupam dor:</p>
+<ul>
+<li>Um arquivo <strong><code>.dockerignore</code></strong>, no mesmo formato do <code>.gitignore</code>, impede que <code>.git/</code>, <code>venv/</code>, <code>node_modules/</code> e arquivos de segredo entrem na imagem. Sem ele, a imagem incha e você pode publicar credenciais sem perceber.</li>
+<li><strong><code>--host 0.0.0.0</code></strong> no comando final: dentro do container, <code>localhost</code> é o próprio container. Uma aplicação que escuta só em <code>127.0.0.1</code> fica inalcançável de fora, mesmo com o <code>-p</code> correto.</li>
+</ul>
+<p>Construir e rodar:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">docker</span> build <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-t</span> minha-api:1.0 .</span>
+<span id="cb5-2"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">docker</span> run <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-d</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-p</span> 8000:8000 minha-api:1.0</span></code></pre></div></div>
+<p>O ponto final do <code>build</code> é o <strong>contexto</strong>: a pasta cujo conteúdo é enviado ao Docker. É por isso que o <code>.dockerignore</code> importa.</p>
+</section>
+<section id="docker-compose-a-aplicação-inteira-num-arquivo" class="level2">
+<h2 class="anchored" data-anchor-id="docker-compose-a-aplicação-inteira-num-arquivo">Docker Compose: a aplicação inteira num arquivo</h2>
+<p>Uma aplicação real raramente é um container. É a API, mais o banco de dados, mais um cache, mais talvez um serviço de fila. Subir isso com <code>docker run</code> significa quatro comandos longos, na ordem certa, com as redes criadas à mão. O <strong>Docker Compose</strong> substitui tudo isso por um arquivo YAML e um comando.</p>
+<p>O arquivo se chama <code>compose.yaml</code> (o nome antigo, <code>docker-compose.yml</code>, continua funcionando) e fica na raiz do projeto:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">services</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span></span>
+<span id="cb6-2"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">  </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">api</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span></span>
+<span id="cb6-3"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">    </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">build</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> .</span></span>
+<span id="cb6-4"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">    </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ports</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span></span>
+<span id="cb6-5"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">      </span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">-</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"8000:8000"</span></span>
+<span id="cb6-6"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">    </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">environment</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span></span>
+<span id="cb6-7"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">      </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">DATABASE_URL</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> postgresql://app:senha@db:5432/app</span></span>
+<span id="cb6-8"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">    </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">depends_on</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span></span>
+<span id="cb6-9"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">      </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">db</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span></span>
+<span id="cb6-10"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">        </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">condition</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> service_healthy</span></span>
+<span id="cb6-11"></span>
+<span id="cb6-12"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">  </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">db</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span></span>
+<span id="cb6-13"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">    </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">image</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> postgres:17</span></span>
+<span id="cb6-14"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">    </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">environment</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span></span>
+<span id="cb6-15"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">      </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">POSTGRES_USER</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> app</span></span>
+<span id="cb6-16"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">      </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">POSTGRES_PASSWORD</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> senha</span></span>
+<span id="cb6-17"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">      </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">POSTGRES_DB</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> app</span></span>
+<span id="cb6-18"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">    </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">volumes</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span></span>
+<span id="cb6-19"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">      </span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">-</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> dados_db:/var/lib/postgresql/data</span></span>
+<span id="cb6-20"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">    </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">healthcheck</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span></span>
+<span id="cb6-21"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">      </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">test</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">[</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"CMD-SHELL"</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">,</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"pg_isready -U app"</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">]</span></span>
+<span id="cb6-22"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">      </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">interval</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> 5s</span></span>
+<span id="cb6-23"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">      </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">retries</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span></span>
+<span id="cb6-24"></span>
+<span id="cb6-25"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">volumes</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span></span>
+<span id="cb6-26"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">  </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">dados_db</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span></span></code></pre></div></div>
+<p>O YAML é um formato de configuração baseado em <strong>indentação por espaços</strong> — nunca tabulações, que causam erro de leitura. Cada nível de dois espaços significa “pertence ao item acima”. Aqui há dois blocos de primeiro nível: <code>services</code>, com os containers, e <code>volumes</code>, com o armazenamento persistente. Dentro de <code>services</code>, <code>api</code> e <code>db</code> são nomes que você escolhe, e é por esses nomes que os containers se acham na rede.</p>
+<p>Repare no <code>DATABASE_URL</code>: o endereço do banco é <code>db</code>, não <code>localhost</code> nem um IP. Isso é o Compose criando uma rede e um nome para cada serviço — assunto da seção sobre redes.</p>
+<p>O <code>depends_on</code> com <code>condition: service_healthy</code> resolve um problema clássico: o container do banco sobe em um segundo, mas o PostgreSQL leva mais alguns para aceitar conexões. Sem a condição, a API tenta conectar e morre. Com ela, o Compose espera o <code>healthcheck</code> passar.</p>
+<section id="subir-descer-e-as-variações-que-importam" class="level3">
+<h3 class="anchored" data-anchor-id="subir-descer-e-as-variações-que-importam">Subir, descer e as variações que importam</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">docker</span> compose up <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-d</span>          <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># sobe tudo em segundo plano</span></span>
+<span id="cb7-2"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">docker</span> compose up <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--build</span>     <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># reconstrói as imagens antes de subir</span></span>
+<span id="cb7-3"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">docker</span> compose ps             <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># o que está no ar</span></span>
+<span id="cb7-4"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">docker</span> compose logs <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-f</span> api    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># acompanha os logs de um serviço</span></span>
+<span id="cb7-5"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">docker</span> compose exec api bash  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># terminal dentro do serviço</span></span>
+<span id="cb7-6"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">docker</span> compose restart api    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># reinicia um serviço só</span></span>
+<span id="cb7-7"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">docker</span> compose stop           <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># para os containers, sem apagar nada</span></span>
+<span id="cb7-8"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">docker</span> compose down           <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># para e remove containers e redes</span></span>
+<span id="cb7-9"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">docker</span> compose down <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-v</span>        <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># o mesmo, e apaga também os volumes</span></span></code></pre></div></div>
+<p>A distinção entre <code>stop</code>, <code>down</code> e <code>down -v</code> é a que mais causa estrago. <code>stop</code> congela; <code>up -d</code> depois disso retoma tudo. <code>down</code> remove os containers e a rede, mas <strong>preserva os volumes</strong> — seus dados continuam lá. <code>down -v</code> remove os volumes junto, e é irreversível: o banco de dados some. Trate o <code>-v</code> com o mesmo cuidado de um <code>rm -rf</code>.</p>
+<p>Uma nota sobre o nome do comando: <code>docker compose</code>, sem hífen, é um plugin do próprio Docker. O antigo <code>docker-compose</code>, com hífen, era um programa separado escrito em Python e foi descontinuado. Tutoriais que usam a forma com hífen estão desatualizados, ainda que a sintaxe do arquivo seja praticamente a mesma.</p>
+<p>Vale conhecer também o <code>docker compose watch</code>, que observa os arquivos do projeto e sincroniza, reconstrói ou reinicia o serviço conforme o que mudou — elimina a reconstrução manual durante o desenvolvimento.</p>
+</section>
+</section>
+<section id="volumes-onde-os-dados-sobrevivem" class="level2">
+<h2 class="anchored" data-anchor-id="volumes-onde-os-dados-sobrevivem">Volumes: onde os dados sobrevivem</h2>
+<p>A camada gravável de um container é descartável. Escreva um arquivo dentro dele, remova o container, e o arquivo morreu junto. Para um servidor web isso é ótimo; para um banco de dados, é uma catástrofe.</p>
+<p><strong>Volumes</strong> são o mecanismo de persistência. Há dois tipos, e escolher errado é fonte de confusão.</p>
+<p>O <strong>volume nomeado</strong> é gerenciado pelo Docker, guardado em uma área própria dele, e é a escolha certa para dados de aplicação — bancos, uploads, índices:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb8-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">volumes</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span></span>
+<span id="cb8-2"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">  </span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">-</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> dados_db:/var/lib/postgresql/data</span></span></code></pre></div></div>
+<p>O <strong>bind mount</strong> liga uma pasta da sua máquina a uma pasta do container, e serve para desenvolvimento: você edita o código no editor e o container vê a mudança na hora.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb9-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">volumes</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span></span>
+<span id="cb9-2"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">  </span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">-</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> ./src:/app/src</span></span></code></pre></div></div>
+<p>A sintaxe é sempre <code>origem:destino</code>. Se a origem começa com <code>.</code> ou <code>/</code>, é um caminho da sua máquina; se é um nome simples, é um volume nomeado, que precisa estar declarado no bloco <code>volumes</code> do primeiro nível.</p>
+<p>Os comandos de gerência são poucos: <code>docker volume ls</code> lista, <code>docker volume inspect &lt;nome&gt;</code> mostra onde está, <code>docker volume rm &lt;nome&gt;</code> remove. E <code>docker system prune -a --volumes</code> limpa tudo o que não está em uso — comando útil e perigoso, que já apagou banco de desenvolvimento de muita gente.</p>
+</section>
+<section id="redes-como-os-containers-se-falam" class="level2">
+<h2 class="anchored" data-anchor-id="redes-como-os-containers-se-falam">Redes: como os containers se falam</h2>
+<p>Todo container criado pelo Compose entra automaticamente em uma rede virtual, e dentro dela <strong>o nome do serviço vira o endereço</strong>. Por isso a API do exemplo conecta em <code>db:5432</code>: o Docker mantém um resolvedor de nomes interno que traduz <code>db</code> para o IP do container naquele momento.</p>
+<p>Três consequências práticas:</p>
+<ul>
+<li><strong>Containers na mesma rede se falam por qualquer porta</strong>, sem precisar de <code>ports</code>. O <code>ports</code> só existe para expor um serviço ao <strong>seu computador</strong>. Um banco de dados que só a API acessa não precisa — e não deve — ter porta publicada.</li>
+<li><strong><code>localhost</code> dentro do container é o container.</strong> Configuração copiada de um ambiente sem Docker quase sempre falha por isso.</li>
+<li><strong>Para acessar um serviço que roda na sua máquina, e não em container</strong>, use o nome especial <code>host.docker.internal</code> em vez de <code>localhost</code>.</li>
+</ul>
+<p>Fora do Compose, você cria a rede à mão:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">docker</span> network create minha-rede</span>
+<span id="cb10-2"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">docker</span> run <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-d</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--name</span> db <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--network</span> minha-rede postgres:17</span>
+<span id="cb10-3"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">docker</span> run <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-d</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--name</span> api <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--network</span> minha-rede <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-p</span> 8000:8000 minha-api:1.0</span></code></pre></div></div>
+<p>É exatamente o que o Compose faz por você, e a razão de quase ninguém fazer isso manualmente.</p>
+</section>
+<section id="docker-no-ubuntu" class="level2">
+<h2 class="anchored" data-anchor-id="docker-no-ubuntu">Docker no Ubuntu</h2>
+<p>No Linux, o Docker roda nativamente: não há máquina virtual no meio, e o desempenho é o do sistema. A instalação recomendada é pelo repositório oficial da Docker, descrita no <a href="https://docs.docker.com/engine/install/ubuntu/">guia de instalação para Ubuntu</a> — e <strong>não</strong> pelo pacote <code>docker.io</code> dos repositórios da distribuição, que costuma estar desatualizado, nem pelo pacote Snap, que causa problemas de permissão em volumes.</p>
+<p>Depois de configurar o repositório, a instalação traz o motor e os plugins:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sudo</span> apt install docker-ce docker-ce-cli containerd.io <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">\</span></span>
+<span id="cb11-2">    docker-buildx-plugin docker-compose-plugin</span></code></pre></div></div>
+<p>Há um passo pós-instalação que quase todo tutorial menciona sem a ressalva devida. Por padrão, todo comando exige <code>sudo</code>. Para evitar isso, adiciona-se o usuário ao grupo <code>docker</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sudo</span> usermod <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-aG</span> docker <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$USER</span></span>
+<span id="cb12-2"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">newgrp</span> docker</span></code></pre></div></div>
+<p>A ressalva: <strong>o grupo <code>docker</code> equivale a acesso de administrador na máquina</strong>. Quem pode falar com o serviço do Docker pode montar o disco inteiro dentro de um container e sair como root. A própria <a href="https://docs.docker.com/engine/install/linux-postinstall/">documentação de pós-instalação</a> alerta para isso. Em um notebook pessoal, é um risco aceitável; em um servidor compartilhado, não é, e a alternativa é o modo <em>rootless</em>.</p>
+<p>Dois detalhes do Linux que aparecem cedo: arquivos criados por um container em um bind mount pertencem ao usuário que roda dentro dele, o que produz arquivos com dono <code>root</code> na sua pasta; e <code>sudo systemctl enable --now docker</code> garante que o serviço suba junto com o sistema.</p>
+</section>
+<section id="docker-desktop-no-windows" class="level2">
+<h2 class="anchored" data-anchor-id="docker-desktop-no-windows">Docker Desktop no Windows</h2>
+<p>No Windows, containers Linux precisam de um núcleo Linux, e ele não existe nativamente. O <strong>Docker Desktop</strong> resolve isso empacotando esse núcleo, uma interface gráfica e o Compose em uma instalação só. O caminho recomendado é o backend <strong>WSL 2</strong>, o subsistema Linux do próprio Windows, bem mais leve e rápido que a alternativa com Hyper-V.</p>
+<p>O que muda na prática:</p>
+<ul>
+<li><strong>Os comandos são idênticos.</strong> O <code>compose.yaml</code> e o <code>Dockerfile</code> escritos no Windows funcionam sem alteração no Linux. É esse o ponto do Docker.</li>
+<li><strong>Onde ficam os arquivos decide o desempenho.</strong> Um projeto guardado em <code>C:\Users\...</code> e acessado pelo container atravessa a fronteira entre os dois sistemas de arquivos a cada leitura, e a diferença é brutal em projetos com muitos arquivos pequenos. Guarde o projeto <strong>dentro</strong> do sistema de arquivos do WSL (<code>\\wsl$\Ubuntu\home\seu-usuario\</code>), abra o terminal do Ubuntu e trabalhe a partir dali.</li>
+<li><strong>Quebras de linha viram um problema silencioso.</strong> O Windows usa <code>CRLF</code>; scripts copiados para dentro de uma imagem Linux falham com mensagens incompreensíveis. Um <code>.gitattributes</code> com <code>* text=auto eol=lf</code> no repositório resolve na origem.</li>
+<li><strong>A licença tem condições.</strong> Segundo os <a href="https://docs.docker.com/subscription/desktop-license/">termos de assinatura do Docker Desktop</a>, ele é gratuito para uso pessoal, educação, projetos de código aberto não comerciais e empresas pequenas — com menos de 250 funcionários <strong>e</strong> menos de 10 milhões de dólares de receita anual. Acima de qualquer um dos dois limites, o uso profissional exige assinatura paga. Vale conferir antes de adotar a ferramenta no trabalho.</li>
+</ul>
+</section>
+<section id="para-que-serve-além-de-empacotar-aplicações-web" class="level2">
+<h2 class="anchored" data-anchor-id="para-que-serve-além-de-empacotar-aplicações-web">Para que serve, além de empacotar aplicações web</h2>
+<p>O uso mais divulgado do Docker é o de colocar um sistema em produção, mas ele é útil bem antes disso:</p>
+<ul>
+<li><strong>Testar um banco de dados em trinta segundos.</strong> <code>docker run --rm -e POSTGRES_PASSWORD=x -p 5432:5432 postgres:17</code> dá um PostgreSQL limpo, e o <code>--rm</code> apaga tudo quando você o para. Nada foi instalado na sua máquina.</li>
+<li><strong>Reprodutibilidade em análise de dados.</strong> Um ambiente de análise congelado em uma imagem é o que permite a alguém, dois anos depois, rodar o mesmo script e obter o mesmo número. Quem trabalha com <a href="../../posts/aprender-python-2026/index.html">Python para análise de dados</a> costuma chegar ao Docker por esse caminho, e não pelo de infraestrutura.</li>
+<li><strong>Integração contínua.</strong> Praticamente toda plataforma de automação executa os testes dentro de containers, porque é a única forma barata de garantir um ambiente idêntico a cada execução.</li>
+<li><strong>Rodar ferramentas sem instalá-las.</strong> Um conversor de documentos, um cliente de banco, um utilitário de linha de comando — tudo pode rodar em container e sumir depois, sem deixar dependências na máquina.</li>
+<li><strong>Ensino e material didático.</strong> Distribuir um <code>compose.yaml</code> junto com o material elimina a aula inteira que se perde com problemas de instalação.</li>
+</ul>
+</section>
+<section id="o-que-mudou-recentemente" class="level2">
+<h2 class="anchored" data-anchor-id="o-que-mudou-recentemente">O que mudou recentemente</h2>
+<p>Três movimentos valem menção, porque mudam o que significa “usar Docker” hoje.</p>
+<p><strong>Os limites do Docker Hub entraram no radar.</strong> Em <a href="https://www.docker.com/blog/revisiting-docker-hub-policies-prioritizing-developer-experience/">fevereiro de 2025 a Docker anunciou</a> limites bem mais rígidos, por hora em vez de por período de 6 horas, com vigência em 1º de abril daquele ano. A reação foi forte, e a empresa recuou: os limites novos não foram aplicados, os antigos permaneceram, e a Docker se comprometeu a anunciar qualquer mudança futura com pelo menos seis meses de antecedência. O episódio deixou uma lição prática que sobrevive ao caso: quem depende do registro público em automações deve autenticar-se, usar um espelho interno ou fixar as imagens críticas.</p>
+<p><strong>O Compose passou a orquestrar modelos de IA.</strong> A especificação ganhou um bloco <code>models</code> de primeiro nível, e um serviço declara dependência de um modelo como declara dependência de um banco:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb13-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">services</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span></span>
+<span id="cb13-2"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">  </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">chat-app</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span></span>
+<span id="cb13-3"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">    </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">image</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> my-chat-app</span></span>
+<span id="cb13-4"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">    </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">models</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span></span>
+<span id="cb13-5"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">      </span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">-</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> llm</span></span>
+<span id="cb13-6"></span>
+<span id="cb13-7"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">models</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span></span>
+<span id="cb13-8"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">  </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">llm</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span></span>
+<span id="cb13-9"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">    </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">model</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> ai/smollm2</span></span></code></pre></div></div>
+<p>O modelo é baixado como artefato de container e servido localmente pelo <strong>Docker Model Runner</strong>, conforme a <a href="https://docs.docker.com/ai/compose/models-and-compose/">documentação de modelos no Compose</a>. A consequência é conceitual: um modelo de linguagem passa a ser mais uma dependência versionada da aplicação, como o PostgreSQL, em vez de um serviço externo com chave de API.</p>
+<p><strong>Servidores MCP viraram imagens.</strong> O <a href="https://docs.docker.com/ai/mcp-catalog-and-toolkit/">catálogo e o toolkit MCP da Docker</a> empacotam servidores do Model Context Protocol — o padrão pelo qual assistentes de IA acessam ferramentas externas — como imagens de container verificadas, com versionamento e atualizações de segurança, configuradas uma vez e reaproveitadas por vários clientes. É o mesmo argumento de sempre, aplicado a um problema novo: em vez de instalar dez ferramentas com dez conjuntos de dependências na sua máquina, você as roda isoladas.</p>
+</section>
+<section id="erros-comuns-de-quem-está-começando" class="level2">
+<h2 class="anchored" data-anchor-id="erros-comuns-de-quem-está-começando">Erros comuns de quem está começando</h2>
+<ul>
+<li><strong>Confundir imagem com container.</strong> <code>docker rm</code> remove container; <code>docker rmi</code> remove imagem. Remover o container não libera o espaço da imagem.</li>
+<li><strong>Usar a tag <code>latest</code>.</strong> Ela muda sob os seus pés e transforma um projeto que funcionava em um quebra-cabeça.</li>
+<li><strong>Esquecer o <code>-p</code>.</strong> O container sobe, o log diz que está tudo certo, e o navegador não abre nada.</li>
+<li><strong>Escutar em <code>127.0.0.1</code> dentro do container.</strong> Aplicações web precisam de <code>0.0.0.0</code> para serem alcançáveis de fora.</li>
+<li><strong>Rodar <code>docker compose down -v</code> por reflexo.</strong> É o comando que apaga o banco de dados de desenvolvimento.</li>
+<li><strong>Colocar segredos no <code>Dockerfile</code>.</strong> Cada instrução vira uma camada, e a camada guarda o valor mesmo que uma linha posterior o apague. Senha vai em variável de ambiente ou em arquivo não versionado.</li>
+<li><strong>Ignorar o espaço em disco.</strong> Imagens e volumes antigos acumulam dezenas de gigabytes em silêncio. <code>docker system df</code> mostra; <code>docker system prune</code> limpa, com atenção ao que se está apagando.</li>
+</ul>
+</section>
+<section id="perguntas-frequentes" class="level2">
+<h2 class="anchored" data-anchor-id="perguntas-frequentes">Perguntas frequentes</h2>
+<section id="docker-é-o-mesmo-que-máquina-virtual" class="level3">
+<h3 class="anchored" data-anchor-id="docker-é-o-mesmo-que-máquina-virtual">Docker é o mesmo que máquina virtual?</h3>
+<p>Não. Uma máquina virtual emula um computador inteiro, com sistema operacional e núcleo próprios, e consome gigabytes de memória. Um container compartilha o núcleo do sistema hospedeiro e isola apenas o que a aplicação enxerga, o que o torna ordens de grandeza mais leve e rápido de iniciar.</p>
+</section>
+<section id="preciso-saber-linux-para-usar-docker" class="level3">
+<h3 class="anchored" data-anchor-id="preciso-saber-linux-para-usar-docker">Preciso saber Linux para usar Docker?</h3>
+<p>Ajuda, mas não é pré-requisito para começar. As imagens são baseadas em Linux e você acabará usando comandos como <code>ls</code> e <code>cd</code> dentro dos containers. Meia dúzia de comandos básicos é suficiente para os primeiros meses, e o próprio uso do Docker acaba ensinando o resto.</p>
+</section>
+<section id="docker-é-gratuito" class="level3">
+<h3 class="anchored" data-anchor-id="docker-é-gratuito">Docker é gratuito?</h3>
+<p>O motor do Docker é código aberto e gratuito em qualquer cenário. O que tem condições de licença é o Docker Desktop, a aplicação gráfica usada em Windows e macOS: gratuito para uso pessoal, educação, código aberto não comercial e empresas com menos de 250 funcionários e menos de 10 milhões de dólares de receita anual. No Linux, onde o motor roda direto, a questão nem se coloca.</p>
+</section>
+<section id="uso-docker-em-produção-ou-só-para-desenvolver" class="level3">
+<h3 class="anchored" data-anchor-id="uso-docker-em-produção-ou-só-para-desenvolver">Uso Docker em produção ou só para desenvolver?</h3>
+<p>Os dois. Em produção, porém, containers raramente rodam soltos: entram em um orquestrador, que cuida de reinício automático, distribuição de carga e atualização sem interrupção. O Compose é excelente para desenvolvimento e para servidores pequenos, e insuficiente para um sistema crítico com várias máquinas.</p>
+</section>
+<section id="preciso-do-docker-hub-para-usar-docker" class="level3">
+<h3 class="anchored" data-anchor-id="preciso-do-docker-hub-para-usar-docker">Preciso do Docker Hub para usar Docker?</h3>
+<p>Não. Ele é apenas o registro padrão. Você pode baixar imagens de outros registros, manter um registro privado ou trabalhar somente com imagens construídas localmente, sem publicar nada.</p>
+</section>
+</section>
+<section id="conclusão" class="level2">
+<h2 class="anchored" data-anchor-id="conclusão">Conclusão</h2>
+<ul>
+<li><strong>Docker empacota a aplicação com o ambiente dela</strong>, transformando “funciona na minha máquina” em um arquivo versionado que funciona em qualquer máquina.</li>
+<li><strong>Imagem é a receita, container é a execução.</strong> A imagem é imutável; a camada gravável do container morre com ele.</li>
+<li><strong>O Docker Hub é a fonte padrão de imagens</strong>, com limites de download que valem conhecer — e a tag <code>latest</code> é a armadilha mais frequente.</li>
+<li><strong>O <code>Dockerfile</code> descreve a sua imagem</strong> e a ordem das instruções decide o tempo de cada reconstrução.</li>
+<li><strong>O Compose descreve a aplicação inteira</strong> em um YAML, e <code>up</code> e <code>down</code> a ligam e desligam; <code>down -v</code> também apaga os dados.</li>
+<li><strong>Volumes guardam o que precisa sobreviver</strong> ao container, e redes fazem os serviços se acharem pelo nome, sem porta publicada.</li>
+<li><strong>Linux roda nativo e Windows usa o Docker Desktop com WSL 2</strong> — comandos idênticos, com atenção a onde os arquivos ficam e à licença do Desktop em empresas maiores.</li>
+</ul>
+<hr>
+<p><strong>Tópicos:</strong> #Docker #Containers #DevOps #DockerCompose #Programacao</p>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Docker para iniciantes: o que é e como usar na prática",
+  "description": "Docker para iniciantes: o que é, que problema resolve e como usar imagens do Docker Hub, escrever um Dockerfile e subir uma aplicação inteira com um comando.",
+  "inLanguage": "pt-BR",
+  "datePublished": "2026-09-14T15:04:08-03:00",
+  "dateModified": "2026-09-14T15:04:08-03:00",
+  "author": { "@type": "Person", "name": "Pedro Nakashima" },
+  "mainEntityOfPage": "https://pedronakashima.com/posts/docker-guia-iniciantes/",
+  "keywords": "docker, containers, devops, programação, tutorial, docker compose, dockerfile"
+}
+</script>
+
+
+</section>
+
+ ]]></description>
+  <category>docker</category>
+  <category>containers</category>
+  <category>devops</category>
+  <category>programação</category>
+  <category>tutorial</category>
+  <guid>https://pedronakashima.com/posts/docker-guia-iniciantes/</guid>
+  <pubDate>Mon, 14 Sep 2026 19:04:08 GMT</pubDate>
+  <media:content url="https://pedronakashima.com/posts/docker-guia-iniciantes/cover.jpg" medium="image" type="image/jpeg"/>
+</item>
 <item>
   <title>Git e GitHub: o que são, para que servem e como usar</title>
   <dc:creator>Pedro Nakashima</dc:creator>
